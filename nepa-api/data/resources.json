@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/resources.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08",
+    "note": "Gated thought-leadership reports and positioning/campaign landing pages found during the crawl that don't fit the products/solutions/case-studies/blog taxonomy. 'type' is 'report' (downloadable trend report, usually gated behind a form) or 'campaign-landing' (a persuasion/positioning page, e.g. 'Rethink SaaS-only MMM'). Summaries are extracted verbatim from real page text, not written from scratch. Six more items (3 'report' CPT + 3 'download' CPT entries) were recovered by querying /wp-json/wp/v2/report and /wp-json/wp/v2/download directly — these pages had no internal links from anywhere else on the crawled site, so the original link-based crawl never discovered them. Their live-rendered content is thin (title + publish date only, no body text), consistent with being HubSpot form-gated downloads whose real content is a PDF delivered after submission."
+  },
+  "resources": [
+    {
+      "id": "resource-a-2026-trend-report-for-nordic-fmcg-consumer-goods-leaders",
+      "title": "A 2026 trend report for Nordic FMCG & Consumer Goods leaders",
+      "type": "report",
+      "summary": "Download the full FMCG & Consumer Goods Marketing 2026 report Or get in touch with one of our insight experts! LOOKING AHEAD Nordic FMCG & Consumer Goods brands enter 2026 in a market where consumer caution, health shifts and channel disruption all hit at once. Consumers are planning to be more intentional and “wiser” with their wallets – saving mo",
+      "url": "https://nepa.com/a-2026-trend-report-for-nordic-fmcg-consumer-goods-leaders/"
+    },
+    {
+      "id": "resource-brand-index-tracking-alternative",
+      "title": "Nepa - a great brand index tracking alternative",
+      "type": "campaign-landing",
+      "summary": "Off‑the‑shelf brand metrics tell you what changed. Nepa combines tailored tracking, panel data and consultancy to explain why – and what to do next. Learn more about us Why NEPA? Syndicated tracking and panel providers give you continuous brand KPIs and rich benchmarks. You get dashboards, trend lines and category norms – but often, the real work s",
+      "url": "https://nepa.com/brand-index-tracking-alternative/"
+    },
+    {
+      "id": "resource-christmas-pre-testing",
+      "title": "Christmas Pre-testing",
+      "type": "campaign-landing",
+      "summary": "The holiday season is the most competitive time of year. Enormous sums are spent on campaigns that risk disappearing into the chaos. Pressure is high – and standing out isn’t easy. ![](https://vimeo.com/1018698332?share=copy&iframe=true%22%20rel=%22nofollow) Massive investments are made during the holidays – and the stakes are higher than ever. Pre",
+      "url": "https://nepa.com/christmas-pre-testing/"
+    },
+    {
+      "id": "resource-fashion-retail-marketing-2026",
+      "title": "Fashion & Retail Marketing 2026",
+      "type": "report",
+      "summary": "Download the full  Fashion & Retail Marketing 2026 report Or get in touch with one of our insight experts! LOOKING AHEAD Nordic fashion and retail head into 2026 with consumer demand under pressure, rapid AI adoption, rising expectations for seamless omnichannel experiences and a tougher insistence on proof of ROI. Inflation and cautious spending d",
+      "url": "https://nepa.com/fashion-retail-marketing-2026/"
+    },
+    {
+      "id": "resource-fashion-retail-marketing-in-the-nordics",
+      "title": "Fashion retail marketing in the Nordics: What drove growth in 2025 – and the playbook for winning in 2026",
+      "type": "report",
+      "summary": "Download the full 2025–2026 Fashion retail marketing Report Or get in touch with one of our insight experts! LOOKING BACK What really shaped performance in 2025? This executive summary distils the key marketing trends, lessons and success factors from Nepa’s work with leading fashion and lifestyle brands across Sweden, Finland, Denmark and Norway. ",
+      "url": "https://nepa.com/fashion-retail-marketing-in-the-nordics/"
+    },
+    {
+      "id": "resource-finance-insurance-marketing-2026-how-nordic-cmos-will-turn-ai-trust-and-journeys-into-growth",
+      "title": "Finance and insurance marketing 2026",
+      "type": "report",
+      "summary": "Download the full  Finance & Insurance Marketing 2026 report Or get in touch with one of our insight experts! LOOKING AHEAD Nordic finance and insurance enter 2026 in the middle of a major behavioural and technological reset. Customers expect seamless digital journeys, contextual offers and full transparency, while boards demand provable ROI and re",
+      "url": "https://nepa.com/finance-insurance-marketing-2026-how-nordic-cmos-will-turn-ai-trust-and-journeys-into-growth/"
+    },
+    {
+      "id": "resource-finance-insurance-marketing-in-the-nordics",
+      "title": "Finance & Insurance Marketing in the Nordics: What drove growth in 2025 – and the playbook for winning in 2026",
+      "type": "report",
+      "summary": "Download the full 2025–2026 Finance & Insurance Marketing Report Or get in touch with one of our insight experts! LOOKING BACK What really shaped performance in 2025? This executive summary distils the key marketing trends, lessons and success factors from Nepa’s work with leading finance and insurance brands across Sweden, Finland, Denmark and Nor",
+      "url": "https://nepa.com/finance-insurance-marketing-in-the-nordics/"
+    },
+    {
+      "id": "resource-marketing-as-a-growth-investment",
+      "title": "Marketing as a growth investment",
+      "type": "report",
+      "summary": "Why traditional marketing KPIs no longer cut it – and what to use instead Get the full report: Marketing as a growth investment. Download now! Or get in touch with one of our insight experts! Marketing as a growth investment Marketing has always been a growth investment. What’s changed is the level of scrutiny. Today, CMOs are expected to commit lo",
+      "url": "https://nepa.com/marketing-as-a-growth-investment/"
+    },
+    {
+      "id": "resource-marketing-performance-in-the-nordics-what-mattered-in-2025",
+      "title": "Marketing performance in the Nordics: What mattered in 2025 – and how to win in 2026",
+      "type": "report",
+      "summary": "Download the full Marketing performance in the Nordics Report for 2025 Or get in touch with one of our insight experts! LOOKING BACK This executive summary distils the key trends, lessons and success factors from Nepa’s work with leading brands across FMCG, fashion, finance, retail, telecom, media, SaaS and travel. It is grounded in continuous bran",
+      "url": "https://nepa.com/marketing-performance-in-the-nordics-what-mattered-in-2025/"
+    },
+    {
+      "id": "resource-maximise-your-marketing-investments-with-cmmm",
+      "title": "Maximise Your Marketing Investments with cMMM",
+      "type": "campaign-landing",
+      "summary": "Empower your brand with data-driven tools that optimize campaigns, refine media strategies, and enhance customer connections for your business. GET IN TOUCH Trusted by Leading Brands PRODUCT OVERVIEW In today’s complex marketing landscape, understanding the true impact of your media investments is crucial. Traditional Marketing Mix Modelling (MMM) ",
+      "url": "https://nepa.com/maximise-your-marketing-investments-with-cmmm/"
+    },
+    {
+      "id": "resource-nordic-fmcg-consumer-goods-marketing-2025-2026",
+      "title": "Nordic FMCG: What drove growth in 2025 – and the playbook for winning in 2026",
+      "type": "report",
+      "summary": "Download the full 2025–2026 FMCG & Consumer Goods Report Or get in touch with one of our insight experts! LOOKING BACK What really worked in 2025? This executive summary highlights key trends, lessons, and success factors from Nepa’s work with FMCG and consumer brands across Sweden, Finland and Denmark. From value-driven decision-making to hybrid s",
+      "url": "https://nepa.com/nordic-fmcg-consumer-goods-marketing-2025-2026/"
+    },
+    {
+      "id": "resource-nordic-marketing-2026-what-will-define-growth-across-industries",
+      "title": "Nordic Marketing 2026: What Will Define Growth Across Industries",
+      "type": "report",
+      "summary": "Download the full report: Nordic Marketing 2026 Or get in touch with one of our insight experts! LOOKING AHEAD Nordic brands across FMCG & Consumer Goods, Finance & Insurance, Fashion & Retail, E‑commerce, Pharma, Media & Entertainment, Telecom, SaaS / Platforms, Transport and Computer & Mobile Games enter 2026 in a landscape where consumer expecta",
+      "url": "https://nepa.com/nordic-marketing-2026-what-will-define-growth-across-industries/"
+    },
+    {
+      "id": "resource-ready-to-move-beyond-network-agencies",
+      "title": "Ready to move beyond network agencies?",
+      "type": "campaign-landing",
+      "summary": "Choose an independent partner focused on your business impact – not media buying. Learn more about us Why NEPA? At Nepa, we have no media or creative affiliations. Our only interest is to help you make smarter decisions – and drive real growth. By combining strategic expertise in brand, media, pricing and promotion with advanced analytics and cloud",
+      "url": "https://nepa.com/ready-to-move-beyond-network-agencies/"
+    },
+    {
+      "id": "resource-rethink-saas-only-brand-tracking",
+      "title": "Rethink SaaS-only brand tracking",
+      "type": "campaign-landing",
+      "summary": "Dashboards show what moved. Nepa shows why – and how to turn brand metrics into business impact. Learn more about us Why NEPA? Most modern brand tracking platforms give you fast, standardized data in a nice interface. You get trends, funnels and attributes – but often, you’re left to work out the meaning and next steps on your own. Nepa combines ta",
+      "url": "https://nepa.com/rethink-saas-only-brand-tracking/"
+    },
+    {
+      "id": "resource-rethink-saas-only-mmm",
+      "title": "Rethink SaaS-only MMM",
+      "type": "campaign-landing",
+      "summary": "Go beyond the dashboard. Choose insights that drive the whole business. Learn more about us Why NEPA? Most SaaS platforms for Marketing Mix Modelling stop at dashboards. They provide data, charts and automation – but little guidance on what to actually do next. At Nepa, we go further. We combine software precision with human expertise to help you t",
+      "url": "https://nepa.com/rethink-saas-only-mmm/"
+    },
+    {
+      "id": "resource-rethink-traditional-brand-tracking-with-global-research-giants",
+      "title": "Rethink traditional brand tracking with global research giants",
+      "type": "campaign-landing",
+      "summary": "You don’t need a 200‑page deck to steer your brand. Nepa combines rigorous methods, modern tech and senior consultants to give you faster, sharper brand guidance. Learn more about us Why NEPA? Global research networks like Kantar, Ipsos, NielsenIQ and GfK built the original playbook for brand tracking: proprietary models, global norms and thick rep",
+      "url": "https://nepa.com/rethink-traditional-brand-tracking-with-global-research-giants/"
+    },
+    {
+      "id": "resource-see-how-your-campaign-performs-before-your-audience-does",
+      "title": "See how your campaign performs before your audience does",
+      "type": "campaign-landing",
+      "summary": "Most campaign risk is invisible until after launch. The message wasn’t clear enough. The brand didn’t land. The creative worked internally but not in the real world. By then, the budget is spent. Pre-testing gives you evidence before you commit — so your decisions are based on what real audiences actually respond to, not what internal reviews sugge",
+      "url": "https://nepa.com/see-how-your-campaign-performs-before-your-audience-does/"
+    },
+    {
+      "id": "resource-switch-to-smarter-mmm",
+      "title": "Switch to smarter MMM",
+      "type": "campaign-landing",
+      "summary": "Get continuous MMM that matches the speed of your business. Learn more about us Why NEPA? You’re in good company. Nepa supports data-driven, marketing-led and growth-focused organizations across Europe, APAC and North America. Used by: ✔️ Retailers like Hemköp ✔️ Financial brands like SBAB ✔️ Global players like GANT and Telenor ✔️ Agencies and in-",
+      "url": "https://nepa.com/switch-to-smarter-mmm/"
+    },
+    {
+      "id": "resource-the-age-of-influence",
+      "title": "The Age of Influence: AI, Algorithms and the New Purchase Journey",
+      "type": "report",
+      "summary": "Earlier this year, Nepa hosted a webinar based on our latest study, The Age of Influence – Understanding what drives purchase decisions today and tomorrow. Drawing on fresh data from more than 1,300 Swedish consumers across categories such as personal care and cosmetics, shoes and clothing, home appliances and personal electronics, we explored how ",
+      "url": "https://nepa.com/the-age-of-influence/"
+    },
+    {
+      "id": "resource-why-some-companies-grow-faster-than-others",
+      "title": "Why some companies grow faster than others",
+      "type": "report",
+      "summary": "How marketing investment is governed at leadership level, not campaigns alone, determines growth. Get the full report: Why some companies grow faster than others. Download now! Why some companies grow faster than others Some companies grow steadily and consistently. Others plateau, recover slowly, or lose ground without a clear explanation. What se",
+      "url": "https://nepa.com/why-some-companies-grow-faster-than-others/"
+    },
+    {
+      "id": "resource-brand-growth-made-clear",
+      "title": "Marketing under pressure? Let’s fix that.",
+      "type": "campaign-landing",
+      "summary": "For brands built on speed, trust and results Get a Demo Trusted by Leading Brands Use the right tools In fast-moving markets, every campaign counts. But when your insight is slow, fragmented or hard to act on, brand building becomes guesswork — and your marketing ROI suffers. Nepa helps growth-focused teams connect the dots between brand perception",
+      "url": "https://nepa.com/products/brand-growth-made-clear/"
+    },
+    {
+      "id": "resource-great-brands-arent-built-in-the-dark",
+      "title": "Great brands aren’t built in the dark",
+      "type": "campaign-landing",
+      "summary": "Brand and marketing teams are under pressure to deliver more: more growth, more impact, more efficiency, with fewer resources. But when decisions are based on limited or disconnected insights, even the boldest strategies fall short. Get a Demo Trusted by Leading Brands Improve your performance At Nepa, we help brands move beyond guesswork. By conne",
+      "url": "https://nepa.com/products/great-brands-arent-built-in-the-dark/"
+    },
+    {
+      "id": "resource-report-retail-media-investment-trends-and-growth-insights",
+      "title": "Retail media investment trends and growth insights",
+      "type": "report",
+      "summary": "Gated report page (published 2026-06-26). No body content was rendered on the live page beyond the title and publish date at time of crawl — likely delivered as a downloadable asset after form submission.",
+      "url": "https://nepa.com/reports/retail-media-investment-trends-and-growth-insights/",
+      "date": "2026-06-26"
+    },
+    {
+      "id": "resource-report-a-practical-guide-to-measuring-brand-health-trends",
+      "title": "A practical guide to measuring brand health trends",
+      "type": "report",
+      "summary": "Gated report page (published 2026-06-26). No body content was rendered on the live page beyond the title and publish date at time of crawl — likely delivered as a downloadable asset after form submission.",
+      "url": "https://nepa.com/reports/a-practical-guide-to-measuring-brand-health-trends/",
+      "date": "2026-06-26"
+    },
+    {
+      "id": "resource-report-media-effectiveness-benchmarks-for-modern-marketers",
+      "title": "Media effectiveness benchmarks for modern marketers",
+      "type": "report",
+      "summary": "Gated report page (published 2026-06-26). No body content was rendered on the live page beyond the title and publish date at time of crawl — likely delivered as a downloadable asset after form submission.",
+      "url": "https://nepa.com/reports/media-effectiveness-benchmarks-for-modern-marketers/",
+      "date": "2026-06-26"
+    },
+    {
+      "id": "resource-download-advertising-equity",
+      "title": "Advertising Equity",
+      "type": "download",
+      "summary": "Gated download page (published 2026-08-28), form-gated via HubSpot. Related to a Swedish press release ('Ny matning: Varumarkena som byggt starkast reklamkapital') about Nepa's Advertising Equity study of 95 major Swedish brands. No body content beyond the title and form was rendered on the live page at time of crawl.",
+      "url": "https://nepa.com/downloads/advertising-equity/",
+      "date": "2026-08-28"
+    },
+    {
+      "id": "resource-download-the-age-of-influence",
+      "title": "The Age of Influence (download)",
+      "type": "download",
+      "summary": "Gated download page (published 2026-07-03), form-gated via HubSpot — distinct URL from the full landing page at /the-age-of-influence/ (already listed separately above), likely the PDF-request page linked from it. No body content beyond the title and form was rendered on the live page at time of crawl.",
+      "url": "https://nepa.com/downloads/the-age-of-influence/",
+      "date": "2026-07-03"
+    },
+    {
+      "id": "resource-download-creative-effectiveness-insights-from-leading-brands",
+      "title": "Creative effectiveness insights from leading brands",
+      "type": "download",
+      "summary": "Gated download page (published 2026-06-26). No body content was rendered on the live page beyond the title and publish date at time of crawl — likely delivered as a downloadable asset after form submission.",
+      "url": "https://nepa.com/downloads/creative-effectiveness-insights-from-leading-brands/",
+      "date": "2026-06-26"
+    },
+    {
+      "id": "resource-data-quality",
+      "title": "Data quality at Nepa",
+      "type": "trust-page",
+      "summary": "Describes Nepa's data quality practices in market research: combining technical fraud-detection (bots, professional survey cheaters, click farms) with survey design (short, engaging surveys with advanced logic). Nepa received the Dynata Rise Award in 2023, recognizing it for respondent engagement leading to better-quality answers, and uses an AI survey-scoring tool that automatically disqualifies respondents failing multiple evaluation factors.",
+      "url": "https://nepa.com/data-quality/"
+    },
+    {
+      "id": "resource-security",
+      "title": "We care about our security",
+      "type": "trust-page",
+      "summary": "Nepa's responsible-disclosure policy: vulnerability reports are investigated and acknowledged. Reporting contact: security@nepa.com. Asks reporters to stop exploiting a found vulnerability and report it rather than disclosing publicly.",
+      "url": "https://nepa.com/security/"
+    },
+    {
+      "id": "resource-diversity-and-inclusion",
+      "title": "Diversity and Inclusion Policy",
+      "type": "trust-page",
+      "summary": "Nepa's Diversity, Equity and Inclusion policy statement: as a global company with colleagues from different backgrounds, cultures and experiences, Nepa positions diversity as a strength that drives creativity, adaptability, and better client service.",
+      "url": "https://nepa.com/diversity-and-inclusion/"
+    },
+    {
+      "id": "resource-whistleblower-policy",
+      "title": "Whistleblower Policy",
+      "type": "trust-page",
+      "summary": "Nepa's whistleblower policy enables employees, customers, and suppliers to anonymously report serious or sensitive concerns. Reports are submitted via a third-party platform: https://lantero.report/nepaswedenab.",
+      "url": "https://nepa.com/whistleblower-policy/"
+    }
+  ],
+  "count": 32
+}

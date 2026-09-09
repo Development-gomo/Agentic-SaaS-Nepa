@@ -1,0 +1,94 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/products.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "products": [
+    {
+      "id": "product-brand-tracking",
+      "name": "Brand Tracking",
+      "category": null,
+      "description": "A continuously updated brand health dashboard that measures brand awareness, perception, and purchase intent, and benchmarks the brand against competitors in real time. It uses AI-powered trend detection to flag risks and links campaign activity to shifts in brand KPIs, with plans starting from 15,000 SEK/month covering brand funnel tracking, 8 brands, and 8 target groups.",
+      "url": "https://nepa.com/products/brand-tracking/"
+    },
+    {
+      "id": "product-marketing-mix-modeling",
+      "name": "Marketing Mix Modelling",
+      "category": null,
+      "description": "Continuously updated marketing mix modelling that quantifies the short-term sales impact and long-term brand-building effect of each marketing channel and campaign. Includes a budget planning tool for reallocating spend, with models refreshed weekly or monthly and built from at least 2-3 years of historical media, sales, and promotion data.",
+      "url": "https://nepa.com/products/marketing-mix-modeling/"
+    },
+    {
+      "id": "product-campaign-pulse",
+      "name": "Campaign Pulse",
+      "category": null,
+      "description": "A rapid campaign evaluation solution that measures whether campaigns are noticed, understood, linked to the brand, and how they affect purchase intent, benchmarked against a database of more than 2,800 campaigns. Results are typically delivered within a few days of fieldwork, and the product can be extended with Emotion Palette, Neurons, and Brand Touch add-ons.",
+      "url": "https://nepa.com/products/campaign-pulse/"
+    },
+    {
+      "id": "product-brand-touch",
+      "name": "Brand Touch",
+      "category": null,
+      "description": "Maps a brand's personality across 120 emotional attributes and 8 personality segments to show how it is perceived emotionally relative to competitors. AI-supported analysis links these personality traits to consideration, preference, and loyalty, with insights typically delivered within a few weeks.",
+      "url": "https://nepa.com/products/brand-touch/"
+    },
+    {
+      "id": "product-brand-asset",
+      "name": "Brand Assets",
+      "category": null,
+      "description": "Identifies and measures a brand's distinctive assets, such as logos, colors, slogans, and mascots, quantifying each asset's fame, uniqueness, and spill-over to competitors. Benchmarks these assets against competitors to show which drive recall and which need refinement, with results delivered within weeks.",
+      "url": "https://nepa.com/products/brand-asset/"
+    },
+    {
+      "id": "product-brand-premium",
+      "name": "Brand Premium",
+      "category": null,
+      "description": "Quantifies brand equity as a measurable KPI showing how much consumers believe a brand is worth compared with its category and key competitors. The metric can be tracked continuously inside the Brand Tracking dashboard to inform pricing decisions.",
+      "url": "https://nepa.com/products/brand-premium/"
+    },
+    {
+      "id": "product-segmentation",
+      "name": "Market Segmentation",
+      "category": null,
+      "description": "Builds bespoke consumer segmentation models based on demographics, behaviour, needs, and values to identify which audience groups matter most for a brand's growth strategy. Every segmentation model is custom-built for the client's specific brand and market situation rather than a standardized framework.",
+      "url": "https://nepa.com/products/segmentation/"
+    },
+    {
+      "id": "product-category-insight",
+      "name": "Category Insight",
+      "category": null,
+      "description": "An ad hoc market analysis that maps category structure, consumer behaviour and needs, and competitive benchmarking, including a brand positioning review of a brand's strengths, weaknesses, and unique associations. It does not include segmentation but is delivered with prioritized recommendations within weeks.",
+      "url": "https://nepa.com/products/category-insight/"
+    },
+    {
+      "id": "product-path-to-purchase",
+      "name": "Paths to Purchase",
+      "category": null,
+      "description": "Maps the full, non-linear consumer journey across digital, physical, paid, earned, and owned touchpoints, combining stated survey data with behavioural tracking data. Quantifies the conversion impact of each touchpoint and identifies the strongest purchase drivers and barriers in the category.",
+      "url": "https://nepa.com/products/path-to-purchase/"
+    },
+    {
+      "id": "product-creative-ai",
+      "name": "Creative AI Analytics",
+      "category": null,
+      "description": "Uses AI to extract hundreds of visual, audio, and contextual features from digital ad creatives across TikTok, Meta, Snapchat, and YouTube, and links those features to cost per acquisition (CPA) rather than engagement metrics. Delivers a creative playbook and re-scores new creative each quarter; a one-off baseline project typically takes four to six weeks and requires at least 50 creatives to analyze (250+ is ideal).",
+      "url": "https://nepa.com/products/creative-ai/"
+    },
+    {
+      "id": "product-category-entry-points",
+      "name": "Category Entry Points",
+      "category": null,
+      "description": "Identifies the internal and external cues consumers use to recall a brand during a buying decision, helping build the 'mental availability' that drives market penetration. Uses a three-step approach of quantifying and prioritizing existing entry points, discovering new ones through qualitative and generative-AI techniques, and continuously monitoring them via the Brand Tracking dashboard.",
+      "url": "https://nepa.com/products/category-entry-points/"
+    },
+    {
+      "id": "product-nepa-trinity",
+      "name": "Nepa Trinity",
+      "category": "bundle",
+      "description": "A unified decision framework combining Marketing Mix Modelling, Brand Tracking, and Campaign Pulse into one AI-supported planning tool, aimed at brands investing 20M+ per year in media. Nepa states Trinity engagements typically deliver 10-20% higher marketing ROI within 12-24 months, double-digit improvements in consideration/preference, and reduced promotion dependency.",
+      "url": "https://nepa.com/make-every-marketing-euro-work-10-20-harder/"
+    }
+  ],
+  "count": 12
+}

@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/solutions.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "solutions": [
+    {
+      "id": "solution-marketing-strategy",
+      "name": "Marketing Strategy",
+      "description": "Helps brands turn strategy into insight by clarifying what to say, who to say it to, and when to say it, using audience motivation and timing data. Works alongside Nepa's Brand Tracking, Marketing Mix Modelling, Campaign Pulse, Brand Touch, Category Entry Points, and Segmentation products.",
+      "url": "https://nepa.com/solutions/marketing-strategy/"
+    },
+    {
+      "id": "solution-brand-development",
+      "name": "Brand Development",
+      "description": "Helps build a distinctive, consistent brand by tracking brand performance over time, uncovering emotional connection, and identifying what truly differentiates a brand for its most valuable audiences. Draws on Nepa's Brand Tracking, Marketing Mix Modelling, Campaign Pulse, Brand Touch, Category Entry Points, and Segmentation products.",
+      "url": "https://nepa.com/solutions/brand-development/"
+    },
+    {
+      "id": "solution-visual-performance",
+      "name": "Visual Performance",
+      "description": "Focuses on measuring how creative and visual assets perform in real time, connecting visual identity to recall, emotion, and brand perception across every channel a brand appears in. Combines Nepa's Brand Tracking, Marketing Mix Modelling, Campaign Pulse, Brand Touch, Category Entry Points, and Segmentation products to optimize creative before and during campaigns.",
+      "url": "https://nepa.com/solutions/visual-performance/"
+    },
+    {
+      "id": "solution-media-strategy",
+      "name": "Media Strategy",
+      "description": "Addresses wasted media spend and media activity disconnected from brand growth by identifying which channels and touchpoints drive results, so investment can be focused where it pays back. Uses real-time insight so media plans can be adjusted while campaigns are still running.",
+      "url": "https://nepa.com/solutions/media-strategy/"
+    },
+    {
+      "id": "solution-campaign-measurement",
+      "name": "Campaign Measurement",
+      "description": "Tracks how campaigns build awareness, consideration, and preference in real time rather than waiting for post-campaign reviews, so budgets and messaging can be adjusted mid-flight. Combines Nepa's Brand Tracking, Marketing Mix Modelling, Campaign Pulse, Brand Touch, Category Entry Points, and Segmentation products.",
+      "url": "https://nepa.com/solutions/campaign-measurement/"
+    },
+    {
+      "id": "solution-brandgrow-program",
+      "name": "Nepa BrandGrow Program",
+      "description": "A structured, expert-led add-on for brands already running continuous Brand Tracking with Nepa. Combines tracking data with external context (market share, media investment, trend reports, Google Search data) via a facilitated working session to turn tracking results into a shared view of priorities and an agreed action plan. Nepa states clients typically see 10-30% improvements in marketing efficiency from better-directed brand strategy.",
+      "url": "https://nepa.com/nepa-brandgrow-program/"
+    }
+  ]
+}

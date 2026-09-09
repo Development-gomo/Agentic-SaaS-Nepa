@@ -1,0 +1,66 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/pricing.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08",
+    "note": "nepa.com/pricing is a JS tab component (choose Brand Tracking / Marketing Mix Modelling / Campaign Pulse). Only the Marketing Mix Modelling tab's tier content was captured in the crawl (its default-rendered tab); the Brand Tracking and Campaign Pulse tabs may show additional tiers not captured here. Brand Tracking's own product page separately states plans start from 15,000 SEK/month."
+  },
+  "page_url": "https://nepa.com/pricing/",
+  "plans": [
+    {
+      "id": "pricing-mmm-mini",
+      "product": "Marketing Mix Modelling",
+      "tier": "MMM Mini",
+      "tagline": "Self-service MMM tool for in-house analysis & optimizations",
+      "price": "From 4,000 EUR/month",
+      "includes": [
+        "Dashboard access",
+        "Weekly model refresh",
+        "Business driver trends",
+        "Media effects and effectiveness development",
+        "Short- and long-term effects per media",
+        "Scenario modeling for budget optimization"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    },
+    {
+      "id": "pricing-mmm-core",
+      "product": "Marketing Mix Modelling",
+      "tier": "MMM Core",
+      "tagline": "MMM Mini + fuel to your budget & strategy decision rhythms",
+      "price": "From 5,900 EUR/month",
+      "includes": [
+        "Everything in MMM Mini",
+        "Quarterly 'management ready' reports with workshop on key development and optimization opportunities",
+        "One yearly big-room meeting with an extensive report to establish full baseline and holistic business optimization"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form",
+      "most_popular": true
+    },
+    {
+      "id": "pricing-mmm-plus",
+      "product": "Marketing Mix Modelling",
+      "tier": "MMM Plus",
+      "tagline": "MMM Mini + MMM Core + a '360' view of the full marketing measurement suite",
+      "price": "From 6,400 EUR/month",
+      "includes": [
+        "Everything in MMM Mini and MMM Core",
+        "Integration of existing brand tracking and campaign evaluations with MMM results for comprehensive '360' recommendations"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    },
+    {
+      "id": "pricing-mmm-enterprise",
+      "product": "Marketing Mix Modelling",
+      "tier": "MMM Enterprise",
+      "tagline": "A bespoke modelling framework tailored to very specific needs & rhythms",
+      "price": "Price on request",
+      "includes": [
+        "Free 'board ready' business case",
+        "Free 'light' data audit"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    }
+  ],
+  "count": 4
+}

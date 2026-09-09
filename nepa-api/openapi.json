@@ -1,0 +1,546 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Nepa Agent API",
+    "description": "Machine-readable REST API describing Nepa AB — marketing research, brand tracking, and insight products — for use by AI agents and LLM tool-calling systems.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Nepa AB",
+      "url": "https://nepa.com/contact-us/"
+    }
+  },
+  "servers": [
+    { "url": "https://nepa.com/agent/v1", "description": "Production agent API" }
+  ],
+  "paths": {
+    "/index.json": {
+      "get": {
+        "summary": "API index — discovery document listing all endpoints",
+        "operationId": "getIndex",
+        "responses": {
+          "200": { "description": "Index response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IndexResponse" } } } }
+        }
+      }
+    },
+    "/schema.json": {
+      "get": {
+        "summary": "Machine-readable schema reference for all data entities",
+        "operationId": "getSchema",
+        "responses": {
+          "200": { "description": "Schema response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SchemaResponse" } } } }
+        }
+      }
+    },
+    "/company.json": {
+      "get": {
+        "summary": "Company profile — overview, values, leadership summary, key facts",
+        "operationId": "getCompany",
+        "responses": {
+          "200": { "description": "Company response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CompanyResponse" } } } }
+        }
+      }
+    },
+    "/products.json": {
+      "get": {
+        "summary": "List all products",
+        "operationId": "listProducts",
+        "parameters": [
+          { "name": "category", "in": "query", "schema": { "type": "string" }, "description": "Filter by product category" }
+        ],
+        "responses": {
+          "200": { "description": "Products response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProductsResponse" } } } }
+        }
+      }
+    },
+    "/solutions.json": {
+      "get": {
+        "summary": "List all solutions (by business need)",
+        "operationId": "listSolutions",
+        "responses": {
+          "200": { "description": "Solutions response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SolutionsResponse" } } } }
+        }
+      }
+    },
+    "/industries.json": {
+      "get": {
+        "summary": "List industries served",
+        "operationId": "listIndustries",
+        "responses": {
+          "200": { "description": "Industries response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IndustriesResponse" } } } }
+        }
+      }
+    },
+    "/case-studies.json": {
+      "get": {
+        "summary": "List case studies",
+        "operationId": "listCaseStudies",
+        "parameters": [
+          { "name": "industry", "in": "query", "schema": { "type": "string" } },
+          { "name": "segment", "in": "query", "schema": { "type": "string" } },
+          { "name": "service", "in": "query", "schema": { "type": "string" } }
+        ],
+        "responses": {
+          "200": { "description": "Case studies response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CaseStudiesResponse" } } } }
+        }
+      }
+    },
+    "/team.json": {
+      "get": {
+        "summary": "List leadership team members",
+        "operationId": "listTeam",
+        "responses": {
+          "200": { "description": "Team response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TeamResponse" } } } }
+        }
+      }
+    },
+    "/offices.json": {
+      "get": {
+        "summary": "List office locations",
+        "operationId": "listOffices",
+        "responses": {
+          "200": { "description": "Offices response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OfficesResponse" } } } }
+        }
+      }
+    },
+    "/jobs.json": {
+      "get": {
+        "summary": "List open roles",
+        "operationId": "listJobs",
+        "responses": {
+          "200": { "description": "Jobs response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/JobsResponse" } } } }
+        }
+      }
+    },
+    "/events.json": {
+      "get": {
+        "summary": "List upcoming and past events/webinars",
+        "operationId": "listEvents",
+        "responses": {
+          "200": { "description": "Events response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/EventsResponse" } } } }
+        }
+      }
+    },
+    "/blog-posts.json": {
+      "get": {
+        "summary": "List blog / insight posts (paginated)",
+        "operationId": "listBlogPosts",
+        "parameters": [
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 25, "maximum": 200 } },
+          { "name": "offset", "in": "query", "schema": { "type": "integer", "default": 0 } }
+        ],
+        "responses": {
+          "200": { "description": "Blog posts response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BlogPostsResponse" } } } }
+        }
+      }
+    },
+    "/press-releases.json": {
+      "get": {
+        "summary": "List investor/press releases (paginated)",
+        "operationId": "listPressReleases",
+        "parameters": [
+          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 25, "maximum": 200 } },
+          { "name": "offset", "in": "query", "schema": { "type": "integer", "default": 0 } }
+        ],
+        "responses": {
+          "200": { "description": "Press releases response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PressReleasesResponse" } } } }
+        }
+      }
+    },
+    "/company-news.json": {
+      "get": {
+        "summary": "List client-win / partnership announcements (distinct from investor press releases and case studies)",
+        "operationId": "listCompanyNews",
+        "responses": {
+          "200": { "description": "Company news response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CompanyNewsResponse" } } } }
+        }
+      }
+    },
+    "/resources.json": {
+      "get": {
+        "summary": "List gated thought-leadership reports and positioning/campaign landing pages",
+        "operationId": "listResources",
+        "responses": {
+          "200": { "description": "Resources response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourcesResponse" } } } }
+        }
+      }
+    },
+    "/pricing.json": {
+      "get": {
+        "summary": "List published pricing plans (currently: Marketing Mix Modelling tiers)",
+        "operationId": "listPricing",
+        "responses": {
+          "200": { "description": "Pricing response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PricingResponse" } } } }
+        }
+      }
+    },
+    "/investor-relations.json": {
+      "get": {
+        "summary": "Investor relations summary — financial reports, governance, shareholder meetings",
+        "operationId": "getInvestorRelations",
+        "responses": {
+          "200": { "description": "Investor relations response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvestorRelationsResponse" } } } }
+        }
+      }
+    },
+    "/contact.json": {
+      "post": {
+        "summary": "Submit a qualified inquiry on behalf of a human (requires explicit authorization)",
+        "operationId": "submitContact",
+        "requestBody": {
+          "required": true,
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactRequest" } } }
+        },
+        "responses": {
+          "200": { "description": "Accepted", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactResponse" } } } },
+          "403": { "description": "Not authorized", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactErrorResponse" } } } },
+          "422": { "description": "Invalid input", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactErrorResponse" } } } }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Meta": {
+        "type": "object",
+        "properties": {
+          "source": { "type": "string" },
+          "version": { "type": "string" },
+          "last_updated": { "type": "string", "format": "date" }
+        }
+      },
+      "Pagination": {
+        "type": "object",
+        "properties": {
+          "total": { "type": "integer" },
+          "limit": { "type": "integer" },
+          "offset": { "type": "integer" }
+        }
+      },
+      "IndexResponse": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "version": { "type": "string" },
+          "description": { "type": "string" },
+          "base_url": { "type": "string" },
+          "endpoints": { "type": "array", "items": { "type": "string" } },
+          "schema": { "type": "string" },
+          "openapi": { "type": "string" },
+          "mcp_server": { "type": "string" },
+          "agent_page": { "type": "string" },
+          "llms_txt": { "type": "string" },
+          "ai_txt": { "type": "string" }
+        }
+      },
+      "SchemaResponse": {
+        "type": "object",
+        "description": "Field-level schema reference for each data entity served by this API."
+      },
+      "CompanyResponse": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" },
+          "legal_name": { "type": "string" },
+          "description": { "type": "string" },
+          "founded": { "type": "string" },
+          "headquarters": { "type": "string" },
+          "website": { "type": "string" },
+          "leadership": { "type": "array", "items": { "$ref": "#/components/schemas/TeamMember" } },
+          "source": { "type": "string" }
+        }
+      },
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "category": { "type": "string", "nullable": true },
+          "description": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      },
+      "ProductsResponse": {
+        "type": "object",
+        "properties": {
+          "products": { "type": "array", "items": { "$ref": "#/components/schemas/Product" } },
+          "count": { "type": "integer" }
+        }
+      },
+      "Solution": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "description": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      },
+      "SolutionsResponse": {
+        "type": "object",
+        "properties": {
+          "solutions": { "type": "array", "items": { "$ref": "#/components/schemas/Solution" } }
+        }
+      },
+      "IndustriesResponse": {
+        "type": "object",
+        "properties": {
+          "industries": { "type": "array", "items": { "type": "object", "properties": { "name": { "type": "string" }, "description": { "type": "string" }, "url": { "type": "string" } } } }
+        }
+      },
+      "Result": {
+        "type": "object",
+        "properties": {
+          "metric": { "type": "string" },
+          "value": { "type": "string" }
+        }
+      },
+      "CaseStudy": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "client": { "type": "string", "nullable": true },
+          "industry": { "type": "string", "nullable": true },
+          "segment": { "type": "string", "nullable": true },
+          "service": { "type": "string", "nullable": true },
+          "summary": { "type": "string" },
+          "results": { "type": "array", "items": { "$ref": "#/components/schemas/Result" } },
+          "url": { "type": "string" }
+        }
+      },
+      "CaseStudiesResponse": {
+        "type": "object",
+        "properties": {
+          "case_studies": { "type": "array", "items": { "$ref": "#/components/schemas/CaseStudy" } },
+          "count": { "type": "integer" }
+        }
+      },
+      "TeamMember": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "name": { "type": "string" },
+          "title": { "type": "string", "nullable": true },
+          "email": { "type": "string", "nullable": true },
+          "linkedin": { "type": "string", "nullable": true },
+          "bio": { "type": "string", "nullable": true },
+          "url": { "type": "string" }
+        }
+      },
+      "TeamResponse": {
+        "type": "object",
+        "properties": {
+          "team": { "type": "array", "items": { "$ref": "#/components/schemas/TeamMember" } }
+        }
+      },
+      "Office": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "city": { "type": "string", "nullable": true },
+          "country": { "type": "string" },
+          "address": { "type": "string", "nullable": true },
+          "role": { "type": "string" },
+          "phone": { "type": "string", "nullable": true },
+          "email": { "type": "string", "nullable": true }
+        }
+      },
+      "OfficesResponse": {
+        "type": "object",
+        "properties": {
+          "offices": { "type": "array", "items": { "$ref": "#/components/schemas/Office" } }
+        }
+      },
+      "Job": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "location": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      },
+      "JobsResponse": {
+        "type": "object",
+        "properties": {
+          "jobs": { "type": "array", "items": { "$ref": "#/components/schemas/Job" } }
+        }
+      },
+      "Event": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "type": { "type": "string", "enum": ["event", "webinar"] },
+          "date": { "type": "string", "format": "date", "nullable": true },
+          "location": { "type": "string", "nullable": true },
+          "status": { "type": "string", "enum": ["upcoming", "past", "on-demand"] },
+          "url": { "type": "string" }
+        }
+      },
+      "EventsResponse": {
+        "type": "object",
+        "properties": {
+          "events": { "type": "array", "items": { "$ref": "#/components/schemas/Event" } }
+        }
+      },
+      "BlogPost": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "author": { "type": "string", "nullable": true },
+          "date": { "type": "string", "format": "date" },
+          "excerpt": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      },
+      "BlogPostsResponse": {
+        "type": "object",
+        "properties": {
+          "posts": { "type": "array", "items": { "$ref": "#/components/schemas/BlogPost" } },
+          "total": { "type": "integer" },
+          "limit": { "type": "integer" },
+          "offset": { "type": "integer" }
+        }
+      },
+      "PressRelease": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "date": { "type": "string", "format": "date" },
+          "category": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      },
+      "PressReleasesResponse": {
+        "type": "object",
+        "properties": {
+          "releases": { "type": "array", "items": { "$ref": "#/components/schemas/PressRelease" } },
+          "total": { "type": "integer" },
+          "limit": { "type": "integer" },
+          "offset": { "type": "integer" }
+        }
+      },
+      "CompanyNewsItem": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "date": { "type": "string", "nullable": true },
+          "excerpt": { "type": "string" },
+          "url": { "type": "string" }
+        }
+      },
+      "CompanyNewsResponse": {
+        "type": "object",
+        "properties": {
+          "news": { "type": "array", "items": { "$ref": "#/components/schemas/CompanyNewsItem" } },
+          "count": { "type": "integer" }
+        }
+      },
+      "ResourceItem": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "type": { "type": "string", "enum": ["report", "campaign-landing", "download", "trust-page"] },
+          "summary": { "type": "string" },
+          "url": { "type": "string" },
+          "date": { "type": "string", "format": "date", "nullable": true, "description": "Only present on report/download items." }
+        }
+      },
+      "ResourcesResponse": {
+        "type": "object",
+        "properties": {
+          "resources": { "type": "array", "items": { "$ref": "#/components/schemas/ResourceItem" } },
+          "count": { "type": "integer" }
+        }
+      },
+      "PricingPlan": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "product": { "type": "string" },
+          "tier": { "type": "string" },
+          "tagline": { "type": "string" },
+          "price": { "type": "string" },
+          "includes": { "type": "array", "items": { "type": "string" } },
+          "cta_url": { "type": "string" },
+          "most_popular": { "type": "boolean" }
+        }
+      },
+      "PricingResponse": {
+        "type": "object",
+        "properties": {
+          "plans": { "type": "array", "items": { "$ref": "#/components/schemas/PricingPlan" } },
+          "count": { "type": "integer" }
+        }
+      },
+      "InvestorRelationsResponse": {
+        "type": "object",
+        "properties": {
+          "financial_reports": { "type": "array", "items": { "type": "object", "properties": { "title": { "type": "string" }, "date": { "type": "string" }, "url": { "type": "string" } } } },
+          "corporate_governance_url": { "type": "string" },
+          "shareholder_meetings_url": { "type": "string" },
+          "calendar_url": { "type": "string" }
+        }
+      },
+      "ContactPerson": {
+        "type": "object",
+        "required": ["name", "email"],
+        "properties": {
+          "name": { "type": "string" },
+          "email": { "type": "string", "format": "email" }
+        }
+      },
+      "ContactCompany": {
+        "type": "object",
+        "properties": {
+          "name": { "type": "string" }
+        }
+      },
+      "ContactInquiry": {
+        "type": "object",
+        "properties": {
+          "service_interest": { "type": "string" },
+          "project_summary": { "type": "string" }
+        }
+      },
+      "AgentContext": {
+        "type": "object",
+        "required": ["user_authorized_submission"],
+        "properties": {
+          "user_authorized_submission": { "type": "boolean", "enum": [true], "description": "Must be true — confirms the human user explicitly authorized this submission." }
+        }
+      },
+      "ContactRequest": {
+        "type": "object",
+        "required": ["agent_context", "person"],
+        "properties": {
+          "agent_context": { "$ref": "#/components/schemas/AgentContext" },
+          "person": { "$ref": "#/components/schemas/ContactPerson" },
+          "company": { "$ref": "#/components/schemas/ContactCompany" },
+          "inquiry": { "$ref": "#/components/schemas/ContactInquiry" }
+        }
+      },
+      "ContactResponse": {
+        "type": "object",
+        "properties": {
+          "status": { "type": "string" },
+          "message": { "type": "string" },
+          "lead_id": { "type": "string" },
+          "next_step": { "type": "string" }
+        }
+      },
+      "ContactErrorResponse": {
+        "type": "object",
+        "properties": {
+          "error": { "type": "string" },
+          "message": { "type": "string" }
+        }
+      }
+    }
+  }
+}

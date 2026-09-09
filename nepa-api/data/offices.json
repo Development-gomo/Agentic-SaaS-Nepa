@@ -1,0 +1,27 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/offices.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "offices": [
+    {
+      "id": "office-stockholm",
+      "city": "Stockholm",
+      "country": "Sweden",
+      "address": "Magnus Ladulåsgatan 65, 118 27 Stockholm, Sweden",
+      "role": "Headquarters",
+      "phone": "+46 8 400 268 00",
+      "email": "info@nepa.com"
+    },
+    {
+      "id": "office-finland",
+      "city": null,
+      "country": "Finland",
+      "address": null,
+      "role": "Nepa Finland office (regional presence; no street address published)",
+      "phone": null,
+      "email": null
+    }
+  ]
+}

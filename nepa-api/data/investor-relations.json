@@ -1,0 +1,129 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/investor-relations.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08",
+    "disclaimer": "For informational purposes only; not investment advice. See https://nepa.com/investor-relations/ for the authoritative source."
+  },
+  "overview": "Nepa AB (publ) is a Swedish publicly listed marketing research company, listed on Nasdaq First North Growth Market under the short name NEPA (ISIN: SE0008066302). Its investor relations page keeps investors updated with its latest financial reports and stock information.",
+  "financial_reports": [
+    {
+      "title": "Interim Report Q2 2026",
+      "date": "2026-08-14",
+      "url": "https://storage.mfn.se/e2525f0c-b379-4849-bc47-78853fb8fa67/2026-08-14-interim-report-nepa-ab-q2-2026-final.pdf"
+    },
+    {
+      "title": "Interim Report Q1 2026",
+      "date": "2026-05-08",
+      "url": "https://storage.mfn.se/c86e83bd-195f-4935-98aa-f8efd75120f9/2026-05-08-interim-report-nepa-ab-q1-2026.pdf"
+    },
+    {
+      "title": "Annual Report 2025",
+      "date": "2026-04-24",
+      "url": "https://storage.mfn.se/9c27ddde-5742-4b27-859e-8e6f8f702d8d/nepa-ab-publ-annual-report-2025.pdf"
+    },
+    {
+      "title": "Year-end Report Q4 2025",
+      "date": "2026-02-20",
+      "url": "https://storage.mfn.se/fee02c9d-767b-48e1-999a-161d9fe35f16/2026-02-20-interim-report-nepa-ab-q4-2025.pdf"
+    },
+    {
+      "title": "Interim Report Q3 2025",
+      "date": "2025-10-24",
+      "url": "https://storage.mfn.se/a4b77a4b-7d0b-4e76-bf47-a94125909439/2025-10-24-interim-report-nepa-ab-q3-2025.pdf"
+    },
+    {
+      "title": "Interim Report Q2 2025",
+      "date": "2025-08-15",
+      "url": "https://storage.mfn.se/4ac7c981-190f-4c4e-b115-2a641bd7a7ba/2025-08-15-interim-report-nepa-ab-q2-2025.pdf"
+    },
+    {
+      "title": "Interim Report Q1 2025",
+      "date": "2025-05-09",
+      "url": "https://storage.mfn.se/42f24b17-6760-46c0-9559-06b67b39589d/2025-05-09-interim-report-nepa-ab-q1-2025.pdf"
+    },
+    {
+      "title": "Annual Report 2024",
+      "date": "2025-04-25",
+      "url": "https://storage.mfn.se/2de02f0c-86c9-4110-9a85-0074e3938e8b/nepa-ab-arsredovisning-2024.pdf"
+    },
+    {
+      "title": "Year-end Report Q4 2024",
+      "date": "2025-02-21",
+      "url": "https://storage.mfn.se/c96f2eae-3bd7-4313-b2c3-5399a36ebaa0/2025-02-21-year-end-report-nepa-ab-q4-2024.pdf"
+    },
+    {
+      "title": "Interim Report Q3 2024",
+      "date": "2024-10-25",
+      "url": "https://storage.mfn.se/af130de2-fa93-42cd-bc63-f849ac528522/2024-10-25-interim-report-nepa-ab-q3-2024.pdf"
+    },
+    {
+      "title": "Interim Report Q2 2024",
+      "date": "2024-08-16",
+      "url": "https://storage.mfn.se/a47d9c4d-c67b-457f-a054-a632aa56572e/2024-08-16-interim-report-nepa-ab-q2-2024.pdf"
+    },
+    {
+      "title": "Interim Report Q1 2024",
+      "date": "2024-05-07",
+      "url": "https://storage.mfn.se/888b592c-1ec9-4fe8-9a01-0dde8bdb3893/2024-05-07-interim-report-nepa-ab-q1-2024.pdf"
+    },
+    {
+      "title": "Annual Report 2023",
+      "date": "2024-04-26",
+      "url": "https://storage.mfn.se/2fd35e6d-5b60-4b9d-9ae3-33d23bbd0f86/nepa-ab-publ-arsredovisning-2023.pdf"
+    },
+    {
+      "title": "Year-end Report Q4 2023",
+      "date": "2024-03-15",
+      "url": "https://storage.mfn.se/7cc92f90-740b-478f-82dc-43d3b8dbba92/2024-03-15-interim-report-nepa-ab-q4-2023.pdf"
+    },
+    {
+      "title": "Interim Report Q3 2023",
+      "date": "2023-11-17",
+      "url": "https://storage.mfn.se/ba0aa93a-1719-43f4-9fb4-fe9b57728ae4/2023-11-17-interim-report-nepa-ab-q3-2023.pdf"
+    },
+    {
+      "title": "Interim Report Q2 2023",
+      "date": "2023-08-18",
+      "url": "https://storage.mfn.se/281e1381-086b-47c0-961b-da9620622b35/2023-08-18-interim-report-nepa-ab-q2-2023.pdf"
+    },
+    {
+      "title": "Interim Report Q1 2023",
+      "date": "2023-05-16",
+      "url": "https://storage.mfn.se/50b50400-fa25-4291-b13c-4cefea418243/nepa-interim-report-q1-2023.pdf"
+    }
+  ],
+  "corporate_governance_url": "https://nepa.com/corporate-governance/",
+  "shareholder_meetings_url": "https://nepa.com/shareholder-meetings/",
+  "calendar_url": "https://nepa.com/calendar/",
+  "financial_calendar": [
+    {
+      "event": "Year-end report 2025",
+      "date": "2026-02-20"
+    },
+    {
+      "event": "Annual Report 2025",
+      "date": "2026-04-24"
+    },
+    {
+      "event": "Q1 interim report 2026",
+      "date": "2026-05-08"
+    },
+    {
+      "event": "Annual General Meeting 2026",
+      "date": "2026-05-21"
+    },
+    {
+      "event": "Q2 interim report 2026",
+      "date": "2026-08-14"
+    },
+    {
+      "event": "Q3 interim report 2026",
+      "date": "2026-10-23"
+    },
+    {
+      "event": "Year-end report 2026",
+      "date": "2027-02-19"
+    }
+  ]
+}

@@ -1,0 +1,956 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/press-releases.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08",
+    "note": "English-language releases only; Swedish-only originals excluded (see llms.txt Swedish Pages section for language alternates). One item (Svenska Spel selection, 2021-09-20) was manually recovered despite being mistagged mfn-lang-sv on the live site, because its actual title/content is in English — spot-checked and confirmed by hand."
+  },
+  "releases": [
+    {
+      "id": "mfn-nepa-interim-report-q2-2026",
+      "title": "Nepa Interim Report Q2 2026",
+      "date": "2026-08-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2026/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-q2-interim-report-2026",
+      "title": "Invitation to presentation of Nepa’s Q2 interim report 2026",
+      "date": "2026-08-05",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2026/"
+    },
+    {
+      "id": "mfn-thousands-of-tiktok-ads-in-a-new-ai-analysis-nepa-launches-creative-ai-for-creative-optimisation",
+      "title": "Thousands of TikTok ads in a new AI analysis. Nepa launches Creative AI for creative optimisation",
+      "date": "2026-06-24",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/thousands-of-tiktok-ads-in-a-new-ai-analysis-nepa-launches-creative-ai-for-creative-optimisation/"
+    },
+    {
+      "id": "mfn-nepa-appoints-morten-flamand-as-new-vp-sales-to-accelerate-international-growth",
+      "title": "Nepa appoints Morten Flamand as new VP Sales to accelerate international growth",
+      "date": "2026-06-01",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-appoints-morten-flamand-as-new-vp-sales-to-accelerate-international-growth/"
+    },
+    {
+      "id": "mfn-report-from-nepa-abs-annual-general-meeting-2026",
+      "title": "Report from Nepa AB’s Annual General Meeting 2026",
+      "date": "2026-05-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2026/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q1-2026",
+      "title": "Nepa Interim Report Q1 2026",
+      "date": "2026-05-08",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2026/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-q1-interim-report-2026",
+      "title": "Invitation to presentation of Nepa’s Q1 interim report 2026",
+      "date": "2026-04-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2026/"
+    },
+    {
+      "id": "mfn-nepa-publishes-annual-report-for-2025",
+      "title": "Nepa publishes Annual Report for 2025",
+      "date": "2026-04-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-publishes-annual-report-for-2025/"
+    },
+    {
+      "id": "mfn-change-in-nepas-group-management-team-2",
+      "title": "Change in Nepa’s Group Management team",
+      "date": "2026-04-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/change-in-nepas-group-management-team-2/"
+    },
+    {
+      "id": "mfn-notice-of-annual-general-meeting-in-nepa-ab-publ-3",
+      "title": "Notice of Annual General Meeting in Nepa AB (publ)",
+      "date": "2026-04-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ-3/"
+    },
+    {
+      "id": "mfn-nepa-year-end-report-2025",
+      "title": "Nepa Year-end report 2025",
+      "date": "2026-02-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-year-end-report-2025/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-year-end-report-2025",
+      "title": "Invitation to presentation of Nepa’s year-end report 2025",
+      "date": "2026-02-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2025/"
+    },
+    {
+      "id": "mfn-nomination-committee-appointed-for-the-annual-general-meeting-2026-in-nepa-ab-publ",
+      "title": "Nomination Committee appointed for the Annual General Meeting 2026 in Nepa AB (publ)",
+      "date": "2025-10-28",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-annual-general-meeting-2026-in-nepa-ab-publ/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q3-2025",
+      "title": "Nepa Interim report Q3 2025",
+      "date": "2025-10-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2025/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-q3-interim-report-2025",
+      "title": "Invitation to presentation of Nepa’s Q3 interim report 2025",
+      "date": "2025-10-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2025/"
+    },
+    {
+      "id": "mfn-nepa-appoints-andreas-nordfors-from-bcg-accelerating-the-focus-on-marketing-optimization-and-international-growth",
+      "title": "Nepa appoints Andreas Nordfors from BCG – accelerating the focus on marketing optimization and international growth",
+      "date": "2025-08-22",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-appoints-andreas-nordfors-from-bcg-accelerating-the-focus-on-marketing-optimization-and-international-growth/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q2-2025",
+      "title": "Nepa Interim report Q2 2025",
+      "date": "2025-08-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2025/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-q2-interim-report-2025",
+      "title": "Invitation to presentation of Nepa’s Q2 interim report 2025",
+      "date": "2025-08-08",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2025/"
+    },
+    {
+      "id": "mfn-report-from-nepa-abs-annual-general-meeting-2025",
+      "title": "Report from Nepa AB’s Annual General Meeting 2025",
+      "date": "2025-06-23",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2025/"
+    },
+    {
+      "id": "mfn-change-in-nepas-group-management-team",
+      "title": "Change in Nepa’s Group Management Team",
+      "date": "2025-05-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/change-in-nepas-group-management-team/"
+    },
+    {
+      "id": "mfn-notice-of-annual-general-meeting-in-nepa-ab-publ-2",
+      "title": "Notice of Annual General Meeting in Nepa AB (publ)",
+      "date": "2025-05-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ-2/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q1-2025",
+      "title": "Nepa Interim report Q1 2025",
+      "date": "2025-05-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2025/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-q1-interim-report-2025",
+      "title": "Invitation to presentation of Nepa’s Q1 interim report 2025",
+      "date": "2025-04-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2025/"
+    },
+    {
+      "id": "mfn-nepa-publishes-the-annual-report-for-2024",
+      "title": "Nepa publishes the annual report for 2024",
+      "date": "2025-04-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-publishes-the-annual-report-for-2024/"
+    },
+    {
+      "id": "mfn-nepa-and-opticom-deliver-brand-insights-for-b2b-launching-a-strategic-partnership-based-on-a-360-degree-view",
+      "title": "Nepa and Opticom deliver brand insights for B2B: Launching a strategic partnership based on a 360-degree view",
+      "date": "2025-02-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-and-opticom-deliver-brand-insights-for-b2b-launching-a-strategic-partnership-based-on-a-360-degree-view/"
+    },
+    {
+      "id": "mfn-nepa-year-end-report-2024",
+      "title": "Nepa Year-end report 2024",
+      "date": "2025-02-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-year-end-report-2024/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-year-end-report-2024",
+      "title": "Invitation to presentation of Nepa’s year-end report 2024",
+      "date": "2025-02-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2024/"
+    },
+    {
+      "id": "mfn-nepa-appoints-filip-tottie-as-new-chief-financial-officer",
+      "title": "Nepa appoints Filip Tottie as new Chief Financial Officer",
+      "date": "2025-01-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-appoints-filip-tottie-as-new-chief-financial-officer/"
+    },
+    {
+      "id": "mfn-nomination-committee-appointed-for-the-2025-annual-general-meeting",
+      "title": "Nomination Committee appointed for the 2025 Annual General Meeting",
+      "date": "2024-12-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-2025-annual-general-meeting/"
+    },
+    {
+      "id": "mfn-report-from-the-extraordinary-general-meeting-in-nepa-ab-publ",
+      "title": "Report from the Extraordinary General Meeting in Nepa AB (publ)",
+      "date": "2024-11-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/report-from-the-extraordinary-general-meeting-in-nepa-ab-publ/"
+    },
+    {
+      "id": "mfn-nepa-launches-cmmm-a-tool-for-real-time-optimization-of-marketing-investments",
+      "title": "Nepa Launches cMMM – A Tool for Real-Time Optimization of Marketing Investments",
+      "date": "2024-10-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-launches-cmmm-a-tool-for-real-time-optimization-of-marketing-investments/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q3-2024",
+      "title": "Nepa Interim report Q3 2024",
+      "date": "2024-10-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2024/"
+    },
+    {
+      "id": "mfn-nepa-appoints-jakob-kofoed-as-chief-technology-officer",
+      "title": "Nepa appoints Jakob Kofoed as Chief Technology Officer",
+      "date": "2024-10-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-appoints-jakob-kofoed-as-chief-technology-officer/"
+    },
+    {
+      "id": "mfn-notice-of-extraordinary-general-meeting-in-nepa-ab-publ",
+      "title": "Notice of extraordinary general meeting in Nepa AB (publ)",
+      "date": "2024-10-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-q3-interim-report-2024",
+      "title": "Invitation to presentation of Nepa’s Q3 interim report 2024",
+      "date": "2024-10-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2024/"
+    },
+    {
+      "id": "mfn-sonja-thorngren-steps-down-as-cfo-of-nepa",
+      "title": "Sonja Thorngren steps down as CFO of Nepa",
+      "date": "2024-10-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/sonja-thorngren-steps-down-as-cfo-of-nepa/"
+    },
+    {
+      "id": "mfn-nepa-loses-major-global-brand-tracking-contract",
+      "title": "Nepa loses major global brand tracking contract",
+      "date": "2024-09-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-loses-major-global-brand-tracking-contract/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q2-2024",
+      "title": "Nepa Interim report Q2 2024",
+      "date": "2024-08-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2024/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-q2-interim-report-2024",
+      "title": "Invitation to presentation of Nepa’s Q2 interim report 2024",
+      "date": "2024-08-12",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2024/"
+    },
+    {
+      "id": "mfn-report-from-nepa-abs-annual-general-meeting-2024",
+      "title": "Report from Nepa AB’s Annual General Meeting 2024",
+      "date": "2024-05-31",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2024/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q1-2024",
+      "title": "Nepa Interim report Q1 2024",
+      "date": "2024-05-07",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2024/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-q1-interim-report-2024",
+      "title": "Invitation to presentation of Nepa’s Q1 interim report 2024",
+      "date": "2024-05-02",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2024/"
+    },
+    {
+      "id": "mfn-notice-of-annual-general-meeting-in-nepa-ab-publ",
+      "title": "Notice of annual general meeting in Nepa AB (publ)",
+      "date": "2024-04-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ/"
+    },
+    {
+      "id": "mfn-nepa-appoints-sara-davidsson-nyman-as-chief-revenue-officer",
+      "title": "Nepa appoints Sara Davidsson Nyman as Chief Revenue Officer",
+      "date": "2024-04-10",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-appoints-sara-davidsson-nyman-as-chief-revenue-officer/"
+    },
+    {
+      "id": "mfn-changes-to-nepas-nomination-committee",
+      "title": "Changes to Nepa’s nomination committee",
+      "date": "2024-03-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/changes-to-nepas-nomination-committee/"
+    },
+    {
+      "id": "mfn-anders-dahl-appointed-ceo-of-nepa",
+      "title": "Anders Dahl appointed CEO of Nepa",
+      "date": "2024-03-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/anders-dahl-appointed-ceo-of-nepa/"
+    },
+    {
+      "id": "mfn-changes-to-the-board-of-directors-report-from-the-extraordinary-general-meeting-in-nepa-ab-publ",
+      "title": "Changes to the Board of Directors – report from the Extraordinary General Meeting in Nepa AB (publ)",
+      "date": "2024-03-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/changes-to-the-board-of-directors-report-from-the-extraordinary-general-meeting-in-nepa-ab-publ/"
+    },
+    {
+      "id": "mfn-nepa-year-end-report-2023",
+      "title": "Nepa Year-end report 2023",
+      "date": "2024-03-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-year-end-report-2023/"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-year-end-report-2023",
+      "title": "Invitation to presentation of Nepa’s year-end report 2023",
+      "date": "2024-03-11",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2023/"
+    },
+    {
+      "id": "mfn-notice-of-extraordinary-general-meeting-in-nepa-ab-publ-2",
+      "title": "Notice of extraordinary general meeting in Nepa AB (publ)",
+      "date": "2024-02-07",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ-2/"
+    },
+    {
+      "id": "mfn-nomination-committee-appointed-for-the-2024-annual-general-meeting",
+      "title": "Nomination Committee appointed for the 2024 Annual General Meeting",
+      "date": "2024-01-08",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-2024-annual-general-meeting/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q3-2023",
+      "title": "Nepa Interim report Q3 2023",
+      "date": "2023-11-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2023/"
+    },
+    {
+      "id": "mfn-invitation-to-nepas-q3-2023-report-presentation",
+      "title": "Invitation to Nepa’s Q3 2023 report presentation",
+      "date": "2023-11-13",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-nepas-q3-2023-report-presentation/"
+    },
+    {
+      "id": "mfn-nepas-largest-shareholder-issues-call-options-to-the-members-of-the-board",
+      "title": "Nepa’s largest shareholder issues call options to the members of the board",
+      "date": "2023-09-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepas-largest-shareholder-issues-call-options-to-the-members-of-the-board/"
+    },
+    {
+      "id": "mfn-report-from-extraordinary-general-meeting-in-nepa-ab",
+      "title": "Report from Extraordinary General Meeting in Nepa AB",
+      "date": "2023-09-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/report-from-extraordinary-general-meeting-in-nepa-ab/"
+    },
+    {
+      "id": "mfn-nepa-appoints-robert-beatus-as-chief-product-officer-and-announces-leadership-changes",
+      "title": "Nepa appoints Robert Beatus as Chief Product Officer and announces leadership changes",
+      "date": "2023-08-30",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-appoints-robert-beatus-as-chief-product-officer-and-announces-leadership-changes/"
+    },
+    {
+      "id": "mfn-notice-of-extraordinary-general-meeting-in-nepa-ab-publ-3",
+      "title": "Notice of extraordinary general meeting in Nepa AB (publ)",
+      "date": "2023-08-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ-3/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q2-2023",
+      "title": "Nepa Interim report Q2 2023",
+      "date": "2023-08-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2023/"
+    },
+    {
+      "id": "mfn-nepa-strengthens-its-group-management-team-and-appoints-anders-dahl-as-interim-chief-operating-officer-coo",
+      "title": "Nepa strengthens its Group Management team and appoints Anders Dahl as interim Chief Operating Officer (COO)",
+      "date": "2023-08-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-strengthens-its-group-management-team-and-appoints-anders-dahl-as-interim-chief-operating-officer-coo/"
+    },
+    {
+      "id": "mfn-invitation-to-nepas-q2-2023-report-presentation",
+      "title": "Invitation to Nepa’s Q2 2023 report presentation",
+      "date": "2023-08-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-nepas-q2-2023-report-presentation/"
+    },
+    {
+      "id": "mfn-nepa-publishes-preliminary-results-for-q2-2023",
+      "title": "Nepa publishes preliminary results for Q2 2023",
+      "date": "2023-07-31",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-publishes-preliminary-results-for-q2-2023/"
+    },
+    {
+      "id": "mfn-nepa-appoints-ferry-wolswinkel-to-interim-ceo",
+      "title": "Nepa appoints Ferry Wolswinkel to interim CEO",
+      "date": "2023-06-01",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-appoints-ferry-wolswinkel-to-interim-ceo/"
+    },
+    {
+      "id": "mfn-complementing-information-ahead-of-the-agm-2023-in-nepa",
+      "title": "Complementing information ahead of the AGM 2023 in Nepa",
+      "date": "2023-05-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/complementing-information-ahead-of-the-agm-2023-in-nepa/"
+    },
+    {
+      "id": "mfn-nepa-takes-the-next-step-activates-search-process-to-find-permanent-ceo",
+      "title": "Nepa takes the next step – activates search process to find permanent CEO",
+      "date": "2023-05-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-takes-the-next-step-activates-search-process-to-find-permanent-ceo/"
+    },
+    {
+      "id": "mfn-nepa-interim-report-q1-2023",
+      "title": "Nepa Interim report Q1 2023",
+      "date": "2023-05-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2023/"
+    },
+    {
+      "id": "mfn-nepa-invites-to-a-company-presentation-at-redeye",
+      "title": "Nepa invites to a company presentation at Redeye",
+      "date": "2023-05-10",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-invites-to-a-company-presentation-at-redeye/"
+    },
+    {
+      "id": "mfn-nepa-india-expands-into-asia-pacific",
+      "title": "Nepa India expands into Asia-Pacific",
+      "date": "2023-04-27",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-india-expands-into-asia-pacific/"
+    },
+    {
+      "id": "mfn-changes-in-nepas-group-management-team",
+      "title": "Changes in Nepa’s Group Management team",
+      "date": "2023-04-04",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/changes-in-nepas-group-management-team/"
+    },
+    {
+      "id": "mfn-year-end-report-2022",
+      "title": "Year-end report 2022",
+      "date": "2023-03-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/year-end-report-2022/"
+    },
+    {
+      "id": "mfn-invitation-to-nepas-q4-2022-presentation-and-conference-call",
+      "title": "Invitation to Nepa’s Q4 2022 presentation and conference call",
+      "date": "2023-03-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-nepas-q4-2022-presentation-and-conference-call/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-changes-certified-adviser-to-redeye-ab",
+      "title": "Nepa AB (publ): Nepa changes Certified Adviser to Redeye AB",
+      "date": "2022-12-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-changes-certified-adviser-to-redeye-ab/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-intensifies-its-strategic-transformation-and-initiates-a-global-cost-savings-program",
+      "title": "Nepa AB (publ): Nepa intensifies its strategic transformation and initiates a global cost savings program",
+      "date": "2022-12-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-intensifies-its-strategic-transformation-and-initiates-a-global-cost-savings-program/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-changes-to-nepas-nomination-committee",
+      "title": "Nepa AB (publ): Changes to Nepa’s Nomination Committee",
+      "date": "2022-12-12",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-changes-to-nepas-nomination-committee/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-forifying-our-brandtech-position",
+      "title": "Nepa AB (publ): FORIFYING OUR BRANDTECH POSITION",
+      "date": "2022-11-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-forifying-our-brandtech-position/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-appoints-sonja-thorngren-as-chief-financial-officer",
+      "title": "Nepa AB (publ): Nepa appoints Sonja Thorngren as Chief Financial Officer",
+      "date": "2022-11-10",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-appoints-sonja-thorngren-as-chief-financial-officer/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-invitation-to-nepas-q3-2022-presentation-and-conference-call",
+      "title": "Nepa AB (publ): Invitation to Nepa’s Q3 2022 presentation and conference call",
+      "date": "2022-11-07",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-invitation-to-nepas-q3-2022-presentation-and-conference-call/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nomination-committee-appointed-for-the-2023-annual-general-meeting",
+      "title": "Nepa AB (publ): Nomination Committee appointed for the 2023 Annual General Meeting",
+      "date": "2022-11-03",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nomination-committee-appointed-for-the-2023-annual-general-meeting/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-ann-christine-fick-resigns-as-cfo",
+      "title": "Nepa AB (publ): Ann-Christine Fick resigns as CFO",
+      "date": "2022-09-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-ann-christine-fick-resigns-as-cfo/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-continued-growth-and-profitability",
+      "title": "Nepa AB (publ): CONTINUED GROWTH AND PROFITABILITY",
+      "date": "2022-08-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-growth-and-profitability/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-strengthens-its-growth-initiatives-and-appoints-ferry-wolswinkel-as-chief-revenue-officer",
+      "title": "Nepa AB (publ): Nepa strengthens its growth initiatives and appoints Ferry Wolswinkel as Chief Revenue Officer",
+      "date": "2022-08-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-strengthens-its-growth-initiatives-and-appoints-ferry-wolswinkel-as-chief-revenue-officer/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-invitation-to-nepas-q2-2022-presentation-and-conference-call",
+      "title": "Nepa AB (publ): Invitation to Nepa’s Q2 2022 presentation and conference call",
+      "date": "2022-08-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-invitation-to-nepas-q2-2022-presentation-and-conference-call/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-a-good-start-and-focus-on-the-future",
+      "title": "Nepa AB (publ): A GOOD START AND FOCUS ON THE FUTURE",
+      "date": "2022-05-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-a-good-start-and-focus-on-the-future/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-strong-end-to-a-strong-year",
+      "title": "Nepa AB (publ): STRONG END TO A STRONG YEAR",
+      "date": "2022-03-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-strong-end-to-a-strong-year/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-continued-strong-profitability-and-growth",
+      "title": "Nepa AB (publ): CONTINUED STRONG PROFITABILITY AND GROWTH",
+      "date": "2021-11-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-strong-profitability-and-growth/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-ab-appoints-nomination-committee",
+      "title": "Nepa AB (publ): Nepa AB appoints Nomination Committee",
+      "date": "2021-10-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-ab-appoints-nomination-committee/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-selected-by-svenska-spel-for-brand-tracking-and-campaign-measurement-program",
+      "title": "Nepa AB (publ): Nepa selected by Svenska Spel for Brand Tracking- and Campaign Measurement program.",
+      "date": "2021-09-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-selected-by-svenska-spel-for-brand-tracking-and-campaign-measurement-program/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-ceo-steps-down-at-his-own-request-chairman-of-the-board-takes-over-as-ceo",
+      "title": "Nepa AB (publ): CEO steps down at his own request, Chairman of the Board takes over as CEO",
+      "date": "2021-08-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-ceo-steps-down-at-his-own-request-chairman-of-the-board-takes-over-as-ceo/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-all-time-high-revenue-and-profitability",
+      "title": "Nepa AB (publ): ALL-TIME HIGH REVENUE AND PROFITABILITY",
+      "date": "2021-08-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-all-time-high-revenue-and-profitability/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-all-time-high-revenue-and-improved-profitability",
+      "title": "Nepa AB (publ): ALL-TIME HIGH REVENUE AND IMPROVED PROFITABILITY",
+      "date": "2021-05-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-all-time-high-revenue-and-improved-profitability/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-turned-profitable-with-clear-strategy-for-profitable-growth",
+      "title": "Nepa AB (publ): TURNED PROFITABLE WITH CLEAR STRATEGY FOR PROFITABLE GROWTH",
+      "date": "2021-03-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-turned-profitable-with-clear-strategy-for-profitable-growth/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-the-strongest-operating-profit-ever",
+      "title": "Nepa AB (publ): THE STRONGEST OPERATING PROFIT EVER",
+      "date": "2020-11-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-the-strongest-operating-profit-ever/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-new-study-challenges-the-view-of-social-media-marketing-proving-it-can-drive-long-term-sales",
+      "title": "Nepa AB (publ): New study challenges the view of social media marketing, proving it can drive long-term sales",
+      "date": "2020-10-06",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-new-study-challenges-the-view-of-social-media-marketing-proving-it-can-drive-long-term-sales/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-improved-profitability-and-financial-position",
+      "title": "Nepa AB (publ): IMPROVED PROFITABILITY AND FINANCIAL POSITION",
+      "date": "2020-08-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-improved-profitability-and-financial-position/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-world-leading-online-gambling-operator-kindred-extends-brand-tracking-and-player-insight-partnership-with-nepa-in-all-major-markets",
+      "title": "Nepa AB (publ): World leading online gambling operator Kindred extends brand tracking and player insight partnership with Nepa in all major markets",
+      "date": "2020-05-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-world-leading-online-gambling-operator-kindred-extends-brand-tracking-and-player-insight-partnership-with-nepa-in-all-major-markets/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-varner-chooses-nepa-for-their-brand-tracking-program",
+      "title": "Nepa AB (publ): Varner chooses Nepa for their brand tracking program",
+      "date": "2020-05-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-varner-chooses-nepa-for-their-brand-tracking-program/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-improved-earnings-and-continued-growth",
+      "title": "Nepa AB (publ): IMPROVED EARNINGS AND CONTINUED GROWTH",
+      "date": "2020-05-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-improved-earnings-and-continued-growth/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-taking-action-to-address-the-changed-market-sentiment",
+      "title": "Nepa AB (publ): Taking action to address the changed market sentiment",
+      "date": "2020-04-07",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-taking-action-to-address-the-changed-market-sentiment/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-continued-growth-and-increased-focus-on-profitability",
+      "title": "Nepa AB (publ): CONTINUED GROWTH AND INCREASED FOCUS ON PROFITABILITY",
+      "date": "2020-03-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-growth-and-increased-focus-on-profitability/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-appoints-ann-christine-fick-as-cfo-and-michael-wallin-as-ir",
+      "title": "Nepa AB (publ): Appoints Ann-Christine Fick as CFO and Michael Wallin as IR",
+      "date": "2020-02-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-appoints-ann-christine-fick-as-cfo-and-michael-wallin-as-ir/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets-2",
+      "title": "Nepa AB (publ): Global lifestyle and clothing brand GANT selects Nepa as brand tracking provider in all major markets",
+      "date": "2020-02-04",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets-2/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-p-o-westerlund-appointed-new-ceo",
+      "title": "Nepa AB (publ): P-O Westerlund appointed new CEO",
+      "date": "2020-01-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-p-o-westerlund-appointed-new-ceo/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-byggmax-selects-nepa-for-customer-experience-program",
+      "title": "Nepa AB (publ): Byggmax selects Nepa for Customer Experience program",
+      "date": "2020-01-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-byggmax-selects-nepa-for-customer-experience-program/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-marginal-gross-profit-growth-in-third-quarter",
+      "title": "Nepa AB (publ): MARGINAL GROSS PROFIT GROWTH IN THIRD QUARTER",
+      "date": "2019-11-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-marginal-gross-profit-growth-in-third-quarter/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-appoints-mangold-as-liquidity-provider",
+      "title": "Nepa AB (publ): Nepa Appoints Mangold as Liquidity Provider",
+      "date": "2019-10-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-appoints-mangold-as-liquidity-provider/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-among-vendors-in-new-analyst-report-on-marketing-measurement-and-optimization",
+      "title": "Nepa AB (publ): Nepa among vendors in new Analyst Report on Marketing Measurement and Optimization",
+      "date": "2019-10-01",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-among-vendors-in-new-analyst-report-on-marketing-measurement-and-optimization/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-changes-md-in-subsidiary",
+      "title": "Nepa AB (publ): Nepa changes MD in subsidiary",
+      "date": "2019-09-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-changes-md-in-subsidiary/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-wins-in-two-2019-achievement-in-insight-and-research-award-categories",
+      "title": "Nepa AB (publ): Nepa Wins in two 2019 Achievement in Insight and Research Award Categories",
+      "date": "2019-09-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-wins-in-two-2019-achievement-in-insight-and-research-award-categories/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-gross-profit-growth-of-14-percent-growth-on-all-markets",
+      "title": "Nepa AB (publ): GROSS PROFIT GROWTH OF 14 PERCENT, GROWTH ON ALL MARKETS",
+      "date": "2019-08-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-gross-profit-growth-of-14-percent-growth-on-all-markets/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-former-coach-cmo-marie-audier-dalessandris-named-advisor-to-nepa-ab",
+      "title": "Nepa AB (publ): Former Coach CMO, Marie Audier D’Alessandris, Named Advisor to Nepa AB",
+      "date": "2019-06-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-former-coach-cmo-marie-audier-dalessandris-named-advisor-to-nepa-ab/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-names-esha-nagar-managing-director-in-india",
+      "title": "Nepa AB (publ): Nepa names Esha Nagar Managing Director in India",
+      "date": "2019-06-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-names-esha-nagar-managing-director-in-india/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-kristin-luck-leading-marketing-technology-entrepreneur-and-strategist-named-to-nepa-board",
+      "title": "Nepa AB (publ): Kristin Luck, Leading Marketing Technology Entrepreneur and Strategist, Named to Nepa Board",
+      "date": "2019-06-11",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kristin-luck-leading-marketing-technology-entrepreneur-and-strategist-named-to-nepa-board/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-gross-profit-growth-of-19-percent-improved-ebit",
+      "title": "Nepa AB (publ): GROSS PROFIT GROWTH OF 19 PERCENT, IMPROVED EBIT",
+      "date": "2019-05-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-gross-profit-growth-of-19-percent-improved-ebit/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-and-touch-a-prize-announce-new-partnership-for-experience-and-engagement",
+      "title": "Nepa AB (publ): Nepa and Touch-A-Prize Announce new Partnership for Experience and Engagement",
+      "date": "2019-05-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-and-touch-a-prize-announce-new-partnership-for-experience-and-engagement/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-to-enhance-customer-experience-measurement-program-for-nent-group",
+      "title": "Nepa AB (publ): Nepa to enhance Customer Experience measurement program for NENT Group",
+      "date": "2019-04-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-to-enhance-customer-experience-measurement-program-for-nent-group/"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-northern-europes-leading-audiobook-service-storytel-selects-nepa-to-measure-global-customer-experience",
+      "title": "Nepa AB (publ): Northern Europe’s leading audiobook service Storytel selects Nepa to measure Global Customer Experience",
+      "date": "2019-04-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-northern-europes-leading-audiobook-service-storytel-selects-nepa-to-measure-global-customer-experience/"
+    },
+    {
+      "id": "mfn-full-year-report-nepa-ab-publ-q4-2018",
+      "title": "Full Year Report Nepa AB (publ), Q4 2018",
+      "date": "2019-03-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/full-year-report-nepa-ab-publ-q4-2018/"
+    },
+    {
+      "id": "mfn-nepa-has-carried-out-a-directed-share-issue-of-714835-shares-raising-proceeds-of-sek-39-3-million",
+      "title": "Nepa has carried out a directed share issue of 714,835 shares, raising proceeds of SEK 39.3 million",
+      "date": "2018-12-12",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-has-carried-out-a-directed-share-issue-of-714835-shares-raising-proceeds-of-sek-39-3-million/"
+    },
+    {
+      "id": "mfn-sats-selects-nepa-for-brand-health-measurement",
+      "title": "SATS selects Nepa for brand health measurement",
+      "date": "2018-12-03",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/sats-selects-nepa-for-brand-health-measurement/"
+    },
+    {
+      "id": "mfn-gross-profit-growth-of-24-5-percent-and-substantially-improved-ebit",
+      "title": "GROSS PROFIT GROWTH OF 24.5 PERCENT AND SUBSTANTIALLY IMPROVED EBIT",
+      "date": "2018-11-23",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/gross-profit-growth-of-24-5-percent-and-substantially-improved-ebit/"
+    },
+    {
+      "id": "mfn-natural-skincare-manufacturer-liz-earle-maximizes-profit-with-nepas-pricing-optimization-tools",
+      "title": "Natural skincare manufacturer Liz Earle maximizes profit with Nepa’s pricing optimization tools",
+      "date": "2018-11-02",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/natural-skincare-manufacturer-liz-earle-maximizes-profit-with-nepas-pricing-optimization-tools/"
+    },
+    {
+      "id": "mfn-dressmann-nordic-menswear-fashion-chain-chooses-nepa-for-customer-experience-measurement",
+      "title": "Dressmann, Nordic menswear fashion chain, chooses Nepa for Customer Experience measurement",
+      "date": "2018-10-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/dressmann-nordic-menswear-fashion-chain-chooses-nepa-for-customer-experience-measurement/"
+    },
+    {
+      "id": "mfn-nepa-marketing-mix-modelling-research-leverages-facebook-data-to-optimize-media-spending",
+      "title": "Nepa Marketing Mix Modelling Research Leverages Facebook Data to Optimize Media Spending",
+      "date": "2018-09-13",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-marketing-mix-modelling-research-leverages-facebook-data-to-optimize-media-spending/"
+    },
+    {
+      "id": "mfn-plantagen-european-specialty-retailer-announces-customer-experience-partnership-with-nepa",
+      "title": "Plantagen, European specialty retailer, announces customer experience partnership with Nepa.",
+      "date": "2018-09-04",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/plantagen-european-specialty-retailer-announces-customer-experience-partnership-with-nepa/"
+    },
+    {
+      "id": "mfn-interim-report-nepa-ab-publ-q2-2018",
+      "title": "Interim Report Nepa AB (publ), Q2 2018",
+      "date": "2018-08-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/interim-report-nepa-ab-publ-q2-2018/"
+    },
+    {
+      "id": "mfn-nepa-expands-into-global-sports-signs-u-s-based-industry-veteran-to-lead-charge",
+      "title": "Nepa expands into global sports; signs U.S. based industry veteran to lead charge",
+      "date": "2018-08-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-expands-into-global-sports-signs-u-s-based-industry-veteran-to-lead-charge/"
+    },
+    {
+      "id": "mfn-psyonix-acclaimed-video-game-developer-selects-nepa-for-global-brand-measurement-insights",
+      "title": "Psyonix, acclaimed video-game developer, selects Nepa for Global Brand Measurement Insights",
+      "date": "2018-07-31",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/psyonix-acclaimed-video-game-developer-selects-nepa-for-global-brand-measurement-insights/"
+    },
+    {
+      "id": "mfn-snap-inc-adds-nepa-to-mmm-partner-program",
+      "title": "Snap Inc adds Nepa to MMM Partner Program",
+      "date": "2018-06-28",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/snap-inc-adds-nepa-to-mmm-partner-program/"
+    },
+    {
+      "id": "mfn-jan-carlzon-former-ceo-of-sas-and-annika-steiber-management-innovation-expert-appointed-to-the-board-of-nepa-ab",
+      "title": "Jan Carlzon, former CEO of SAS, and Annika Steiber, Management Innovation expert, Appointed to The Board of Nepa AB",
+      "date": "2018-05-31",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/jan-carlzon-former-ceo-of-sas-and-annika-steiber-management-innovation-expert-appointed-to-the-board-of-nepa-ab/"
+    },
+    {
+      "id": "mfn-new-product-launch-and-continued-growth-in-q1",
+      "title": "NEW PRODUCT LAUNCH AND CONTINUED GROWTH IN Q1",
+      "date": "2018-05-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/new-product-launch-and-continued-growth-in-q1/"
+    },
+    {
+      "id": "mfn-full-year-report-nepa-ab-publ-q4-2017",
+      "title": "Full Year Report Nepa AB (publ), Q4 2017",
+      "date": "2018-03-28",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/full-year-report-nepa-ab-publ-q4-2017/"
+    },
+    {
+      "id": "mfn-matt-nitzberg-named-chief-client-officer-at-nepa-us",
+      "title": "Matt Nitzberg named Chief Client Officer at Nepa US",
+      "date": "2018-03-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/matt-nitzberg-named-chief-client-officer-at-nepa-us/"
+    },
+    {
+      "id": "mfn-ikea-sweden-and-nepa-in-new-partnership",
+      "title": "IKEA Sweden and Nepa in new partnership",
+      "date": "2017-12-06",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/ikea-sweden-and-nepa-in-new-partnership/"
+    },
+    {
+      "id": "mfn-interim-report-nepa-ab-publ-q3-2017",
+      "title": "Interim report Nepa AB (publ) Q3 2017",
+      "date": "2017-11-30",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/interim-report-nepa-ab-publ-q3-2017/"
+    },
+    {
+      "id": "mfn-jan-scherman-becomes-senior-advisor-at-nepa",
+      "title": "Jan Scherman becomes senior advisor at Nepa",
+      "date": "2016-06-30",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/jan-scherman-becomes-senior-advisor-at-nepa/"
+    },
+    {
+      "id": "mfn-with-a-z-varner-ibrahimovic-is-creating-a-true-customer-centric-brand",
+      "title": "With A-Z, Varner Ibrahimovic is creating a true customer centric brand",
+      "date": "2016-06-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/with-a-z-varner-ibrahimovic-is-creating-a-true-customer-centric-brand/"
+    }
+  ],
+  "total": 135
+}

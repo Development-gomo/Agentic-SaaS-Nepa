@@ -1,0 +1,1986 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/blog-posts.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "posts": [
+    {
+      "id": "post-effday-2026-takeaways",
+      "title": "EFFDay 2026: Takeaways",
+      "author": "Christoffer Steiser",
+      "date": "2026-09-04",
+      "excerpt": "Key takeaways from Sweden’s EFFDay: why marketing effectiveness needs to move closer to business value, demand creation and better decisions. The boardroom does not care about your campaign. It cares about growth. For anyone who missed Sweden’s EFFDay, or wants a reminder of what was said, here is t",
+      "url": "https://nepa.com/blog/effday-2026-takeaways/"
+    },
+    {
+      "id": "post-swedish-consumer-purchase-behaviour",
+      "title": "What Swedish consumer data reveals about how purchase decisions are made",
+      "author": "Christoffer Steiser",
+      "date": "2026-07-10",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/swedish-consumer-purchase-behaviour/"
+    },
+    {
+      "id": "post-ai-research-brand-switching-by-product-category-sweden",
+      "title": "Which product categories in Sweden see the highest AI research rates and brand switching during purchase",
+      "author": "Christoffer Steiser",
+      "date": "2026-07-10",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/ai-research-brand-switching-by-product-category-sweden/"
+    },
+    {
+      "id": "post-brand-switching-during-purchase-process-sweden",
+      "title": "One in ten Swedish consumers changes their product or brand choice during the purchase process",
+      "author": "Christoffer Steiser",
+      "date": "2026-07-10",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/brand-switching-during-purchase-process-sweden/"
+    },
+    {
+      "id": "post-conversational-ai-purchase-decisions-sweden",
+      "title": "How Swedish consumers use conversational AI in the purchase process",
+      "author": "Christoffer Steiser",
+      "date": "2026-07-10",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/conversational-ai-purchase-decisions-sweden/"
+    },
+    {
+      "id": "post-conversational-ai-product-discovery-gen-z-sweden",
+      "title": "Conversational AI is now a top inspiration source for Gen Z in Sweden, ahead of television advertising",
+      "author": "Christoffer Steiser",
+      "date": "2026-07-03",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/conversational-ai-product-discovery-gen-z-sweden/"
+    },
+    {
+      "id": "post-word-of-mouth-product-discovery-sweden",
+      "title": "Word of mouth product discovery Sweden",
+      "author": "Christoffer Steiser",
+      "date": "2026-07-03",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/word-of-mouth-product-discovery-sweden/"
+    },
+    {
+      "id": "post-how-media-channel-preferences-differ-by-generation-in-sweden",
+      "title": "How media channel preferences differ by generation in Sweden",
+      "author": "Christoffer Steiser",
+      "date": "2026-07-03",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/how-media-channel-preferences-differ-by-generation-in-sweden/"
+    },
+    {
+      "id": "post-why-brand-salience-is-the-new-growth-driver",
+      "title": "Why brand salience is the new growth driver",
+      "author": "gomo_dev",
+      "date": "2026-06-26",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/why-brand-salience-is-the-new-growth-driver/"
+    },
+    {
+      "id": "post-iiex-europe-2026",
+      "title": "IIEX Europe 2026: Why the future of insights is not faster answers, but better decisions",
+      "author": "Christian Muda",
+      "date": "2026-06-26",
+      "excerpt": "Our summery of the key insights from the conference. Nepa was on stage at IIEX Europe 2026 in Amsterdam together with TikTok and Wolt, discussing how AI can help brands understand and improve creative performance on TikTok. The session focused on one of the biggest questions in modern marketing: how",
+      "url": "https://nepa.com/blog/iiex-europe-2026/"
+    },
+    {
+      "id": "post-coop-how-we-use-data-to-take-back-our-position",
+      "title": "Coop: How we use data to take back our position",
+      "author": "Christian Muda",
+      "date": "2026-05-25",
+      "excerpt": "Grocery retail is one of Sweden’s most competitive industries. New low-price players, changing consumer behaviors, and constantly increasing price pressure are squeezing margins – both financially and in terms of communication. In the middle of all this, Coop, one of Sweden’s most well-known brands,",
+      "url": "https://nepa.com/blog/coop-how-we-use-data-to-take-back-our-position/"
+    },
+    {
+      "id": "post-long-term-brand-building-from-jord-till-bord-to-lange-leve-jorden",
+      "title": "Lantmännen: Long-term brand building from “Jord till bord” to “Länge leve jorden”",
+      "author": "Christian Muda",
+      "date": "2026-05-25",
+      "excerpt": "Lantmännen is a textbook example of how a company can go from being known within its own silos to becoming one of Sweden’s most respected sustainability brands. During the Nepa Breakfast Session, Mark Robinson, Director Group Brand & Marketing, and Andreas Befrits, Manager Brand Planning & Insight, ",
+      "url": "https://nepa.com/blog/long-term-brand-building-from-jord-till-bord-to-lange-leve-jorden/"
+    },
+    {
+      "id": "post-long-term-brand-building-in-practice-lessons-from-the-nepa-breakfast-session",
+      "title": "Long-term brand building in practice – lessons from the Nepa Breakfast Session",
+      "author": "Christian Muda",
+      "date": "2026-05-25",
+      "excerpt": "How do you build a brand that holds up through tough times, budget swings, and new management and board members – without losing momentum or your core? That was the starting point when marketing managers, brand owners, and insight professionals gathered at Nepa’s HQ on Magnus Ladulåsgatan 65 on May ",
+      "url": "https://nepa.com/blog/long-term-brand-building-in-practice-lessons-from-the-nepa-breakfast-session/"
+    },
+    {
+      "id": "post-what-is-marketing-mix-modelling-the-complete-guide",
+      "title": "What is Marketing Mix Modelling? The Complete Guide",
+      "author": "Christian Muda",
+      "date": "2026-05-18",
+      "excerpt": "Marketing Mix Modelling is a statistical technique that uses historical data to measure how each element of your marketing — along with external factors like seasonality and pricing — contributes to business outcomes like sales, revenue, or brand equity. In plain terms: Marketing Mix Modelling tells",
+      "url": "https://nepa.com/blog/what-is-marketing-mix-modelling-the-complete-guide/"
+    },
+    {
+      "id": "post-category-entry-points",
+      "title": "Why Category Entry Points need a rethink – before they make brands more similar, not stronger",
+      "author": "Christian Muda",
+      "date": "2026-04-30",
+      "excerpt": "Category Entry Points (CEPs) are the reasons, triggers or occasions that make a buyer consider purchasing within a category. For example, “treating myself after a long day” or “bringing something when visiting friends.” They are not about your brand. They are about the buyer’s real-life situations: ",
+      "url": "https://nepa.com/blog/category-entry-points/"
+    },
+    {
+      "id": "post-how-well-do-you-measure-your-campaigns-really",
+      "title": "How well do you measure your campaigns — really?",
+      "author": "Christian Muda",
+      "date": "2026-04-27",
+      "excerpt": "Most marketing teams think they’re measuring their campaigns. Few actually are. They check the media metrics after a campaign wraps. They look at platform reports, see that reach was fine and CPMs were efficient, and move on to the next brief. Occasionally there’s a post-campaign survey — presented ",
+      "url": "https://nepa.com/blog/how-well-do-you-measure-your-campaigns-really/"
+    },
+    {
+      "id": "post-campaign-evaluation-vs-brand-tracking-whats-the-difference",
+      "title": "Campaign Evaluation vs Brand Tracking",
+      "author": "Christian Muda",
+      "date": "2026-04-26",
+      "excerpt": "Campaign evaluation measures whether a specific campaign worked. Brand tracking measures whether your brand is healthy over time. They answer different questions, operate at different cadences, and neither one replaces the other — but most brands treat them as if they’re interchangeable. That’s an e",
+      "url": "https://nepa.com/blog/campaign-evaluation-vs-brand-tracking-whats-the-difference/"
+    },
+    {
+      "id": "post-we-went-to-global-marketer-week-2026-heres-what-stood-out",
+      "title": "We went to Global Marketer Week 2026. Here’s what stood out.",
+      "author": "Christian Muda",
+      "date": "2026-04-24",
+      "excerpt": "Creativity Has Lost Its Confidence One day at Global Marketer Week in Stockholm. Eleven sessions. One uncomfortable truth: we’re spending more on marketing than ever — and getting less back. Here’s what needs to change. This year, WFA’s Global Marketer Week 2026 was held in Stockholm, and we took th",
+      "url": "https://nepa.com/blog/we-went-to-global-marketer-week-2026-heres-what-stood-out/"
+    },
+    {
+      "id": "post-the-three-most-common-reasons-campaigns-underperform",
+      "title": "The three most common reasons campaigns underperform",
+      "author": "Christian Muda",
+      "date": "2026-04-16",
+      "excerpt": "The three most common reasons campaigns underperform — and what to do about it Marketers invest significant resources in strategy, production and media. Yet many campaigns land in the same frustrating place: the dashboard looks acceptable, but the brand or the business barely moves. The pattern is f",
+      "url": "https://nepa.com/blog/the-three-most-common-reasons-campaigns-underperform/"
+    },
+    {
+      "id": "post-meet-nepa-at-iiex-europe-2026-in-amsterdam",
+      "title": "Meet Nepa at IIEX Europe 2026 in Amsterdam",
+      "author": "Christian Muda",
+      "date": "2026-04-15",
+      "excerpt": "Europe’s most influential insights event is back — and this year, Nepa will be on stage alongside TikTok and Wolt to share a practical, AI-driven framework for unlocking TikTok creative performance. IIEX Europe 2026 IIEX Europe, organised by Greenbook, is widely regarded as the continent’s premier g",
+      "url": "https://nepa.com/blog/meet-nepa-at-iiex-europe-2026-in-amsterdam/"
+    },
+    {
+      "id": "post-ai-takes-a-clear-role-in-the-research-phase-and-guides-purchase-decisions-2",
+      "title": "AI takes a clear role in the research phase and guides purchase decisions",
+      "author": "Christian Muda",
+      "date": "2026-04-10",
+      "excerpt": "Artificial intelligence has become a key influence in how Swedes research and decide what to buy. A new national study by marketing intelligence company Nepa, based on over 1,300 respondents, reveals strong generational differences, changing media habits, and how factors such as price, quality, and ",
+      "url": "https://nepa.com/blog/ai-takes-a-clear-role-in-the-research-phase-and-guides-purchase-decisions-2/"
+    },
+    {
+      "id": "post-why-qualitative-research-needs-a-rethink-not-just-a-digital-shift",
+      "title": "Why qualitative research needs a rethink, not just a digital shift",
+      "author": "Christian Muda",
+      "date": "2026-03-24",
+      "excerpt": "Most qualitative research today is described as “digital”. In practice, that often just means old methods in new tools. Focus groups are now run in Zoom. In-depth interviews happen in Teams instead of over the phone. What’s missing is an actual rethink. Research methods have been lightly digitalised",
+      "url": "https://nepa.com/blog/why-qualitative-research-needs-a-rethink-not-just-a-digital-shift/"
+    },
+    {
+      "id": "post-from-scattered-metrics-to-decisions-that-move-the-business",
+      "title": "From scattered metrics to decisions that move the business",
+      "author": "Christian Muda",
+      "date": "2026-03-16",
+      "excerpt": "At the Nepa Breakfast Session on 29 January 2026, Andreas Nordfors, Managing Director of the Nepa Marketing Acceleration Hub, addressed a challenge many marketing organisations recognise: data is everywhere, yet the decisions that matter remain surprisingly hard to make. Nordfors argued that the rea",
+      "url": "https://nepa.com/blog/from-scattered-metrics-to-decisions-that-move-the-business/"
+    },
+    {
+      "id": "post-nordnet-turning-insight-and-patience-into-brand-led-growth",
+      "title": "Nordnet: turning insight and patience into brand‑led growth",
+      "author": "Christian Muda",
+      "date": "2026-03-16",
+      "excerpt": "During the Nepa Breakfast Session on 29 January 2026, one of the most compelling perspectives came from Cecilia Lutz, Nordic Media Lead at Nordnet. While much of the industry discussion around marketing effectiveness focuses on tools, models and attribution frameworks, Nordnet’s story offered a diff",
+      "url": "https://nepa.com/blog/nordnet-turning-insight-and-patience-into-brand-led-growth/"
+    },
+    {
+      "id": "post-media-effectiveness-is-modelled-and-human",
+      "title": "Media effectiveness is modelled – and human",
+      "author": "Christoffer Steiser",
+      "date": "2026-02-24",
+      "excerpt": "At our recent Nepa Breakfast Session, Olesya Moosman, Media Effectiveness Specialist and MMM Lead at Google, traced how media effectiveness has evolved over more than 20 years. From shared TV moments to personalised connections In the past, the media mix of a big brand looked broadly similar for dec",
+      "url": "https://nepa.com/blog/media-effectiveness-is-modelled-and-human/"
+    },
+    {
+      "id": "post-when-brand-assets-outperform-sponsorship",
+      "title": "When Brand Assets outperform sponsorship",
+      "author": "Christian Muda",
+      "date": "2026-02-24",
+      "excerpt": "Have you, like us, been glued to the Olympics in recent weeks? And did you notice the small yellow dot on the helmets of the extreme sports athletes? We saw it in ski cross, in freestyle and in Big Air. You barely have time to register the athlete before the next clip rolls – but",
+      "url": "https://nepa.com/blog/when-brand-assets-outperform-sponsorship/"
+    },
+    {
+      "id": "post-reflections-from-100-wattaren-2026",
+      "title": "When communication proves its worth: Reflections from 100-wattaren 2026",
+      "author": "Christian Muda",
+      "date": "2026-02-13",
+      "excerpt": "On Thursday evening, the Swedish marketing community gathered at Stockholm City Hall for 100-wattaren 2026. Beyond the celebration itself, the evening served as a timely reminder of something the industry too often struggle with: communication only matters when it can demonstrate what it actually de",
+      "url": "https://nepa.com/blog/reflections-from-100-wattaren-2026/"
+    },
+    {
+      "id": "post-shrinking-budgets-bigger-results-rethinking-marketing-effectiveness-in-2026",
+      "title": "Shrinking budgets, bigger results: rethinking marketing effectiveness in 2026",
+      "author": "Christian Muda",
+      "date": "2026-02-05",
+      "excerpt": "Many marketers are entering 2026 with exactly the same dilemma: smaller or more stretched budgets – and bigger expectations. At Nepa’s recent Breakfast Session in Helsinki, “Did your marketing budget for 2026 get cut too?”, the conversation centred on a simple but uncomfortable truth: you cannot sav",
+      "url": "https://nepa.com/blog/shrinking-budgets-bigger-results-rethinking-marketing-effectiveness-in-2026/"
+    },
+    {
+      "id": "post-the-new-playbook-for-marketing-effectivenes",
+      "title": "The new playbook for marketing effectiveness",
+      "author": "Christian Muda",
+      "date": "2026-01-30",
+      "excerpt": "Many marketing leaders are entering 2026 with flatter or shrinking budgets, while expectations on growth and commercial impact continue to rise. The Nepa Breakfast Session on 29 January 2026, hosted with Nordnet and Google, focused squarely on that tension: how to “prove more with less” by working s",
+      "url": "https://nepa.com/blog/the-new-playbook-for-marketing-effectivenes/"
+    },
+    {
+      "id": "post-how-to-take-risks-without-weakening-your-brand-2",
+      "title": "How to take risks without weakening your brand",
+      "author": "Christoffer Steiser",
+      "date": "2026-01-15",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/how-to-take-risks-without-weakening-your-brand-2/"
+    },
+    {
+      "id": "post-how-to-take-risks-without-weakening-your-brand",
+      "title": "Prove more with less",
+      "author": "Christoffer Steiser",
+      "date": "2026-01-14",
+      "excerpt": "",
+      "url": "https://nepa.com/how-to-take-risks-without-weakening-your-brand/"
+    },
+    {
+      "id": "post-the-smart-marketers-guide-to-2026-part-four",
+      "title": "The smart marketer’s guide to 2026 part 4",
+      "author": "Christoffer Steiser",
+      "date": "2025-12-18",
+      "excerpt": "Part 4: Connecting the dots – From past learnings to future growth How to turn disconnected data into continuous growth The most successful marketers don’t just react to what’s happening now. They create a learning loop that combines what came before, what’s unfolding today, and what’s likely to hap",
+      "url": "https://nepa.com/blog/the-smart-marketers-guide-to-2026-part-four/"
+    },
+    {
+      "id": "post-advertising-at-christmas",
+      "title": "Advertising at Christmas? Nepa’s data reveals 5 insights that could make or break your campaign",
+      "author": "Christian Muda",
+      "date": "2025-12-15",
+      "excerpt": "Nepa’s data reveals 5 insights that could make or break your campaign. Unlocking more than just a seasonal sales spike As the holiday season approaches, we’ve dug deep into Nepa’s hundreds of campaign measurements from the past year to answer a key question: What actually drives impact around Christ",
+      "url": "https://nepa.com/blog/advertising-at-christmas/"
+    },
+    {
+      "id": "post-the-smart-marketers-guide-to-2026-part-three",
+      "title": "The smart marketer’s guide to 2026 part 3",
+      "author": "Christoffer Steiser",
+      "date": "2025-12-09",
+      "excerpt": "Part 3: Optimisation Campaign season: Maximising impact while it matters Peak campaign season is when the pressure is highest, budgets are locked, timelines fixed, and every channel flooded with noise. Yet too many campaigns still follow a “launch and hope” model. Review happens only once everything",
+      "url": "https://nepa.com/blog/the-smart-marketers-guide-to-2026-part-three/"
+    },
+    {
+      "id": "post-the-smart-marketers-guide-to-2026-part-two",
+      "title": "The smart marketer’s guide to 2026 part 2",
+      "author": "Christoffer Steiser",
+      "date": "2025-12-02",
+      "excerpt": "Part 2: Know your playing field The overlooked insight that drives smarter brand moves The most dangerous assumption in marketing today is thinking you know your brand’s position without knowing the playing field. As we approach the end of the year, many marketers are reviewing performance and plann",
+      "url": "https://nepa.com/blog/the-smart-marketers-guide-to-2026-part-two/"
+    },
+    {
+      "id": "post-the-smart-marketers-guide-to-2026",
+      "title": "The smart marketer’s guide to 2026 part 1",
+      "author": "Christoffer Steiser",
+      "date": "2025-11-24",
+      "excerpt": "Part 1: Budgeting Welcome to the first article in our end-of-year series. Each week, we explore a key topic from the past year and how to turn it into smarter marketing decisions for 2026. We begin with one of the most critical areas: Budgeting. Because 2025 didn’t just raise the bar on marketing pe",
+      "url": "https://nepa.com/blog/the-smart-marketers-guide-to-2026/"
+    },
+    {
+      "id": "post-nepas-perspective-the-black-week-phenomenon",
+      "title": "Nepa’s perspective: The black week phenomenon",
+      "author": "Christian Muda",
+      "date": "2025-11-17",
+      "excerpt": "A short-term boost – or a long-term opportunity? As we approach one of the year’s most high-pressure campaign periods, many brands are asking the same question: Should we go all in, or stay out? At Nepa, we work closely with marketing teams across retail, fashion, electronics and more – and right no",
+      "url": "https://nepa.com/blog/nepas-perspective-the-black-week-phenomenon/"
+    },
+    {
+      "id": "post-ai-takes-a-clear-role-in-the-research-phase-and-guides-purchase-decisions",
+      "title": "AI takes a clear role in the research phase and guides purchase decisions",
+      "author": "Christian Muda",
+      "date": "2025-11-12",
+      "excerpt": "Artificial intelligence has become a key influence in how Swedes research and decide what to buy. A new national study by marketing intelligence company Nepa, based on over 1,300 respondents, reveals strong generational differences, changing media habits, and how factors such as price, quality, and ",
+      "url": "https://nepa.com/ai-takes-a-clear-role-in-the-research-phase-and-guides-purchase-decisions/"
+    },
+    {
+      "id": "post-brand_touch_make_your_brand_impossible_to_ignore",
+      "title": "Brand Touch – Make your brand impossible to ignore",
+      "author": "Christoffer Steiser",
+      "date": "2025-11-05",
+      "excerpt": "In saturated markets, visibility doesn’t guarantee relevance. The brands that grow are the ones that stand for something clear, memorable and meaningful. But without the right insight, even bold positioning becomes guesswork. Brand Touch is built to help you understand how your brand is perceived, w",
+      "url": "https://nepa.com/blog/brand_touch_make_your_brand_impossible_to_ignore/"
+    },
+    {
+      "id": "post-is-your-mmm-model-ready-for-tiktok-and-the-next-wave-of-media-disruption",
+      "title": "Is your MMM model ready for TikTok and the next wave of media disruption?",
+      "author": "Christian Muda",
+      "date": "2025-10-28",
+      "excerpt": "Last week, Nepa joined TikTok’s Global Media Mix Modeling Forum in London – an exclusive gathering of brands, analysts and platforms shaping the future of measurement. On the TikTok’s Global Media Mix Modeling Forum in London, Nepa was represented by Andreas Nordfors, Managing Director of Marketing ",
+      "url": "https://nepa.com/blog/is-your-mmm-model-ready-for-tiktok-and-the-next-wave-of-media-disruption/"
+    },
+    {
+      "id": "post-campaign-evaluation-measuring-true-impact-and-maximizing-marketing-roi",
+      "title": "Campaign evaluation: Measuring true impact and maximizing marketing ROI",
+      "author": "Christian Muda",
+      "date": "2025-10-10",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/campaign-evaluation-measuring-true-impact-and-maximizing-marketing-roi/"
+    },
+    {
+      "id": "post-why-playing-it-safe-is-holding-your-brand-back",
+      "title": "Why playing it safe is holding your brand back",
+      "author": "Christoffer Steiser",
+      "date": "2025-10-09",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/why-playing-it-safe-is-holding-your-brand-back/"
+    },
+    {
+      "id": "post-esomar-2025",
+      "title": "Esomar 2025 – Nepa’s key take aways",
+      "author": "Christoffer Steiser",
+      "date": "2025-10-06",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/esomar-2025/"
+    },
+    {
+      "id": "post-the-brands-that-grow-tomorrow-are-already-measuring-differently-today-2",
+      "title": "The brands that grow tomorrow are already measuring differently today",
+      "author": "Christian Muda",
+      "date": "2025-09-25",
+      "excerpt": "In our latest interview, Nepa’s CEO Anders Dahl shares why the rules of growth are shifting – and how leading brands are moving from one-off campaign metrics to continuous brand performance. Anders, why is brand measurement getting so much attention right now? – Because the game is changing. For yea",
+      "url": "https://nepa.com/blog/the-brands-that-grow-tomorrow-are-already-measuring-differently-today-2/"
+    },
+    {
+      "id": "post-emotion-palette-add-on-for-campaign-pulse",
+      "title": "Emotion Palette – Add-on for Campaign Pulse",
+      "author": "Christian Muda",
+      "date": "2025-09-23",
+      "excerpt": "Emotion Palette by Nepa is a powerful add-on for Campaign Pulse that lets you measure, visualize, and optimize the emotional impact of your campaigns. In today’s crowded media landscape, emotional connection is what separates memorable campaigns from those that fade away. Emotion Palette gives you t",
+      "url": "https://nepa.com/blog/emotion-palette-add-on-for-campaign-pulse/"
+    },
+    {
+      "id": "post-signals-from-the-future-what-marketing-leaders-need-to-prepare-for",
+      "title": "Signals from the future: What marketing leaders need to prepare for",
+      "author": "Christian Muda",
+      "date": "2025-09-22",
+      "excerpt": "The marketing landscape is shifting fast. How brands measure, plan and grow is being redefined — and the future belongs to those who turn insight into action. We sat down with Anders Dahl, CEO at Nepa, to explore the key forces shaping the future of brand growth. With a front-row seat to how leading",
+      "url": "https://nepa.com/blog/signals-from-the-future-what-marketing-leaders-need-to-prepare-for/"
+    },
+    {
+      "id": "post-reimagine-insights-what-to-expect-at-esomar-congress-2025-in-prague",
+      "title": "Reimagine insights: What to expect at ESOMAR Congress 2025",
+      "author": "Christian Muda",
+      "date": "2025-09-16",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/reimagine-insights-what-to-expect-at-esomar-congress-2025-in-prague/"
+    },
+    {
+      "id": "post-the-mission-unlocking-tomorrows-growth",
+      "title": "The mission: Unlocking tomorrow’s growth",
+      "author": "Christoffer Steiser",
+      "date": "2025-09-09",
+      "excerpt": "A conversation with Andreas Nordfors, Managing Director of Marketing Effectiveness and Acceleration at Nepa With a sharpened focus on helping brands make smarter, faster and more impactful decisions, Nepa is entering its next growth phase. A key part of this transformation is the launch of a new bus",
+      "url": "https://nepa.com/blog/the-mission-unlocking-tomorrows-growth/"
+    },
+    {
+      "id": "post-what-does-it-take-to-grow-a-brand-in-2025",
+      "title": "What does it take to grow a brand in 2025?",
+      "author": "Christoffer Steiser",
+      "date": "2025-09-09",
+      "excerpt": "Insights from Nepa’s expert panel At Nepa’s recent housewarming event, we gathered some of the sharpest marketing minds for an open panel discussion on what’s keeping brand leaders up at night, and what’s helping them move forward. The conversation covered everything from market pressures and media ",
+      "url": "https://nepa.com/blog/what-does-it-take-to-grow-a-brand-in-2025/"
+    },
+    {
+      "id": "post-effday-2025-five-lessons-every-marketing-leader-should-take-home",
+      "title": "EFFDay 2025: Five lessons every marketing leader should take home",
+      "author": "Christoffer Steiser",
+      "date": "2025-09-08",
+      "excerpt": "Background EFFDay 2025 gathered Sweden’s most forward-looking marketers, researchers and brand leaders, and Nepa was proud to be a sponsor. In a time where marketing investments deliver less effect, expectations are higher than ever, and the pace of change leaves little room for reflection, the need",
+      "url": "https://nepa.com/blog/effday-2025-five-lessons-every-marketing-leader-should-take-home/"
+    },
+    {
+      "id": "post-hemkop-and-nepa-on-stage-at-effday-2025",
+      "title": "Hemköp and Nepa on stage at EFFDay 2025",
+      "author": "Christian Muda",
+      "date": "2025-09-05",
+      "excerpt": "How a focused strategy and the right insights helped a grocery brand stand out Background: From broad awareness to sharp positioning At EFFDay 2025, Sweden’s leading forum for marketing effectiveness, Hemköp and Nepa presented a case that stood out. It wasn’t about doing more—it was about doing what",
+      "url": "https://nepa.com/blog/hemkop-and-nepa-on-stage-at-effday-2025/"
+    },
+    {
+      "id": "post-from-challenger-to-category-leader-vanessa-lindblad-on-caias-growth-journey",
+      "title": "From challenger to category leader: Vanessa Lindblad on Caia’s growth journey",
+      "author": "Christoffer Steiser",
+      "date": "2025-09-02",
+      "excerpt": "A bold beginning When Vanessa Lindblad took the stage at Nepa’s event, she brought the audience straight into the heart of Caia’s story. A journey that didn’t begin with a big media budget or global distribution power, but with a handful of founders and a clear ambition: to shake up the beauty indus",
+      "url": "https://nepa.com/blog/from-challenger-to-category-leader-vanessa-lindblad-on-caias-growth-journey/"
+    },
+    {
+      "id": "post-illuminating-the-intangible-understanding-influencer-marketings-real-impact",
+      "title": "Illuminating the intangible: Understanding influencer marketing’s real impact",
+      "author": "Christian Muda",
+      "date": "2025-08-27",
+      "excerpt": "Influencer marketing is booming, but how do you know if it’s actually delivering results? When budgets are under scrutiny, being able to prove the real impact of every channel is essential. The truth is, while influencer campaigns can create buzz, most brands struggle to measure their true effect on",
+      "url": "https://nepa.com/blog/illuminating-the-intangible-understanding-influencer-marketings-real-impact/"
+    },
+    {
+      "id": "post-emotion-palette",
+      "title": "Emotion Palette: Optimise the Emotional Impact of Your Marketing Campaigns",
+      "author": "Christian Muda",
+      "date": "2025-08-19",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/emotion-palette/"
+    },
+    {
+      "id": "post-iiex-europe-2025-key-trends-takeaways",
+      "title": "IIEX Europe 2025 – Key trends & takeaways",
+      "author": "Christian Muda",
+      "date": "2025-06-27",
+      "excerpt": "Curious about the biggest trends and takeaways from IIEX Europe 2025? Below you’ll find a concise summary of the key themes, followed by our full, in-depth report from the event in Amsterdam. Whether you want the highlights or all the details, you’ll find it here. Executive Summary: Get the key tren",
+      "url": "https://nepa.com/blog/iiex-europe-2025-key-trends-takeaways/"
+    },
+    {
+      "id": "post-the-brands-that-grow-tomorrow-are-already-measuring-differently-today",
+      "title": "The brands that grow tomorrow are already measuring differently today",
+      "author": "Christian Muda",
+      "date": "2025-06-24",
+      "excerpt": "In our latest interview, Nepa’s CEO Anders Dahl shares why the rules of growth are shifting – and how leading brands are moving from one-off campaign metrics to continuous brand performance. Anders, why is brand measurement getting so much attention right now? – Because the game is changing. For yea",
+      "url": "https://nepa.com/the-brands-that-grow-tomorrow-are-already-measuring-differently-today/"
+    },
+    {
+      "id": "post-its-not-about-more-data-its-about-the-right-insight",
+      "title": "It’s not about more data – it’s about the right insight",
+      "author": "Christian Muda",
+      "date": "2025-05-25",
+      "excerpt": "A conversation with Nepa’s MMM expert Charlotta Lundberg In a world where marketing teams are drowning in dashboards but starving for clarity, we sat down with Charlotta Lundberg – one of Nepa’s leading Marketing Mix Modelling (MMM) experts – to talk about what’s broken, what’s changing, and what ma",
+      "url": "https://nepa.com/blog/its-not-about-more-data-its-about-the-right-insight/"
+    },
+    {
+      "id": "post-marketing-mix-modeling-101",
+      "title": "Marketing Mix Modelling 101",
+      "author": "Christian Muda",
+      "date": "2025-05-25",
+      "excerpt": "Why it matters – and why brand expertise makes all the difference. In an era where marketing accountability is under the spotlight, many brands are asking the same questions: “What’s really driving our sales – brand or performance?” “How should we allocate budget in a tightening economy?” “Can we pr",
+      "url": "https://nepa.com/blog/marketing-mix-modeling-101/"
+    },
+    {
+      "id": "post-a-call-for-stronger-data-integrity-in-the-wake-of-recent-market-research-fraud",
+      "title": "A call for stronger data integrity in the wake of recent market research fraud",
+      "author": "Christoffer Steiser",
+      "date": "2025-05-07",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/a-call-for-stronger-data-integrity-in-the-wake-of-recent-market-research-fraud/"
+    },
+    {
+      "id": "post-market-segmentation-and-marketing-mix-modeling",
+      "title": "Market segmentation and marketing mix modelling",
+      "author": "Christian Muda",
+      "date": "2025-04-28",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/market-segmentation-and-marketing-mix-modeling/"
+    },
+    {
+      "id": "post-marketing-mix-modelling-mmm",
+      "title": "Marketing Mix Modelling for FMCG – Getting off the promotion treadmill",
+      "author": "Christian Muda",
+      "date": "2025-04-23",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/marketing-mix-modelling-mmm/"
+    },
+    {
+      "id": "post-brand-tracking",
+      "title": "Brand tracking – How to monitor brand health and drive growth",
+      "author": "Christian Muda",
+      "date": "2025-04-22",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/brand-tracking/"
+    },
+    {
+      "id": "post-brand-positioning",
+      "title": "Brand positioning: How to differentiate and grow your brand",
+      "author": "Christian Muda",
+      "date": "2025-04-22",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/brand-positioning/"
+    },
+    {
+      "id": "post-brand-equity",
+      "title": "Brand equity: The engine driving growth for modern brands",
+      "author": "Christoffer Steiser",
+      "date": "2025-04-21",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/brand-equity/"
+    },
+    {
+      "id": "post-brand-tracking-dashboard",
+      "title": "Nepa’s Brand Tracking Dashboard",
+      "author": "Christoffer Steiser",
+      "date": "2025-03-31",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/brand-tracking-dashboard/"
+    },
+    {
+      "id": "post-cookie-free-future-of-marketing",
+      "title": "Adapting to the cookie-free future of marketing – From billboards to browsers",
+      "author": "Christoffer Steiser",
+      "date": "2025-01-28",
+      "excerpt": "The story of advertising is one of constant transformation. Before the internet, brands connected with consumers through TV commercials, radio ads, magazine spreads, and billboards.",
+      "url": "https://nepa.com/blog/cookie-free-future-of-marketing/"
+    },
+    {
+      "id": "post-salience-vs-differentiation",
+      "title": "Salience vs. Differentiation: Is being famous enough for a brand to succeed or does differentiation really make the difference?",
+      "author": "Christoffer Steiser",
+      "date": "2025-01-14",
+      "excerpt": "If you are a follower of the general marketing discourse on LinkedIn, Twitter, or in the marketing media, you’ll notice ongoing debates around supposedly opposing concepts – long-term versus short-term, traditional versus digital media, mass marketing versus targeting, etcetera. Each concept comes w",
+      "url": "https://nepa.com/blog/salience-vs-differentiation/"
+    },
+    {
+      "id": "post-nepa-sessions-julmingel-panel",
+      "title": "Nepa Sessions | The challenges of media investment panel discussion",
+      "author": "Christoffer Steiser",
+      "date": "2024-12-31",
+      "excerpt": "We recently held our very first Nepa Sessions at the stunning Röda Huset in Stockholm, designed to bring together marketing and insights professionals to discuss current trends and challenges.",
+      "url": "https://nepa.com/blog/nepa-sessions-julmingel-panel/"
+    },
+    {
+      "id": "post-brand-tracking-tools",
+      "title": "Brand tracking tools – The right insights at the right time",
+      "author": "Mridul GO MO",
+      "date": "2024-12-07",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/brand-tracking-tools/"
+    },
+    {
+      "id": "post-marketing-intelligence-solutions",
+      "title": "Market intelligence solution – Make the right decisions",
+      "author": "Mridul GO MO",
+      "date": "2024-12-07",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/marketing-intelligence-solutions/"
+    },
+    {
+      "id": "post-brand-health-tracking",
+      "title": "Brand health tracking – Get the right insights",
+      "author": "Mridul GO MO",
+      "date": "2024-12-01",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/brand-health-tracking/"
+    },
+    {
+      "id": "post-impact-of-influencer-marketing",
+      "title": "How Influencer Marketing’s Impact Goes Beyond Engagement for Brand Growth",
+      "author": "Mridul GO MO",
+      "date": "2024-11-04",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/impact-of-influencer-marketing/"
+    },
+    {
+      "id": "post-whitespace-opportunities",
+      "title": "How to find your brand’s whitespace opportunities",
+      "author": "Mridul GO MO",
+      "date": "2024-10-01",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/whitespace-opportunities/"
+    },
+    {
+      "id": "post-creating-a-brand-identity-that-resonates-with-your-audience",
+      "title": "Creating a brand identity that resonates with your audience",
+      "author": "Mridul GO MO",
+      "date": "2024-10-01",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/creating-a-brand-identity-that-resonates-with-your-audience/"
+    },
+    {
+      "id": "post-brand-personality-faq",
+      "title": "Brand personality FAQ",
+      "author": "Mridul GO MO",
+      "date": "2024-10-01",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/brand-personality-faq/"
+    },
+    {
+      "id": "post-webinar-shaping-your-brands-personality",
+      "title": "Shaping your brand’s personality",
+      "author": "Mridul GO MO",
+      "date": "2024-10-01",
+      "excerpt": "One of the most effective ways to differentiate your business has always been to create a strong brand identity.",
+      "url": "https://nepa.com/blog/webinar-shaping-your-brands-personality/"
+    },
+    {
+      "id": "post-paths-to-purchase-what-is-it-and-why-should-brands-care",
+      "title": "Paths to purchase: What is it and why should brands care?",
+      "author": "Mridul GO MO",
+      "date": "2024-10-01",
+      "excerpt": "In the ever-evolving landscape of consumer behaviour, understanding the Paths to Purchase is crucial for brands aiming to connect with their audience and drive conversions.",
+      "url": "https://nepa.com/blog/paths-to-purchase-what-is-it-and-why-should-brands-care/"
+    },
+    {
+      "id": "post-path-to-purchase",
+      "title": "Path to Purchase; the Nepa approach",
+      "author": "Mridul GO MO",
+      "date": "2024-10-01",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/path-to-purchase/"
+    },
+    {
+      "id": "post-path-to-purchase-research",
+      "title": "Path to Purchase research; 4 tips for success",
+      "author": "Mridul GO MO",
+      "date": "2024-10-01",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/path-to-purchase-research/"
+    },
+    {
+      "id": "post-nepa-in-athens",
+      "title": "Nepa in Athens | ESOMAR Congress 2024",
+      "author": "Mridul GO MO",
+      "date": "2024-10-01",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/nepa-in-athens/"
+    },
+    {
+      "id": "post-data-quality-pledge",
+      "title": "Nepa’s data quality pledge",
+      "author": "gomo_dev",
+      "date": "2024-10-01",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/data-quality-pledge/"
+    },
+    {
+      "id": "post-the-young-esomar-society-awards-2024",
+      "title": "The Young ESOMAR Society awards 2024",
+      "author": "Mridul GO MO",
+      "date": "2024-09-18",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/the-young-esomar-society-awards-2024/"
+    },
+    {
+      "id": "post-nepa-after-iiex-2024",
+      "title": "Nepa at IIEX 2024",
+      "author": "Mridul GO MO",
+      "date": "2024-07-02",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/nepa-after-iiex-2024/"
+    },
+    {
+      "id": "post-how-to-position-your-brand-to-increase-share-and-distinctiveness",
+      "title": "How to position your brand to increase share and distinctiveness | Introducing Brand Touch 3.0",
+      "author": "Christoffer Steiser",
+      "date": "2024-05-03",
+      "excerpt": "Transforming insights into actionable measures is crucial for marketers and insights managers. To maximize the value of insights from Brand Trackers, MMMs, and Campaign Evaluations, brands should adopt strategic approaches. Key strategies include setting goal-driven objectives aligned with clear KPI",
+      "url": "https://nepa.com/blog/how-to-position-your-brand-to-increase-share-and-distinctiveness/"
+    },
+    {
+      "id": "post-10-years-of-nepa-in-finland",
+      "title": "10 years of Nepa in Finland",
+      "author": "Christoffer Steiser",
+      "date": "2024-04-24",
+      "excerpt": "Transforming insights into actionable measures is crucial for marketers and insights managers. To maximize the value of insights from Brand Trackers, MMMs, and Campaign Evaluations, brands should adopt strategic approaches. Key strategies include setting goal-driven objectives aligned with clear KPI",
+      "url": "https://nepa.com/blog/10-years-of-nepa-in-finland/"
+    },
+    {
+      "id": "post-transform-insights-into-action",
+      "title": "Transform insights into action",
+      "author": "Christoffer Steiser",
+      "date": "2024-04-23",
+      "excerpt": "Transforming insights into actionable measures is crucial for marketers and insights managers. To maximize the value of insights from Brand Trackers, MMMs, and Campaign Evaluations, brands should adopt strategic approaches. Key strategies include setting goal-driven objectives aligned with clear KPI",
+      "url": "https://nepa.com/blog/transform-insights-into-action/"
+    },
+    {
+      "id": "post-guide-to-building-a-cep-centric-marketing-strategy",
+      "title": "Nepa’s guide to building a Category Entry Point (CEP)-centric marketing strategy",
+      "author": "Christoffer Steiser",
+      "date": "2024-04-11",
+      "excerpt": "Nepa’s guide to building a Category Entry Points-centric marketing strategy emphasizes the importance of understanding and leveraging CEPs for brand success. By identifying key moments of consumer engagement, brands can create targeted strategies to drive conversions and maximize ROI.",
+      "url": "https://nepa.com/blog/guide-to-building-a-cep-centric-marketing-strategy/"
+    },
+    {
+      "id": "post-understanding-mental-availability",
+      "title": "Mental Availability: A key secret to brand growth",
+      "author": "Christoffer Steiser",
+      "date": "2024-03-13",
+      "excerpt": "In today’s competitive marketplace, understanding and enhancing Mental Availability is crucial for brand success. By focusing on strategies to increase brand recall and presence in consumers’ minds during relevant Category Entry Points, brands can strengthen their positioning and increase their like",
+      "url": "https://nepa.com/blog/understanding-mental-availability/"
+    },
+    {
+      "id": "post-memories-generate-sales",
+      "title": "Memories generate sales: Why your Brand Tracker needs to include Category Entry Points",
+      "author": "Christoffer Steiser",
+      "date": "2024-02-07",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/memories-generate-sales/"
+    },
+    {
+      "id": "post-what-are-category-entry-points-and-why-should-you-care-about-them-in-2024",
+      "title": "What are Category Entry Points, and why should you care about them in 2024?",
+      "author": "Christoffer Steiser",
+      "date": "2024-01-30",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/what-are-category-entry-points-and-why-should-you-care-about-them-in-2024/"
+    },
+    {
+      "id": "post-campaignpulse",
+      "title": "Unleash the power of CampaignPulse: Quick evaluations without compromising on quality",
+      "author": "Christoffer Steiser",
+      "date": "2023-11-28",
+      "excerpt": "Observation, sender recall, message comprehension, and liking are some of the key metrics collected by regular Campaign Evaluations. Did your consumer see your campaign? Did they know it was your brand? Did they understand the message you were trying to convey, and did it make them more likely to bu",
+      "url": "https://nepa.com/blog/campaignpulse/"
+    },
+    {
+      "id": "post-introducing-ai-trend-boost",
+      "title": "Introducing AI Trend Boost by Nepa: Make your brand tracking data go further",
+      "author": "Christoffer Steiser",
+      "date": "2023-10-04",
+      "excerpt": "Survey-led brand tracking is a constant trade-off between accuracy and cost. The larger the sample size, the more reliable the insights, but invariably the larger the budget required. Nepa’s AI Trend Boost is your solution. This revolutionary machine-learning based approach takes historical tracking",
+      "url": "https://nepa.com/blog/introducing-ai-trend-boost/"
+    },
+    {
+      "id": "post-esomar-congress-2023-papers",
+      "title": "ESOMAR Congress 2023 Paper",
+      "author": "Christoffer Steiser",
+      "date": "2023-09-22",
+      "excerpt": "If, after all of our posts, you’re interested in reading the full paper behind our ESOMAR Congress 2023 presentation ‘The New Marketing Renaissance’, you can find it below. ‘The New Marketing Renaissance: The merging of creative work and scientific evaluation of communication‘ was co-authored by Kar",
+      "url": "https://nepa.com/blog/esomar-congress-2023-papers/"
+    },
+    {
+      "id": "post-nepa-in-amsterdam",
+      "title": "Nepa in Amsterdam | ESOMAR Congress 2023",
+      "author": "Christoffer Steiser",
+      "date": "2023-09-15",
+      "excerpt": "ESOMAR Congress is over for another year, and what a Congress it was for Nepa. Artificial Intelligence was the buzz word of the week, with sessions on topics such as using predictive analytics and natural language processing to revolutionise your marketing strategy and unlocking travel’s new frontie",
+      "url": "https://nepa.com/blog/nepa-in-amsterdam/"
+    },
+    {
+      "id": "post-2023-rise-award-winner-nepa",
+      "title": "2023 RISE Award Winner: Nepa",
+      "author": "Christoffer Steiser",
+      "date": "2023-09-11",
+      "excerpt": "And our ESOMAR Congress continues to get better! Not only have two Nepians been chosen to impart some of their market research wisdom during the conference, but we’ve only gone and received an award! We are proud to announce that we won the Market Research Agency category (EMEA) in Dynata’s 2023 RIS",
+      "url": "https://nepa.com/blog/2023-rise-award-winner-nepa/"
+    },
+    {
+      "id": "post-nepa-at-esomar-congress-2023",
+      "title": "Nepa at ESOMAR Congress 2023",
+      "author": "Christoffer Steiser",
+      "date": "2023-08-16",
+      "excerpt": "It’s less than a month to this year’s ESOMAR Congress in Amsterdam, and we’re delighted to let you know you’ll have (possibly!) more than two chances to watch a Nepian in action. Monday 11th September, 09.25 The Supercharger Stage Nepa UK’s Data Scientist Valere Demelier is one of the finalists of t",
+      "url": "https://nepa.com/blog/nepa-at-esomar-congress-2023/"
+    },
+    {
+      "id": "post-why-continuous-brand-tracking",
+      "title": "Why continuous Brand Tracking?",
+      "author": "Christoffer Steiser",
+      "date": "2023-07-25",
+      "excerpt": "Many companies across the globe use Brand Tracking to monitor and measure the performance of their brands over time. It’s an important tool for long-term growth plans because it helps businesses understand how their brand is evolving and where they may need to adjust to stay relevant and competitive",
+      "url": "https://nepa.com/blog/why-continuous-brand-tracking/"
+    },
+    {
+      "id": "post-why-your-brand-tracking-sucks-and-how-to-fix-it",
+      "title": "Why your brand tracker sucks and how to fix it",
+      "author": "Christoffer Steiser",
+      "date": "2023-07-13",
+      "excerpt": "Greetings brand tracking lovers! Oh, are you not one of them? Well, you’re not alone. Many companies work with some sort of brand tracking tool to help them understand how consumers perceive their brand, and how their brand strength is developing. The results are often used in brand strategy develop",
+      "url": "https://nepa.com/blog/why-your-brand-tracking-sucks-and-how-to-fix-it/"
+    },
+    {
+      "id": "post-nepa-at-cannes-lions-festival-2023",
+      "title": "Nepa at Cannes Lions Festival 2023",
+      "author": "Christoffer Steiser",
+      "date": "2023-06-30",
+      "excerpt": "If you work in marketing, or a marketing adjacent field, then your LinkedIn feed has probably been full of Cannes Lions posts over the last couple of weeks. Between the 19th and 23rd of June, the Cannes Lions International Festival of Creativity returned to the The Palais in Cannes. The largest gath",
+      "url": "https://nepa.com/blog/nepa-at-cannes-lions-festival-2023/"
+    },
+    {
+      "id": "post-what-is-the-value-of-emotions",
+      "title": "What is the value of emotions for a brand?",
+      "author": "Christoffer Steiser",
+      "date": "2023-06-26",
+      "excerpt": "Cadbury’s 2007 “Gorilla” campaign was a remarkable display of the power of emotions. Instead of relying on a brand message, product offering, or category-specific benefits, they instead took a bold approach by focusing purely on evoking strong feelings. The ad featured the iconic Cadbury purple as a",
+      "url": "https://nepa.com/blog/what-is-the-value-of-emotions/"
+    },
+    {
+      "id": "post-embracing-ai-for-business-success",
+      "title": "Embracing AI for business success",
+      "author": "Christoffer Steiser",
+      "date": "2023-06-05",
+      "excerpt": "We are embarking on an exciting journey with our pioneering new artificial intelligence initiative. It’s part of our commitment to innovation, pushing the boundaries of what’s possible, and shaping the future of technology. By seamlessly integrating AI technologies into our operations we can unlock ",
+      "url": "https://nepa.com/blog/embracing-ai-for-business-success/"
+    },
+    {
+      "id": "post-unveiling-the-mystery-of-brand-tracking-the-top-questions-answered-by-trackers",
+      "title": "Unveiling the mystery of brand tracking: The top questions answered by trackers",
+      "author": "Christoffer Steiser",
+      "date": "2023-05-10",
+      "excerpt": "To kick off our series on the ins and outs of brand tracking we are starting with the basics. More specifically, the types of business questions a brand tracker can answer. In our perspective here at Nepa, brand tracking is an essential business tool to make informed business decisions. Unfortunatel",
+      "url": "https://nepa.com/blog/unveiling-the-mystery-of-brand-tracking-the-top-questions-answered-by-trackers/"
+    },
+    {
+      "id": "post-tres-brand-revamp-strategy-for-profitable-growth",
+      "title": "Tre’s brand revamp: Strategy for profitable growth",
+      "author": "Christoffer Steiser",
+      "date": "2023-05-02",
+      "excerpt": "This post was guest authored by Jim Carlberg, who most recently held the role as Head of Marketing for telecom operator Tre/3. “In early 2019, Tre had high brand awareness, but only 14% of the Swedish population would consider choosing us. Traditionally, we attracted customers with discounts, which ",
+      "url": "https://nepa.com/blog/tres-brand-revamp-strategy-for-profitable-growth/"
+    },
+    {
+      "id": "post-have-your-cake-and-eat-it-how-brand-building-campaigns-can-drive-both-short-and-long-term-sales",
+      "title": "Have your cake and eat it: How brand building campaigns can drive both short and long-term sales",
+      "author": "Christoffer Steiser",
+      "date": "2023-04-20",
+      "excerpt": "These days, many companies earmark separate budgets for long-term brand building and short-term sales activation. However, here at Nepa we have been seeing an increasing number of examples, both in our own data and other meta studies, that successful brand building creatives can drive short-term sal",
+      "url": "https://nepa.com/blog/have-your-cake-and-eat-it-how-brand-building-campaigns-can-drive-both-short-and-long-term-sales/"
+    },
+    {
+      "id": "post-the-nepa-marketing-insights-dinner-2023",
+      "title": "The Nepa Marketing & Insights Dinner 2023",
+      "author": "Christoffer Steiser",
+      "date": "2023-04-04",
+      "excerpt": "We recently held our annual Marketing & Insights dinner at the stunning Somerset House in London. It was an exclusive, invite-only event for marketing and insights leaders to network and exchange ideas. Brands such as Unilever, Heineken, and L’Oréal joined us for a gourmet three course dinner and re",
+      "url": "https://nepa.com/blog/the-nepa-marketing-insights-dinner-2023/"
+    },
+    {
+      "id": "post-how-tested-concepts-shape-our-favourite-genres",
+      "title": "How “Tested Concepts” Shape Our Favourite Genres",
+      "author": "Christoffer Steiser",
+      "date": "2023-03-31",
+      "excerpt": "Whether we realize it or not, many of our favourite movies, books, and TV shows adhere to certain “tested concepts” that have long-become associated with their respective genres. These ideas or themes have been proven successful in the past and are often replicated by creators looking to capitalise ",
+      "url": "https://nepa.com/blog/how-tested-concepts-shape-our-favourite-genres/"
+    },
+    {
+      "id": "post-what-is-brand-tracking-and-why-is-it-important",
+      "title": "What is Brand Tracking and why is it important?",
+      "author": "Christoffer Steiser",
+      "date": "2023-03-17",
+      "excerpt": "Brand Tracking is a vital ingredient in your marketing operations. Imagine setting up target goals, launching large and expensive campaigns, ramping up marketing costs and then crossing your fingers for the best. Sure, you can take your time and research your consumers’ behaviors and create a detail",
+      "url": "https://nepa.com/blog/what-is-brand-tracking-and-why-is-it-important/"
+    },
+    {
+      "id": "post-nepa-and-data-quality",
+      "title": "Nepa and data quality",
+      "author": "Christoffer Steiser",
+      "date": "2023-02-07",
+      "excerpt": "There has been a lot of talk in the industry recently regarding poor data quality. High reversal rates (project deliveries that are deemed fraudulent) have been seen by many market research companies across the globe, and have affected consumer confidence. So what’s causing these reversals? The simp",
+      "url": "https://nepa.com/blog/nepa-and-data-quality/"
+    },
+    {
+      "id": "post-brand-associations",
+      "title": "What are Brand Associations?",
+      "author": "Christoffer Steiser",
+      "date": "2023-01-06",
+      "excerpt": "Brand associations are the qualities, image, emotions, and concepts attached to your brand. These can be lots of different things, from images and symbols to colours and people. Think Nike’s swoosh. Some of the most memorable brands in the world have brand associations that are emotional: When think",
+      "url": "https://nepa.com/blog/brand-associations/"
+    },
+    {
+      "id": "post-touchpoint-strength-tracker",
+      "title": "What is a Touchpoint Strength Tracker?",
+      "author": "Christoffer Steiser",
+      "date": "2022-12-13",
+      "excerpt": "In a world full of rapid changes, being able to make fast, data-driven decisions has never been more important. Our Touchpoint Strength Tracker (TST) is the essential tool to provide the necessary information needed for your planning team to make smarter investment decisions on a continuous basis. T",
+      "url": "https://nepa.com/blog/touchpoint-strength-tracker/"
+    },
+    {
+      "id": "post-customer-journey",
+      "title": "Customer journey agency: Guiding brands to smarter growth",
+      "author": "Christoffer Steiser",
+      "date": "2022-11-07",
+      "excerpt": "At Nepa, we know that understanding the customer journey is not just about tracking a few touchpoints — it’s about unlocking deep insights into the emotions, motivations, and barriers that drive customer behavior. As a leading customer journey agency, we help brands transform scattered interactions ",
+      "url": "https://nepa.com/blog/customer-journey/"
+    },
+    {
+      "id": "post-brand-performance-explained",
+      "title": "Brand Performance Explained: Importance & Strategies",
+      "author": "Christoffer Steiser",
+      "date": "2022-11-03",
+      "excerpt": "At Nepa, we strive to improve the performance of your brand through a variety of market research strategies. It can be carried out to improve success in the long term. What is brand performance marketing? Brand performance marketing, also known as brand purpose marketing, focuses on improving your b",
+      "url": "https://nepa.com/blog/brand-performance-explained/"
+    },
+    {
+      "id": "post-complete-guide-to-online-brand-research",
+      "title": "A Complete Guide To Online Brand Research",
+      "author": "Christoffer Steiser",
+      "date": "2022-11-01",
+      "excerpt": "Conducting online brand research is an important process to improve your customer and user experience. It can be very helpful to increase the understanding of your audience and their needs, as well as develop positive strategies. What is online brand research? Online brand research involves processe",
+      "url": "https://nepa.com/blog/complete-guide-to-online-brand-research/"
+    },
+    {
+      "id": "post-how-to-create-a-buyer-journey-map",
+      "title": "Buyer Journey Mapping: How to Create One",
+      "author": "Christoffer Steiser",
+      "date": "2022-10-31",
+      "excerpt": "What is a client journey map? A client journey map, also called a user experience journey map or buyer journey map, is a name for the process of defining and mapping out the journey or steps that your consumers go through. This process goes from your customer finding your product or service through ",
+      "url": "https://nepa.com/blog/how-to-create-a-buyer-journey-map/"
+    },
+    {
+      "id": "post-what-is-the-value-proposition-canvas",
+      "title": "What Is The Value Proposition Canvas?",
+      "author": "Christoffer Steiser",
+      "date": "2022-10-25",
+      "excerpt": "When interpreting consumer data insights, it’s essential that it translates into usable and understandable information. The clearer the information is, the better change you have of understanding what makes your consumers tick. In 2022, consumers are becoming increasingly complex to understand, and ",
+      "url": "https://nepa.com/blog/what-is-the-value-proposition-canvas/"
+    },
+    {
+      "id": "post-how-to-measure-advertising-effectiveness",
+      "title": "Measuring Advertising Effectiveness: A Guide by Nepa",
+      "author": "Christoffer Steiser",
+      "date": "2022-10-23",
+      "excerpt": "It’s very important that you are able to measure the effectiveness of your advertising campaigns to see how they match with your marketing and business goals. It allows marketeers to see the impact of their outreach and advertising campaigns identifying how to improve their advertising effectiveness",
+      "url": "https://nepa.com/blog/how-to-measure-advertising-effectiveness/"
+    },
+    {
+      "id": "post-what-is-brand-value",
+      "title": "What is brand value in marketing? A complete guide",
+      "author": "Christoffer Steiser",
+      "date": "2022-10-18",
+      "excerpt": "For many years, businesses focus on building up their products and services to increase revenue. However, global businesses now focus on increasing their brand awareness and brand value through their long-term marketing strategies. But what exactly is brand value, and why is it so important in today",
+      "url": "https://nepa.com/blog/what-is-brand-value/"
+    },
+    {
+      "id": "post-unlock-the-full-value-of-your-media",
+      "title": "Unlock the full value of your media",
+      "author": "gomo_dev",
+      "date": "2022-10-02",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/unlock-the-full-value-of-your-media/"
+    },
+    {
+      "id": "post-nepa-x-meta-whitepaper-2022",
+      "title": "Nepa x Meta Whitepaper 2022",
+      "author": "gomo_dev",
+      "date": "2022-10-02",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/nepa-x-meta-whitepaper-2022/"
+    },
+    {
+      "id": "post-nepa-x-meta-whitepaper-2020",
+      "title": "Nepa x Meta Whitepaper 2020",
+      "author": "gomo_dev",
+      "date": "2022-10-02",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/nepa-x-meta-whitepaper-2020/"
+    },
+    {
+      "id": "post-is-your-brand-a-hero-or-villain",
+      "title": "Is your brand a hero or villain?",
+      "author": "gomo_dev",
+      "date": "2022-09-19",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/is-your-brand-a-hero-or-villain/"
+    },
+    {
+      "id": "post-generation-alpha",
+      "title": "Generation Alpha – The Start Of Something New",
+      "author": "Christoffer Steiser",
+      "date": "2022-08-23",
+      "excerpt": "Welcome to Generation Alpha. At Nepa, understanding people is at the heart of everything we do. As a leading insights agency, we pride ourselves on our deep curiosity and passion for decoding human behavior. But what happens when the people we’re trying to understand are not yet adults, but already ",
+      "url": "https://nepa.com/blog/generation-alpha/"
+    },
+    {
+      "id": "post-how-to-prove-marketing-is-an-investment-not-a-cost",
+      "title": "How to prove marketing is an investment, not a cost",
+      "author": "Christoffer Steiser",
+      "date": "2022-07-25",
+      "excerpt": "With global inflation increasing and the cost-of-living crisis dominating the news, it’s not a surprise that some companies are considering cutting their marketing budgets. In fact, the UK Government has even suggested that companies cut the prices for consumers using money they would otherwise use ",
+      "url": "https://nepa.com/blog/how-to-prove-marketing-is-an-investment-not-a-cost/"
+    },
+    {
+      "id": "post-how-to-get-the-biggest-slice-of-the-meat-free-pie",
+      "title": "How to get the biggest slice of the meat-free pie",
+      "author": "Christoffer Steiser",
+      "date": "2022-06-28",
+      "excerpt": "”In the midst of every crisis, lies great opportunity” – Albert Einstein. This old adage has never felt as relevant than with the current boom we are witnessing in sustainability that has emerged from the global climate crisis. From climate pledges to EV vehicles, brands are racing to position thems",
+      "url": "https://nepa.com/blog/how-to-get-the-biggest-slice-of-the-meat-free-pie/"
+    },
+    {
+      "id": "post-what-is-dynamic-marketing-intelligence",
+      "title": "What is dynamic marketing intelligence, and why do you need to know about it?",
+      "author": "Christoffer Steiser",
+      "date": "2022-06-24",
+      "excerpt": "If you were alive in the 18th century you would have been aware of ‘the longitude problem’. A huge issue at the time, it meant that without the ability to measure longitude sailors became lost as soon as they got into open waters. Determining longitude on land was fairly easy compared to the task on",
+      "url": "https://nepa.com/blog/what-is-dynamic-marketing-intelligence/"
+    },
+    {
+      "id": "post-marketing-research-consulting",
+      "title": "Market research consulting services",
+      "author": "Christoffer Steiser",
+      "date": "2022-06-13",
+      "excerpt": "Nepa provides market research consulting services to leading organisations. Our offering encompasses a broad range of consumer insights solutions to help businesses grow and become more profitable. What is market research consulting and analysis? Market research consultants are experts at conducting",
+      "url": "https://nepa.com/blog/marketing-research-consulting/"
+    },
+    {
+      "id": "post-quirks-london-2022",
+      "title": "What consumers and shoppers want from brands in the future",
+      "author": "Christoffer Steiser",
+      "date": "2022-05-13",
+      "excerpt": "Nepa’s UK Managing Director Lindsay Parry was at the Quirk’s Event London 2022 last week hosting a fascinating panel discussion featuring BV Pradeep, former Global VP – Consumer & Market Insight at Unilever and Jeannine Ferguson, Marketing & Innovation Director at sustainable packaging specialists D",
+      "url": "https://nepa.com/blog/quirks-london-2022/"
+    },
+    {
+      "id": "post-https-insights-nepa-com-webinar-mo-0hs_previewngqmzmry-72589978776",
+      "title": "Nepa at Quirk’s London: An event for Marketing Research and Insight Professionals",
+      "author": "Christoffer Steiser",
+      "date": "2022-05-03",
+      "excerpt": "What do consumers and shoppers want from brands in the future? Together with Unilever and DS Smith we’ll answer this question at Quirk’s London. Join our session to find out what we should be planning to make sure our brands are future proofed. With an Insights and Marketing expert perspective we’ll",
+      "url": "https://nepa.com/blog/https-insights-nepa-com-webinar-mo-0hs_previewngqmzmry-72589978776/"
+    },
+    {
+      "id": "post-ott-video-streaming-future",
+      "title": "What lies ahead for OTT video?",
+      "author": "Christoffer Steiser",
+      "date": "2022-04-12",
+      "excerpt": "With annual revenues for over-the-top (OTT) video streaming platforms projected to reach €427 billion by 20261, competition for customers is fierce. At a time when energy costs and inflation are putting a squeeze on disposable incomes, having the right streaming product with the right content at the",
+      "url": "https://nepa.com/blog/ott-video-streaming-future/"
+    },
+    {
+      "id": "post-future-trends",
+      "title": "Looking into a crystal ball: future trends in FMCG and Retail",
+      "author": "Christoffer Steiser",
+      "date": "2022-03-24",
+      "excerpt": "The food and beverages industry has seen much development in its approach to sustainability, and our recent study has revealed just how far people are prepared to go (or not to go) to support sustainable products in food and drink. We asked 5,600 consumers in seven large markets: United Kingdom, Uni",
+      "url": "https://nepa.com/blog/future-trends/"
+    },
+    {
+      "id": "post-tydy",
+      "title": "Tydy and Nepa Collab – Onboarding, Productivity and Diversity",
+      "author": "Christoffer Steiser",
+      "date": "2022-02-28",
+      "excerpt": "Onboarding, Productivity, Diversity and a Changing World of Work Tydy, Employee Experience Platform shares latest insights into employee behavior and sentiment Qualitative & Quantitative Research powered by Nepa India Pvt Ltd MUMBAI, India (February 28th, 2022) – As a leading Employee Experience sol",
+      "url": "https://nepa.com/blog/tydy/"
+    },
+    {
+      "id": "post-future-consumer-coverage",
+      "title": "New Food Magazine, Sustainable Packaging News & Bakery and Snacks",
+      "author": "Christoffer Steiser",
+      "date": "2022-02-22",
+      "excerpt": "LONDON, United Kingdom (February 19th, 2022) – Nepa spoke to over 5,600 consumers around the world to find out their views on what they think will happen for the next 10 years. One of the topics was food, packaging and sustainability – see articles below. Click to read the full articles here: New Fo",
+      "url": "https://nepa.com/blog/future-consumer-coverage/"
+    },
+    {
+      "id": "post-ott-india",
+      "title": "That’s so OTT! The fast-changing media landscape in India",
+      "author": "Christoffer Steiser",
+      "date": "2022-02-15",
+      "excerpt": "In 2021, approximately 2.2 billion people used OTT streaming services worldwide, growing from 1.9 billion in 20191. When we talk about Over-the-top (OTT) media, we mean a streaming service offered directly to viewers via the Internet. These services bypass the traditional distributors of media servi",
+      "url": "https://nepa.com/blog/ott-india/"
+    },
+    {
+      "id": "post-understanding-consumers",
+      "title": "Understanding consumers: what gets them to the checkout",
+      "author": "Christoffer Steiser",
+      "date": "2022-01-28",
+      "excerpt": "Path to purchase, Role of Search and Marketing Mix Modelling Depending on what your brand is selling, the way to drive consumers’ purchase varies greatly. The approach towards a purchase is different depending on what the product is. For example people that are looking to buy a new expensive tech ga",
+      "url": "https://nepa.com/blog/understanding-consumers/"
+    },
+    {
+      "id": "post-brand-impact",
+      "title": "Nepa Brand Impact Series",
+      "author": "Christoffer Steiser",
+      "date": "2022-01-26",
+      "excerpt": "Insights are crucial for brands and it’s essential to know what to measure and how to measure it. During the last couple of months we have published 4 blog posts about brand – the Nepa Brand Impact Series by Robert Beatus, Head of R&D and John Palm, Senior Analyst R&D. Read the entire series",
+      "url": "https://nepa.com/blog/brand-impact/"
+    },
+    {
+      "id": "post-brand-strength",
+      "title": "How to measure your brand strength",
+      "author": "Christoffer Steiser",
+      "date": "2022-01-14",
+      "excerpt": "The US Engineer W. Edwards Deming once said, “just because you can measure everything, doesn’t mean you should”. In other words, if you’re training to run a marathon you would be interested in measuring your time and resistance, and not in how much you can bench press. Only by knowing what metrics a",
+      "url": "https://nepa.com/blog/brand-strength/"
+    },
+    {
+      "id": "post-coverage-digital-doughnut-whos-winning-christmas",
+      "title": "Coverage – Digital Doughnut – Who’s Winning Christmas?",
+      "author": "Christoffer Steiser",
+      "date": "2021-12-30",
+      "excerpt": "LONDON, United Kingdom (December 30th, 2021) – Lindsay Parry, Managing Director Nepa UK, shares the top three festive brand mascots, according to consumers. Click to read the full article here: Who’s Winning Christmas? – Digital Doughnut Want to know more? Contact us today and our brand experts will",
+      "url": "https://nepa.com/blog/coverage-digital-doughnut-whos-winning-christmas/"
+    },
+    {
+      "id": "post-forget-me-not-stand-out",
+      "title": "Forget me not, how to stand out and be remembered",
+      "author": "Christoffer Steiser",
+      "date": "2021-12-16",
+      "excerpt": "According to Greek mythology, Zeus was naming all things on earth. Just when he thought he had finished, a tiny blue flower shouted, “forget me not!”. Just like these flowers, brands that want to be noticed and remembered need to fight for attention. Brand salience is a brand’s mental availability i",
+      "url": "https://nepa.com/blog/forget-me-not-stand-out/"
+    },
+    {
+      "id": "post-bnr",
+      "title": "Block Background Noise – Make Your Brand Data Accurate & Actionable",
+      "author": "Christoffer Steiser",
+      "date": "2021-12-10",
+      "excerpt": "Brand tracking is important. A continuous and holistic measurement of brand health and communications helps brands to face today’s challenges, such as a fragmented media landscape, differentiation and creating distinctive brand assets. But let’s face it, brand tracking isn’t always precise enough. D",
+      "url": "https://nepa.com/blog/bnr/"
+    },
+    {
+      "id": "post-introduction-to-brand-touch",
+      "title": "Introduction to Brand Touch – are you Batman or the Joker?",
+      "author": "Christoffer Steiser",
+      "date": "2021-11-30",
+      "excerpt": "Every good story has a hero and a villain. We can all picture the hero being brave, honest, and altruistic. While the villain often has less likeable traits. However, the bad guy can still appeal to our emotional side. To the point where we sometimes prefer the underdog to the knight in shining armo",
+      "url": "https://nepa.com/blog/introduction-to-brand-touch/"
+    },
+    {
+      "id": "post-realitymine-webinar",
+      "title": "Nepa & RealityMine Webinar – Drive Growth: Strategic Marketing Insights",
+      "author": "Christoffer Steiser",
+      "date": "2021-11-26",
+      "excerpt": "Webinar: How to drive growth with strategic marketing insights by Kalle Backlund, Head of MMM and Kit Sandford, Head of Analytics. 14th December at 3pm UK time, 4 pm CET. Nepa and RealityMine invite you to a webinar about “How to drive growth with strategic marketing insights”. There are several dif",
+      "url": "https://nepa.com/blog/realitymine-webinar/"
+    },
+    {
+      "id": "post-brand-sustainability-for-indian-consumers",
+      "title": "The meaning of sustainability for Indian consumers",
+      "author": "Christoffer Steiser",
+      "date": "2021-11-08",
+      "excerpt": "An increasing number of brands consider sustainability an integral part of their business and communications strategy. After all, sustainable life on earth is widely considered as the most critical issue of our time, for governments, society, and organisations. When it comes to the ‘green’ agenda, t",
+      "url": "https://nepa.com/blog/brand-sustainability-for-indian-consumers/"
+    },
+    {
+      "id": "post-coverage-customer-experience-magazine-how-can-advertisers-maximise-social-media-potential",
+      "title": "Coverage: Customer Experience Magazine",
+      "author": "Christoffer Steiser",
+      "date": "2021-10-25",
+      "excerpt": "How can advertisers maximise social media potential?",
+      "url": "https://nepa.com/blog/coverage-customer-experience-magazine-how-can-advertisers-maximise-social-media-potential/"
+    },
+    {
+      "id": "post-marketing-society",
+      "title": "Marketing Society article by Robert Beatus: New challenges, simple solutions",
+      "author": "Christoffer Steiser",
+      "date": "2021-10-21",
+      "excerpt": "LONDON, United Kingdom (October 21st, 2021) – Robert Beatus, Head of R&D at Nepa, shares why it’s mandatory for brands to stand out in Marketing Society article New challenges, simple solutions. Read Robert’s thoughts on brand distinctiveness and the importance of having clear and consistent communi",
+      "url": "https://nepa.com/blog/marketing-society/"
+    },
+    {
+      "id": "post-path-to-purchase-is-never-linear",
+      "title": "A consumer’s Path to Purchase is never linear",
+      "author": "Christoffer Steiser",
+      "date": "2021-10-19",
+      "excerpt": "Understanding the Omnichannel Path to Purchase is no longer a nice to have, but a must have if you’re to truly succeed in aligning strategy with the drivers of growth such as: Where and how to increase penetration, where and how to drive impulse purchases? Where and how to increase trade up spend? W",
+      "url": "https://nepa.com/blog/path-to-purchase-is-never-linear/"
+    },
+    {
+      "id": "post-mtv-insights-studio-and-nepa-collaboration-mtv-youth-study",
+      "title": "MTV Insights Studio and Nepa collaboration – MTV Youth Study",
+      "author": "Christoffer Steiser",
+      "date": "2021-10-13",
+      "excerpt": "MTV Insights Studio launches MTV Youth Study 2021 ‘Atmanirbhar by Circumstance’ A go-to handbook on all things Gen Z for marketers and brand custodians Quantitative Research powered by Nepa India Pvt Ltd MUMBAI, India (October 13th, 2021) – As India’s No. 1 youth brand and a domain leader for more t",
+      "url": "https://nepa.com/blog/mtv-insights-studio-and-nepa-collaboration-mtv-youth-study/"
+    },
+    {
+      "id": "post-coverage-digital-donut-nail-your-media-investment",
+      "title": "Coverage – Digital Donut – Nail your media investment",
+      "author": "Christoffer Steiser",
+      "date": "2021-10-10",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/coverage-digital-donut-nail-your-media-investment/"
+    },
+    {
+      "id": "post-nepa-brandtouch-sustainability-study-india",
+      "title": "Emerging Sustainability Avatars in India – Nepa BrandTouch Sustainability Study",
+      "author": "Christoffer Steiser",
+      "date": "2021-09-30",
+      "excerpt": "An increasing number of brands consider sustainability an integral part of their business strategy and communication. And with good reason: sustainable life on Earth is widely regarded as the fundamental issue of our time, for governments, individuals – and organizations. One of our latest initiativ",
+      "url": "https://nepa.com/blog/nepa-brandtouch-sustainability-study-india/"
+    },
+    {
+      "id": "post-svenska-spel",
+      "title": "Svenska Spel Selects Nepa for Brand Tracking & Campaign Measurement",
+      "author": "Christoffer Steiser",
+      "date": "2021-09-20",
+      "excerpt": "STOCKHOLM, Sweden (September 21st, 2021) – Nepa, a leading Consumer Research and analytics company, has been chosen by Svenska Spel Tur to implement and run a continuous brand tracking and campaign measurement program to help Svenska Spel Tur understand and develop its brands and monitor competitor ",
+      "url": "https://nepa.com/blog/svenska-spel/"
+    },
+    {
+      "id": "post-mango-chooses-nepa",
+      "title": "Mango partners with Nepa for brand tracking and campaign measurement",
+      "author": "Christoffer Steiser",
+      "date": "2021-07-20",
+      "excerpt": "LONDON, United Kingdom (July 20th, 2021) – International fashion retailer Mango has partnered with brand health experts Nepa for brand tracking and campaign measurement in 5 key markets across Europe and the US. Nepa will track consumer perceptions of the brand and its competitors to help Mango’s br",
+      "url": "https://nepa.com/blog/mango-chooses-nepa/"
+    },
+    {
+      "id": "post-willingness-to-pay",
+      "title": "Talk the language of the C-suite",
+      "author": "Christoffer Steiser",
+      "date": "2021-07-08",
+      "excerpt": "Our last blog talked about the need to streamline the KPIs your business measures to cut out the overwhelming noise of data and make communicating insights across your business less complicated. So, what is the best KPI to measure and communicate to help keep things simple and maximise impact? Nail ",
+      "url": "https://nepa.com/blog/willingness-to-pay/"
+    },
+    {
+      "id": "post-keeping-brand-kpis-simple",
+      "title": "Keeping brand KPIs simple",
+      "author": "Christoffer Steiser",
+      "date": "2021-06-18",
+      "excerpt": "A simple Google search for ‘brand measurement’ will provide you with countless websites explaining the ’10 critical brand measurement KPIs you should be measuring’ or the ’12 metrics you need to measure brand awareness’. Each company website or platform you visit will explain the importance of using",
+      "url": "https://nepa.com/blog/keeping-brand-kpis-simple/"
+    },
+    {
+      "id": "post-how-to-increase-brand-awareness",
+      "title": "How to increase brand awareness",
+      "author": "Christoffer Steiser",
+      "date": "2021-05-24",
+      "excerpt": "At Nepa, we are experts in how to increase brand awareness. We understand that building a strong brand goes beyond simply being recognized. True brand awareness means consumers not only know your brand — they feel something real for it. Positive feelings, loyalty, and emotional engagement are what d",
+      "url": "https://nepa.com/blog/how-to-increase-brand-awareness/"
+    },
+    {
+      "id": "post-benefits-of-path-to-purchase-analysis",
+      "title": "Benefits of Path to Purchase Analysis",
+      "author": "Christoffer Steiser",
+      "date": "2021-05-03",
+      "excerpt": "The path to purchase in today’s omnichannel world is difficult to navigate and can be a nightmare for companies wanting to understand how their consumers interact with their products or services. What touchpoints did the consumer encounter before a purchase and which of these had the greatest impact",
+      "url": "https://nepa.com/blog/benefits-of-path-to-purchase-analysis/"
+    },
+    {
+      "id": "post-brand-research-what-is-it-why-is-it-important",
+      "title": "Brand research: What is it & why is it important?",
+      "author": "Christoffer Steiser",
+      "date": "2021-04-16",
+      "excerpt": "Brand research is essential if you want to find out your brand’s health and get a better understanding of how your customers perceive it. By conducting continuous brand research you will gain a competitive advantage and can adjust the positioning of your brand to attract more customers. What is bran",
+      "url": "https://nepa.com/blog/brand-research-what-is-it-why-is-it-important/"
+    },
+    {
+      "id": "post-power-up-your-marketing-mix-with-brand-expertise-and-data-science",
+      "title": "Power-up your Marketing Mix with brand expertise and data science",
+      "author": "Christoffer Steiser",
+      "date": "2021-02-19",
+      "excerpt": "What do you get when you combine continuous brand measurements and advanced modelling with true brand experts? The short answer is, a state of the art marketing mix model from a company that wants to see you succeed. Whether you already know about our proven track record or found us from a Google Se",
+      "url": "https://nepa.com/blog/power-up-your-marketing-mix-with-brand-expertise-and-data-science/"
+    },
+    {
+      "id": "post-varner-chooses-nepa-for-their-brand-tracking-program",
+      "title": "Varner chooses Nepa for their brand tracking program",
+      "author": "Christoffer Steiser",
+      "date": "2021-01-29",
+      "excerpt": "STOCKHOLM, Sweden (May 20th, 2020) – Nepa, a leading Consumer Research and analytics company, providing insight solutions to drive brand and sales by increasing marketing effectiveness, has been chosen by Varner to implement and run a brand tracking program to help Varner understand how its own bran",
+      "url": "https://nepa.com/blog/varner-chooses-nepa-for-their-brand-tracking-program/"
+    },
+    {
+      "id": "post-kindred-chooses-nepa-for-their-brand-tracking-program",
+      "title": "Kindred Extends Brand Tracking & Player Insight Partnership with Nepa",
+      "author": "Christoffer Steiser",
+      "date": "2021-01-29",
+      "excerpt": "Increase marketing effectiveness through deeper understanding. STOCKHOLM, Sweden (May 26th, 2020) – Nepa, a leading Consumer Research and analytics company, providing insight solutions to drive brand and sales by increasing marketing effectiveness, has extended its long-term collaboration with Kindr",
+      "url": "https://nepa.com/blog/kindred-chooses-nepa-for-their-brand-tracking-program/"
+    },
+    {
+      "id": "post-get-to-know-your-customers-with-brand-health-tracking",
+      "title": "Get to know your customers with brand health tracking",
+      "author": "Christoffer Steiser",
+      "date": "2021-01-20",
+      "excerpt": "Brand health tracking is a key tool for marketers who wants to understand and really get to know both existing and potential customers. Setting ambitious goals and launching big marketing campaigns without knowing the health of your brand can be detrimental moving forward. But keeping track of how y",
+      "url": "https://nepa.com/blog/get-to-know-your-customers-with-brand-health-tracking/"
+    },
+    {
+      "id": "post-nepa-brandtouch-sustainability-study",
+      "title": "Sustainability for the new decade- Nepa BrandTouch Sustainability study",
+      "author": "Christoffer Steiser",
+      "date": "2020-12-11",
+      "excerpt": "An increasing number of brands consider sustainability an integral part of their business strategy and communication. And with good reason: sustainable life on Earth is widely regarded as the fundamental issue of our time, for governments, individuals – and organizations. One of our latest initiativ",
+      "url": "https://nepa.com/blog/nepa-brandtouch-sustainability-study/"
+    },
+    {
+      "id": "post-about-customer-experience",
+      "title": "About Customer Experience",
+      "author": "Christoffer Steiser",
+      "date": "2020-11-17",
+      "excerpt": "“If you make customers unhappy in the physical world, they might each tell six friends. If you make customers unhappy on the Internet, they can each tell 6,000 friends.” Jeff Bezos, CEO Amazon Understanding what makes customers happy is vital to drive good brand health. If you create a great custome",
+      "url": "https://nepa.com/blog/about-customer-experience/"
+    },
+    {
+      "id": "post-driving-long-term-and-short-term-sales-using-facebook-and-instagram-advertising",
+      "title": "Driving long-term and short-term sales using Facebook and Instagram advertising",
+      "author": "Christoffer Steiser",
+      "date": "2020-10-06",
+      "excerpt": "Social media platforms are used by one-in-three people in the world and more than two thirds of all internet users. Social media is becoming more and more important in our everyday lives, creating new potential for brand and sales opportunities. But how can you, as an advertiser, unlock that potenti",
+      "url": "https://nepa.com/blog/driving-long-term-and-short-term-sales-using-facebook-and-instagram-advertising/"
+    },
+    {
+      "id": "post-the-consumer-narrative-and-what-matters-covid-edition",
+      "title": "The consumer narrative and what matters- Covid edition",
+      "author": "Christoffer Steiser",
+      "date": "2020-06-10",
+      "excerpt": "Moving beyond the latest consumer trends we have been reading about : CONSCIOUS SHOPPING : PURCHASES CENTERED AROUND BASIC NEEDS LEARN & PLAY : DIGITAL IS THE WAY VIRTUAL WORKFORCE: THE NEW NORMAL AN ALWAYS-ON DIGITAL CONSUMPTION: SCREENS ALL THE WAY To understand more about the consumer narrative a",
+      "url": "https://nepa.com/blog/the-consumer-narrative-and-what-matters-covid-edition/"
+    },
+    {
+      "id": "post-brandtracking-willingness-to-pay",
+      "title": "Outsmart competitors by tracking willingness to pay",
+      "author": "Christoffer Steiser",
+      "date": "2020-05-19",
+      "excerpt": "The actual purpose with most companies’ brand investments is to create an incremental value for its customers. Traditional brand tracking KPIs are not able to quantify and translate this value into a financial number, making it difficult for brands to follow up on their investments properly. At Nepa",
+      "url": "https://nepa.com/blog/brandtracking-willingness-to-pay/"
+    },
+    {
+      "id": "post-nepas-syndicated-6-month-video-game-tracker-with-coronavirus-addons",
+      "title": "Nepa’s syndicated 6-month video game tracker with Coronavirus addons",
+      "author": "Christoffer Steiser",
+      "date": "2020-04-23",
+      "excerpt": "Why start a video game tracker now? The coronavirus pandemic is currently causing the world enormous suffering and sacrifice, with far-reaching personal, societal, political and financial ramifications. In the ongoing crisis, many industries face rapid and dramatic changes in consumer demand, attitu",
+      "url": "https://nepa.com/blog/nepas-syndicated-6-month-video-game-tracker-with-coronavirus-addons/"
+    },
+    {
+      "id": "post-tracking-healthcare-service-performance-using-nepas-updated-customer-experience-tracker",
+      "title": "Tracking healthcare service performance using Nepas customer experience tracker",
+      "author": "Christoffer Steiser",
+      "date": "2020-04-21",
+      "excerpt": "To ensure that users are consistently offered a great service, continuously measuring patient experience during the crisis is imperative. Nepa have therefore developed a holistic service performance tracker that enables you to assess how you are performing versus the competing digital healthcare ser",
+      "url": "https://nepa.com/blog/tracking-healthcare-service-performance-using-nepas-updated-customer-experience-tracker/"
+    },
+    {
+      "id": "post-striking-the-right-tone-with-communication-pre-testing",
+      "title": "Nepa’s Communication Pre-testing: Striking the Right Tone",
+      "author": "Christoffer Steiser",
+      "date": "2020-03-30",
+      "excerpt": "Here is a PDF describing Nepa’s thoughts and solutions on how to make sure you have the right tone of voice in your communication. Download PDF: Striking the right tone of voice",
+      "url": "https://nepa.com/blog/striking-the-right-tone-with-communication-pre-testing/"
+    },
+    {
+      "id": "post-navigating-the-covid-19-world",
+      "title": "Navigating the COVID-19 world",
+      "author": "Christoffer Steiser",
+      "date": "2020-03-20",
+      "excerpt": "Here is a PDF describing Nepa’s thoughts on how to approach market research and opportunities during COVID-19. Download PDF: Navigating the COVID-19 world",
+      "url": "https://nepa.com/blog/navigating-the-covid-19-world/"
+    },
+    {
+      "id": "post-optimize-your-marketing-budget-with-marketing-mix-modeling",
+      "title": "Optimize your marketing budget with Marketing Mix Modelling",
+      "author": "Christoffer Steiser",
+      "date": "2020-03-05",
+      "excerpt": "﻿In today’s world, making sure your marketing budget is optimally utilised across all channels and target groups is no small task. That’s why our Marketing Mix Modelling has a modern flair to ensure the best outcome for every campaign. Today’s customers expect brands to use a personalized approach, ",
+      "url": "https://nepa.com/blog/optimize-your-marketing-budget-with-marketing-mix-modeling/"
+    },
+    {
+      "id": "post-brand-tracking-is-key-to-increase-brand-awareness",
+      "title": "Brand Tracking is key to increase Brand Awareness",
+      "author": "Christoffer Steiser",
+      "date": "2020-02-24",
+      "excerpt": "The old saying “out of sight – out of mind” is never as true as when it comes to brand awareness. The brands that consumers are continuously exposed to are the ones that stay top of mind. But how do you know your target audience’s brand awareness, if you don’t use brand tracking? What is",
+      "url": "https://nepa.com/blog/brand-tracking-is-key-to-increase-brand-awareness/"
+    },
+    {
+      "id": "post-brand-tracking-your-most-valuable-marketing-tool",
+      "title": "Brand tracking – your most valuable marketing tool",
+      "author": "Christoffer Steiser",
+      "date": "2020-02-12",
+      "excerpt": "If you are new to marketing, or have just taken over a brand, then your first order of business should be to start brand tracking. Knowing the health of your and is a fundamental component when making business decisions. In the field of marketing there are lots of different activities and tasks you ",
+      "url": "https://nepa.com/blog/brand-tracking-your-most-valuable-marketing-tool/"
+    },
+    {
+      "id": "post-qa-with-virgin-voyages-dir-of-sailor-experience-christopher-stubbs",
+      "title": "Q&A with Virgin Voyages Dir. of Sailor Experience, Christopher Stubbs",
+      "author": "Christoffer Steiser",
+      "date": "2020-02-10",
+      "excerpt": "Captain Branson? That’s right – Sir Richard Branson is getting into the cruise business. Virgin Voyages sets sail in April 2020 offering a unique “Adult-by-Design” experience that allows Sailors to chart their personal course across the great ocean blue. Where tranquility meets curiosity. Restorativ",
+      "url": "https://nepa.com/blog/qa-with-virgin-voyages-dir-of-sailor-experience-christopher-stubbs/"
+    },
+    {
+      "id": "post-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets",
+      "title": "Global Brand GANT selects Nepa as Brand Tracking Provider in Markets",
+      "author": "Christoffer Steiser",
+      "date": "2020-02-04",
+      "excerpt": "Understand and increase marketing effectiveness through deeper understanding of the market. STOCKHOLM, Sweden (Feb 4th, 2020) – Nepa, a leading Consumer Research and analytics company, providing insight solutions to drive brand and sales by increasing marketing effectiveness, has been chosen by GANT",
+      "url": "https://nepa.com/blog/global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets/"
+    },
+    {
+      "id": "post-we-know-cx-is-a-game-changer-and-here-is-a-study-that-proves-it",
+      "title": "CX is a game changer – here is why",
+      "author": "Christoffer Steiser",
+      "date": "2020-01-26",
+      "excerpt": "In an ever-increasing competitive world, companies need to find their forward momentum in something more than traditional marketing, sales and distribution. We at Nepa found CX Customer Experience to be that competitive edge. A recent study discovered that companies who have truly embraced customer ",
+      "url": "https://nepa.com/blog/we-know-cx-is-a-game-changer-and-here-is-a-study-that-proves-it/"
+    },
+    {
+      "id": "post-the-brand-metrics-that-actually-matter",
+      "title": "The 8 Brand Tracking Metrics Every CMO Should Track",
+      "author": "Christoffer Steiser",
+      "date": "2019-11-04",
+      "excerpt": "Most brand dashboards are full. Awareness, consideration, NPS, share of voice, sentiment score, engagement rate, time on site – the list grows every quarter. And yet, when a CMO asks “is our brand getting stronger?”, nobody has a clean answer. That’s not a data problem. That’s a metrics problem. Bra",
+      "url": "https://nepa.com/blog/the-brand-metrics-that-actually-matter/"
+    },
+    {
+      "id": "post-the-cx-loyalty-metrics-that-actually-matter",
+      "title": "The CX Loyalty Metrics that Actually Matter",
+      "author": "Christoffer Steiser",
+      "date": "2019-10-25",
+      "excerpt": "A key challenge of implementing a CX program is demonstrating its value up and down the organization. To do that, you have to show that it delivers results. There are no shortage of metrics available, but that’s part of the challenge: big data doesn’t always mean big insights. How do you identify th",
+      "url": "https://nepa.com/blog/the-cx-loyalty-metrics-that-actually-matter/"
+    },
+    {
+      "id": "post-forrester-weighs-in-on-marketing-measurement-and-optimization",
+      "title": "Forrester weighs in on marketing measurement and optimization",
+      "author": "Christoffer Steiser",
+      "date": "2019-10-16",
+      "excerpt": "We were eager to see Forrester’s latest Now Tech: Marketing Measurement and Optimization Solutions, Q3 2019 report that was released last month. In part because we were hoping to see Nepa included in the vendor list (Spoiler Alert, we were!) but also because the report helps to increase understandin",
+      "url": "https://nepa.com/blog/forrester-weighs-in-on-marketing-measurement-and-optimization/"
+    },
+    {
+      "id": "post-why-a-recession-is-a-good-time-to-ramp-up-marketing",
+      "title": "Why a recession is a good time to ramp up marketing",
+      "author": "Christoffer Steiser",
+      "date": "2019-10-10",
+      "excerpt": "After a record 10-years plus of economic growth, the U.S. and other parts of the developed world are starting to worry about recession. If history is any guide, many retailers and CPGs will take a close look at their marketing spend as a potential source of savings should growth falter. In doing so,",
+      "url": "https://nepa.com/blog/why-a-recession-is-a-good-time-to-ramp-up-marketing/"
+    },
+    {
+      "id": "post-cx-business-value-starts-with-buy-in",
+      "title": "CX Business Value Starts with Buy In",
+      "author": "Christoffer Steiser",
+      "date": "2019-09-27",
+      "excerpt": "By now it’s well established that a CX program, properly executed, can reenergize organizations and transform the customer experience. Getting the technology in the door is relatively straightforward, but before CX can work its data-driven magic you need management buy in. Based on our experience we",
+      "url": "https://nepa.com/blog/cx-business-value-starts-with-buy-in/"
+    },
+    {
+      "id": "post-the-win-win-proposition",
+      "title": "The Win-Win Proposition",
+      "author": "Christoffer Steiser",
+      "date": "2019-08-02",
+      "excerpt": "Sports teams have an advantage other businesses generally don’t have: an unusually loyal and enthusiastic customer base. But that doesn’t mean they don’t require attention… Business intelligence and analytics are the new frontier for sports franchises. While it’s become commonplace to use big data t",
+      "url": "https://nepa.com/blog/the-win-win-proposition/"
+    },
+    {
+      "id": "post-old-clubs-leading-the-way-with-new-fan-driven-approach",
+      "title": "Old Clubs Leading the Way with New Fan-driven Approach",
+      "author": "Christoffer Steiser",
+      "date": "2019-07-16",
+      "excerpt": "I’ve been fortunate to attend two conferences this summer in the great sports town of Chicago. The Intersport Sports Brand and Engagement Summit run by the Sports Business Journal and the excellent 29th Annual ALSD Conference and Tradeshow brought sports organization leaders together with companies ",
+      "url": "https://nepa.com/blog/old-clubs-leading-the-way-with-new-fan-driven-approach/"
+    },
+    {
+      "id": "post-successful-voc-programs-include-services-and-other-insights-from-forrester-voc-report",
+      "title": "Successful Programs: Services & Insights from Forrester VoC Report",
+      "author": "Christoffer Steiser",
+      "date": "2019-07-12",
+      "excerpt": "Is your Voice of the Customer program speaking to you? Or are you spending more and getting less than you expected? In a recent report advising CX leaders on when and how to transition Voice of Customer (VoC) vendors, Forrester CX Analyst, Faith Adams, suggested starting with a services partner to m",
+      "url": "https://nepa.com/blog/successful-voc-programs-include-services-and-other-insights-from-forrester-voc-report/"
+    },
+    {
+      "id": "post-cx-and-brand-better-together",
+      "title": "CX and Brand: Better Together",
+      "author": "Christoffer Steiser",
+      "date": "2019-06-26",
+      "excerpt": "Whatever happened to Brand? In the rush to embrace customer experience (CX), it’s become something of a marketing orphan. Our research shows that just 6% of companies are currently using Brand as an input for their CX strategy. But consumers don’t make the same distinction. They associate CX with Br",
+      "url": "https://nepa.com/blog/cx-and-brand-better-together/"
+    },
+    {
+      "id": "post-cxs-second-act-value-creation",
+      "title": "CX’s second act – Value Creation",
+      "author": "Christoffer Steiser",
+      "date": "2019-06-18",
+      "excerpt": "If you want to know where the CX industry is headed, there is no place better than Forrester’s CX conference! #CXNYC was no exception. It was great to learn from CX practitioners and heartening to see everyone talking about, and getting ready for, CX’s second act. Here are three themes that really s",
+      "url": "https://nepa.com/blog/cxs-second-act-value-creation/"
+    },
+    {
+      "id": "post-shopper-centric-p2p-analytics",
+      "title": "Shopper-centric P2P Analytics",
+      "author": "Christoffer Steiser",
+      "date": "2019-06-17",
+      "excerpt": "Defining the emerging role of Path to Purchase Analytics and its impact on winning shoppers and growing categories. Download “Shopper-centric P2P Analytics” eBook today This eBook introduces Path to Purchase Analytics, a new discipline that locates the shopper at the heart of the insights process, p",
+      "url": "https://nepa.com/blog/shopper-centric-p2p-analytics/"
+    },
+    {
+      "id": "post-3-key-takeaways-from-confirmits-4th-annual-b2b-summit",
+      "title": "3 Key Takeaways from Confirmit’s 4th Annual B2B Summit",
+      "author": "Christoffer Steiser",
+      "date": "2019-06-17",
+      "excerpt": "Confirmit hosted their 4th Annual B2B Summit focused on one prominent and inspiring theme– how to be a CX Rockstar. Whether you are knee deep in CX strategy or just starting out, everyone faces challenges on how to take the big next step. Even those who are running advanced CX measurement programs a",
+      "url": "https://nepa.com/blog/3-key-takeaways-from-confirmits-4th-annual-b2b-summit/"
+    },
+    {
+      "id": "post-do-it-yourself-cx-software-what-you-dont-know-can-cost-you",
+      "title": "Do-it-Yourself CX Software: What you don’t know can cost you",
+      "author": "Christoffer Steiser",
+      "date": "2019-06-06",
+      "excerpt": "In advance of next week’s Forrester conference – CX NYC: Change the Game – Leading Radical CX Innovation – we caught up with Nepa US Managing Director Ken Peterson to discuss a critical issue in CX – why Do-it-Yourself systems often aren’t as cost-effective as advertised and how the human element ma",
+      "url": "https://nepa.com/blog/do-it-yourself-cx-software-what-you-dont-know-can-cost-you/"
+    },
+    {
+      "id": "post-7-trends-from-the-2019-path-to-purchase-summit",
+      "title": "7 Trends from the 2019 Path to Purchase Summit",
+      "author": "Christoffer Steiser",
+      "date": "2019-05-29",
+      "excerpt": "The 2019 Path to Purchase Summit hosted leaders from Consumer Goods and Retail in Fort Lauderdale around the theme of “Unraveling the Complexity of Today’s Commerce Through Collaboration” Nepa was featured in the Solutions Gallery – demonstrating the role of shopper-centric Path to Purchase Analytic",
+      "url": "https://nepa.com/blog/7-trends-from-the-2019-path-to-purchase-summit/"
+    },
+    {
+      "id": "post-3-key-takeaways-from-cxpas-insights-exchange-2019",
+      "title": "3 Key Takeaways from CXPA’s Insights Exchange 2019",
+      "author": "Christoffer Steiser",
+      "date": "2019-05-29",
+      "excerpt": "Last week, Nepa sponsored the Insights Exchange 2019 in Salt Lake City. The theme of “Moving Mountains” was quite fitting and while there were many positive takeaways, I found the following insights to be the most impactful between the presentations and conversations I had with peers: 1. Customer Ex",
+      "url": "https://nepa.com/blog/3-key-takeaways-from-cxpas-insights-exchange-2019/"
+    },
+    {
+      "id": "post-cx-the-art-behind-the-science",
+      "title": "CX: The Art Behind the Science",
+      "author": "Christoffer Steiser",
+      "date": "2019-05-08",
+      "excerpt": "CX measurement software has made it possible for virtually any company to collect feedback from its customers and distribute it to the organization. The efficiency and scalability of customer experience input has been welcomed by CX practitioners and insight professionals – attracting multi-billion-",
+      "url": "https://nepa.com/blog/cx-the-art-behind-the-science/"
+    },
+    {
+      "id": "post-brand-is-back",
+      "title": "Brand is back",
+      "author": "Christoffer Steiser",
+      "date": "2019-04-29",
+      "excerpt": "For marketers, tactics often trump brand as companies seek new ways to track and activate short-term sales. There’s nothing wrong with that; we’ve written extensively on the benefits of omnichannel path-to-purchase analytics in this regard. But it does overlook one key point: when investing in commu",
+      "url": "https://nepa.com/blog/brand-is-back/"
+    },
+    {
+      "id": "post-catch-the-second-wave",
+      "title": "Catch the Second Wave",
+      "author": "Christoffer Steiser",
+      "date": "2019-04-10",
+      "excerpt": "When digital commerce began its ascent, it looked like we were living in a binary world: Online vs. offline, with the smart money mostly on the former. In the first wave of Omnichannel (more like a “dual” channel), Amazon was going to take over the brick and mortar universe as all commerce went digi",
+      "url": "https://nepa.com/blog/catch-the-second-wave/"
+    },
+    {
+      "id": "post-thriving-in-a-transformational-time",
+      "title": "Thriving in a Transformational Time",
+      "author": "Christoffer Steiser",
+      "date": "2019-04-09",
+      "excerpt": "This year’s Food Marketing Conference at Western Michigan University focused on the ongoing transformation of the industry, which is being driven by the maturation of omnichannel shopping behaviors and expectations. Below are some important takeaways that resonated with me during my time at the conf",
+      "url": "https://nepa.com/blog/thriving-in-a-transformational-time/"
+    },
+    {
+      "id": "post-lessons-from-retail-smarter-2019-university-of-florida",
+      "title": "Lessons From Retail Smarter 2019 – University of Florida",
+      "author": "Christoffer Steiser",
+      "date": "2019-04-05",
+      "excerpt": "Occasionally it’s good to go back to school. Last week, I had the opportunity to attend Retail Smarter 2019 at the University of Florida in Gainesville. As we read about the retail apocalypse, with as many as 5,800 stores already scheduled to close in 2019, it would be easy to say that retail is dea",
+      "url": "https://nepa.com/blog/lessons-from-retail-smarter-2019-university-of-florida/"
+    },
+    {
+      "id": "post-omnichannel-revolution-requires-new-marketing-measurement",
+      "title": "Omnichannel Revolution Requires New Marketing Measurement",
+      "author": "Christoffer Steiser",
+      "date": "2019-04-04",
+      "excerpt": "The new solutions that help marketers thrive Marketing measurement and analytics needs a new playbook. Learn how understanding the new omnichannel Path to Purchase and a revamped Marketing Mix Modelling strategy can tee up your organization for success in today’s omnichannel environment. Enjoy the f",
+      "url": "https://nepa.com/blog/omnichannel-revolution-requires-new-marketing-measurement/"
+    },
+    {
+      "id": "post-when-season-ticket-holders-dont-renew",
+      "title": "When Season Ticket Holders Don’t Renew",
+      "author": "Christoffer Steiser",
+      "date": "2019-04-02",
+      "excerpt": "Getting repeat customers is the holy grail of most businesses, and what’s better for that than a sports fan and season ticket holder? Fan loyalty is huge, and for many franchises tickets are hard to come by. In some cases, families pass them down from generation to generation. So when fans stop rene",
+      "url": "https://nepa.com/blog/when-season-ticket-holders-dont-renew/"
+    },
+    {
+      "id": "post-empower-employees-win-customers",
+      "title": "Empower Employees Win Customers",
+      "author": "Christoffer Steiser",
+      "date": "2019-03-20",
+      "excerpt": "Win in the Age of the Customer with Empowered Employees Learn how measurement and analytics can lead a winning customer strategy by empowering employees with the information that matters most to meeting customer needs. Enjoy the following sections: – Introduction from Jan Carlzon, former SAS CEO and",
+      "url": "https://nepa.com/blog/empower-employees-win-customers/"
+    },
+    {
+      "id": "post-does-your-sports-strategy-rely-too-much-on-gameday-tactics",
+      "title": "Does Your Sports Strategy Rely Too Much on GameDay Tactics?",
+      "author": "Christoffer Steiser",
+      "date": "2019-03-15",
+      "excerpt": "“Strategy without tactics is the slowest route to victory. Tactics without strategy is the noise before defeat.” Sun Tzu, Art of War Since starting with Nepa Global Sports, I’ve been fortunate to attend many great professional sports conferences and seminars around the country. I’ve met great leader",
+      "url": "https://nepa.com/blog/does-your-sports-strategy-rely-too-much-on-gameday-tactics/"
+    },
+    {
+      "id": "post-tackling-your-2019-marketing-kpis-with-a-unified-approach",
+      "title": "Tackling Your 2019 Marketing KPIs With a Unified Approach",
+      "author": "Christoffer Steiser",
+      "date": "2019-03-07",
+      "excerpt": "“How do you really feel about me?” It’s an awkward question in a relationship. It’s also a difficult one for most brands to answer, but it can be key to a successful campaign. The problem is most brands don’t even bother to ask. Research has shown that as much as 95% of purchasing decisions are",
+      "url": "https://nepa.com/blog/tackling-your-2019-marketing-kpis-with-a-unified-approach/"
+    },
+    {
+      "id": "post-my-3-key-takeaways-the-national-grocers-association-show-2019",
+      "title": "3 Key Takeaways from The National Grocers Association Show 2019",
+      "author": "Christoffer Steiser",
+      "date": "2019-03-04",
+      "excerpt": "As someone who has worked in the customer experience space for over 20 years, across multiple industries, I was happy to bring it back home to my earlier days by attending this year’s NGA Show in San Diego. Right away it was easy to see what a great representation this year’s conference was in showc",
+      "url": "https://nepa.com/blog/my-3-key-takeaways-the-national-grocers-association-show-2019/"
+    },
+    {
+      "id": "post-former-sas-ceo-jan-carlzon-on-empowered-employees-and-customer-centric-growth",
+      "title": "Former SAS CEO, on Empowered Employees and Customer-Centric Growth",
+      "author": "Christoffer Steiser",
+      "date": "2019-02-21",
+      "excerpt": "My philosophy is that every department has one objective: develop customer satisfaction by meeting customer needs. Everything else – operations, marketing, finance – should be organized around this principle. For most companies, this is easy to say but hard to achieve. Most are not organized around ",
+      "url": "https://nepa.com/blog/former-sas-ceo-jan-carlzon-on-empowered-employees-and-customer-centric-growth/"
+    },
+    {
+      "id": "post-5-key-takeaways-national-sports-forum-2019",
+      "title": "5 Key Takeaways – National Sports Forum 2019",
+      "author": "Christoffer Steiser",
+      "date": "2019-02-19",
+      "excerpt": "I recently attended my first National Sports Forum in Las Vegas and, Wow – what an event for the sports business enthusiast! It’s a big show and I was fortunate to have a veteran tour guide, Steve Livingstone, Head of Nepa Global Sports. As Steve and I reflected on the seminars and conversations, he",
+      "url": "https://nepa.com/blog/5-key-takeaways-national-sports-forum-2019/"
+    },
+    {
+      "id": "post-3-signs-your-diy-cx-measurement-is-weakening-your-cx-strategy",
+      "title": "3 Signs Your DIY CX Measurement is Weakening Your CX Strategy",
+      "author": "Christoffer Steiser",
+      "date": "2019-02-13",
+      "excerpt": "Developing a customer experience strategy is easier said than done. It’s a process that needs to be built on a strong foundation, and your measurement will continuously guide the broader CX strategy. As companies grow and evolve, resources are needed to evaluate current performance and chart the pat",
+      "url": "https://nepa.com/blog/3-signs-your-diy-cx-measurement-is-weakening-your-cx-strategy/"
+    },
+    {
+      "id": "post-making-good-things-happen-on-the-omnichannel-path-to-purchase",
+      "title": "Making good things happen on the omnichannel path to purchase",
+      "author": "Christoffer Steiser",
+      "date": "2019-02-01",
+      "excerpt": "The old proverb has it that “good things come to those who wait”. According to the Internet, Abraham Lincoln added “but only what’s left by those who hustle.” Whether Lincoln said that or not, the point remains: Waiting for shoppers to find your brand is not a winning strategy. Today, only a few bra",
+      "url": "https://nepa.com/blog/making-good-things-happen-on-the-omnichannel-path-to-purchase/"
+    },
+    {
+      "id": "post-brand-health-measurement-developing-your-brands-core-strength",
+      "title": "Brand Health Measurement: Developing Your Brand’s Core Strength",
+      "author": "Christoffer Steiser",
+      "date": "2018-11-20",
+      "excerpt": "Performance marketing KPIs get a lot of attention these days, and that’s understandable. But, if that’s all you’re looking at, you might remind us of the guy at the gym who only works on his biceps. Real strength is core strength, and the right way to improve it is through brand health tracking. Her",
+      "url": "https://nepa.com/blog/brand-health-measurement-developing-your-brands-core-strength/"
+    },
+    {
+      "id": "post-the-future-of-marketing-mix-modelling",
+      "title": "The Future of Marketing Mix Modelling",
+      "author": "Christoffer Steiser",
+      "date": "2018-11-09",
+      "excerpt": "Marketing Mix Modelling has been available for over 30 years–but it’s now come into a new age brought forward by massive changes in the media landscape, easy access to large troves of data, advances in methodology and a greater need for organizations to optimize their marketing spends. In this white",
+      "url": "https://nepa.com/blog/the-future-of-marketing-mix-modelling/"
+    },
+    {
+      "id": "post-natural-skincare-manufacturer-liz-earle-maximizes-profit-with-nepas-pricing-optimization-tools",
+      "title": "Liz Earle maximizes Profit with Nepa’s Pricing Optimization Tools",
+      "author": "Christoffer Steiser",
+      "date": "2018-11-02",
+      "excerpt": "﻿Data-driven decision-making results in £1,200,000 profit increase Stockholm, Sweden Nepa, a leading Consumer Science company providing customer experience insights and marketing optimization solutions, has released the results of a data analytics project with skincare manufacturer Liz Earle. Using ",
+      "url": "https://nepa.com/blog/natural-skincare-manufacturer-liz-earle-maximizes-profit-with-nepas-pricing-optimization-tools/"
+    },
+    {
+      "id": "post-why-investing-in-fan-insights-is-a-smart-play",
+      "title": "Why Investing In Fan Insights Is a Smart Play",
+      "author": "Christoffer Steiser",
+      "date": "2018-10-24",
+      "excerpt": "Sports fans are extremely passionate and typically quick to give you their thoughts about a certain player or team. However, many sports teams and organizations do not capitalize on this passion and generosity by asking their supporters about the experience of being a fan. As a result, fan experienc",
+      "url": "https://nepa.com/blog/why-investing-in-fan-insights-is-a-smart-play/"
+    },
+    {
+      "id": "post-dressmann-release",
+      "title": "Dressmann Chooses Nepa for Customer Experience Measurement",
+      "author": "Christoffer Steiser",
+      "date": "2018-10-09",
+      "excerpt": "Holistic CX measurement solution and extensive retail experience leads to another client partnership Stockholm Nepa, a leading Consumer Science company providing customer experience and marketing optimization solutions, has been chosen by Dressmann to provide continuous customer experience insights.",
+      "url": "https://nepa.com/blog/dressmann-release/"
+    },
+    {
+      "id": "post-time-to-assess-your-cx-measurement-program",
+      "title": "Time to Assess your CX Measurement Program?",
+      "author": "Christoffer Steiser",
+      "date": "2018-09-27",
+      "excerpt": "As we post this blog, our industry is celebrating CX Day 2018 and gathering at the Forrester CX Forum in San Francisco. These events will surely cause many CX Professionals to reflect on the value that CX measurement brings to the business – but really, we should always be challenging ourselves to b",
+      "url": "https://nepa.com/blog/time-to-assess-your-cx-measurement-program/"
+    },
+    {
+      "id": "post-5-traits-to-strive-for-in-a-brand-health-measurement-program",
+      "title": "5 Traits To Strive For in a Brand Health Measurement Program",
+      "author": "Christoffer Steiser",
+      "date": "2018-09-19",
+      "excerpt": "Brands are dynamic entities – never static. Marketing professionals need to nurture them and provide constant attention to support their development and protect them from threats. Marketers must act like parents and maintain responsibility for their brand even when it is owned by consumers out in th",
+      "url": "https://nepa.com/blog/5-traits-to-strive-for-in-a-brand-health-measurement-program/"
+    },
+    {
+      "id": "post-the-4-keys-to-mastering-path-to-purchase",
+      "title": "The 4 Keys To Mastering Path to Purchase",
+      "author": "Christoffer Steiser",
+      "date": "2018-09-10",
+      "excerpt": "Key #1 – True Omnichannel Understanding As digital’s presence grew over the past two decades as both a marketing medium and a sales platform, many businesses created digital incubators which later hardened into silos. Meanwhile, physical channels of the same businesses – often representing 90%+ of e",
+      "url": "https://nepa.com/blog/the-4-keys-to-mastering-path-to-purchase/"
+    },
+    {
+      "id": "post-plantagen-release",
+      "title": "Plantagen, European specialty retailer, announces customer experience partnership with Nepa.",
+      "author": "Christoffer Steiser",
+      "date": "2018-09-04",
+      "excerpt": "﻿Retailers seeking an advantage over local competition turn to Nepa’s Consumer Science Platform Stockholm Nepa, a leading consumer science platform providing customer experience insights and marketing optimization solutions, is pleased to announce a new customer experience engagement with Plantagen.",
+      "url": "https://nepa.com/blog/plantagen-release/"
+    },
+    {
+      "id": "post-nepa-expands-into-global-sports-signs-u-s-based-industry-veteran-to-lead-charge",
+      "title": "Nepa Expands: Signs U.S. Based Industry Veteran to Lead Charge",
+      "author": "Christoffer Steiser",
+      "date": "2018-08-22",
+      "excerpt": "Nepa appoints sports industry veteran, Steve Livingstone, to build on growth of Nepa’s Consumer Science Platform in the global sports market. New York, NY Nepa, a leading Consumer Science company providing customer experience insights and marketing optimization solutions, confirms its commitment to ",
+      "url": "https://nepa.com/blog/nepa-expands-into-global-sports-signs-u-s-based-industry-veteran-to-lead-charge/"
+    },
+    {
+      "id": "post-awesomeness-in-omnichannel-summer-2018",
+      "title": "Awesomeness in Omnichannel | Summer 2018",
+      "author": "Christoffer Steiser",
+      "date": "2018-08-21",
+      "excerpt": "As consumers become more connected, some companies are embracing Omnichannel better than others and reshaping the way we do business. Here’s Nepa’s summer round up of our favorite Onmichannel examples in the marketplace. Domino’s Heats Up Summer With “HotSpots” What’s better than pressing a few butt",
+      "url": "https://nepa.com/blog/awesomeness-in-omnichannel-summer-2018/"
+    },
+    {
+      "id": "post-how-to-embrace-the-retail-revolution",
+      "title": "How to Embrace the Retail Revolution",
+      "author": "Christoffer Steiser",
+      "date": "2018-08-02",
+      "excerpt": "Dramatic changes in technology and shopper expectations are fueling a revolution in the retail industry. Retailers that embrace the change and meet today’s omnichannel demands will emerge victorious. Matt Nitzberg, Nepa’s Chief Client Officer, recently opened the Retail Revolution Summit at the Shop",
+      "url": "https://nepa.com/blog/how-to-embrace-the-retail-revolution/"
+    },
+    {
+      "id": "post-psyonix-acclaimed-video-game-developer-selects-nepa-for-global-brand-measurement-insights",
+      "title": "Psyonix Selects Nepa for Global Brand Measurement Insights",
+      "author": "Christoffer Steiser",
+      "date": "2018-07-31",
+      "excerpt": "﻿Nepa will measure brand KPIs of Rocket League® and Psyonix sponsorships on a continuous basis in five strategic markets – US, UK, Germany, France, and Spain. July 31th, 2018 New York, NY Nepa US Inc. announces today that they have been selected by Psyonix to provide Brand & Ad Tracking research for",
+      "url": "https://nepa.com/blog/psyonix-acclaimed-video-game-developer-selects-nepa-for-global-brand-measurement-insights/"
+    },
+    {
+      "id": "post-path-to-purchase-connecting-the-dots-in-the-new-era-of-shopping",
+      "title": "Path to Purchase – Connecting Dots in the “New Era of Shopping”",
+      "author": "Christoffer Steiser",
+      "date": "2018-05-31",
+      "excerpt": "Recently we covered the basics of Path to Purchase in our Q&A with Matt Nitzberg. This week, we’re talking to Lindsay Cowan – who was invited to speak on understanding Omnichannel shoppers at the upcoming ESOMAR Shopper Experience Summit (June 6th, Amsterdam.) Lindsay provides us a great preview of ",
+      "url": "https://nepa.com/blog/path-to-purchase-connecting-the-dots-in-the-new-era-of-shopping/"
+    },
+    {
+      "id": "post-customer-experience-learnings-cxpa-insight-exchange",
+      "title": "Important Customer Experience Learnings From The CXPA Insight Exchange",
+      "author": "Christoffer Steiser",
+      "date": "2018-05-22",
+      "excerpt": "It’s been two weeks since we’ve returned from New Orleans where we connected with over 300 other customer experience professionals at the 2018 CXPA Insight Exchange. The overarching theme during this two day event was to create business value – something that we really relate to at Nepa. A keynote d",
+      "url": "https://nepa.com/blog/customer-experience-learnings-cxpa-insight-exchange/"
+    },
+    {
+      "id": "post-path-purchase-whats-new-emerging",
+      "title": "Path to Purchase – What’s New and Emerging",
+      "author": "Christoffer Steiser",
+      "date": "2018-05-18",
+      "excerpt": "Shopper Marketing expert Matt Nitzberg recently joined Nepa as the Chief Client Officer of Nepa US. Matt brings a wealth of global experience helping marketers make better decisions. To help understand the dramatic changes in shoppers’ journey to buy products and services, we sat down with Matt for ",
+      "url": "https://nepa.com/blog/path-purchase-whats-new-emerging/"
+    },
+    {
+      "id": "post-radio-advertising-from-good-to-great",
+      "title": "Radio Advertising – from Good to Great",
+      "author": "Christoffer Steiser",
+      "date": "2018-05-17",
+      "excerpt": "﻿If you’ve lost sleep wondering how to make your radio advertisements great and missed the recent MTG breakfast seminar (perhaps due to the lost sleep), we’ve compiled three keys to make great radio advertising. This isn’t fluff – Nepa and MTG radio have analyzed over 170 radio ads on 70 dimensions ",
+      "url": "https://nepa.com/blog/radio-advertising-from-good-to-great/"
+    },
+    {
+      "id": "post-common-mistakes-will-make-radio-ad-flop",
+      "title": "Common mistakes that will make your radio ad flop!",
+      "author": "Christoffer Steiser",
+      "date": "2018-05-17",
+      "excerpt": "Nepa and MTG radio recently analyzed over 170 radio ads on 70 dimensions each to determine what makes, or breaks, a radio ad. In this post, we give you three clear tips on how to avoid creating a radio ad that makes for difficult conversations with your boss. When you’re done, be sure to pop",
+      "url": "https://nepa.com/blog/common-mistakes-will-make-radio-ad-flop/"
+    },
+    {
+      "id": "post-cx-next-recap-empathy-emergence-money",
+      "title": "CX Next Recap: Empathy, Emergence, and Money",
+      "author": "Christoffer Steiser",
+      "date": "2018-05-11",
+      "excerpt": "As Customer Experience (CX) professionals gather in New Orleans for the Customer Experience Professionals Association (CXPA) 2018 Insight Exchange, I’m still reflecting on key themes from the recent CX Next 2018 conference in Boston. This exclusive event, which Nepa was honored to Chair, featured he",
+      "url": "https://nepa.com/blog/cx-next-recap-empathy-emergence-money/"
+    },
+    {
+      "id": "post-oriflame-choose-nepa-insight-partner",
+      "title": "Nepa insight partner to Oriflame",
+      "author": "Christoffer Steiser",
+      "date": "2018-01-30",
+      "excerpt": "Oriflame choose Nepa as insight partner for global brand research. There is a common denominator among successful brands. They all know how to get their brand to really deliver. Oriflame has chosen Nepa to help them continuously track and explain trends and the wills and actions of their customers a",
+      "url": "https://nepa.com/blog/oriflame-choose-nepa-insight-partner/"
+    },
+    {
+      "id": "post-value-magical-experience",
+      "title": "The value of a magical experience!",
+      "author": "Christoffer Steiser",
+      "date": "2018-01-12",
+      "excerpt": "Both of my sons’ hands where all sweaty as they looked up at the huge snow-clad mountain. You could see the desire and fear battling in their eyes. Was it fun, was it dark, what would happen, was it to scary? You could see the result of the battle shifting as they heard the laughs",
+      "url": "https://nepa.com/blog/value-magical-experience/"
+    },
+    {
+      "id": "post-learn-world-class-cx-leaders-come-together",
+      "title": "What you learn when world class CX leaders come together",
+      "author": "Christoffer Steiser",
+      "date": "2018-01-11",
+      "excerpt": "As the holiday spirit swept into New York in early December, Nepa hosted a round table discussion with CX leaders from the retail, hospitality and entertainment industries. Companies that are on the top of their games. Literally the Louisville City FC had just been crowned USL Champions, while a nat",
+      "url": "https://nepa.com/blog/learn-world-class-cx-leaders-come-together/"
+    },
+    {
+      "id": "post-steal-foot-traffic-competitors",
+      "title": "How to steal foot traffic from competitors",
+      "author": "Christoffer Steiser",
+      "date": "2017-12-12",
+      "excerpt": "Know what drives customers to walk by your competitor’s store and into yours, to drive more visits and more sales What is it that Draws shoppers to stores in less convenient locations? I mean, if convenience was the only deciding factor, that would never happen. How can you as a retailer understand ",
+      "url": "https://nepa.com/blog/steal-foot-traffic-competitors/"
+    },
+    {
+      "id": "post-local-new-global-customer-feedback",
+      "title": "Local is the New Global – Using Customer Feedback to grow",
+      "author": "Christoffer Steiser",
+      "date": "2017-11-17",
+      "excerpt": "Customer feedback is the data resource for monumental growth. Enjoy the interview in theaboutpages.com page 14-16 of Ken Peterson, Managing Director, Nepa USA by Régine Smith, Director of Marketing, SurveyGizmo. The Big Data and Analytics sub-sector is experiencing rapid growth, growing at a blister",
+      "url": "https://nepa.com/blog/local-new-global-customer-feedback/"
+    },
+    {
+      "id": "post-data-everywhere-insights-not-found",
+      "title": "Data Everywhere – Insights Not Found",
+      "author": "Christoffer Steiser",
+      "date": "2017-11-01",
+      "excerpt": "Why should we be looking at insights to inform our decisions? The simple answer, money. It’s that time of year again and I’m receiving campaign mailers for local elections for two towns. I don’t live in either one. While I’m honored that they think my “vote is important”, I can’t vote in either elec",
+      "url": "https://nepa.com/blog/data-everywhere-insights-not-found/"
+    },
+    {
+      "id": "post-modelling-marketing-strategy-sell-pizza",
+      "title": "Modelling marketing strategy to sell more pizza",
+      "author": "Christoffer Steiser",
+      "date": "2017-10-30",
+      "excerpt": "The time when “trust your gut” was a decisive factor in developing marketing plans is over. With 30 consecutive months of growth and sales up by 18% on a YTM basis, the Finnish pizza franchise Kotipizza has proved that recurrent and detailed review of marketing efforts and media investments provides",
+      "url": "https://nepa.com/blog/modelling-marketing-strategy-sell-pizza/"
+    },
+    {
+      "id": "post-measure-really-matters-facebook-perspective",
+      "title": "Measure what really matters – Facebook perspective",
+      "author": "Christoffer Steiser",
+      "date": "2017-10-23",
+      "excerpt": "The nature of the consumer journeys are getting more complex to understand and new digital advertising products will completely change the role of what traditionally have been seen as the possibilities of digital advertising. This puts high pressure on having reliable measurement solutions focusing ",
+      "url": "https://nepa.com/blog/measure-really-matters-facebook-perspective/"
+    },
+    {
+      "id": "post-advertising-must-always-questioned",
+      "title": "The impact of advertising must always be questioned",
+      "author": "Christoffer Steiser",
+      "date": "2017-08-10",
+      "excerpt": "Online advertising is no exception. As P&G Co wants every dollar to add value for their consumers or their stakeholders, they just cut more than $100 million in digital marketing spend in a quarter. They report seeing little impact on their business. P&G’s move to cut its digital ad spend is a bold ",
+      "url": "https://nepa.com/blog/advertising-must-always-questioned/"
+    },
+    {
+      "id": "post-retailers-use-big-data-bolster-growth",
+      "title": "Local retailers can use Big Data to bolster growth",
+      "author": "Christoffer Steiser",
+      "date": "2017-07-17",
+      "excerpt": "Amid a shift to online consumer spending, more than twice as many traditional brick and mortar retail outfits have shut shop through the first quarter, compared to the same period in 2016, according to Credit Suisse, which noted roughly 2,880 store closings by early April, compared to 1,153 during t",
+      "url": "https://nepa.com/blog/retailers-use-big-data-bolster-growth/"
+    },
+    {
+      "id": "post-predict-future-big-data",
+      "title": "We can predict the future",
+      "author": "Christoffer Steiser",
+      "date": "2017-07-11",
+      "excerpt": "A bold statement indeed, but not unjustified. Within the context of big data, it is conceivable that sooner rather than later, we will be able to accurately predict the future in big business. And here’s why. Big data has come of age… Or has it? As many people reading this will be aware, much has",
+      "url": "https://nepa.com/blog/predict-future-big-data/"
+    },
+    {
+      "id": "post-talk-cheap-better-predicitive-insight",
+      "title": "Talk is cheap – get better and more predictive insight",
+      "author": "Christoffer Steiser",
+      "date": "2017-05-31",
+      "excerpt": "To quote David Ogilvy: “The trouble […] is that people don’t think how they feel, they don’t say what they think and they don’t do what they say.” This is a challenge we have always faced in the insight industry, if we are really, very honest with ourselves. And we are very conscious of this",
+      "url": "https://nepa.com/blog/talk-cheap-better-predicitive-insight/"
+    },
+    {
+      "id": "post-consumer-journeys-become-complex",
+      "title": "Consumer journeys become more and more complex",
+      "author": "Christoffer Steiser",
+      "date": "2017-05-26",
+      "excerpt": "And changes in behavior happen faster than ever. Consumers learn about products, compare prices, share opinions, consume content, and make their decisions where and when it best serves them on their consumer journey – their path to purchase. Different websites, devices, store channels and media type",
+      "url": "https://nepa.com/blog/consumer-journeys-become-complex/"
+    },
+    {
+      "id": "post-return-marketing-investments",
+      "title": "Get full return on your marketing investments",
+      "author": "Christoffer Steiser",
+      "date": "2017-05-01",
+      "excerpt": "Make continuous use of marketing insights Today ROI on marketing investments is top of mind for senior executives across every industry – globally. As the adoption of Marketing Mix Modelling and marketing ROI measurement evolves, so does the need for commercial effectiveness. Companies expect increa",
+      "url": "https://nepa.com/blog/return-marketing-investments/"
+    },
+    {
+      "id": "post-superpowers-data-science-analytics",
+      "title": "Insights from “The superpowers of data science and analytics”",
+      "author": "Christoffer Steiser",
+      "date": "2017-04-22",
+      "excerpt": "Using the right data for the right purpose Earlier this month, Nepa https://nepa.com/had the good fortune of attending the Marketing Analytics and Data Science Conference in San Francisco (April 3-5), an annual rite of passage for marketers who are already sold or hoping to be sold on – as the confe",
+      "url": "https://nepa.com/blog/superpowers-data-science-analytics/"
+    },
+    {
+      "id": "post-transform-data-insights-boost-innovation",
+      "title": "Transform data into insights – boost your innovation capabilities",
+      "author": "Christoffer Steiser",
+      "date": "2017-03-19",
+      "excerpt": "Generate the insights that are relevant to you I get a lot of questions on how to handle all data (or Big Data) and particularly how to use the insights for something that creates business value. Not only in the distant future but here and now. Very often I sense great frustration and nervousness re",
+      "url": "https://nepa.com/blog/transform-data-insights-boost-innovation/"
+    },
+    {
+      "id": "post-omnichannel-path-purchase",
+      "title": "Omnichannel Perspective on Path to Purchase",
+      "author": "Christoffer Steiser",
+      "date": "2017-02-23",
+      "excerpt": "Consumer journeys become more and more complex and changes happen faster than ever. Consumers learn about products, compare prices, share opinions, consume content, and make their decisions where and when it best serves them on their path to purchase. Different websites, devices, store channels and ",
+      "url": "https://nepa.com/blog/omnichannel-path-purchase/"
+    },
+    {
+      "id": "post-innovation-power-consumer-insights",
+      "title": "Innovation and the power of consumer insights",
+      "author": "Christoffer Steiser",
+      "date": "2017-02-21",
+      "excerpt": "Businesses that thrive are investing in continuous innovation powered by continuous consumer insights. They don’t sit and wait with the risk of losing ground. As Nokia CEO Stephen Elop tearfully said, after announcing his company’s acquisition by Microsoft, “We didn’t do anything wrong, but somehow,",
+      "url": "https://nepa.com/blog/innovation-power-consumer-insights/"
+    },
+    {
+      "id": "post-path-purchase",
+      "title": "Optimising value growth by leveraging your Path to Purchase",
+      "author": "Christoffer Steiser",
+      "date": "2017-02-21",
+      "excerpt": "Profitable growth is ever more challenging Market conditions, increased competition from new channels and providers coupled with changing consumer and shopper expectations and demands makes growth harder than ever to generate. However, those that are winning are doing so by creating a new understand",
+      "url": "https://nepa.com/blog/path-purchase/"
+    },
+    {
+      "id": "post-study-future-journalism",
+      "title": "A study about the future of journalism",
+      "author": "Christoffer Steiser",
+      "date": "2017-02-18",
+      "excerpt": "Introducing the voice of the consumer The major media players in Sweden have developed the prerequisites for the future of journalism. As a result, nine focus areas are identified of which lead to research projects at Stockholm School of Economics (HHS). Shown in the media: Dagens Nyheter 1 Dagens N",
+      "url": "https://nepa.com/blog/study-future-journalism/"
+    },
+    {
+      "id": "post-customer-centricity-real-stuff",
+      "title": "Customers Decide What Goes – Building Towards Customer-centric Growth",
+      "author": "Christoffer Steiser",
+      "date": "2017-02-15",
+      "excerpt": "Being customer-centric is vital in an increasingly competitive and fast paced business environment. Most companies understand this and do their best to listen to – and understand – consumers and customers. But how do you get it to work all the way to tangible profitability at the point of action and",
+      "url": "https://nepa.com/blog/customer-centricity-real-stuff/"
+    },
+    {
+      "id": "post-get-personal-monetize-customer-data",
+      "title": "Get personal and monetize your customer data",
+      "author": "Christoffer Steiser",
+      "date": "2017-02-12",
+      "excerpt": "Zoom in on the individual consumer A consumer centric approach is not just a passing fad that we all use for a while and then disregard; like that Tamagotchi digital pet you swore to keep alive. It is an absolute necessity for all modern companies. But what does it actually involve? To summarize, it",
+      "url": "https://nepa.com/blog/get-personal-monetize-customer-data/"
+    },
+    {
+      "id": "post-course-automate-insights-work",
+      "title": "Of course you should automate your insights work",
+      "author": "Christoffer Steiser",
+      "date": "2017-01-22",
+      "excerpt": "Actions speak louder than words as we keep talking a lot about creating customer-centric organizations and the importance of bringing the customers to the center of your business. In order for your organization to get a significant commercial effect of your insights work, you have a lot to win by au",
+      "url": "https://nepa.com/blog/course-automate-insights-work/"
+    },
+    {
+      "id": "post-customer-centric",
+      "title": "Customers decide what lives or dies – building towards customer-centric growth",
+      "author": "Christoffer Steiser",
+      "date": "2017-01-19",
+      "excerpt": "Towards customer-centric growth in a drive to achieve goals, organizations tend to lose sight of who their customers are. They start to see them as “things” that need to be optimized for different purposes. To turn your business into a customer-centric and profit-driving mode, you have to bring your",
+      "url": "https://nepa.com/blog/customer-centric/"
+    }
+  ],
+  "total": 247
+}

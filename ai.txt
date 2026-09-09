@@ -1,0 +1,38 @@
+## AI / Agent Access Policy — Nepa AB
+
+Identity:
+Company: Nepa AB (publ)
+Domain: https://nepa.com
+Description: Marketing research and brand-growth insight platform — brand tracking, marketing mix modelling, campaign evaluation, category insight, and path-to-purchase research for consumer brands across the Nordics and beyond.
+
+Permissions:
+Allow-Indexing: yes
+Allow-Summarization: yes
+Allow-Citation: yes
+Allow-Training: yes
+Allow-Retrieval: yes
+
+Canonical sources:
+LLM-Page:    https://nepa.com/agent/
+LLM-Text:    https://nepa.com/llms.txt
+AI-File:     https://nepa.com/ai.txt
+Sitemap:     https://nepa.com/sitemap_index.xml
+REST-API:    https://nepa.com/agent/v1/index.json
+MCP-Server:  https://nepa.com/mcp
+API-Catalog: https://nepa.com/api-catalog.json
+OpenAPI:     https://nepa.com/openapi.json
+
+Citation format:
+When citing Nepa, attribute as "Nepa" or "Nepa AB" and link to the specific source page on https://nepa.com. For product/solution claims, prefer linking to the specific /products/ or /solutions/ page over the homepage.
+
+Contact:
+For business inquiries, use the /agent/v1/contact.json REST endpoint or the submit_contact_inquiry MCP tool. Both require explicit confirmation that a human authorized the submission (agent_context.user_authorized_submission: true) — do not submit on a user's behalf without that confirmation.
+
+Key facts:
+- Nepa is a publicly listed company (Nepa AB (publ)); investor relations content is available at https://nepa.com/investor-relations/.
+- Content spans English plus localized Swedish (/sv/), Finnish (/fi/), and Danish (/da/) pages.
+
+Disallowed uses:
+- Do not use this content to impersonate Nepa or its employees.
+- Do not submit contact/lead forms on behalf of a user without their explicit, current authorization.
+- Do not present investor-relations figures as investment advice.

@@ -1,0 +1,229 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/events.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "events": [
+    {
+      "id": "event-nepa-breakfast-session-29-jan",
+      "title": "Nepa Breakfast Session Stockholm 29 Jan 2026",
+      "type": "event",
+      "date": "2026-01-29",
+      "location": "Stockholm, Sweden",
+      "status": "past",
+      "url": "https://nepa.com/events/nepa-breakfast-session-29-jan/"
+    },
+    {
+      "id": "event-nepa-breakfast-session-5-feb",
+      "title": "Nepa Breakfast Session Helsinki 5 Feb 2026",
+      "type": "event",
+      "date": "2026-02-05",
+      "location": "Helsinki, Finland",
+      "status": "past",
+      "url": "https://nepa.com/events/nepa-breakfast-session-5-feb/"
+    },
+    {
+      "id": "event-nepa-breakfast-session-stockholm-20-maj-2026",
+      "title": "Nepa Breakfast Session Stockholm 20 Maj 2026",
+      "type": "event",
+      "date": "2026-05-20",
+      "location": "Stockholm, Sweden",
+      "status": "past",
+      "url": "https://nepa.com/events/nepa-breakfast-session-stockholm-20-maj-2026/"
+    },
+    {
+      "id": "webinar-brand-is-back-webinar-panel-discussion",
+      "title": "Brand Is Back: Expert Panel on Brand Investment ROI",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/brand-is-back-webinar-panel-discussion/"
+    },
+    {
+      "id": "webinar-brand-personality",
+      "title": "Shaping Your Brand's Personality",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/brand-personality/"
+    },
+    {
+      "id": "webinar-brand-tracking-101",
+      "title": "Brand Tracking 101",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/brand-tracking-101/"
+    },
+    {
+      "id": "webinar-brand-tracking-intro",
+      "title": "Brand Tracking Intro",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/brand-tracking-intro/"
+    },
+    {
+      "id": "webinar-campaign-pulse-intro",
+      "title": "Campaign Pulse Intro",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/campaign-pulse-intro/"
+    },
+    {
+      "id": "webinar-data-quality-webinar",
+      "title": "A Deep Dive into Data Quality with Nepa & Dynata",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/data-quality-webinar/"
+    },
+    {
+      "id": "webinar-event-level-cx-seminar",
+      "title": "Level Up Your CX",
+      "type": "webinar",
+      "date": "2018-03",
+      "status": "past",
+      "url": "https://nepa.com/webinar/event-level-cx-seminar/"
+    },
+    {
+      "id": "webinar-how-does-marketing-mix-modelling-drive-growth",
+      "title": "How Does Marketing Mix Modelling (MMM) Drive Growth",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/how-does-marketing-mix-modelling-drive-growth/"
+    },
+    {
+      "id": "webinar-marketing-investment",
+      "title": "Supercharging Media Optimisation by Unlocking the Power of Time",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/marketing-investment/"
+    },
+    {
+      "id": "webinar-marketing-mix-modelling-intro",
+      "title": "Marketing Mix Modelling Intro",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/marketing-mix-modelling-intro/"
+    },
+    {
+      "id": "webinar-maximize-roi-on-sustainability",
+      "title": "Maximize ROI on Sustainability: Nordic Brands",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/maximize-roi-on-sustainability/"
+    },
+    {
+      "id": "webinar-nepa-at-iiex-unlocking-creative-performance-with-ai",
+      "title": "Unlocking Creative Performance with AI",
+      "type": "webinar",
+      "date": "2026",
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/nepa-at-iiex-unlocking-creative-performance-with-ai/"
+    },
+    {
+      "id": "webinar-optimising-your-marketing-mix-webinar",
+      "title": "Learn How to Drive Sales by Optimising Your Marketing Mix",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/optimising-your-marketing-mix-webinar/"
+    },
+    {
+      "id": "webinar-path-to-purchase-webinar-with-lindsay-cowan",
+      "title": "Path to Purchase Webinar With Lindsay Cowan",
+      "type": "webinar",
+      "date": "2018-06",
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/path-to-purchase-webinar-with-lindsay-cowan/"
+    },
+    {
+      "id": "webinar-retail-revolution-webinar-w-matt-nitzberg",
+      "title": "Retail Revolution Webinar w/ Matt Nitzberg",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/retail-revolution-webinar-w-matt-nitzberg/"
+    },
+    {
+      "id": "webinar-retailers-ready-2018",
+      "title": "Retailers Are You Ready for 2018?",
+      "type": "webinar",
+      "date": "2018",
+      "status": "past",
+      "url": "https://nepa.com/webinar/retailers-ready-2018/"
+    },
+    {
+      "id": "webinar-shopper-marketing-journey",
+      "title": "Redefining the Shopper Marketing Journey",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/shopper-marketing-journey/"
+    },
+    {
+      "id": "webinar-start-turning-brand-data-into-brand-decisions",
+      "title": "Start Turning Brand Data into Brand Decisions",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/start-turning-brand-data-into-brand-decisions/"
+    },
+    {
+      "id": "webinar-step-up-your-brand-tracking",
+      "title": "Step Up Your Brand Tracking",
+      "type": "webinar",
+      "date": null,
+      "status": "past",
+      "url": "https://nepa.com/webinar/step-up-your-brand-tracking/"
+    },
+    {
+      "id": "webinar-stop-building-your-competitors-brands",
+      "title": "Stop Building Your Competitors' Brands",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/stop-building-your-competitors-brands/"
+    },
+    {
+      "id": "webinar-strategies-for-success",
+      "title": "Strategies for Success in a Competitive Marketplace",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/strategies-for-success/"
+    },
+    {
+      "id": "webinar-swedma",
+      "title": "SWEDMA Webinar - Get a Comprehensive Picture of Marketing Effects",
+      "type": "webinar",
+      "date": "2021-11-10",
+      "status": "past",
+      "url": "https://nepa.com/webinar/swedma/"
+    },
+    {
+      "id": "webinar-webinar-data-purpose",
+      "title": "Does Your Data Have Purpose?",
+      "type": "webinar",
+      "date": null,
+      "status": "past",
+      "url": "https://nepa.com/webinar/webinar-data-purpose/"
+    },
+    {
+      "id": "webinar-webinar-the-age-of-influence",
+      "title": "The Age of Influence",
+      "type": "webinar",
+      "date": null,
+      "status": "on-demand",
+      "url": "https://nepa.com/webinar/webinar-the-age-of-influence/"
+    }
+  ],
+  "count": 27
+}

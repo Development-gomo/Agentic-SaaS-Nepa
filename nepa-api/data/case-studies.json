@@ -1,0 +1,240 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/case-studies.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "case_studies": [
+    {
+      "id": "case-a-fashion-retailers-journey-from-challenge-to-triumph",
+      "title": "A fashion retailer's journey: From challenge to triumph",
+      "client": null,
+      "industry": "Fashion retailer",
+      "segment": null,
+      "service": "Brand Tracking, Campaign Evaluation, Marketing Mix Modelling",
+      "summary": "A leading European fashion retailer saw flat revenue despite a 50% increase in media spend. Nepa's Trinity Suite (Brand Tracking, Campaign Evaluation, Marketing Mix Modelling) identified declining long-term brand health, low sender recall, and an imbalanced media mix as the root causes. Addressing these issues improved brand health, optimized media spending, and drove sustained sales growth.",
+      "results": [
+        { "metric": "Increase in baseline sales", "value": "20%" },
+        { "metric": "Actual annual sales increase", "value": "16%" }
+      ],
+      "url": "https://nepa.com/case/a-fashion-retailers-journey-from-challenge-to-triumph/"
+    },
+    {
+      "id": "case-business-finland",
+      "title": "Business Finland – Repositioning Finland through food",
+      "client": "Business Finland (Visit Finland)",
+      "industry": "Tourism and food exports",
+      "segment": null,
+      "service": "Market research, category insights",
+      "summary": "Business Finland partnered with Nepa to understand how Finland and Finnish food are perceived globally in order to sharpen the country's international destination strategy. Nepa combined a digital and content audit of Nordic tourism channels with a multi-market traveller study to reveal that Finland shared the same 'fresh, natural, pure' narrative as its Nordic neighbours but lacked a distinctive voice and underused food as an engagement driver. The work gave Business Finland a clearer brand narrative built around real, relatable food experiences.",
+      "results": [],
+      "url": "https://nepa.com/case/business-finland/"
+    },
+    {
+      "id": "case-cure-media-and-akademibokhandeln",
+      "title": "Cure Media and Akademibokhandeln",
+      "client": "Cure Media and Akademibokhandeln",
+      "industry": "Retail and social media marketing",
+      "segment": null,
+      "service": "Creator & influencer campaign evaluation",
+      "summary": "Cure Media, a European creator marketing agency, worked with Nepa to help Swedish book retailer Akademibokhandeln move beyond vanity metrics and measure the real business impact of creator marketing. Two Instagram/TikTok campaigns (autumn 2024 and spring 2025) were evaluated by comparing followers to non-followers, isolating the effect of creator exposure on awareness, message clarity, liking, brand fit and purchase intent.",
+      "results": [
+        { "metric": "Followers who saw at least one campaign post", "value": "63%" },
+        { "metric": "Followers who liked the content", "value": "79%" },
+        { "metric": "Said they were likely to buy from Akademibokhandeln after seeing the campaign", "value": "27%" }
+      ],
+      "url": "https://nepa.com/case/cure-media-and-akademibokhandeln/"
+    },
+    {
+      "id": "case-fortnox-turning-insight-into-direction",
+      "title": "Fortnox turning insight into direction",
+      "client": "Fortnox",
+      "industry": "Fintech",
+      "segment": null,
+      "service": "Category Insight, Continuous Brand Tracking",
+      "summary": "As Fortnox expanded from an accounting service into a broader business platform, it partnered with Nepa to clarify brand positioning, understand evolving customer perceptions, and align product and messaging strategy with genuine customer needs. Nepa's Category Insight mapped the competitive landscape, and continuous Brand Tracking let Fortnox measure the impact of each strategic shift over time.",
+      "results": [],
+      "url": "https://nepa.com/case/fortnox-turning-insight-into-direction/"
+    },
+    {
+      "id": "case-from-fragmented-insights-to-strategy-fastighetsbyran",
+      "title": "From ad hoc insights to top of mind strategy (Fastighetsbyrån)",
+      "client": "Fastighetsbyrån",
+      "industry": "Real Estate",
+      "segment": null,
+      "service": "Brand Tracking, Campaign Evaluation, Brand Touch, Insight Community",
+      "summary": "Fastighetsbyrån, Sweden's largest real estate agency with over 270 offices, relied on one-off studies that made it hard to track brand performance over time. By moving to continuous Brand Tracking with Nepa, plus Brand Touch and Insight Community for deeper strategic work, the company gained a clearer, faster view of brand and campaign performance to support decision-making.",
+      "results": [],
+      "url": "https://nepa.com/case/from-fragmented-insights-to-strategy-fastighetsbyran/"
+    },
+    {
+      "id": "case-gant-trusts-nepa-to-help-it-grow",
+      "title": "GANT trusts Nepa to help it grow",
+      "client": "GANT",
+      "industry": "Fashion & Lifestyle",
+      "segment": null,
+      "service": "Brand Tracking, Market Analysis, Consumer Insights",
+      "summary": "GANT partnered with Nepa to conduct an in-depth market analysis across its 70 operating markets, identifying its competitive position and defining core KPIs. Nepa developed continuous brand health trackers now covering eleven of GANT's main target markets, giving the team 24/7 access to insights via a KPI dashboard alongside regular meetings to interpret data and track year-on-year trends.",
+      "results": [],
+      "url": "https://nepa.com/case/gant-trusts-nepa-to-help-it-grow/"
+    },
+    {
+      "id": "case-hemkop",
+      "title": "Standing out in a sea of sameness: Hemköp's strategic transformation",
+      "client": "Hemköp",
+      "industry": "Grocery retail",
+      "segment": null,
+      "service": "Marketing Mix Modeling (MMM), Brand Asset Study, Campaign Evaluation",
+      "summary": "Despite over 90% brand recognition, Hemköp's advertising was often confused with competitors, meaning its media budget was inadvertently building rival brands. A Nepa Brand Asset Study revealed that Hemköp's color palette overlapped with competitors ICA and Willys, prompting a redesigned, more distinctive visual identity. A subsequent Marketing Mix Modeling analysis with Nepa confirmed that these successive, data-driven changes had a greater impact than one-off fixes.",
+      "results": [
+        { "metric": "Brand attribution", "value": "+36%" },
+        { "metric": "Ad liking", "value": "+29%" },
+        { "metric": "Preference", "value": "+19%" },
+        { "metric": "Purchase intent", "value": "+8%" }
+      ],
+      "url": "https://nepa.com/case/hemkop/"
+    },
+    {
+      "id": "case-how-atria-identified-the-brand-cues-that-matter-most",
+      "title": "How Atria identified the brand cues that matter most",
+      "client": "Atria",
+      "industry": "Food & FMCG",
+      "segment": null,
+      "service": "Distinctive Brand Asset Audit",
+      "summary": "Atria wanted to move beyond simple awareness metrics to understand which of its logos, colours, pack designs, origin cues, slogan and sonic branding genuinely drive growth. Nepa's Distinctive Brand Assets study, rooted in Ehrenberg-Bass Institute principles, measured the uniqueness and fame of each asset, giving Atria a tiered playbook ('must use', 'supporting', 'use with care') to guide campaigns, packaging and retail visibility.",
+      "results": [],
+      "url": "https://nepa.com/case/how-atria-identified-the-brand-cues-that-matter-most/"
+    },
+    {
+      "id": "case-how-creative-ai-analytics-helped-wolt-unlock-a-potential-40-cpa-reduction-on-tiktok",
+      "title": "How Creative AI analytics helped Wolt unlock a potential 40%+ CPA reduction on TikTok",
+      "client": "Wolt",
+      "industry": "Food delivery / Q-commerce",
+      "segment": null,
+      "service": "Creative AI Analytics, Campaign Evaluation",
+      "summary": "Wolt runs thousands of always-on TikTok campaigns with no unified, evidence-based view of what makes an ad perform. Working with Nepa and TikTok, Wolt used Creative AI analytics to classify features across thousands of ad assets, ran a statistical drivers analysis linking features to CPA, and built a composite Creative Score that fed a custom TikTok Creative Playbook. Key findings: low brand-logo frequency outperformed heavy branding, high visible-face frequency was the strongest performance driver, and low food-in-frame frequency outperformed generic food shots.",
+      "results": [
+        { "metric": "Potential CPA reduction moving from current to best-practice creative", "value": "40%" },
+        { "metric": "CPA difference between top 10% and bottom 10% of creatives", "value": "60%+" },
+        { "metric": "Ads below 'good' creative level at time of analysis", "value": "86%" },
+        { "metric": "Wolt ads with very high logo frequency (despite low frequency performing best)", "value": "29%" },
+        { "metric": "Wolt ads with low or no face visibility (despite faces being the strongest performance driver)", "value": "41%" },
+        { "metric": "Potential CPA reduction for both brand and acquisition campaign types following best-practice guidelines", "value": "37-38%" }
+      ],
+      "url": "https://nepa.com/case/how-creative-ai-analytics-helped-wolt-unlock-a-potential-40-cpa-reduction-on-tiktok/"
+    },
+    {
+      "id": "case-how-dafgards-used-insight-to-regain-consumer-trust",
+      "title": "How Dafgårds used insight to regain consumer trust",
+      "client": "Dafgårds",
+      "industry": "Food & Beverage",
+      "segment": null,
+      "service": "Category Insight, Brand Tracking, Brand Asset Study, Campaign Measurement",
+      "summary": "After the 2013 horse meat scandal, family-owned Swedish food company Dafgårds responded with years of low-profile communication. Starting in 2019, Nepa ran a Category Insight study to give Dafgårds a unified strategic direction, followed by ongoing Brand Tracking, a 2024 Brand Asset Study, and campaign measurement supporting a test-and-learn approach. Backed by these insights, Dafgårds relaunched its Billys and Gorbys sub-brands and moved from recovery to category leadership.",
+      "results": [
+        { "metric": "Increase in marketing investment (backed by confidence in insights)", "value": "600%" }
+      ],
+      "url": "https://nepa.com/case/how-dafgards-used-insight-to-regain-consumer-trust/"
+    },
+    {
+      "id": "case-if-insurance",
+      "title": "If Insurance – the leading property and casualty insurance company in the Nordics",
+      "client": "If Insurance",
+      "industry": "Insurance",
+      "segment": null,
+      "service": "Cross-Market Measurement Framework",
+      "summary": "If Insurance sought a holistic measurement framework beyond individual creative testing to understand the long-term impact of brand advertising across Sweden, Finland, Denmark and Norway. Nepa co-developed a structured measurement framework built around five principles (balancing long- and short-term activity, reaching the right audience, consistency of investment and creative, clear links to the brand, and emotional resonance), enabling consistent, actionable measurement across all four markets.",
+      "results": [],
+      "url": "https://nepa.com/case/if-insurance/"
+    },
+    {
+      "id": "case-kelloggs-trusts-nepa-to-help-it-remain-relevant",
+      "title": "Kellogg's trusts Nepa to help it remain relevant",
+      "client": "Kellogg's",
+      "industry": "Food Manufacturing",
+      "segment": null,
+      "service": "Brand Tracking, Market Analysis, Consumer Insights",
+      "summary": "To support a Pringles re-launch with fresh creative and new flavors, Kellogg's had Nepa conduct an omni-channel paths-to-purchase analysis across 10 global markets (including India, the UK, Korea, France and Brazil), covering channels from eCommerce to convenience stores. The findings shaped Kellogg's global shopper strategy and became the basis for a new shopper toolkit adopted as the global Kellogg's standard.",
+      "results": [],
+      "url": "https://nepa.com/case/kelloggs-trusts-nepa-to-help-it-remain-relevant/"
+    },
+    {
+      "id": "case-mtv-trusts-nepa-to-prove-tv-advertising-is-key",
+      "title": "MTV trusts Nepa to prove TV advertising is key",
+      "client": "MTV",
+      "industry": "TV broadcasting",
+      "segment": null,
+      "service": "Campaign Evaluation, Brand Tracking, Consumer Panel",
+      "summary": "MTV, Finland's leading commercial broadcaster, partnered with Nepa to use Campaign Evaluations to quantify the impact of TV advertising for its clients. Nepa also aggregated years of historic Campaign Evaluation data across many advertisers into a Meta Analysis, quantifiably proving the long-term brand-building benefits of TV and program sponsorship advertising.",
+      "results": [],
+      "url": "https://nepa.com/case/mtv-trusts-nepa-to-prove-tv-advertising-is-key/"
+    },
+    {
+      "id": "case-navigating-complexity-in-a-transforming-beverage-category",
+      "title": "Navigating complexity in a transforming beverage category (Sinebrychoff)",
+      "client": "Sinebrychoff",
+      "industry": "Beverages",
+      "segment": null,
+      "service": "Shopper Journey Mapping, Trend Tracking, Retailer Deep Dives, Category and Activation Strategy Support",
+      "summary": "Sinebrychoff, Finland's leading brewery and part of the Carlsberg Group, partnered with Nepa in 2022 to map shopper journeys across beverage categories in Finnish grocery retail, then re-ran an expanded quantitative study in 2025 (approximately 1,000 recent buyers per category across beer, cider, long drinks and RTD) to track how shopper behaviour had evolved. Results were split by retailer to enable targeted deep dives for key retail clients.",
+      "results": [],
+      "url": "https://nepa.com/case/navigating-complexity-in-a-transforming-beverage-category/"
+    },
+    {
+      "id": "case-sbab",
+      "title": "From insight to impact: SBAB unlocked a new engine of insight",
+      "client": "SBAB",
+      "industry": "Mortgage market, financial services",
+      "segment": null,
+      "service": "Continuous Marketing Mix Modelling (cMMM), Brand Touch, Brand Tracker, Qualitative Diary Study, Campaign Pulse",
+      "summary": "SBAB needed to balance short-term sales with long-term brand strength in a saturated Swedish mortgage market. Nepa combined Continuous Marketing Mix Modelling, Brand Touch, Brand Tracker, a Qualitative Diary Study of the housing journey, and Campaign Pulse to sharpen SBAB's positioning and link perceptions to real-world behaviour. Continuous MMM in particular let SBAB clearly show which marketing investments delivered measurable business outcomes, shifting internal conversations with the CFO and CEO.",
+      "results": [],
+      "url": "https://nepa.com/case/sbab/"
+    },
+    {
+      "id": "case-telenor-trusts-nepa-to-understand-their-business-needs",
+      "title": "Telenor trusts Nepa to understand their business needs",
+      "client": "Telenor",
+      "industry": "Telecommunications",
+      "segment": null,
+      "service": "Brand Tracking, Consumer Insights, B2B and B2C Market Analysis",
+      "summary": "Telenor partnered with Nepa to set up brand trackers in Sweden, Denmark and Finland, monitoring preference, NPS and awareness over time. Regular cross-market meetings and Nepa's advanced package analysis helped Telenor turn raw tracking data into actionable recommendations for pricing, packaging and marketing strategy.",
+      "results": [],
+      "url": "https://nepa.com/case/telenor-trusts-nepa-to-understand-their-business-needs/"
+    },
+    {
+      "id": "case-turning-insights-into-impact-fjallravens-approach-to-global-brand-growth",
+      "title": "Turning insights into impact: Fjällräven's approach to global brand growth",
+      "client": "Fjällräven",
+      "industry": "Apparel & Gear",
+      "segment": null,
+      "service": "Brand Funnel Analysis, Competitive Performance Tracking, Brand Position Development, Media Investment Analysis",
+      "summary": "As Fjällräven expanded beyond the Nordics, it partnered with Nepa in 2023 to implement a consistent brand tracking system across markets. Nepa's brand funnel analysis, competitive performance tracking and brand position development, combined with AI-driven trend insights and media investment data folded into the brand tracker, gave Fjällräven real-time feedback on marketing decisions and short-term effects across global markets.",
+      "results": [],
+      "url": "https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/"
+    },
+    {
+      "id": "case-varner-trusts-nepa-to-uncover-its-potential",
+      "title": "VARNER trusts Nepa to uncover its potential",
+      "client": "VARNER",
+      "industry": "Fashion & Retail",
+      "segment": null,
+      "service": "Brand Tracking, Market Analysis, Consumer Insights",
+      "summary": "Norwegian retail group VARNER (Cubus, Dressmann, Bik Bok, Carlings, Volt, Junkyard and Levi's stores) implemented a continuous Nepa brand tracker to understand how each of its retail chains performed and where growth opportunities existed. Quarterly reports, insight meetings and a real-time dashboard gave VARNER chain-level and group-level visibility to strengthen both individual brands and the wider group.",
+      "results": [],
+      "url": "https://nepa.com/case/varner-trusts-nepa-to-uncover-its-potential/"
+    },
+    {
+      "id": "case-launching-marli-juissi-energy",
+      "title": "From idea tournament to store shelf: Launching Marli Juissi® Energy",
+      "client": "Eckes-Granini",
+      "industry": "Beverages / FMCG – Juice and Energy Drinks",
+      "segment": null,
+      "service": "Idea tournament and concept screening, Concept testing with trial-rate calibration, Category insight, Packaging/flavour/naming optimisation",
+      "summary": "Eckes-Granini needed to validate which of several juice-based energy and wellness concepts would resonate with Finnish consumers in a crowded, globally-dominated energy drink category. Starting with a 2021 concept screening and continuing through a 2025 follow-up study, Nepa combined concept evaluation, trial-rate calibration and benchmarking against 88 Nordic beverage reference concepts to guide positioning, packaging, flavour and naming decisions for Marli Juissi® Energy, which is now available in stores.",
+      "results": [],
+      "url": "https://nepa.com/launching-marli-juissi-energy/"
+    }
+  ],
+  "count": 19
+}

@@ -1,0 +1,109 @@
+# Nepa
+
+> Growth by insights. Nepa is a Swedish marketing research company that turns complex data into actionable brand and marketing insights — combining brand tracking, marketing mix modelling, and campaign evaluation into one continuous platform.
+
+Nepa helps brands unlock growth through marketing research insight, researching more than 50 markets globally, tracking 7,500+ brands and campaigns daily, and working with 300+ blue-chip clients annually. Nepa AB (publ) is listed on Nasdaq First North Growth Market (ticker: NEPA, ISIN: SE0008066302), with Redeye AB as Certified Adviser.
+
+## Products
+- Brand Tracking: Continuously updated brand health dashboard measuring awareness, perception, and purchase intent, with AI-powered trend detection and competitor benchmarking. Plans start from 15,000 SEK/month.
+- Marketing Mix Modelling: Quantifies the short-term sales impact and long-term brand-building effect of each marketing channel and campaign, refreshed weekly or monthly, with a budget planning tool.
+- Campaign Pulse: Rapid campaign evaluation benchmarked against 2,800+ campaigns, results typically within days of fieldwork.
+- Brand Touch: Maps brand personality across 120 emotional attributes and 8 personality segments relative to competitors.
+- Brand Assets: Measures the fame, uniqueness, and competitive spill-over of a brand's distinctive assets (logos, colors, slogans, mascots).
+- Brand Premium: Quantifies brand equity as a measurable KPI showing how much consumers believe a brand is worth versus competitors.
+- Market Segmentation: Bespoke consumer segmentation models based on demographics, behaviour, needs, and values.
+- Category Insight: Ad hoc market analysis of category structure, consumer behaviour, and competitive benchmarking.
+- Paths to Purchase: Maps the full non-linear consumer journey across touchpoints, quantifying each touchpoint's conversion impact.
+- Creative AI Analytics: AI analysis of ad creative features (TikTok, Meta, Snapchat, YouTube) linked to cost per acquisition, not just engagement.
+- Category Entry Points: Identifies the cues consumers use to recall a brand during a buying decision, to build mental availability.
+
+## Solutions
+- Marketing Strategy: Clarifies what to say, to whom, and when, using audience motivation and timing data.
+- Brand Development: Builds distinctive, consistent brands by tracking performance and emotional connection over time.
+- Visual Performance: Measures how creative and visual assets perform in real time across every channel.
+- Media Strategy: Identifies which channels and touchpoints drive results so investment focuses where it pays back.
+- Campaign Measurement: Tracks how campaigns build awareness, consideration, and preference in real time, mid-flight.
+
+## Industries Served
+- FMCG & Consumer Goods, Finance & Insurance, Fashion & Retail, Retail & E-commerce, Pharma, Media & Entertainment, Telecom, SaaS/Platforms
+
+## Key Results / Proof Points
+- Fashion retailer: +20% baseline sales, +16% actual annual sales after identifying and correcting declining brand health and an imbalanced media mix (no client name disclosed).
+- Cure Media & Akademibokhandeln: 63% of followers reached by campaign, 79% liking, 27% purchase-intent lift from creator marketing.
+- Hemköp: +36% brand attribution, +29% ad liking, +19% preference, +8% purchase intent after a Brand Asset Study-led visual identity redesign.
+- Wolt (Creative AI Analytics on TikTok): up to 40%+ potential CPA reduction identified by moving from current to best-practice ad creative.
+- Dafgårds: 600% increase in marketing investment, backed by confidence from Category Insight and Brand Tracking data, supporting a return to category leadership.
+
+## Offices
+- Stockholm (Headquarters): Magnus Ladulåsgatan 65, 118 27 Stockholm, Sweden | +46 8 400 268 00 | info@nepa.com
+- Finland: regional office presence (no public street address; named contacts available via the Finland contact page)
+
+## Leadership
+- Anders Dahl — CEO
+- Annika Lamborn — Head of HR
+- Sara Davidsson Nyman — CRO
+- Robert Beatus — CPO
+- Dan Foreman — Chairman of the Board
+- Ulrich Boyer — Board Member, co-founder, former CEO (2021–2023)
+- Ashkan Senobari, Fredrik Lundqvist, Ludvig Blomqvist — Board Members
+
+## Key Pages
+- [Homepage](https://nepa.com/)
+- [About Us](https://nepa.com/about/)
+- [Products](https://nepa.com/products/)
+- [Solutions](https://nepa.com/solutions/)
+- [Pricing](https://nepa.com/pricing/)
+- [Insights Hub](https://nepa.com/insight/brand-tracking/) (reports, downloads, and featured articles — not a general-content archive despite its URL)
+- [Industries](https://nepa.com/industries/)
+- [Case Studies](https://nepa.com/case/)
+- [Contact Us](https://nepa.com/contact-us/)
+- [Careers](https://nepa.com/jobs/)
+- [Investor Relations](https://nepa.com/investor-relations/)
+- [Newsroom](https://nepa.com/newsroom/)
+
+## Machine-Readable Resources
+- [Agent Page](https://nepa.com/agent/)
+- [AI Permissions (ai.txt)](https://nepa.com/ai.txt)
+- [REST API Index](https://nepa.com/agent/v1/index.json)
+- [OpenAPI Specification](https://nepa.com/openapi.json)
+- [MCP Server](https://nepa.com/mcp)
+- [API Catalog (APIs.json)](https://nepa.com/api-catalog.json)
+- [XML Sitemap](https://nepa.com/sitemap_index.xml)
+
+## Case Studies (selected)
+- [GANT trusts Nepa to help it grow](https://nepa.com/case/gant-trusts-nepa-to-help-it-grow/)
+- [How Dafgårds used insight to regain consumer trust — 600% increase in marketing investment](https://nepa.com/case/how-dafgards-used-insight-to-regain-consumer-trust/)
+- [Standing out in a sea of sameness: Hemköp's strategic transformation](https://nepa.com/case/hemkop/)
+- [How Creative AI analytics helped Wolt unlock a potential 40%+ CPA reduction on TikTok](https://nepa.com/case/how-creative-ai-analytics-helped-wolt-unlock-a-potential-40-cpa-reduction-on-tiktok/)
+- [Cure Media and Akademibokhandeln](https://nepa.com/case/cure-media-and-akademibokhandeln/)
+- [VARNER trusts Nepa to uncover its potential](https://nepa.com/case/varner-trusts-nepa-to-uncover-its-potential/)
+- [Telenor trusts Nepa to understand their business needs](https://nepa.com/case/telenor-trusts-nepa-to-understand-their-business-needs/)
+- [Turning insights into impact: Fjällräven's approach to global brand growth](https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/)
+- Full list of 19 case studies: [/agent/v1/case-studies.json](https://nepa.com/agent/v1/case-studies.json)
+
+## Recent Blog Posts
+- [EFFDay 2026: Takeaways](https://nepa.com/blog/effday-2026-takeaways/) (2026-09-04)
+- [What Swedish consumer data reveals about how purchase decisions are made](https://nepa.com/blog/swedish-consumer-purchase-behaviour/) (2026-07-10)
+- [Which product categories in Sweden see the highest AI research rates and brand switching during purchase](https://nepa.com/blog/ai-research-brand-switching-by-product-category-sweden/) (2026-07-10)
+- [One in ten Swedish consumers changes their product or brand choice during the purchase process](https://nepa.com/blog/brand-switching-during-purchase-process-sweden/) (2026-07-10)
+- Full archive of 247 posts: [/agent/v1/blog-posts.json](https://nepa.com/agent/v1/blog-posts.json)
+
+## Investor Relations
+- Nepa AB (publ) is listed on Nasdaq First North Growth Market (ticker NEPA, ISIN SE0008066302); Redeye AB is Certified Adviser. Not investment advice.
+- [Investor Relations](https://nepa.com/investor-relations/) | [Financial Reports & Presentations](https://nepa.com/financial-reports-and-presentations/) | [Corporate Governance](https://nepa.com/corporate-governance/) | [Shareholder Meetings](https://nepa.com/shareholder-meetings/) | [Financial Calendar](https://nepa.com/calendar/)
+- Full catalog of press releases: [/agent/v1/press-releases.json](https://nepa.com/agent/v1/press-releases.json)
+
+## Social Media
+- [LinkedIn](https://www.linkedin.com/company/nepa_2/)
+
+## Nordic Language Pages (hreflang sv / fi / da alternates)
+Nepa publishes localized sections in Swedish, Finnish, and Danish alongside the primary English site. Selected examples:
+### Swedish (sv)
+- [Blog (sv)](https://nepa.com/sv/blog)
+### Finnish (fi)
+- [Case Studies (fi)](https://nepa.com/fi/case)
+- [Contact (fi)](https://nepa.com/fi/contact)
+### Danish (da)
+- [Case Studies (da)](https://nepa.com/da/case)
+- [Contact (da)](https://nepa.com/da/contact)
+- [Press Releases (da)](https://nepa.com/da/mfn_news)

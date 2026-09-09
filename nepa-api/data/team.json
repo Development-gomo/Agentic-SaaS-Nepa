@@ -1,0 +1,91 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/team.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "team": [
+    {
+      "id": "person-anders-dahl",
+      "name": "Anders Dahl",
+      "title": "CEO",
+      "email": null,
+      "linkedin": null,
+      "bio": "Anders Dahl is CEO of Nepa, a role he has held since March 2024, after serving as a Group Management member and interim COO since 2023. He studied Economics and Business Law at Lund University. During the 14 years prior to Nepa he held key executive and advisory roles in various B2B and B2C companies in the United States, preceded by over ten years in permanent and interim executive positions in the Nordic media market.",
+      "url": "https://nepa.com/person/anders-dahl/"
+    },
+    {
+      "id": "person-annika-lamborn",
+      "name": "Annika Lamborn",
+      "title": "Head of HR",
+      "email": null,
+      "linkedin": null,
+      "bio": "Annika Lamborn is Head of HR at Nepa, where she has worked since 2009, and a Group Management member since 2024. She studied strategic communication at Berghs School of Communication and previously worked as a recruitment consultant at Academic Search.",
+      "url": "https://nepa.com/person/annika-lamborn/"
+    },
+    {
+      "id": "person-ashkan-senobari",
+      "name": "Ashkan Senobari",
+      "title": "Board member",
+      "email": null,
+      "linkedin": null,
+      "bio": "Ashkan Senobari is a Nepa board member, elected in 2024. Born in 1988, he holds a BSc in Business Administration and an MSc in Finance, Hedge Funds & Private Equity from the International University of Monaco. He is a Director at Hanover Investors, leading public market deal origination and execution across Scandinavia, and also serves on the boards of ZetaDisplay AB and Lumi Gruppen AS, and as a private investor in scale-ups. He previously worked at EQT Partners (Stockholm and New York) and began his career in the M&A division of J.P. Morgan in London.",
+      "url": "https://nepa.com/person/ashkan-senobari/"
+    },
+    {
+      "id": "person-dan-foreman",
+      "name": "Dan Foreman",
+      "title": "Chairman of the Board",
+      "email": null,
+      "linkedin": null,
+      "bio": "Dan Foreman is Chairman of the Board of Nepa; he has been a board member since 2022. Born in 1974, he holds a Bachelor of Science degree in Psychology and Mathematics from the University of Leicester, England. He is also Chairman of the Board of ZI Group Limited and Bakamo Limited, and a board member of VST Ltd, Dalia GmbH, Veylinx B.V., MindProber SA, and Phebi Ltd.",
+      "url": "https://nepa.com/person/dan-foreman/"
+    },
+    {
+      "id": "person-fredrik-lundqvist",
+      "name": "Fredrik Lundqvist",
+      "title": "Board member",
+      "email": null,
+      "linkedin": null,
+      "bio": "Fredrik Lundqvist is a Nepa board member, elected in 2024. Born in 1984, he holds an MA in Economics and Management from the University of Oxford. He is a Partner at Hanover Investors, where he sits on the Investment Committee and advises on target assessment, financial analysis and deal execution, and serves on the boards of ZetaDisplay AB and Lumi Gruppen AS. He joined Hanover in 2006 as an investment analyst, became a partner in 2011, and led deal execution until 2021.",
+      "url": "https://nepa.com/person/fredrik-lundqvist/"
+    },
+    {
+      "id": "person-ludvig-blomqvist",
+      "name": "Ludvig Blomqvist",
+      "title": "Board member",
+      "email": null,
+      "linkedin": null,
+      "bio": "Ludvig Blomqvist is a Nepa board member, elected in 2024. Born in 1980, he holds an LL.M. from Stockholm University and an M.Sc. in Industrial Management from KTH. He is a Swedish attorney-at-law specializing in M&A, finance and financial regulation in private practice, and has previously served on the boards of several companies, including some authorised by and supervised by the Swedish Financial Supervisory Authority (Finansinspektionen). He has also worked as a partner at large multinational law firms advising financial institutions, PE sponsors and venture capital investors on M&A and financial transactions.",
+      "url": "https://nepa.com/person/ludvig-blomqvist/"
+    },
+    {
+      "id": "person-robert-beatus",
+      "name": "Robert Beatus",
+      "title": "CPO",
+      "email": null,
+      "linkedin": null,
+      "bio": "Robert Beatus is CPO of Nepa and a Group Management member since 2023. He holds an MSc in Business Administration and a BA in Journalism, both from Stockholm University. His previous experience includes B2B Marknadsanalys, NORM, and Simstore International.",
+      "url": "https://nepa.com/person/robert-beatus/"
+    },
+    {
+      "id": "person-sara-davidsson-nyman",
+      "name": "Sara Davidsson Nyman",
+      "title": "CRO",
+      "email": null,
+      "linkedin": null,
+      "bio": "Sara Davidsson Nyman is CRO of Nepa and a Group Management member since 2024. She holds an MSc in Political Science from Lund University. Her previous experience includes serving as CRO at Questback and as Managing Director and Head of Enterprise Relations at Meltwater.",
+      "url": "https://nepa.com/person/sara-davidsson-nyman/"
+    },
+    {
+      "id": "person-ulrich-boyer",
+      "name": "Ulrich Boyer",
+      "title": "Board Member",
+      "email": null,
+      "linkedin": null,
+      "bio": "Ulrich Boyer is a co-founder of Nepa. Born in 1963, he holds a Master's degree in National Economics from CAU Kiel, Germany. He served as Nepa's CEO from 2021 to 2023, has been a board member since 2011 (Chairman of the Board between 2015 and 2020), and has been a board member of Nepa Sweden AB since 2005. He is also Chairman of the Board of Bintess AB and ECI Media Management AB, and a board member of Abmit Kivelmuh AB and Timba Holding AB.",
+      "url": "https://nepa.com/person/ulrich-boyer/"
+    }
+  ],
+  "count": 9
+}

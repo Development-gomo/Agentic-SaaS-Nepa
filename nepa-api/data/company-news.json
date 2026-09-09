@@ -1,0 +1,95 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/company-news.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08",
+    "note": "Client-win / partnership announcements from nepa.com/news/ — distinct from investor press releases (press-releases.json) and client case studies (case-studies.json). No publish date was present in the scraped source for these pages, so 'date' is null throughout rather than guessed."
+  },
+  "news": [
+    {
+      "id": "news-avanza",
+      "title": "New client | Avanza chooses Nepa for ongoing Brand Tracking",
+      "date": null,
+      "excerpt": "Leading Swedish online bank Avanza has partnered with Nepa, a global leader in analytics and marketing intelligence, to launch continuous Brand Tracking starting in 2025. Through this tailored solution, Nepa will help Avanza gain deeper insights into brand perception across target audiences and measure ",
+      "url": "https://nepa.com/news/avanza/"
+    },
+    {
+      "id": "news-haglofs",
+      "title": "New client | Haglöfs invests in brand insights with Nepa",
+      "date": null,
+      "excerpt": "Outdoor brand Haglöfs has chosen Nepa as its partner to strengthen its brand strategy through continuous Brand Tracking. From 2025, Haglöfs will collaborate with Nepa to leverage data-driven insights, enabling them to monitor and understand brand development across multiple markets and target audien",
+      "url": "https://nepa.com/news/haglofs/"
+    },
+    {
+      "id": "news-lundhags",
+      "title": "Lundhags joins forces with Nepa",
+      "date": null,
+      "excerpt": "Nepa welcomes Lundhags, one of Sweden’s most iconic outdoor brands, as a new client. With over 90 years of craftsmanship and heritage, Lundhags is now sharpening its brand strategy to grow its relevance in a competitive and fast-evolving market. Together, Nepa and Lundhags will carry out a comprehen",
+      "url": "https://nepa.com/news/lundhags/"
+    },
+    {
+      "id": "news-zaptec",
+      "title": "Zaptec joins forces with Nepa",
+      "date": null,
+      "excerpt": "**New energy, new rules – Zaptec joins forces with Nepa to grow in a competitive EV market** Zaptec, one of the most forward-thinking players in the EV charging space, has chosen Nepa as its insights client as it sharpens its brand for the next phase of growth. With a refreshed identity and increasi",
+      "url": "https://nepa.com/news/zaptec/"
+    },
+    {
+      "id": "news-pernod-ricard-chooses-nepa",
+      "title": "Pernod Ricard chooses Nepa – again",
+      "date": null,
+      "excerpt": "_Sharper brands in every bottle – Pernod Ricard returns to Nepa to fuel global growth with structured insight_ Pernod Ricard is back with Nepa. As one of the world’s leading spirits companies – and home to Absolut – they’re doubling down on strategic clarity. With increased competition and growing a",
+      "url": "https://nepa.com/news/pernod-ricard-chooses-nepa/"
+    },
+    {
+      "id": "news-nepa-and-opticom-partner-to-deliver-b2b-brand-insights-with-a-360-perspective",
+      "title": "Nepa and Opticom partner to deliver B2B brand",
+      "date": null,
+      "excerpt": "Nepa, a leading analytics company in marketing intelligence, has entered into a strategic partnership with Opticom, a consulting and analytics firm specializing in customer research and brand tracking for B2B sectors such as forestry, pharmaceuticals, and heavy industry. By combining Nepa’s expertis",
+      "url": "https://nepa.com/news/nepa-and-opticom-partner-to-deliver-b2b-brand-insights-with-a-360-perspective/"
+    },
+    {
+      "id": "news-nepa-launches-a-new-brand-concept-to-accelerate-growth",
+      "title": "Nepa launches a new brand concept to accelerate growth",
+      "date": null,
+      "excerpt": "Marketing intelligence company Nepa, specializing in brand and market analytics, is proud to launch a new brand concept. This transformation is the result of a strategic initiative conducted during autumn 2024, setting a clear direction for Nepa’s growth plans by putting continuous analysis of brand",
+      "url": "https://nepa.com/news/nepa-launches-a-new-brand-concept-to-accelerate-growth/"
+    },
+    {
+      "id": "news-nepa-partners-with-friends-to-strengthen-brand-and-communication",
+      "title": "Nepa partners with Friends to strengthen brand and communication",
+      "date": null,
+      "excerpt": "Marketing intelligence company Nepa has become a partner to Friends, a foundation dedicated to reducing bullying in schools and sports. The partnership, effective from 2025, marks the beginning of a collaboration where Nepa’s role is to evaluate and provide recommendations for the development of the",
+      "url": "https://nepa.com/news/nepa-partners-with-friends-to-strengthen-brand-and-communication/"
+    },
+    {
+      "id": "news-nepa-strengthens-its-marketing-acceleration-focus",
+      "title": "Nepa strengthens its Marketing Acceleration focus with returning MMM top talent",
+      "date": null,
+      "excerpt": "Nepa accelerates into 2026 **Throughout 2025/2026, the analytics and marketing intelligence company Nepa is placing a clear strategic focus on Marketing Acceleration – continuous, data‑driven optimisation of marketing investments.** **The work is led by the Marketing Acceleration business unit, wher",
+      "url": "https://nepa.com/news/nepa-strengthens-its-marketing-acceleration-focus/"
+    },
+    {
+      "id": "news-nepa-takes-a-stand-for-higher-data-quality-in-market-research",
+      "title": "Nepa takes a stand for higher data quality in market research",
+      "date": null,
+      "excerpt": "Marketing intelligence company Nepa is taking a stand for increased data quality in market research, signing an international industry pledge for transparent and ethical data management. Joining over 70 global leaders in insights and analytics, Nepa has signed the GDQ Data Quality Excellence Pledge,",
+      "url": "https://nepa.com/news/nepa-takes-a-stand-for-higher-data-quality-in-market-research/"
+    },
+    {
+      "id": "news-three-new-clients-three-sectors-one-insight-platform",
+      "title": "Nepa Partners with Wolt, Clas Ohlson & Maria Nila Globally",
+      "date": null,
+      "excerpt": "We continue our growth journey by welcoming three new partnerships: tech platform Wolt, retail chain Clas Ohlson, and beauty brand Maria Nila. Across three industries and multiple international markets, Nepa will deliver strategic insights that drive real business results. “Securing three new client",
+      "url": "https://nepa.com/news/three-new-clients-three-sectors-one-insight-platform/"
+    },
+    {
+      "id": "news-enklare-se-chooses-nepas-continuous-brand-tracking-to-strengthen-its-brand-for-long-term-success",
+      "title": "Enklare.se chooses Nepa’s continuous brand tracking to strengthen its brand for long-term success",
+      "date": null,
+      "excerpt": "In a fast-paced and competitive personal loan market, where all players target the same pool of customers, comparisons of different players and their offerings are crucial. Enklare.se has taken this into account in their website’s comparison services, which focus on helping consumers evaluate l and ",
+      "url": "https://nepa.com/news/enklare-se-chooses-nepas-continuous-brand-tracking-to-strengthen-its-brand-for-long-term-success/"
+    }
+  ],
+  "count": 12
+}

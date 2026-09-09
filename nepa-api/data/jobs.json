@@ -1,0 +1,10 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/jobs.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "jobs": [],
+  "count": 0,
+  "note": "The nepa.com/jobs page is a general careers/culture page with no individually listed open roles. It links out to an external hiring portal (https://nepa.hiring.heartpace.com/careers) where current openings are actually posted; that portal was not part of the crawled content, so no roles could be captured here without fabrication."
+}

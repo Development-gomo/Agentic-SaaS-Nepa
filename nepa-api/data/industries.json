@@ -1,0 +1,49 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/industries.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "industries": [
+    {
+      "name": "FMCG & Consumer Goods",
+      "description": "Know what drives your brand – from shelf to sale",
+      "url": "https://nepa.com/know-what-drives-your-brand-from-shelf-to-sale/"
+    },
+    {
+      "name": "Finance & Insurance",
+      "description": "Make smarter marketing decisions in finance – with insights that drive trust and growth",
+      "url": "https://nepa.com/make-smarter-marketing-decisions-in-finance/"
+    },
+    {
+      "name": "Fashion & Retail",
+      "description": "Make every collection count – with insights that grow brand, traffic and sales",
+      "url": "https://nepa.com/make-every-collection-count/"
+    },
+    {
+      "name": "Retail & E-commerce",
+      "description": "Make smarter decisions in retail – from campaign to checkout",
+      "url": "https://nepa.com/make-smarter-decisions-in-retail-from-campaign-to-checkout/"
+    },
+    {
+      "name": "Pharma",
+      "description": "Drive smarter marketing decisions in pharma – with insights you can act on",
+      "url": "https://nepa.com/drive-smarter-marketing-decisions-in-pharma/"
+    },
+    {
+      "name": "Media & Entertainment",
+      "description": "Stay relevant, seen and strategic – with insights for every screen",
+      "url": "https://nepa.com/insights-for-every-screen/"
+    },
+    {
+      "name": "Telecom",
+      "description": "Clarify what drives performance in telecom – from brand to bundle",
+      "url": "https://nepa.com/clarify-what-drives-performance-in-telecom/"
+    },
+    {
+      "name": "SaaS / Platforms",
+      "description": "Smarter growth for SaaS – powered by insight that scales",
+      "url": "https://nepa.com/saas/"
+    }
+  ]
+}

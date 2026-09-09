@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/company.json",
+    "version": "1.0",
+    "last_updated": "2026-09-08"
+  },
+  "name": "Nepa",
+  "legal_name": "Nepa AB (publ)",
+  "description": "Nepa helps brands unlock growth through marketing research insights. We turn data into actionable strategies that drive business impact.",
+  "tagline": "Growth by insights",
+  "headquarters": "Magnus Ladulåsgatan 65, 118 27 Stockholm, Sweden",
+  "website": "https://nepa.com",
+  "phone": "+46 8 400 268 00",
+  "email": "info@nepa.com",
+  "overview": "Nepa is a marketing research company that helps brands turn complex data into actionable insights and real-time strategy. Its platform combines brand monitoring, media mix modelling, and campaign evaluation, researching more than 50 markets globally, tracking more than 7,500 brands and campaigns daily, and working with more than 300 blue-chip clients annually. The company describes its mission as delivering 'insight that grows your business, fast and every day,' and describes its culture as a team of creative problem-solvers focused on crafting winning solutions for its partners. Nepa is listed on Nasdaq First North Growth Market, with Redeye AB serving as its Certified Adviser. Its leadership team, as presented on its About page, includes CEO Anders Dahl, Head of HR Annika Lamborn, CRO Sara Davidsson Nyman, and CPO Robert Beatus.",
+  "leadership_summary": [
+    {"name": "Anders Dahl", "title": "CEO"},
+    {"name": "Annika Lamborn", "title": "Head of HR"},
+    {"name": "Sara Davidsson Nyman", "title": "CRO"},
+    {"name": "Robert Beatus", "title": "CPO"}
+  ]
+}
