@@ -1,8 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/offices.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08"
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16"
   },
   "offices": [
     {
@@ -12,7 +13,9 @@
       "address": "Magnus Ladulåsgatan 65, 118 27 Stockholm, Sweden",
       "role": "Headquarters",
       "phone": "+46 8 400 268 00",
-      "email": "info@nepa.com"
+      "email": "info@nepa.com",
+      "contact_url": "https://nepa.com/contact-us/",
+      "panel_email": "panel@nepa.com"
     },
     {
       "id": "office-finland",
@@ -21,7 +24,28 @@
       "address": null,
       "role": "Nepa Finland office (regional presence; no street address published)",
       "phone": null,
-      "email": null
+      "email": null,
+      "contact_url": "https://nepa.com/contact-finland/",
+      "contacts": [
+        {
+          "name": "Milla Westerlund",
+          "title": "Account Director",
+          "email": "milla.westerlund@nepa.com",
+          "phone": "+358 50 587 1795"
+        },
+        {
+          "name": "Mileena Aniszewski",
+          "title": "Account Manager",
+          "email": "mileena.aniszewski@nepa.com",
+          "phone": "+358 41 501 4413"
+        },
+        {
+          "name": "Maija Heino",
+          "title": "Account Director",
+          "email": "maija.heino@nepa.com",
+          "phone": "+358 45 678 6939"
+        }
+      ]
     }
   ]
 }

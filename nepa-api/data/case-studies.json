@@ -1,8 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/case-studies.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08"
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16"
   },
   "case_studies": [
     {
@@ -14,8 +15,14 @@
       "service": "Brand Tracking, Campaign Evaluation, Marketing Mix Modelling",
       "summary": "A leading European fashion retailer saw flat revenue despite a 50% increase in media spend. Nepa's Trinity Suite (Brand Tracking, Campaign Evaluation, Marketing Mix Modelling) identified declining long-term brand health, low sender recall, and an imbalanced media mix as the root causes. Addressing these issues improved brand health, optimized media spending, and drove sustained sales growth.",
       "results": [
-        { "metric": "Increase in baseline sales", "value": "20%" },
-        { "metric": "Actual annual sales increase", "value": "16%" }
+        {
+          "metric": "Increase in baseline sales",
+          "value": "20%"
+        },
+        {
+          "metric": "Actual annual sales increase",
+          "value": "16%"
+        }
       ],
       "url": "https://nepa.com/case/a-fashion-retailers-journey-from-challenge-to-triumph/"
     },
@@ -39,9 +46,18 @@
       "service": "Creator & influencer campaign evaluation",
       "summary": "Cure Media, a European creator marketing agency, worked with Nepa to help Swedish book retailer Akademibokhandeln move beyond vanity metrics and measure the real business impact of creator marketing. Two Instagram/TikTok campaigns (autumn 2024 and spring 2025) were evaluated by comparing followers to non-followers, isolating the effect of creator exposure on awareness, message clarity, liking, brand fit and purchase intent.",
       "results": [
-        { "metric": "Followers who saw at least one campaign post", "value": "63%" },
-        { "metric": "Followers who liked the content", "value": "79%" },
-        { "metric": "Said they were likely to buy from Akademibokhandeln after seeing the campaign", "value": "27%" }
+        {
+          "metric": "Followers who saw at least one campaign post",
+          "value": "63%"
+        },
+        {
+          "metric": "Followers who liked the content",
+          "value": "79%"
+        },
+        {
+          "metric": "Said they were likely to buy from Akademibokhandeln after seeing the campaign",
+          "value": "27%"
+        }
       ],
       "url": "https://nepa.com/case/cure-media-and-akademibokhandeln/"
     },
@@ -51,7 +67,7 @@
       "client": "Fortnox",
       "industry": "Fintech",
       "segment": null,
-      "service": "Category Insight, Continuous Brand Tracking",
+      "service": "Category Insight, Brand Tracking",
       "summary": "As Fortnox expanded from an accounting service into a broader business platform, it partnered with Nepa to clarify brand positioning, understand evolving customer perceptions, and align product and messaging strategy with genuine customer needs. Nepa's Category Insight mapped the competitive landscape, and continuous Brand Tracking let Fortnox measure the impact of each strategic shift over time.",
       "results": [],
       "url": "https://nepa.com/case/fortnox-turning-insight-into-direction/"
@@ -87,10 +103,22 @@
       "service": "Marketing Mix Modeling (MMM), Brand Asset Study, Campaign Evaluation",
       "summary": "Despite over 90% brand recognition, Hemköp's advertising was often confused with competitors, meaning its media budget was inadvertently building rival brands. A Nepa Brand Asset Study revealed that Hemköp's color palette overlapped with competitors ICA and Willys, prompting a redesigned, more distinctive visual identity. A subsequent Marketing Mix Modeling analysis with Nepa confirmed that these successive, data-driven changes had a greater impact than one-off fixes.",
       "results": [
-        { "metric": "Brand attribution", "value": "+36%" },
-        { "metric": "Ad liking", "value": "+29%" },
-        { "metric": "Preference", "value": "+19%" },
-        { "metric": "Purchase intent", "value": "+8%" }
+        {
+          "metric": "Brand attribution",
+          "value": "+36%"
+        },
+        {
+          "metric": "Ad liking",
+          "value": "+29%"
+        },
+        {
+          "metric": "Preference",
+          "value": "+19%"
+        },
+        {
+          "metric": "Purchase intent",
+          "value": "+8%"
+        }
       ],
       "url": "https://nepa.com/case/hemkop/"
     },
@@ -114,12 +142,30 @@
       "service": "Creative AI Analytics, Campaign Evaluation",
       "summary": "Wolt runs thousands of always-on TikTok campaigns with no unified, evidence-based view of what makes an ad perform. Working with Nepa and TikTok, Wolt used Creative AI analytics to classify features across thousands of ad assets, ran a statistical drivers analysis linking features to CPA, and built a composite Creative Score that fed a custom TikTok Creative Playbook. Key findings: low brand-logo frequency outperformed heavy branding, high visible-face frequency was the strongest performance driver, and low food-in-frame frequency outperformed generic food shots.",
       "results": [
-        { "metric": "Potential CPA reduction moving from current to best-practice creative", "value": "40%" },
-        { "metric": "CPA difference between top 10% and bottom 10% of creatives", "value": "60%+" },
-        { "metric": "Ads below 'good' creative level at time of analysis", "value": "86%" },
-        { "metric": "Wolt ads with very high logo frequency (despite low frequency performing best)", "value": "29%" },
-        { "metric": "Wolt ads with low or no face visibility (despite faces being the strongest performance driver)", "value": "41%" },
-        { "metric": "Potential CPA reduction for both brand and acquisition campaign types following best-practice guidelines", "value": "37-38%" }
+        {
+          "metric": "Potential CPA reduction moving from current to best-practice creative",
+          "value": "40%"
+        },
+        {
+          "metric": "CPA difference between top 10% and bottom 10% of creatives",
+          "value": "60%+"
+        },
+        {
+          "metric": "Ads below 'good' creative level at time of analysis",
+          "value": "86%"
+        },
+        {
+          "metric": "Wolt ads with very high logo frequency (despite low frequency performing best)",
+          "value": "29%"
+        },
+        {
+          "metric": "Wolt ads with low or no face visibility (despite faces being the strongest performance driver)",
+          "value": "41%"
+        },
+        {
+          "metric": "Potential CPA reduction for both brand and acquisition campaign types following best-practice guidelines",
+          "value": "37-38%"
+        }
       ],
       "url": "https://nepa.com/case/how-creative-ai-analytics-helped-wolt-unlock-a-potential-40-cpa-reduction-on-tiktok/"
     },
@@ -132,7 +178,10 @@
       "service": "Category Insight, Brand Tracking, Brand Asset Study, Campaign Measurement",
       "summary": "After the 2013 horse meat scandal, family-owned Swedish food company Dafgårds responded with years of low-profile communication. Starting in 2019, Nepa ran a Category Insight study to give Dafgårds a unified strategic direction, followed by ongoing Brand Tracking, a 2024 Brand Asset Study, and campaign measurement supporting a test-and-learn approach. Backed by these insights, Dafgårds relaunched its Billys and Gorbys sub-brands and moved from recovery to category leadership.",
       "results": [
-        { "metric": "Increase in marketing investment (backed by confidence in insights)", "value": "600%" }
+        {
+          "metric": "Increase in marketing investment (backed by confidence in insights)",
+          "value": "600%"
+        }
       ],
       "url": "https://nepa.com/case/how-dafgards-used-insight-to-regain-consumer-trust/"
     },
@@ -233,8 +282,38 @@
       "service": "Idea tournament and concept screening, Concept testing with trial-rate calibration, Category insight, Packaging/flavour/naming optimisation",
       "summary": "Eckes-Granini needed to validate which of several juice-based energy and wellness concepts would resonate with Finnish consumers in a crowded, globally-dominated energy drink category. Starting with a 2021 concept screening and continuing through a 2025 follow-up study, Nepa combined concept evaluation, trial-rate calibration and benchmarking against 88 Nordic beverage reference concepts to guide positioning, packaging, flavour and naming decisions for Marli Juissi® Energy, which is now available in stores.",
       "results": [],
-      "url": "https://nepa.com/launching-marli-juissi-energy/"
+      "url": "https://nepa.com/launching-marli-juissi-energy/",
+      "source": "curated"
+    },
+    {
+      "id": "case-measure-the-value-advertising-builds-over-time",
+      "title": "How Lantmännen and Nepa measure the value advertising builds over time",
+      "client": "Lantmännen",
+      "industry": "Agriculture",
+      "segment": null,
+      "service": "Brand Tracking, Advertising Equity",
+      "summary": "Lantmännen, the Swedish agricultural cooperative behind brands such as AXA, Kungsörnen, GoGreen and Finn Crisp, added Nepa's advertising equity measure to its continuous brand tracking to see whether years of consistent communication had built a lasting asset. Advertising equity was read alongside brand metrics and media effectiveness, treating each campaign as part of an accumulated asset rather than a separate event.",
+      "results": [
+        {
+          "metric": "Growth in advertising equity after the renewed communication platform launched in 2021",
+          "value": "+25%"
+        },
+        {
+          "metric": "Positive attitude towards the brand (2011 starting point → today)",
+          "value": "54% → 86%"
+        },
+        {
+          "metric": "Advertising equity index in Nepa’s Advertising Equity 2026 benchmark (top 30 of 95 Swedish brands)",
+          "value": "107"
+        },
+        {
+          "metric": "Campaign observations",
+          "value": "Increased over time with constant annual media investment"
+        }
+      ],
+      "url": "https://nepa.com/case/measure-the-value-advertising-builds-over-time/",
+      "date_published": "2026-09-11"
     }
   ],
-  "count": 19
+  "count": 20
 }

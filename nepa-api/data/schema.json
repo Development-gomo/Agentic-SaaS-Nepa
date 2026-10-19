@@ -1,31 +1,199 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/schema.json",
-    "version": "1.0",
-    "description": "Field-level schema reference for every data entity served by the Nepa Agent API. See /openapi.json for the full OpenAPI 3.0.3 specification."
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "description": "Field-level schema reference for every data entity served by the Nepa Agent API. See /openapi.json for the full OpenAPI 3.0.3 specification.",
+    "last_updated": "2026-10-16"
   },
   "entities": {
-    "Company": { "name": "string", "legal_name": "string", "description": "string", "tagline": "string", "headquarters": "string", "website": "string", "phone": "string", "email": "string", "overview": "string", "leadership_summary": "TeamMember[]" },
-    "Product": { "id": "string", "name": "string", "category": "string|null", "description": "string", "url": "string" },
-    "Solution": { "id": "string", "name": "string", "description": "string", "url": "string" },
-    "Industry": { "name": "string", "description": "string|null", "url": "string|null" },
-    "CaseStudy": { "id": "string", "title": "string", "client": "string|null", "industry": "string|null", "segment": "string|null", "service": "string|null", "summary": "string", "results": "Result[]", "url": "string" },
-    "Result": { "metric": "string", "value": "string" },
-    "TeamMember": { "id": "string", "name": "string", "title": "string|null", "email": "string|null", "linkedin": "string|null", "bio": "string|null", "url": "string" },
-    "Office": { "id": "string", "city": "string|null", "country": "string", "address": "string|null", "role": "string", "phone": "string|null", "email": "string|null" },
-    "Job": { "id": "string", "title": "string", "location": "string|null", "url": "string" },
-    "Event": { "id": "string", "title": "string", "type": "\"event\"|\"webinar\"", "date": "string|null", "location": "string|null", "status": "\"upcoming\"|\"past\"|\"on-demand\"", "url": "string" },
-    "BlogPost": { "id": "string", "title": "string", "author": "string|null", "date": "string (YYYY-MM-DD)", "excerpt": "string", "url": "string" },
-    "PressRelease": { "id": "string", "title": "string", "date": "string (YYYY-MM-DD)", "category": "string", "url": "string" },
-    "CompanyNewsItem": { "id": "string", "title": "string", "date": "string|null", "excerpt": "string", "url": "string" },
-    "ResourceItem": { "id": "string", "title": "string", "type": "\"report\"|\"campaign-landing\"|\"download\"|\"trust-page\"", "summary": "string", "url": "string", "date": "string|null (only present on report/download items)" },
-    "PricingPlan": { "id": "string", "product": "string", "tier": "string", "tagline": "string", "price": "string", "includes": "string[]", "cta_url": "string", "most_popular": "boolean (optional)" },
-    "InvestorRelations": { "overview": "string", "financial_reports": "{title,date,url}[]", "corporate_governance_url": "string", "shareholder_meetings_url": "string", "calendar_url": "string", "financial_calendar": "{event,date}[]" },
+    "Company": {
+      "name": "string",
+      "legal_name": "string",
+      "description": "string",
+      "tagline": "string",
+      "headquarters": "string",
+      "website": "string",
+      "phone": "string",
+      "email": "string",
+      "overview": "string",
+      "leadership_summary": "TeamMember[]",
+      "leadership_change": "LeadershipChange|null",
+      "social": "object{linkedin,youtube}",
+      "languages": "object{en,sv,fi,da}"
+    },
+    "Product": {
+      "id": "string",
+      "name": "string",
+      "category": "string|null",
+      "description": "string",
+      "url": "string",
+      "source": "\"curated\" (optional) - entry is a landing page, not a post of the synced type; Sync keeps it"
+    },
+    "Solution": {
+      "id": "string",
+      "name": "string",
+      "description": "string",
+      "url": "string",
+      "source": "\"curated\" (optional) - entry is a landing page, not a post of the synced type; Sync keeps it"
+    },
+    "Industry": {
+      "name": "string",
+      "description": "string|null",
+      "url": "string|null"
+    },
+    "CaseStudy": {
+      "id": "string",
+      "title": "string",
+      "client": "string|null",
+      "industry": "string|null",
+      "segment": "string|null",
+      "service": "string|null",
+      "summary": "string",
+      "results": "Result[]",
+      "url": "string",
+      "date_published": "date|null (optional)",
+      "source": "\"curated\" (optional) - entry is a landing page, not a post of the synced type; Sync keeps it"
+    },
+    "Result": {
+      "metric": "string",
+      "value": "string"
+    },
+    "TeamMember": {
+      "id": "string",
+      "name": "string",
+      "title": "string|null",
+      "email": "string|null",
+      "linkedin": "string|null",
+      "bio": "string|null",
+      "url": "string",
+      "status_note": "string|null (optional)",
+      "status_source": "string|null (optional)"
+    },
+    "Office": {
+      "id": "string",
+      "city": "string|null",
+      "country": "string",
+      "address": "string|null",
+      "role": "string",
+      "phone": "string|null",
+      "email": "string|null",
+      "contact_url": "string|null",
+      "panel_email": "string|null (optional)",
+      "contacts": "OfficeContact[] (optional)"
+    },
+    "Job": {
+      "id": "string",
+      "title": "string",
+      "location": "string|null",
+      "url": "string"
+    },
+    "Event": {
+      "id": "string",
+      "title": "string",
+      "type": "\"event\"|\"webinar\"",
+      "date": "string|null",
+      "location": "string|null",
+      "status": "\"upcoming\"|\"past\"|\"on-demand\"",
+      "url": "string",
+      "summary": "string|null (optional)",
+      "language": "\"en\"|\"sv\" (optional)"
+    },
+    "BlogPost": {
+      "id": "string",
+      "title": "string",
+      "author": "string|null",
+      "date": "string (YYYY-MM-DD)",
+      "excerpt": "string",
+      "url": "string",
+      "language": "\"en\"|\"sv\""
+    },
+    "PressRelease": {
+      "id": "string",
+      "title": "string",
+      "date": "string (YYYY-MM-DD)",
+      "category": "string",
+      "url": "string",
+      "language": "\"en\"|\"sv\" (sync may also emit \"fi\"|\"da\"|\"no\")",
+      "regulatory": "boolean (optional)",
+      "alternate_language_url": "string|null (optional)",
+      "language_override": "boolean (optional) - true when a human corrected the language; Sync keeps it",
+      "alternate_language_verified": "boolean (optional) - true when a person checked the translation link"
+    },
+    "CompanyNewsItem": {
+      "id": "string",
+      "title": "string",
+      "date": "string|null",
+      "excerpt": "string",
+      "url": "string"
+    },
+    "ResourceItem": {
+      "id": "string",
+      "title": "string",
+      "type": "\"report\"|\"campaign-landing\"|\"download\"|\"trust-page\"",
+      "summary": "string",
+      "url": "string",
+      "date": "string|null (only present on report/download items)",
+      "language": "\"en\"|\"sv\" (optional)"
+    },
+    "PricingPlan": {
+      "id": "string",
+      "product": "string",
+      "tier": "string",
+      "tagline": "string",
+      "price": "string",
+      "includes": "string[]",
+      "cta_url": "string",
+      "most_popular": "boolean (optional)"
+    },
+    "InvestorRelations": {
+      "overview": "string",
+      "financial_reports": "{title,date,url}[]",
+      "corporate_governance_url": "string",
+      "shareholder_meetings_url": "string",
+      "calendar_url": "string",
+      "financial_calendar": "{event,date}[]",
+      "recent_announcements": "Announcement[]",
+      "next_report": "object{event,date}",
+      "investor_contact_url": "string",
+      "certified_adviser": "object{name,email,phone}"
+    },
     "ContactRequest": {
-      "agent_context": { "user_authorized_submission": "true (required, literal)" },
-      "person": { "name": "string", "email": "string" },
-      "company": { "name": "string" },
-      "inquiry": { "service_interest": "string", "project_summary": "string" }
+      "agent_context": {
+        "user_authorized_submission": "true (required, literal)"
+      },
+      "person": {
+        "name": "string",
+        "email": "string"
+      },
+      "company": {
+        "name": "string"
+      },
+      "inquiry": {
+        "service_interest": "string",
+        "project_summary": "string"
+      }
+    },
+    "LeadershipChange": {
+      "summary": "string",
+      "announced": "date",
+      "source": "string"
+    },
+    "OfficeContact": {
+      "name": "string",
+      "title": "string",
+      "email": "string",
+      "phone": "string"
+    },
+    "LocalizedPage": {
+      "id": "string",
+      "language": "\"sv\"|\"fi\"|\"da\"",
+      "section": "string (home, blog, case-study, product, solution, company-news, press-releases, contact, about, policy, page; \"-index\" suffix for archive pages)",
+      "title": "string|null",
+      "description": "string|null",
+      "url": "string",
+      "english_equivalent": "string|null",
+      "alternates": "object{en?,sv?,fi?,da?}|null"
     }
   }
 }

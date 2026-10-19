@@ -1,16 +1,17 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/company-news.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08",
-    "note": "Client-win / partnership announcements from nepa.com/news/ — distinct from investor press releases (press-releases.json) and client case studies (case-studies.json). No publish date was present in the scraped source for these pages, so 'date' is null throughout rather than guessed."
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16",
+    "note": "Client-win / partnership announcements published under the site's /news/ path — distinct from investor press releases and case studies. The former /news/ archive URL now redirects to /newsletter/; use https://nepa.com/newsroom/ as the human-facing index. Swedish versions of four items are listed in localized-pages.json. No publish dates are shown on these pages, so 'date' stays null."
   },
   "news": [
     {
       "id": "news-avanza",
       "title": "New client | Avanza chooses Nepa for ongoing Brand Tracking",
       "date": null,
-      "excerpt": "Leading Swedish online bank Avanza has partnered with Nepa, a global leader in analytics and marketing intelligence, to launch continuous Brand Tracking starting in 2025. Through this tailored solution, Nepa will help Avanza gain deeper insights into brand perception across target audiences and measure ",
+      "excerpt": "Leading Swedish online bank Avanza has partnered with Nepa, a global leader in analytics and marketing intelligence, to launch continuous Brand Tracking starting in 2025. Through this tailored solution, Nepa will help Avanza gain deeper insights into brand perception across target audiences and measure",
       "url": "https://nepa.com/news/avanza/"
     },
     {
@@ -31,7 +32,7 @@
       "id": "news-zaptec",
       "title": "Zaptec joins forces with Nepa",
       "date": null,
-      "excerpt": "**New energy, new rules – Zaptec joins forces with Nepa to grow in a competitive EV market** Zaptec, one of the most forward-thinking players in the EV charging space, has chosen Nepa as its insights client as it sharpens its brand for the next phase of growth. With a refreshed identity and increasi",
+      "excerpt": "New energy, new rules – Zaptec joins forces with Nepa to grow in a competitive EV market Zaptec, one of the most forward-thinking players in the EV charging space, has chosen Nepa as its insights client as it sharpens its brand for the next phase of growth. With a refreshed identity and increasi",
       "url": "https://nepa.com/news/zaptec/"
     },
     {
@@ -66,7 +67,7 @@
       "id": "news-nepa-strengthens-its-marketing-acceleration-focus",
       "title": "Nepa strengthens its Marketing Acceleration focus with returning MMM top talent",
       "date": null,
-      "excerpt": "Nepa accelerates into 2026 **Throughout 2025/2026, the analytics and marketing intelligence company Nepa is placing a clear strategic focus on Marketing Acceleration – continuous, data‑driven optimisation of marketing investments.** **The work is led by the Marketing Acceleration business unit, wher",
+      "excerpt": "Nepa accelerates into 2026 Throughout 2025/2026, the analytics and marketing intelligence company Nepa is placing a clear strategic focus on Marketing Acceleration – continuous, data‑driven optimisation of marketing investments. The work is led by the Marketing Acceleration business unit, wher",
       "url": "https://nepa.com/news/nepa-strengthens-its-marketing-acceleration-focus/"
     },
     {
@@ -87,7 +88,7 @@
       "id": "news-enklare-se-chooses-nepas-continuous-brand-tracking-to-strengthen-its-brand-for-long-term-success",
       "title": "Enklare.se chooses Nepa’s continuous brand tracking to strengthen its brand for long-term success",
       "date": null,
-      "excerpt": "In a fast-paced and competitive personal loan market, where all players target the same pool of customers, comparisons of different players and their offerings are crucial. Enklare.se has taken this into account in their website’s comparison services, which focus on helping consumers evaluate l and ",
+      "excerpt": "In a fast-paced and competitive personal loan market, where all players target the same pool of customers, comparisons of different players and their offerings are crucial. Enklare.se has taken this into account in their website’s comparison services, which focus on helping consumers evaluate l and",
       "url": "https://nepa.com/news/enklare-se-chooses-nepas-continuous-brand-tracking-to-strengthen-its-brand-for-long-term-success/"
     }
   ],

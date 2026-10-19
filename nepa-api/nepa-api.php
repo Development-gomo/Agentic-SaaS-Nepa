@@ -2,7 +2,9 @@
 /**
  * Plugin Name: Nepa Agent API
  * Description: Serves clean, WordPress-agnostic JSON endpoints at /agent/v1/ for AI agents and LLMs. Companion to /agent/ (agent-page.html), llms.txt, ai.txt, and openapi.json.
- * Version: 1.1.0
+ * Version: 1.2.0
+ * Requires at least: 6.0
+ * Requires PHP: 7.4
  * Author: Nepa AB
  */
 
@@ -10,8 +12,71 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('NEPA_API_VERSION', '1.1.0');
+define('NEPA_API_VERSION', '1.2.0');
+/**
+ * Set to true in wp-config.php ONLY if every request to this site passes through Cloudflare
+ * (as nepa.com did at the 2026-10-16 crawl). Rate limiting then keys on Cloudflare's
+ * CF-Connecting-IP header instead of REMOTE_ADDR, which behind Cloudflare is the edge
+ * node's IP shared by many unrelated visitors. Leave false if the origin is reachable
+ * directly, because the header is client-spoofable in that case.
+ */
+if (!defined('NEPA_TRUST_CLOUDFLARE_IP')) {
+    define('NEPA_TRUST_CLOUDFLARE_IP', false);
+}
+/**
+ * Optional lead retention in days. 0 (default) keeps Agent Leads until deleted by hand.
+ * Set e.g. define('NEPA_LEAD_RETENTION_DAYS', 365); in wp-config.php to have a daily job
+ * permanently delete leads older than that - agree the period with Nepa's privacy policy.
+ */
+if (!defined('NEPA_LEAD_RETENTION_DAYS')) {
+    define('NEPA_LEAD_RETENTION_DAYS', 0);
+}
 define('NEPA_API_DIR', plugin_dir_path(__FILE__));
+
+/**
+ * Identifies the curated data set shipped in this plugin's data/ folder. Change it with
+ * every package release (the package build does this); it decides which copy is served.
+ */
+define('NEPA_DATA_RELEASE', 'agentic-web-2026-10');
+
+/**
+ * Data files live in two places:
+ *   - data/ inside this plugin: the curated copy shipped with each package release;
+ *   - wp-content/uploads/nepa-agent-api/: written by Tools -> Nepa Agent API -> Sync now,
+ *     together with manifest.json naming the release the sync was built on and the files
+ *     it wrote.
+ * Precedence rule (explicit, independent of file timestamps):
+ *   - a synced file is served only if manifest.json lists it AND the manifest's release
+ *     equals NEPA_DATA_RELEASE, i.e. the sync was made on top of the release now installed;
+ *   - otherwise the bundled file is served. Installing a new release therefore takes
+ *     effect immediately, and the next Sync builds on that release (it reads the bundled
+ *     files as its starting point). Reinstalling the same release keeps the synced files.
+ */
+function nepa_agent_api_upload_data_dir() {
+    $uploads = wp_upload_dir(null, false);
+    return trailingslashit($uploads['basedir']) . 'nepa-agent-api/';
+}
+
+function nepa_agent_api_sync_manifest($refresh = false) {
+    static $manifest = null;
+    if ($manifest === null || $refresh) {
+        $path = nepa_agent_api_upload_data_dir() . 'manifest.json';
+        $decoded = is_readable($path) ? json_decode((string) file_get_contents($path), true) : null;
+        $manifest = is_array($decoded) ? $decoded : [];
+    }
+    return $manifest;
+}
+
+function nepa_agent_api_data_path($filename) {
+    $manifest = nepa_agent_api_sync_manifest();
+    $synced = nepa_agent_api_upload_data_dir() . $filename;
+    if (($manifest['release'] ?? null) === NEPA_DATA_RELEASE
+        && in_array($filename, (array) ($manifest['files'] ?? []), true)
+        && is_readable($synced)) {
+        return $synced;
+    }
+    return NEPA_API_DIR . 'data/' . $filename;
+}
 
 require_once NEPA_API_DIR . 'includes/class-sync.php';
 
@@ -34,6 +99,7 @@ class Nepa_Agent_API {
         'blog-posts'            => 'blog-posts.json',
         'press-releases'        => 'press-releases.json',
         'investor-relations'    => 'investor-relations.json',
+        'localized-pages'       => 'localized-pages.json',
     ];
 
     /** Max contact submissions accepted from one IP within the rate-limit window. */
@@ -96,6 +162,22 @@ class Nepa_Agent_API {
         add_filter('query_vars', [$this, 'add_query_vars']);
         add_action('template_redirect', [$this, 'handle_request']);
         add_action('send_headers', [$this, 'send_cors_headers']);
+        add_filter('redirect_canonical', [$this, 'skip_canonical_redirect']);
+        add_action('nepa_agent_api_retry_notifications', [$this, 'retry_failed_notifications']);
+        add_action('nepa_agent_api_purge_leads', [$this, 'purge_expired_leads']);
+        // Re-create the schedules if they were lost (e.g. plugin updated without re-activation).
+        add_action('admin_init', [$this, 'schedule_jobs']);
+    }
+
+    /**
+     * WordPress's canonical redirect was 301-ing every endpoint to a trailing-slash URL
+     * (/agent/v1/index.json -> /agent/v1/index.json/), seen on the live site at the
+     * 2026-10-16 crawl. Some agent HTTP clients don't follow redirects on POST or treat
+     * the slashed URL as a different resource, so the canonical redirect is switched off
+     * for this plugin's own URLs only.
+     */
+    public function skip_canonical_redirect($redirect_url) {
+        return get_query_var('nepa_endpoint') ? false : $redirect_url;
     }
 
     public function add_rewrite_rules() {
@@ -164,7 +246,7 @@ class Nepa_Agent_API {
         if (get_query_var('nepa_endpoint')) {
             header('Access-Control-Allow-Origin: *');
             header('Access-Control-Allow-Methods: GET, POST, OPTIONS');
-            header('Access-Control-Allow-Headers: Content-Type');
+            header('Access-Control-Allow-Headers: Content-Type, Accept, Idempotency-Key');
         }
     }
 
@@ -206,14 +288,17 @@ class Nepa_Agent_API {
                 $this->serve_filtered_json('products.json', 'products', ['category']);
                 break;
             case 'blog-posts':
-                $this->serve_paginated_json('blog-posts.json', 'posts');
+                $this->serve_paginated_json('blog-posts.json', 'posts', ['language']);
                 break;
             case 'press-releases':
-                $this->serve_paginated_json('press-releases.json', 'releases');
+                $this->serve_paginated_json('press-releases.json', 'releases', ['language', 'category']);
+                break;
+            case 'localized-pages':
+                $this->serve_filtered_json('localized-pages.json', 'pages', ['language', 'section']);
                 break;
             default:
                 if (isset($this->file_endpoints[$endpoint])) {
-                    $this->serve_file(NEPA_API_DIR . 'data/' . $this->file_endpoints[$endpoint], 'application/json');
+                    $this->serve_file(nepa_agent_api_data_path($this->file_endpoints[$endpoint]), 'application/json');
                 } else {
                     $this->error(404, 'not_found', "Unknown endpoint: {$endpoint}");
                 }
@@ -233,11 +318,41 @@ class Nepa_Agent_API {
     }
 
     private function load_json($filename) {
-        $path = NEPA_API_DIR . 'data/' . $filename;
+        $path = nepa_agent_api_data_path($filename);
         if (!file_exists($path)) {
             return null;
         }
         return json_decode(file_get_contents($path), true);
+    }
+
+    /**
+     * Apply case-insensitive ?field=value filters to a list of items. A field holding a
+     * comma-separated list (e.g. a case study's service "Brand Tracking, Campaign
+     * Evaluation, Marketing Mix Modelling") matches when ANY one entry equals the value,
+     * so ?service=Brand Tracking finds every case study that includes Brand Tracking.
+     */
+    private function apply_filters_from_query($items, $filter_fields) {
+        foreach ($filter_fields as $field) {
+            $value = isset($_GET[$field]) ? sanitize_text_field(wp_unslash($_GET[$field])) : null;
+            if ($value !== null && $value !== '') {
+                $items = array_values(array_filter($items, function ($item) use ($field, $value) {
+                    if (!isset($item[$field]) || !is_scalar($item[$field])) {
+                        return false;
+                    }
+                    $haystack = (string) $item[$field];
+                    if (strcasecmp($haystack, $value) === 0) {
+                        return true;
+                    }
+                    foreach (explode(',', $haystack) as $entry) {
+                        if (strcasecmp(trim($entry), $value) === 0) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }));
+            }
+        }
+        return $items;
     }
 
     /** Filter a list-shaped data file by one or more query-string fields (exact, case-insensitive match). */
@@ -247,15 +362,7 @@ class Nepa_Agent_API {
             $this->error(404, 'not_found', 'Data file not found.');
             return;
         }
-        $items = $decoded[$list_key] ?? [];
-        foreach ($filter_fields as $field) {
-            $value = isset($_GET[$field]) ? sanitize_text_field(wp_unslash($_GET[$field])) : null;
-            if ($value !== null && $value !== '') {
-                $items = array_values(array_filter($items, function ($item) use ($field, $value) {
-                    return isset($item[$field]) && strcasecmp((string) $item[$field], $value) === 0;
-                }));
-            }
-        }
+        $items = $this->apply_filters_from_query($decoded[$list_key] ?? [], $filter_fields);
         $decoded[$list_key] = $items;
         $decoded['count'] = count($items);
         header('Content-Type: application/json; charset=utf-8');
@@ -263,14 +370,14 @@ class Nepa_Agent_API {
         echo wp_json_encode($decoded);
     }
 
-    /** Paginate a large list-shaped data file (blog posts, press releases) via ?limit=&offset=. */
-    private function serve_paginated_json($filename, $list_key) {
+    /** Paginate a large list-shaped data file (blog posts, press releases) via ?limit=&offset=, after any ?field= filters. */
+    private function serve_paginated_json($filename, $list_key, $filter_fields = []) {
         $decoded = $this->load_json($filename);
         if ($decoded === null) {
             $this->error(404, 'not_found', 'Data file not found.');
             return;
         }
-        $items = $decoded[$list_key] ?? [];
+        $items = $this->apply_filters_from_query($decoded[$list_key] ?? [], $filter_fields);
         $total = count($items);
         $limit = isset($_GET['limit']) ? max(1, min(200, (int) $_GET['limit'])) : 25;
         $offset = isset($_GET['offset']) ? max(0, (int) $_GET['offset']) : 0;
@@ -299,7 +406,7 @@ class Nepa_Agent_API {
             ),
             'schema'      => home_url('/agent/v1/schema.json'),
             'openapi'     => home_url('/openapi.json'),
-            'mcp_server'  => 'https://nepa.com/mcp',
+            'mcp_server'  => 'https://agentic-mcp-saas-nepa.onrender.com/mcp',
             'agent_page'  => home_url('/agent/'),
             'llms_txt'    => home_url('/llms.txt'),
             'ai_txt'      => home_url('/ai.txt'),
@@ -307,18 +414,24 @@ class Nepa_Agent_API {
     }
 
     private function get_schema() {
-        $this->serve_file(NEPA_API_DIR . 'data/schema.json', 'application/json');
+        $this->serve_file(nepa_agent_api_data_path('schema.json'), 'application/json');
     }
 
     /**
      * Best-effort caller IP for rate limiting. REMOTE_ADDR is used deliberately, not any
      * X-Forwarded-For style header, because those are trivially spoofable unless the site
      * is known to sit behind a specific, trusted reverse proxy that overwrites them - a
-     * fact this plugin cannot assume. If Nepa's hosting *does* sit behind such a proxy
-     * (Cloudflare, a load balancer, etc.), update this method to read the proxy's own
-     * documented client-IP header instead.
+     * fact this plugin cannot assume. nepa.com was served through Cloudflare at the
+     * 2026-10-16 crawl; when NEPA_TRUST_CLOUDFLARE_IP is set to true, Cloudflare's own
+     * CF-Connecting-IP header is used instead (see the constant's note at the top).
      */
     private function get_client_ip() {
+        if (NEPA_TRUST_CLOUDFLARE_IP && !empty($_SERVER['HTTP_CF_CONNECTING_IP'])) {
+            $ip = sanitize_text_field(wp_unslash($_SERVER['HTTP_CF_CONNECTING_IP']));
+            if (filter_var($ip, FILTER_VALIDATE_IP)) {
+                return $ip;
+            }
+        }
         return isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : 'unknown';
     }
 
@@ -340,7 +453,7 @@ class Nepa_Agent_API {
         return is_string($provided) && $provided !== '' && hash_equals(NEPA_MCP_SHARED_SECRET, $provided);
     }
 
-    /** Returns [transient key, max] for the coarse shared bucket appropriate to this request (trusted MCP vs plain IP). */
+    /** Returns [counter key prefix, max] for the coarse shared bucket appropriate to this request (trusted MCP vs plain IP). */
     private function shared_limit_bucket() {
         if ($this->is_trusted_mcp_request()) {
             return ['nepa_contact_rl_mcp_server', self::MCP_RATE_LIMIT_MAX];
@@ -349,58 +462,252 @@ class Nepa_Agent_API {
     }
 
     /**
-     * Cheap, read-only check of the coarse connection-level bucket (IP, or the shared MCP
-     * bucket) - true if it's already at capacity. Deliberately does NOT increment anything:
-     * it exists purely so a request that's doomed to be rejected anyway (the bucket is
-     * already full) can be turned away before spending any effort parsing its body. The
-     * actual commit - the write that makes a request "count" against this bucket - happens
-     * later, in commit_shared_limit_usage(), only for requests that get all the way through
-     * the per-email check below. See that method's doc comment for why the order matters.
+     * Fixed-window counter key: the window index is part of the key, so a counter expires
+     * at the end of its own window and accepted requests never extend it.
      */
-    private function is_over_shared_limit() {
-        [$key, $max] = $this->shared_limit_bucket();
-        return ((int) get_transient($key)) >= $max;
+    private function window_key($prefix, $window) {
+        return $prefix . '_' . (int) floor(time() / $window);
+    }
+
+    private function read_counter($key) {
+        if (wp_using_ext_object_cache()) {
+            return (int) wp_cache_get($key, 'nepa_agent_api');
+        }
+        return (int) get_transient($key);
     }
 
     /**
-     * Actually consumes one unit of the coarse shared bucket's quota - called ONLY after a
-     * submission has already passed the per-email check, so that a request rejected for
-     * repeating the same email doesn't ALSO eat into the pool other, distinct submitters
-     * depend on. Getting this ordering backwards was a real bug in an earlier version:
-     * checking-and-incrementing this shared bucket before the email check meant every
-     * rejected repeat of one email still consumed a slot, so someone retrying a single
-     * email enough times could exhaust the entire shared MCP quota and lock out everyone
-     * else relayed through it - the opposite of what adding a per-email check was for.
-     * Returns false (caller must reject) if the bucket is at capacity at commit time.
+     * Increments a counter and returns the new value. With a persistent object cache
+     * (Redis/Memcached) wp_cache_incr is atomic, so concurrent requests can't both slip
+     * under the limit. Without one, WordPress transients are read-then-write; two
+     * simultaneous requests can then each see the same count, so the limit is a close
+     * approximation rather than exact. Install a persistent object cache if exact limits
+     * matter.
      */
-    private function commit_shared_limit_usage() {
-        [$key, $max] = $this->shared_limit_bucket();
-        $count = (int) get_transient($key);
-        if ($count >= $max) {
+    private function increment_counter($key, $ttl) {
+        if (wp_using_ext_object_cache()) {
+            wp_cache_add($key, 0, 'nepa_agent_api', $ttl);
+            $value = wp_cache_incr($key, 1, 'nepa_agent_api');
+            return $value === false ? PHP_INT_MAX : (int) $value;
+        }
+        $value = (int) get_transient($key) + 1;
+        set_transient($key, $value, $ttl);
+        return $value;
+    }
+
+    private function shared_key() {
+        [$prefix, $max] = $this->shared_limit_bucket();
+        return [$this->window_key($prefix, self::CONTACT_RATE_LIMIT_WINDOW), $max];
+    }
+
+    private function email_key($email) {
+        return $this->window_key('nepa_contact_rl_email_' . md5(strtolower($email)), self::EMAIL_RATE_LIMIT_WINDOW);
+    }
+
+    /** Read-only: true if the coarse bucket (IP, or the shared MCP bucket) is already full. */
+    private function is_over_shared_limit() {
+        [$key, $max] = $this->shared_key();
+        return $this->read_counter($key) >= $max;
+    }
+
+    /** Read-only: true if this email address has used up its own quota. */
+    private function is_email_rate_limited($email) {
+        return $this->read_counter($this->email_key($email)) >= self::EMAIL_RATE_LIMIT_MAX;
+    }
+
+    /**
+     * Consumes quota only for a submission that has passed every check, in this order:
+     * the shared bucket first, then the per-email bucket. A request turned away by the
+     * shared bucket therefore never uses up the submitter's own email allowance, and a
+     * request rejected for its email never uses up the shared pool (it is refused by the
+     * read-only check before reaching here). Returns false if either bucket is full at
+     * commit time.
+     */
+    private function commit_rate_limits($email) {
+        [$key, $max] = $this->shared_key();
+        if ($this->increment_counter($key, self::CONTACT_RATE_LIMIT_WINDOW) > $max) {
             return false;
         }
-        set_transient($key, $count + 1, self::CONTACT_RATE_LIMIT_WINDOW);
+        if ($this->increment_counter($this->email_key($email), self::EMAIL_RATE_LIMIT_WINDOW) > self::EMAIL_RATE_LIMIT_MAX) {
+            return false;
+        }
         return true;
     }
 
+    /** Field length limits for contact submissions (characters). */
+    const CONTACT_FIELD_LIMITS = [
+        'name'             => 200,
+        'email'            => 254,
+        'company'          => 200,
+        'service_interest' => 200,
+        'project_summary'  => 5000,
+        'idempotency_key'  => 100,
+    ];
+    /** Largest accepted request body, in bytes. */
+    const CONTACT_MAX_BODY_BYTES = 20000;
+
     /**
-     * Per-submitted-email throttle - the actual mechanism that keeps distinct real
-     * submitters fair to each other regardless of IP or MCP-bucket sharing (see
-     * EMAIL_RATE_LIMIT_MAX's doc comment for why a connection-keyed bucket, however large,
-     * can't do this on its own). Note this key is the address the caller CLAIMS, unverified
-     * - it stops the same address being hit repeatedly, but does not by itself distinguish
-     * a real human from a script cycling through fabricated addresses. That broader volume
-     * case is exactly what the coarse shared bucket above still exists to catch: a fresh,
-     * never-seen-before email still consumes shared quota once it passes this check, so
-     * many distinct (even fabricated) addresses still hit the shared ceiling eventually.
+     * Validates the request's structure and types before anything is sanitized or stored.
+     * Returns [values, null] on success or [null, [http_status, code, message]] on failure.
      */
-    private function is_email_rate_limited($email) {
-        $key = 'nepa_contact_rl_email_' . md5(strtolower($email));
-        $count = (int) get_transient($key);
-        if ($count >= self::EMAIL_RATE_LIMIT_MAX) {
-            return true;
+    private function validate_contact_body($body) {
+        foreach (['agent_context', 'person', 'company', 'inquiry'] as $section) {
+            if (isset($body[$section]) && !is_array($body[$section])) {
+                return [null, [400, 'invalid_structure', "{$section} must be a JSON object."]];
+            }
         }
-        set_transient($key, $count + 1, self::EMAIL_RATE_LIMIT_WINDOW);
+        $fields = [
+            'name'             => $body['person']['name'] ?? null,
+            'email'            => $body['person']['email'] ?? null,
+            'company'          => $body['company']['name'] ?? null,
+            'service_interest' => $body['inquiry']['service_interest'] ?? null,
+            'project_summary'  => $body['inquiry']['project_summary'] ?? null,
+            'idempotency_key'  => $body['agent_context']['idempotency_key'] ?? ($_SERVER['HTTP_IDEMPOTENCY_KEY'] ?? null),
+        ];
+        foreach ($fields as $field => $value) {
+            if ($value !== null && !is_string($value)) {
+                return [null, [400, 'invalid_type', "{$field} must be a string."]];
+            }
+            if (is_string($value) && mb_strlen($value) > self::CONTACT_FIELD_LIMITS[$field]) {
+                return [null, [422, 'field_too_long', "{$field} must be at most " . self::CONTACT_FIELD_LIMITS[$field] . ' characters.']];
+            }
+        }
+        $values = [
+            'name'             => sanitize_text_field($fields['name'] ?? ''),
+            'email'            => sanitize_email($fields['email'] ?? ''),
+            'company'          => sanitize_text_field($fields['company'] ?? ''),
+            'service_interest' => sanitize_text_field($fields['service_interest'] ?? ''),
+            'project_summary'  => sanitize_textarea_field($fields['project_summary'] ?? ''),
+            'idempotency_key'  => $fields['idempotency_key'] ?? '',
+        ];
+        if ($values['idempotency_key'] !== '' && !preg_match('/^[A-Za-z0-9._:-]{8,100}$/', $values['idempotency_key'])) {
+            return [null, [400, 'invalid_idempotency_key', 'idempotency_key must be 8-100 characters of letters, digits, ".", "_", ":" or "-".']];
+        }
+        if (!$values['name'] || !$values['email'] || !is_email($values['email'])) {
+            return [null, [422, 'invalid_input', 'person.name and a valid person.email are required.']];
+        }
+        return [$values, null];
+    }
+
+    /** Seconds a reservation blocks repeats: 24 h for an explicit idempotency key, 30 min for identical content. */
+    const IDEMPOTENCY_KEY_TTL = 86400;
+    const FINGERPRINT_TTL = 1800;
+
+    /**
+     * Atomically reserves a submission before any lead is created, so two overlapping
+     * requests (including a retry that arrives while the first is still running) can't
+     * both create a lead and send an email.
+     *
+     * The reservation is a row in wp_options whose option_name is unique in the database.
+     * It is written with a plain INSERT, which fails for the second of two concurrent
+     * requests. add_option() can't be used: it issues INSERT ... ON DUPLICATE KEY UPDATE,
+     * so both concurrent callers would "succeed". The object cache is bypassed for the
+     * same reason.
+     *
+     * Every value carries a random token, and every later change - replacing an expired
+     * reservation, completing it, releasing it, purging it - is a compare-and-swap: the
+     * UPDATE/DELETE matches both the name AND the exact value this request read or wrote.
+     * So if two requests both see the same expired reservation, only one of them can
+     * remove it; the other's DELETE matches nothing, it re-reads, and finds the first
+     * request's new reservation.
+     *
+     * Returns one of:
+     *   ['status' => 'owned',    'name' => ..., 'raw' => <stored value>]
+     *   ['status' => 'existing', 'name' => ..., 'current' => [...]]   (live reservation)
+     *   ['status' => 'error',    'name' => ...]   (the database could not store or read it)
+     */
+    private function reserve_submission($scope, $fingerprint, $ttl) {
+        global $wpdb;
+        $name = 'nepa_lead_res_' . sha1($scope);
+        for ($attempt = 0; $attempt < 3; $attempt++) {
+            $raw = wp_json_encode([
+                'fingerprint' => $fingerprint, 'created' => time(), 'ttl' => $ttl,
+                'lead_post_id' => 0, 'lead_id' => '', 'token' => wp_generate_password(16, false, false),
+            ]);
+            $suppress = $wpdb->suppress_errors(true);
+            $inserted = $wpdb->insert($wpdb->options, ['option_name' => $name, 'option_value' => $raw, 'autoload' => 'no']);
+            $wpdb->suppress_errors($suppress);
+            if ($inserted) {
+                return ['status' => 'owned', 'name' => $name, 'raw' => $raw];
+            }
+            $current_raw = $this->read_reservation_raw($name);
+            if ($current_raw === null) {
+                // The INSERT failed but no row exists: not a duplicate-key collision, the
+                // database itself failed (or the row vanished between the two queries -
+                // then the next attempt simply inserts again).
+                continue;
+            }
+            $current = $this->decode_reservation($current_raw);
+            if ($current && ($current['created'] + $current['ttl']) > time()) {
+                return ['status' => 'existing', 'name' => $name, 'current' => $current];
+            }
+            // Expired or unreadable: remove exactly the value we read. If another request
+            // already replaced it, this matches nothing and the loop re-reads.
+            $wpdb->delete($wpdb->options, ['option_name' => $name, 'option_value' => $current_raw]);
+        }
+        return ['status' => 'error', 'name' => $name];
+    }
+
+    /** Raw stored value, or null if there is no row. */
+    private function read_reservation_raw($name) {
+        global $wpdb;
+        $raw = $wpdb->get_var($wpdb->prepare("SELECT option_value FROM {$wpdb->options} WHERE option_name = %s", $name));
+        return is_string($raw) ? $raw : null;
+    }
+
+    private function decode_reservation($raw) {
+        $decoded = json_decode((string) $raw, true);
+        return is_array($decoded) && isset($decoded['created'], $decoded['ttl'], $decoded['fingerprint']) ? $decoded : null;
+    }
+
+    /** Marks this request's reservation as finished (only if it is still exactly ours). */
+    private function complete_reservation($reservation, $lead_post_id, $lead_id) {
+        global $wpdb;
+        $value = json_decode($reservation['raw'], true);
+        $value['lead_post_id'] = (int) $lead_post_id;
+        $value['lead_id'] = $lead_id;
+        $value['created'] = time();
+        $updated = $wpdb->update(
+            $wpdb->options,
+            ['option_value' => wp_json_encode($value)],
+            ['option_name' => $reservation['name'], 'option_value' => $reservation['raw']]
+        );
+        return $updated === 1;
+    }
+
+    /** Releases this request's reservation (only if it is still exactly ours). */
+    private function release_reservation($reservation) {
+        global $wpdb;
+        $wpdb->delete($wpdb->options, ['option_name' => $reservation['name'], 'option_value' => $reservation['raw']]);
+    }
+
+    private function received_response($lead_id, $duplicate) {
+        status_header(200);
+        header('Content-Type: application/json; charset=utf-8');
+        echo wp_json_encode([
+            'status'    => 'received',
+            'duplicate' => $duplicate,
+            'message'   => $duplicate
+                ? 'This inquiry was already received - no new submission was created.'
+                : 'Thank you - a member of the Nepa team will follow up shortly.',
+            'lead_id'   => $lead_id,
+            'next_step' => 'A Nepa representative will contact the provided email within 1-2 business days.',
+        ]);
+    }
+
+    /**
+     * Writes one piece of lead metadata and confirms it was stored, retrying once.
+     * update_post_meta() returns false both on failure and when the stored value is
+     * already identical, so the stored value is read back to tell the two apart.
+     */
+    private function store_meta($post_id, $key, $value) {
+        for ($attempt = 0; $attempt < 2; $attempt++) {
+            update_post_meta($post_id, $key, $value);
+            if ((string) get_post_meta($post_id, $key, true) === (string) $value) {
+                return true;
+            }
+        }
+        error_log("Nepa Agent API: could not store meta '{$key}' for lead post #{$post_id}.");
         return false;
     }
 
@@ -410,65 +717,100 @@ class Nepa_Agent_API {
      * enforced here as the final layer of a three-layer gate (MCP tool description,
      * MCP Zod schema, this PHP check) so an agent cannot submit without consent.
      *
-     * The inquiry is persisted as a `nepa_lead` post BEFORE attempting to email a
-     * notification, so a lead is never silently lost if wp_mail() fails (misconfigured
-     * SMTP, host outage, etc.) - the response and this data are the source of truth,
-     * not the email.
+     * Order of operations:
+     *   1. cheap checks (shared rate limit, body size, JSON, consent, field validation);
+     *   2. atomic reservation of the idempotency key - or, without one, of the content
+     *      fingerprint. A repeat of a finished submission gets the original lead back
+     *      (duplicate: true); a repeat of one still being processed gets 409 in_progress;
+     *      the same key with different content gets 409 idempotency_key_reused;
+     *   3. rate-limit quota is consumed only for a new, valid submission;
+     *   4. the lead is stored as a private nepa_lead post - this is the acceptance
+     *      condition. If it can't be stored the reservation is released and the caller
+     *      gets 503 (safe to retry);
+     *   5. the notification email state is recorded as pending, the email is sent, and the
+     *      result is recorded. Any lead not confirmed as sent (including one whose retry
+     *      state couldn't be stored at all) is retried by the hourly job for up to
+     *      RETRY_WINDOW_DAYS; if the email was sent but its success couldn't be recorded,
+     *      the job may send it again (at-least-once - a duplicate notification is
+     *      preferred over a lost one).
      */
     private function contact_submission() {
-        // Cheap, no-side-effect check: if the shared bucket is already full, reject before
-        // spending any effort parsing the body. Does not itself consume any quota - see
-        // commit_shared_limit_usage() for where a request actually "counts".
         if ($this->is_over_shared_limit()) {
             $this->error(429, 'rate_limited', 'Too many submissions from this address. Please try again later.');
             return;
         }
 
-        $raw = file_get_contents('php://input');
-        $body = json_decode($raw, true);
+        $length = isset($_SERVER['CONTENT_LENGTH']) ? (int) $_SERVER['CONTENT_LENGTH'] : 0;
+        if ($length > self::CONTACT_MAX_BODY_BYTES) {
+            $this->error(413, 'payload_too_large', 'Request body must be at most ' . self::CONTACT_MAX_BODY_BYTES . ' bytes.');
+            return;
+        }
+        $raw = file_get_contents('php://input', false, null, 0, self::CONTACT_MAX_BODY_BYTES + 1);
+        if (is_string($raw) && strlen($raw) > self::CONTACT_MAX_BODY_BYTES) {
+            $this->error(413, 'payload_too_large', 'Request body must be at most ' . self::CONTACT_MAX_BODY_BYTES . ' bytes.');
+            return;
+        }
+        $body = json_decode((string) $raw, true);
         if (!is_array($body)) {
-            $this->error(400, 'invalid_json', 'Request body must be valid JSON.');
+            $this->error(400, 'invalid_json', 'Request body must be a JSON object.');
             return;
         }
 
+        if (isset($body['agent_context']) && !is_array($body['agent_context'])) {
+            $this->error(400, 'invalid_structure', 'agent_context must be a JSON object.');
+            return;
+        }
         if (($body['agent_context']['user_authorized_submission'] ?? null) !== true) {
             $this->error(403, 'not_authorized', 'agent_context.user_authorized_submission must be true.');
             return;
         }
 
-        $name = sanitize_text_field($body['person']['name'] ?? '');
-        $email = sanitize_email($body['person']['email'] ?? '');
-        $company = sanitize_text_field($body['company']['name'] ?? '');
-        $service_interest = sanitize_text_field($body['inquiry']['service_interest'] ?? '');
-        $project_summary = sanitize_textarea_field($body['inquiry']['project_summary'] ?? '');
-
-        if (!$name || !$email || !is_email($email)) {
-            $this->error(422, 'invalid_input', 'person.name and a valid person.email are required.');
+        [$v, $invalid] = $this->validate_contact_body($body);
+        if ($invalid) {
+            $this->error($invalid[0], $invalid[1], $invalid[2]);
             return;
         }
 
-        if ($this->is_email_rate_limited($email)) {
-            $this->error(429, 'rate_limited', 'Too many submissions for this email address. Please try again later.');
+        $fingerprint = hash('sha256', strtolower($v['email']) . "\n" . $v['name'] . "\n" . $v['company'] . "\n" . $v['service_interest'] . "\n" . $v['project_summary']);
+        $has_key = $v['idempotency_key'] !== '';
+        $scope = $has_key ? 'key:' . $v['idempotency_key'] : 'fp:' . $fingerprint;
+        $ttl = $has_key ? self::IDEMPOTENCY_KEY_TTL : self::FINGERPRINT_TTL;
+
+        $reservation = $this->reserve_submission($scope, $fingerprint, $ttl);
+        if ($reservation['status'] === 'error') {
+            error_log('Nepa Agent API: could not store or read a submission reservation (database error).');
+            $this->error(503, 'reservation_unavailable', 'The inquiry could not be accepted right now because of a temporary storage problem. Nothing was saved. Please retry shortly; retrying is safe.');
+            return;
+        }
+        if ($reservation['status'] === 'existing') {
+            $current = $reservation['current'];
+            if (!hash_equals((string) $current['fingerprint'], $fingerprint)) {
+                $this->error(409, 'idempotency_key_reused', 'This idempotency_key was already used for a different inquiry in the last 24 hours. Use a new key for a new inquiry.');
+                return;
+            }
+            if (!empty($current['lead_post_id'])) {
+                $this->received_response((string) $current['lead_id'], true);
+                return;
+            }
+            $this->error(409, 'in_progress', 'An identical submission is still being processed. Wait a few seconds and retry with the same details.');
             return;
         }
 
-        // Only now - after the submission has survived the per-email check - does it
-        // actually consume a unit of the shared bucket's quota. A repeat of an
-        // already-rate-limited email never reaches this line, so it can't eat into the
-        // pool that other, distinct submitters depend on (see commit_shared_limit_usage()).
-        if (!$this->commit_shared_limit_usage()) {
-            $this->error(429, 'rate_limited', 'Too many submissions from this address. Please try again later.');
+        if ($this->is_email_rate_limited($v['email']) || !$this->commit_rate_limits($v['email'])) {
+            $this->release_reservation($reservation);
+            $this->error(429, 'rate_limited', 'Too many submissions. Please try again later.');
             return;
         }
 
         $lead_id = 'nepa-lead-' . gmdate('Y') . '-' . strtoupper(substr(md5(uniqid('', true)), 0, 8));
+        $name = $v['name'];
+        $email = $v['email'];
+        $company = $v['company'];
+        $service_interest = $v['service_interest'];
+        $project_summary = $v['project_summary'];
 
-        // The contact's name and email are embedded directly in the post's own title/content
-        // (not just as post_meta) so that a successful wp_insert_post() ALONE - independent
-        // of whether any individual update_post_meta() call below also succeeds - already
-        // guarantees the one piece of information staff actually need to follow up: how to
-        // reach this person. post_meta is still written for structured querying, but its
-        // success is no longer the only thing standing between a submission and total loss.
+        // Name, email and summary are in the post itself, so the stored post alone has
+        // everything needed to follow up and to rebuild the notification email.
         $lead_post_id = wp_insert_post([
             'post_type'    => 'nepa_lead',
             'post_status'  => 'private',
@@ -476,70 +818,178 @@ class Nepa_Agent_API {
             'post_content' => "Email: {$email}\nService interest: {$service_interest}\n\n{$project_summary}",
         ], true);
 
-        $persisted = !is_wp_error($lead_post_id);
-        $meta_ok = false;
-        if ($persisted) {
-            // The 'email' field is the one piece of metadata that actually matters for
-            // follow-up (it's also safely embedded in post_title/post_content above as a
-            // fallback) - its write result is checked and logged; the rest are best-effort.
-            $meta_ok = update_post_meta($lead_post_id, 'email', $email) !== false;
-            if (!$meta_ok) {
-                error_log("Nepa Agent API: update_post_meta('email') failed for lead {$lead_id} (post #{$lead_post_id}) - email is still recoverable from the post title/content.");
-            }
-            update_post_meta($lead_post_id, 'lead_id', $lead_id);
-            update_post_meta($lead_post_id, 'name', $name);
-            update_post_meta($lead_post_id, 'company', $company);
-            update_post_meta($lead_post_id, 'service_interest', $service_interest);
-            update_post_meta($lead_post_id, 'submitted_at', current_time('mysql'));
-        } else {
-            // Even if persistence fails, still attempt the email below rather than losing the lead entirely.
-            error_log("Nepa Agent API: failed to persist lead {$lead_id} as nepa_lead post: " . $lead_post_id->get_error_message());
-        }
-
-        $subject = "New agent-submitted inquiry: {$lead_id}";
-        $message = "Lead ID: {$lead_id}\n"
-            . "Name: {$name}\n"
-            . "Email: {$email}\n"
-            . "Company: {$company}\n"
-            . "Service interest: {$service_interest}\n\n"
-            . "Project summary:\n{$project_summary}\n"
-            . ($persisted
-                ? ("\n(Saved as Agent Lead #{$lead_post_id} in wp-admin" . ($meta_ok ? '' : ' - note: structured metadata failed to save, but the contact details above are in the post title/content') . ".)\n")
-                : "\n(NOTE: failed to save as a wp-admin record - this email is the only copy.)\n");
-
-        $mail_sent = wp_mail(
-            'info@nepa.com',
-            $subject,
-            $message,
-            ["Reply-To: {$name} <{$email}>"]
-        );
-
-        if (!$mail_sent) {
-            error_log("Nepa Agent API: wp_mail() failed for lead {$lead_id}.");
-            if ($persisted) {
-                update_post_meta($lead_post_id, 'mail_sent', false);
-            }
-        } elseif ($persisted) {
-            update_post_meta($lead_post_id, 'mail_sent', true);
-        }
-
-        // The inquiry is durably recorded (nepa_lead post) independently of email delivery,
-        // so this remains a genuine "received" as long as persistence succeeded - even if
-        // the notification email itself failed, nothing is lost and staff can review Agent
-        // Leads in wp-admin. Only report failure if BOTH channels failed.
-        if (!$persisted && !$mail_sent) {
-            $this->error(502, 'delivery_failed', 'Unable to record or notify about this inquiry right now. Please try again shortly or use the contact form directly.');
+        if (is_wp_error($lead_post_id) || !$lead_post_id) {
+            $this->release_reservation($reservation);
+            error_log("Nepa Agent API: failed to store lead {$lead_id}: " . (is_wp_error($lead_post_id) ? $lead_post_id->get_error_message() : 'no post id'));
+            $this->error(503, 'not_recorded', 'The inquiry could not be recorded right now. Nothing was saved and no notification was sent. Please retry shortly; retrying is safe.');
             return;
         }
 
-        status_header(200);
-        header('Content-Type: application/json; charset=utf-8');
-        echo wp_json_encode([
-            'status'    => 'received',
-            'message'   => 'Thank you - a member of the Nepa team will follow up shortly.',
-            'lead_id'   => $lead_id,
-            'next_step' => 'A Nepa representative will contact the provided email within 1-2 business days.',
+        if (!$this->complete_reservation($reservation, $lead_post_id, $lead_id)) {
+            // The reservation still exists, so repeats get 409 in_progress (never a duplicate lead) until it expires.
+            error_log("Nepa Agent API: could not mark reservation complete for lead {$lead_id}; repeats will get 409 until it expires.");
+        }
+
+        // Required state first: the retry job selects on mail_sent / mail_attempts.
+        $retry_state_ok = $this->store_meta($lead_post_id, 'lead_id', $lead_id)
+            & $this->store_meta($lead_post_id, 'mail_sent', '0')
+            & $this->store_meta($lead_post_id, 'mail_attempts', '0');
+        if (!$retry_state_ok) {
+            error_log("Nepa Agent API: lead {$lead_id} (post #{$lead_post_id}) is stored but its retry state is incomplete; the hourly job will still pick it up because it is not marked as sent.");
+        }
+        $details = [
+            'email'                      => $email,
+            'name'                       => $name,
+            'company'                    => $company,
+            'service_interest'           => $service_interest,
+            'submitted_at'               => current_time('mysql'),
+            'fingerprint'                => $fingerprint,
+            'idempotency_key'            => $v['idempotency_key'],
+            // Record of consent as asserted by the caller, and through which channel.
+            'user_authorized_submission' => '1',
+            'authorization_asserted_at'  => gmdate('c'),
+            'channel'                    => $this->is_trusted_mcp_request() ? 'mcp' : 'direct',
+            'client_ip_hash'             => hash_hmac('sha256', $this->get_client_ip(), wp_salt('auth')),
+        ];
+        foreach ($details as $key => $value) {
+            if ($value !== '') {
+                $this->store_meta($lead_post_id, $key, $value);
+            }
+        }
+
+        $sent = $this->send_lead_notification($lead_post_id);
+        $this->store_meta($lead_post_id, 'mail_attempts', '1');
+        if (!$this->store_meta($lead_post_id, 'mail_sent', $sent ? '1' : '0') && $sent) {
+            error_log("Nepa Agent API: notification for lead {$lead_id} was sent but could not be marked as sent; the retry job may send it again.");
+        }
+        if (!$sent) {
+            error_log("Nepa Agent API: wp_mail() failed for lead {$lead_id}; queued for retry.");
+        }
+
+        $this->received_response($lead_id, false);
+    }
+
+    /** Builds the notification from the stored post itself (no dependency on extra meta) and sends it. */
+    private function send_lead_notification($post_id, $resend = false) {
+        $post = get_post($post_id);
+        if (!$post) {
+            return false;
+        }
+        $lead_id = (string) get_post_meta($post_id, 'lead_id', true);
+        if ($lead_id === '') {
+            $lead_id = strtok((string) $post->post_title, ':');
+        }
+        $name = (string) get_post_meta($post_id, 'name', true);
+        $email = (string) get_post_meta($post_id, 'email', true);
+        $headers = ($name !== '' && $email !== '') ? ["Reply-To: {$name} <{$email}>"] : [];
+        $message = "Lead: {$post->post_title}\n\n{$post->post_content}\n\n(Saved as Agent Lead #{$post_id} in wp-admin.)\n"
+            . ($resend ? "(Re-sent automatically after an earlier send failure.)\n" : '');
+        return (bool) wp_mail(self::LEAD_NOTIFY_TO, "New agent-submitted inquiry: {$lead_id}", $message, $headers);
+    }
+
+    /** Recipient of new-lead notifications. */
+    const LEAD_NOTIFY_TO = 'info@nepa.com';
+    /** Notification send attempts before a lead is left for manual follow-up in wp-admin. */
+    const MAX_MAIL_ATTEMPTS = 6;
+
+    public function schedule_jobs() {
+        if (!wp_next_scheduled('nepa_agent_api_retry_notifications')) {
+            wp_schedule_event(time() + 300, 'hourly', 'nepa_agent_api_retry_notifications');
+        }
+        if (!wp_next_scheduled('nepa_agent_api_purge_leads')) {
+            wp_schedule_event(time() + 600, 'daily', 'nepa_agent_api_purge_leads');
+        }
+    }
+
+    /** Days after which an unsent notification is no longer retried automatically. */
+    const RETRY_WINDOW_DAYS = 7;
+
+    /**
+     * Hourly: re-send notifications that haven't been confirmed as sent.
+     *
+     * Selection is "not confirmed sent" rather than "marked failed", so a lead whose
+     * retry state could never be written (mail_sent / mail_attempts missing because the
+     * metadata writes failed) is still picked up - a notification is only skipped once
+     * mail_sent = '1' was actually stored. Exhausted leads (6 attempts) are excluded in
+     * the query itself, oldest first, so they can't crowd out pending ones. Leads under
+     * 5 minutes old are skipped (their own request may still be sending), and leads older
+     * than RETRY_WINDOW_DAYS are left for manual follow-up - which also bounds re-sending
+     * if even the attempt counter can't be stored.
+     */
+    public function retry_failed_notifications() {
+        $ids = get_posts([
+            'post_type'      => 'nepa_lead',
+            'post_status'    => 'private',
+            'posts_per_page' => 20,
+            'fields'         => 'ids',
+            'orderby'        => 'date',
+            'order'          => 'ASC',
+            'date_query'     => [[
+                'before' => '5 minutes ago',
+                'after'  => self::RETRY_WINDOW_DAYS . ' days ago',
+                'column' => 'post_date_gmt',
+            ]],
+            'meta_query'     => [
+                'relation' => 'AND',
+                [
+                    'relation' => 'OR',
+                    ['key' => 'mail_sent', 'compare' => 'NOT EXISTS'],
+                    ['key' => 'mail_sent', 'value' => '1', 'compare' => '!='],
+                ],
+                [
+                    'relation' => 'OR',
+                    ['key' => 'mail_attempts', 'compare' => 'NOT EXISTS'],
+                    ['key' => 'mail_attempts', 'value' => self::MAX_MAIL_ATTEMPTS, 'compare' => '<', 'type' => 'NUMERIC'],
+                ],
+            ],
+            'no_found_rows'  => true,
         ]);
+        foreach ($ids as $id) {
+            $attempts = (int) get_post_meta($id, 'mail_attempts', true) + 1;
+            $sent = $this->send_lead_notification($id, true);
+            $this->store_meta($id, 'mail_attempts', (string) $attempts);
+            $this->store_meta($id, 'mail_sent', $sent ? '1' : '0');
+            if (!$sent && $attempts >= self::MAX_MAIL_ATTEMPTS) {
+                error_log("Nepa Agent API: giving up on notification for lead post #{$id} after {$attempts} attempts - follow up from wp-admin -> Agent Leads.");
+            }
+        }
+    }
+
+    /**
+     * Daily: deletes expired submission reservations, and - when NEPA_LEAD_RETENTION_DAYS
+     * is above 0 - permanently deletes leads older than that, including leads in the
+     * Trash ('any' excludes trashed posts, so every status is listed explicitly).
+     */
+    public function purge_expired_leads() {
+        global $wpdb;
+        $rows = $wpdb->get_results($wpdb->prepare(
+            "SELECT option_name, option_value FROM {$wpdb->options} WHERE option_name LIKE %s LIMIT 500",
+            $wpdb->esc_like('nepa_lead_res_') . '%'
+        ));
+        foreach ((array) $rows as $row) {
+            $value = json_decode((string) $row->option_value, true);
+            if (!is_array($value) || ($value['created'] ?? 0) + ($value['ttl'] ?? 0) < time()) {
+                // Delete exactly the expired value read above - never a reservation that a
+                // request created in the meantime under the same name.
+                $wpdb->delete($wpdb->options, ['option_name' => $row->option_name, 'option_value' => $row->option_value]);
+            }
+        }
+
+        $days = (int) NEPA_LEAD_RETENTION_DAYS;
+        if ($days <= 0) {
+            return;
+        }
+        $ids = get_posts([
+            'post_type'      => 'nepa_lead',
+            'post_status'    => ['publish', 'private', 'draft', 'pending', 'future', 'trash'],
+            'posts_per_page' => 200,
+            'fields'         => 'ids',
+            'date_query'     => [['before' => "{$days} days ago", 'column' => 'post_date_gmt']],
+            'no_found_rows'  => true,
+        ]);
+        foreach ($ids as $id) {
+            wp_delete_post($id, true);
+        }
     }
 
     private function error($http_status, $code, $message) {
@@ -552,10 +1002,17 @@ class Nepa_Agent_API {
 $nepa_agent_api = new Nepa_Agent_API();
 
 register_activation_hook(__FILE__, function () use ($nepa_agent_api) {
+    // The rules must be registered in this request before flushing - 'init' has already
+    // run by the time an activation hook fires, so without this call the flush would
+    // store a rule set that doesn't contain /agent/, /agent/v1/*.json or /openapi.json.
+    $nepa_agent_api->add_rewrite_rules();
     $nepa_agent_api->register_lead_post_type();
     $nepa_agent_api->grant_lead_capabilities_to_administrators();
+    $nepa_agent_api->schedule_jobs();
     flush_rewrite_rules();
 });
 register_deactivation_hook(__FILE__, function () {
+    wp_clear_scheduled_hook('nepa_agent_api_retry_notifications');
+    wp_clear_scheduled_hook('nepa_agent_api_purge_leads');
     flush_rewrite_rules();
 });

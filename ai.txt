@@ -4,6 +4,7 @@ Identity:
 Company: Nepa AB (publ)
 Domain: https://nepa.com
 Description: Marketing research and brand-growth insight platform — brand tracking, marketing mix modelling, campaign evaluation, category insight, and path-to-purchase research for consumer brands across the Nordics and beyond.
+Last-Updated: 2026-10-16
 
 Permissions:
 Allow-Indexing: yes
@@ -12,25 +13,28 @@ Allow-Citation: yes
 Allow-Training: yes
 Allow-Retrieval: yes
 
+Content-Signal (same line in https://nepa.com/robots.txt): ai-train=yes, search=yes, ai-input=yes
+
 Canonical sources:
 LLM-Page:    https://nepa.com/agent/
 LLM-Text:    https://nepa.com/llms.txt
 AI-File:     https://nepa.com/ai.txt
 Sitemap:     https://nepa.com/sitemap_index.xml
 REST-API:    https://nepa.com/agent/v1/index.json
-MCP-Server:  https://nepa.com/mcp
+MCP-Server:  https://agentic-mcp-saas-nepa.onrender.com/mcp
 API-Catalog: https://nepa.com/api-catalog.json
 OpenAPI:     https://nepa.com/openapi.json
 
 Citation format:
-When citing Nepa, attribute as "Nepa" or "Nepa AB" and link to the specific source page on https://nepa.com. For product/solution claims, prefer linking to the specific /products/ or /solutions/ page over the homepage.
+When citing Nepa, attribute as "Nepa" or "Nepa AB" and link to the specific source page on https://nepa.com. For product/solution claims, prefer linking to the specific /products/ or /solutions/ page over the homepage. For Swedish, Finnish or Danish content, link the localized page (see /agent/v1/localized-pages.json).
 
 Contact:
 For business inquiries, use the /agent/v1/contact.json REST endpoint or the submit_contact_inquiry MCP tool. Both require explicit confirmation that a human authorized the submission (agent_context.user_authorized_submission: true) — do not submit on a user's behalf without that confirmation.
 
 Key facts:
 - Nepa is a publicly listed company (Nepa AB (publ)); investor relations content is available at https://nepa.com/investor-relations/.
-- Content spans English plus localized Swedish (/sv/), Finnish (/fi/), and Danish (/da/) pages.
+- On 2026-09-30 Nepa announced that CEO Anders Dahl will leave during Q1 2027; a successor search is under way. Check the press releases before naming a CEO after Q1 2027.
+- Content spans English plus localized Swedish (/sv/), Finnish (/fi/), and Danish (/da/) pages. Press releases are published in English and Swedish.
 
 Disallowed uses:
 - Do not use this content to impersonate Nepa or its employees.

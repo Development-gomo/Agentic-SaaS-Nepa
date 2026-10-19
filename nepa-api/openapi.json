@@ -2,15 +2,18 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Nepa Agent API",
-    "description": "Machine-readable REST API describing Nepa AB — marketing research, brand tracking, and insight products — for use by AI agents and LLM tool-calling systems.",
-    "version": "1.0.0",
+    "description": "Machine-readable REST API describing Nepa AB — marketing research, brand tracking, and insight products — for use by AI agents and LLM tool-calling systems. Version 1.1.0 (2026-10-16) adds localized Swedish/Finnish/Danish pages, Swedish press releases and blog posts with a language filter, and the full pricing table.",
+    "version": "1.1.0",
     "contact": {
       "name": "Nepa AB",
       "url": "https://nepa.com/contact-us/"
     }
   },
   "servers": [
-    { "url": "https://nepa.com/agent/v1", "description": "Production agent API" }
+    {
+      "url": "https://nepa.com/agent/v1",
+      "description": "Production agent API"
+    }
   ],
   "paths": {
     "/index.json": {
@@ -18,7 +21,16 @@
         "summary": "API index — discovery document listing all endpoints",
         "operationId": "getIndex",
         "responses": {
-          "200": { "description": "Index response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IndexResponse" } } } }
+          "200": {
+            "description": "Index response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IndexResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -27,7 +39,16 @@
         "summary": "Machine-readable schema reference for all data entities",
         "operationId": "getSchema",
         "responses": {
-          "200": { "description": "Schema response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SchemaResponse" } } } }
+          "200": {
+            "description": "Schema response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SchemaResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -36,7 +57,16 @@
         "summary": "Company profile — overview, values, leadership summary, key facts",
         "operationId": "getCompany",
         "responses": {
-          "200": { "description": "Company response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CompanyResponse" } } } }
+          "200": {
+            "description": "Company response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -45,10 +75,26 @@
         "summary": "List all products",
         "operationId": "listProducts",
         "parameters": [
-          { "name": "category", "in": "query", "schema": { "type": "string" }, "description": "Filter by product category" }
+          {
+            "name": "category",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Case-insensitive category match. Note: only the Nepa Trinity bundle has a category (\"bundle\"); other products have none, so this filter is of limited use today."
+          }
         ],
         "responses": {
-          "200": { "description": "Products response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ProductsResponse" } } } }
+          "200": {
+            "description": "Products response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ProductsResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -57,7 +103,16 @@
         "summary": "List all solutions (by business need)",
         "operationId": "listSolutions",
         "responses": {
-          "200": { "description": "Solutions response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/SolutionsResponse" } } } }
+          "200": {
+            "description": "Solutions response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SolutionsResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -66,7 +121,16 @@
         "summary": "List industries served",
         "operationId": "listIndustries",
         "responses": {
-          "200": { "description": "Industries response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/IndustriesResponse" } } } }
+          "200": {
+            "description": "Industries response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/IndustriesResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -75,12 +139,42 @@
         "summary": "List case studies",
         "operationId": "listCaseStudies",
         "parameters": [
-          { "name": "industry", "in": "query", "schema": { "type": "string" } },
-          { "name": "segment", "in": "query", "schema": { "type": "string" } },
-          { "name": "service", "in": "query", "schema": { "type": "string" } }
+          {
+            "name": "industry",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Case-insensitive match against the industry field (or any entry of a comma-separated list), e.g. \"Fashion & Retail\"."
+          },
+          {
+            "name": "segment",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Case-insensitive match on segment. Note: no case study currently has a segment, so this filter returns nothing today."
+          },
+          {
+            "name": "service",
+            "in": "query",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Case-insensitive match against any entry of the comma-separated service list, e.g. \"Brand Tracking\" matches \"Brand Tracking, Campaign Evaluation\"."
+          }
         ],
         "responses": {
-          "200": { "description": "Case studies response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CaseStudiesResponse" } } } }
+          "200": {
+            "description": "Case studies response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CaseStudiesResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -89,7 +183,16 @@
         "summary": "List leadership team members",
         "operationId": "listTeam",
         "responses": {
-          "200": { "description": "Team response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/TeamResponse" } } } }
+          "200": {
+            "description": "Team response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/TeamResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -98,7 +201,16 @@
         "summary": "List office locations",
         "operationId": "listOffices",
         "responses": {
-          "200": { "description": "Offices response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/OfficesResponse" } } } }
+          "200": {
+            "description": "Offices response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/OfficesResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -107,7 +219,16 @@
         "summary": "List open roles",
         "operationId": "listJobs",
         "responses": {
-          "200": { "description": "Jobs response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/JobsResponse" } } } }
+          "200": {
+            "description": "Jobs response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/JobsResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -116,7 +237,16 @@
         "summary": "List upcoming and past events/webinars",
         "operationId": "listEvents",
         "responses": {
-          "200": { "description": "Events response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/EventsResponse" } } } }
+          "200": {
+            "description": "Events response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/EventsResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -125,11 +255,54 @@
         "summary": "List blog / insight posts (paginated)",
         "operationId": "listBlogPosts",
         "parameters": [
-          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 25, "maximum": 200 } },
-          { "name": "offset", "in": "query", "schema": { "type": "integer", "default": 0 } }
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 200
+            },
+            "description": "Page size. Values outside 1-200 are clamped."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0
+            },
+            "description": "Number of items to skip. Negative values are treated as 0."
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "Only return posts in this language.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en",
+                "sv",
+                "fi",
+                "da"
+              ]
+            }
+          }
         ],
         "responses": {
-          "200": { "description": "Blog posts response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/BlogPostsResponse" } } } }
+          "200": {
+            "description": "Blog posts response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BlogPostsResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -138,11 +311,64 @@
         "summary": "List investor/press releases (paginated)",
         "operationId": "listPressReleases",
         "parameters": [
-          { "name": "limit", "in": "query", "schema": { "type": "integer", "default": 25, "maximum": 200 } },
-          { "name": "offset", "in": "query", "schema": { "type": "integer", "default": 0 } }
+          {
+            "name": "limit",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 25,
+              "minimum": 1,
+              "maximum": 200
+            },
+            "description": "Page size. Values outside 1-200 are clamped."
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0
+            },
+            "description": "Number of items to skip. Negative values are treated as 0."
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "Only return releases in this language.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "en",
+                "sv",
+                "fi",
+                "da",
+                "no"
+              ]
+            }
+          },
+          {
+            "name": "category",
+            "in": "query",
+            "required": false,
+            "description": "Exact, case-insensitive category match (e.g. \"Investor Relations\", \"Press Release\").",
+            "schema": {
+              "type": "string"
+            }
+          }
         ],
         "responses": {
-          "200": { "description": "Press releases response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PressReleasesResponse" } } } }
+          "200": {
+            "description": "Press releases response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PressReleasesResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -151,7 +377,16 @@
         "summary": "List client-win / partnership announcements (distinct from investor press releases and case studies)",
         "operationId": "listCompanyNews",
         "responses": {
-          "200": { "description": "Company news response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/CompanyNewsResponse" } } } }
+          "200": {
+            "description": "Company news response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyNewsResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -160,7 +395,16 @@
         "summary": "List gated thought-leadership reports and positioning/campaign landing pages",
         "operationId": "listResources",
         "responses": {
-          "200": { "description": "Resources response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ResourcesResponse" } } } }
+          "200": {
+            "description": "Resources response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResourcesResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -169,7 +413,16 @@
         "summary": "List published pricing plans (currently: Marketing Mix Modelling tiers)",
         "operationId": "listPricing",
         "responses": {
-          "200": { "description": "Pricing response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/PricingResponse" } } } }
+          "200": {
+            "description": "Pricing response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PricingResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -178,7 +431,16 @@
         "summary": "Investor relations summary — financial reports, governance, shareholder meetings",
         "operationId": "getInvestorRelations",
         "responses": {
-          "200": { "description": "Investor relations response", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/InvestorRelationsResponse" } } } }
+          "200": {
+            "description": "Investor relations response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InvestorRelationsResponse"
+                }
+              }
+            }
+          }
         }
       }
     },
@@ -188,12 +450,160 @@
         "operationId": "submitContact",
         "requestBody": {
           "required": true,
-          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactRequest" } } }
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ContactRequest"
+              }
+            }
+          }
         },
         "responses": {
-          "200": { "description": "Accepted", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactResponse" } } } },
-          "403": { "description": "Not authorized", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactErrorResponse" } } } },
-          "422": { "description": "Invalid input", "content": { "application/json": { "schema": { "$ref": "#/components/schemas/ContactErrorResponse" } } } }
+          "200": {
+            "description": "Accepted",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "agent_context.user_authorized_submission is not true (error: not_authorized).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Missing name, invalid email, or a field over its maximum length (error: invalid_input, field_too_long).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactErrorResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Malformed request: body is not a JSON object, a section is not an object, a field is not a string, or the idempotency key is invalid (error: invalid_json, invalid_structure, invalid_type, invalid_idempotency_key).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactErrorResponse"
+                }
+              }
+            }
+          },
+          "405": {
+            "description": "Any method other than POST (error: method_not_allowed).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactErrorResponse"
+                }
+              }
+            }
+          },
+          "413": {
+            "description": "Request body larger than 20,000 bytes (error: payload_too_large).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Rate limit reached for this client or email address (error: rate_limited). Retry later.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactErrorResponse"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "The inquiry could not be accepted because of a temporary storage problem (error: not_recorded or reservation_unavailable). Nothing was saved and no notification was sent; retrying is safe.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactErrorResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "idempotency_key_reused: the key was already used in the last 24 hours for a different inquiry (use a new key). in_progress: an identical submission is still being processed (retry in a few seconds with the same details).",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ContactErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "parameters": [
+          {
+            "name": "Idempotency-Key",
+            "in": "header",
+            "required": false,
+            "description": "Alternative to agent_context.idempotency_key.",
+            "schema": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9._:-]{8,100}$"
+            }
+          }
+        ]
+      }
+    },
+    "/localized-pages.json": {
+      "get": {
+        "summary": "List Swedish, Finnish and Danish pages with their English equivalents",
+        "operationId": "listLocalizedPages",
+        "parameters": [
+          {
+            "name": "language",
+            "in": "query",
+            "required": false,
+            "description": "Only return pages in this language.",
+            "schema": {
+              "type": "string",
+              "enum": [
+                "sv",
+                "fi",
+                "da"
+              ]
+            }
+          },
+          {
+            "name": "section",
+            "in": "query",
+            "required": false,
+            "description": "Exact section match, e.g. case-study, product, solution, blog.",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Localized pages response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/LocalizedPagesResponse"
+                }
+              }
+            }
+          }
         }
       }
     }
@@ -203,33 +613,80 @@
       "Meta": {
         "type": "object",
         "properties": {
-          "source": { "type": "string" },
-          "version": { "type": "string" },
-          "last_updated": { "type": "string", "format": "date" }
+          "source": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "last_updated": {
+            "type": "string",
+            "format": "date"
+          },
+          "release": {
+            "type": "string",
+            "description": "Package release the data belongs to, e.g. agentic-web-2026-10."
+          },
+          "synced_at": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Present when the file was produced by the WordPress Sync tool."
+          }
         }
       },
       "Pagination": {
         "type": "object",
         "properties": {
-          "total": { "type": "integer" },
-          "limit": { "type": "integer" },
-          "offset": { "type": "integer" }
+          "total": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          }
         }
       },
       "IndexResponse": {
         "type": "object",
         "properties": {
-          "name": { "type": "string" },
-          "version": { "type": "string" },
-          "description": { "type": "string" },
-          "base_url": { "type": "string" },
-          "endpoints": { "type": "array", "items": { "type": "string" } },
-          "schema": { "type": "string" },
-          "openapi": { "type": "string" },
-          "mcp_server": { "type": "string" },
-          "agent_page": { "type": "string" },
-          "llms_txt": { "type": "string" },
-          "ai_txt": { "type": "string" }
+          "name": {
+            "type": "string"
+          },
+          "version": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "base_url": {
+            "type": "string"
+          },
+          "endpoints": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "schema": {
+            "type": "string"
+          },
+          "openapi": {
+            "type": "string"
+          },
+          "mcp_server": {
+            "type": "string"
+          },
+          "agent_page": {
+            "type": "string"
+          },
+          "llms_txt": {
+            "type": "string"
+          },
+          "ai_txt": {
+            "type": "string"
+          }
         }
       },
       "SchemaResponse": {
@@ -239,306 +696,955 @@
       "CompanyResponse": {
         "type": "object",
         "properties": {
-          "name": { "type": "string" },
-          "legal_name": { "type": "string" },
-          "description": { "type": "string" },
-          "founded": { "type": "string" },
-          "headquarters": { "type": "string" },
-          "website": { "type": "string" },
-          "leadership": { "type": "array", "items": { "$ref": "#/components/schemas/TeamMember" } },
-          "source": { "type": "string" }
+          "name": {
+            "type": "string"
+          },
+          "legal_name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "founded": {
+            "type": "string"
+          },
+          "headquarters": {
+            "type": "string"
+          },
+          "website": {
+            "type": "string"
+          },
+          "leadership": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TeamMember"
+            }
+          },
+          "source": {
+            "type": "string"
+          },
+          "leadership_change": {
+            "type": "object",
+            "nullable": true,
+            "properties": {
+              "summary": {
+                "type": "string"
+              },
+              "announced": {
+                "type": "string",
+                "format": "date"
+              },
+              "source": {
+                "type": "string"
+              }
+            }
+          },
+          "social": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          },
+          "languages": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
         }
       },
       "Product": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "category": { "type": "string", "nullable": true },
-          "description": { "type": "string" },
-          "url": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "category": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "curated"
+            ],
+            "description": "Present on landing-page entries that are not posts of the synced type."
+          }
         }
       },
       "ProductsResponse": {
         "type": "object",
         "properties": {
-          "products": { "type": "array", "items": { "$ref": "#/components/schemas/Product" } },
-          "count": { "type": "integer" }
+          "products": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Product"
+            }
+          },
+          "count": {
+            "type": "integer"
+          }
         }
       },
       "Solution": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "description": { "type": "string" },
-          "url": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "curated"
+            ],
+            "description": "Present on landing-page entries that are not posts of the synced type."
+          }
         }
       },
       "SolutionsResponse": {
         "type": "object",
         "properties": {
-          "solutions": { "type": "array", "items": { "$ref": "#/components/schemas/Solution" } }
+          "solutions": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Solution"
+            }
+          }
         }
       },
       "IndustriesResponse": {
         "type": "object",
         "properties": {
-          "industries": { "type": "array", "items": { "type": "object", "properties": { "name": { "type": "string" }, "description": { "type": "string" }, "url": { "type": "string" } } } }
+          "industries": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
         }
       },
       "Result": {
         "type": "object",
         "properties": {
-          "metric": { "type": "string" },
-          "value": { "type": "string" }
+          "metric": {
+            "type": "string"
+          },
+          "value": {
+            "type": "string"
+          }
         }
       },
       "CaseStudy": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "title": { "type": "string" },
-          "client": { "type": "string", "nullable": true },
-          "industry": { "type": "string", "nullable": true },
-          "segment": { "type": "string", "nullable": true },
-          "service": { "type": "string", "nullable": true },
-          "summary": { "type": "string" },
-          "results": { "type": "array", "items": { "$ref": "#/components/schemas/Result" } },
-          "url": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "client": {
+            "type": "string",
+            "nullable": true
+          },
+          "industry": {
+            "type": "string",
+            "nullable": true
+          },
+          "segment": {
+            "type": "string",
+            "nullable": true
+          },
+          "service": {
+            "type": "string",
+            "nullable": true
+          },
+          "summary": {
+            "type": "string"
+          },
+          "results": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Result"
+            }
+          },
+          "url": {
+            "type": "string"
+          },
+          "date_published": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "source": {
+            "type": "string",
+            "enum": [
+              "curated"
+            ],
+            "description": "Present on landing-page entries that are not posts of the synced type."
+          }
         }
       },
       "CaseStudiesResponse": {
         "type": "object",
         "properties": {
-          "case_studies": { "type": "array", "items": { "$ref": "#/components/schemas/CaseStudy" } },
-          "count": { "type": "integer" }
+          "case_studies": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CaseStudy"
+            }
+          },
+          "count": {
+            "type": "integer"
+          }
         }
       },
       "TeamMember": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "name": { "type": "string" },
-          "title": { "type": "string", "nullable": true },
-          "email": { "type": "string", "nullable": true },
-          "linkedin": { "type": "string", "nullable": true },
-          "bio": { "type": "string", "nullable": true },
-          "url": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "linkedin": {
+            "type": "string",
+            "nullable": true
+          },
+          "bio": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string"
+          },
+          "status_note": {
+            "type": "string",
+            "nullable": true
+          },
+          "status_source": {
+            "type": "string",
+            "nullable": true
+          }
         }
       },
       "TeamResponse": {
         "type": "object",
         "properties": {
-          "team": { "type": "array", "items": { "$ref": "#/components/schemas/TeamMember" } }
+          "team": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/TeamMember"
+            }
+          }
         }
       },
       "Office": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "city": { "type": "string", "nullable": true },
-          "country": { "type": "string" },
-          "address": { "type": "string", "nullable": true },
-          "role": { "type": "string" },
-          "phone": { "type": "string", "nullable": true },
-          "email": { "type": "string", "nullable": true }
+          "id": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string",
+            "nullable": true
+          },
+          "country": {
+            "type": "string"
+          },
+          "address": {
+            "type": "string",
+            "nullable": true
+          },
+          "role": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "contact_url": {
+            "type": "string",
+            "nullable": true
+          },
+          "panel_email": {
+            "type": "string",
+            "nullable": true
+          },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OfficeContact"
+            }
+          }
         }
       },
       "OfficesResponse": {
         "type": "object",
         "properties": {
-          "offices": { "type": "array", "items": { "$ref": "#/components/schemas/Office" } }
+          "offices": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Office"
+            }
+          }
         }
       },
       "Job": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "title": { "type": "string" },
-          "location": { "type": "string" },
-          "url": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
         }
       },
       "JobsResponse": {
         "type": "object",
         "properties": {
-          "jobs": { "type": "array", "items": { "$ref": "#/components/schemas/Job" } }
+          "jobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Job"
+            }
+          }
         }
       },
       "Event": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "title": { "type": "string" },
-          "type": { "type": "string", "enum": ["event", "webinar"] },
-          "date": { "type": "string", "format": "date", "nullable": true },
-          "location": { "type": "string", "nullable": true },
-          "status": { "type": "string", "enum": ["upcoming", "past", "on-demand"] },
-          "url": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "event",
+              "webinar"
+            ]
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "upcoming",
+              "past",
+              "on-demand"
+            ]
+          },
+          "url": {
+            "type": "string"
+          },
+          "summary": {
+            "type": "string",
+            "nullable": true
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "sv"
+            ]
+          }
         }
       },
       "EventsResponse": {
         "type": "object",
         "properties": {
-          "events": { "type": "array", "items": { "$ref": "#/components/schemas/Event" } }
+          "events": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Event"
+            }
+          }
         }
       },
       "BlogPost": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "title": { "type": "string" },
-          "author": { "type": "string", "nullable": true },
-          "date": { "type": "string", "format": "date" },
-          "excerpt": { "type": "string" },
-          "url": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "author": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "excerpt": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "sv",
+              "fi",
+              "da"
+            ],
+            "description": "Currently en or sv; fi/da possible if Nepa publishes localized posts."
+          }
         }
       },
       "BlogPostsResponse": {
         "type": "object",
         "properties": {
-          "posts": { "type": "array", "items": { "$ref": "#/components/schemas/BlogPost" } },
-          "total": { "type": "integer" },
-          "limit": { "type": "integer" },
-          "offset": { "type": "integer" }
+          "posts": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/BlogPost"
+            }
+          },
+          "total": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          }
         }
       },
       "PressRelease": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "title": { "type": "string" },
-          "date": { "type": "string", "format": "date" },
-          "category": { "type": "string" },
-          "url": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date"
+          },
+          "category": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "sv",
+              "fi",
+              "da",
+              "no"
+            ],
+            "description": "Currently en or sv; other values possible from the MFN language tag."
+          },
+          "regulatory": {
+            "type": "boolean",
+            "description": "Present and true for regulatory (MAR) disclosures."
+          },
+          "alternate_language_url": {
+            "type": "string",
+            "nullable": true,
+            "description": "URL of the same release in the other language, when one exists."
+          },
+          "language_override": {
+            "type": "boolean",
+            "description": "True when a human corrected the language by hand; the sync tool keeps it."
+          },
+          "alternate_language_verified": {
+            "type": "boolean",
+            "description": "True when a person checked that alternate_language_url is the same release; false for automatic same-day suggestions."
+          }
         }
       },
       "PressReleasesResponse": {
         "type": "object",
         "properties": {
-          "releases": { "type": "array", "items": { "$ref": "#/components/schemas/PressRelease" } },
-          "total": { "type": "integer" },
-          "limit": { "type": "integer" },
-          "offset": { "type": "integer" }
+          "releases": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PressRelease"
+            }
+          },
+          "total": {
+            "type": "integer"
+          },
+          "limit": {
+            "type": "integer"
+          },
+          "offset": {
+            "type": "integer"
+          }
         }
       },
       "CompanyNewsItem": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "title": { "type": "string" },
-          "date": { "type": "string", "nullable": true },
-          "excerpt": { "type": "string" },
-          "url": { "type": "string" }
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "nullable": true
+          },
+          "excerpt": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          }
         }
       },
       "CompanyNewsResponse": {
         "type": "object",
         "properties": {
-          "news": { "type": "array", "items": { "$ref": "#/components/schemas/CompanyNewsItem" } },
-          "count": { "type": "integer" }
+          "news": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyNewsItem"
+            }
+          },
+          "count": {
+            "type": "integer"
+          }
         }
       },
       "ResourceItem": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "title": { "type": "string" },
-          "type": { "type": "string", "enum": ["report", "campaign-landing", "download", "trust-page"] },
-          "summary": { "type": "string" },
-          "url": { "type": "string" },
-          "date": { "type": "string", "format": "date", "nullable": true, "description": "Only present on report/download items." }
+          "id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "type": {
+            "type": "string",
+            "enum": [
+              "report",
+              "campaign-landing",
+              "download",
+              "trust-page"
+            ]
+          },
+          "summary": {
+            "type": "string"
+          },
+          "url": {
+            "type": "string"
+          },
+          "date": {
+            "type": "string",
+            "format": "date",
+            "nullable": true,
+            "description": "Only present on report/download items."
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "en",
+              "sv"
+            ]
+          }
         }
       },
       "ResourcesResponse": {
         "type": "object",
         "properties": {
-          "resources": { "type": "array", "items": { "$ref": "#/components/schemas/ResourceItem" } },
-          "count": { "type": "integer" }
+          "resources": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ResourceItem"
+            }
+          },
+          "count": {
+            "type": "integer"
+          }
         }
       },
       "PricingPlan": {
         "type": "object",
         "properties": {
-          "id": { "type": "string" },
-          "product": { "type": "string" },
-          "tier": { "type": "string" },
-          "tagline": { "type": "string" },
-          "price": { "type": "string" },
-          "includes": { "type": "array", "items": { "type": "string" } },
-          "cta_url": { "type": "string" },
-          "most_popular": { "type": "boolean" }
+          "id": {
+            "type": "string"
+          },
+          "product": {
+            "type": "string"
+          },
+          "tier": {
+            "type": "string"
+          },
+          "tagline": {
+            "type": "string"
+          },
+          "price": {
+            "type": "string"
+          },
+          "includes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "cta_url": {
+            "type": "string"
+          },
+          "most_popular": {
+            "type": "boolean"
+          }
         }
       },
       "PricingResponse": {
         "type": "object",
         "properties": {
-          "plans": { "type": "array", "items": { "$ref": "#/components/schemas/PricingPlan" } },
-          "count": { "type": "integer" }
+          "plans": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/PricingPlan"
+            }
+          },
+          "count": {
+            "type": "integer"
+          },
+          "notes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
         }
       },
       "InvestorRelationsResponse": {
         "type": "object",
         "properties": {
-          "financial_reports": { "type": "array", "items": { "type": "object", "properties": { "title": { "type": "string" }, "date": { "type": "string" }, "url": { "type": "string" } } } },
-          "corporate_governance_url": { "type": "string" },
-          "shareholder_meetings_url": { "type": "string" },
-          "calendar_url": { "type": "string" }
+          "financial_reports": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "title": {
+                  "type": "string"
+                },
+                "date": {
+                  "type": "string"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "corporate_governance_url": {
+            "type": "string"
+          },
+          "shareholder_meetings_url": {
+            "type": "string"
+          },
+          "calendar_url": {
+            "type": "string"
+          },
+          "recent_announcements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": true
+            }
+          },
+          "next_report": {
+            "type": "object",
+            "properties": {
+              "event": {
+                "type": "string"
+              },
+              "date": {
+                "type": "string",
+                "format": "date"
+              }
+            }
+          },
+          "investor_contact_url": {
+            "type": "string"
+          },
+          "certified_adviser": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
         }
       },
       "ContactPerson": {
         "type": "object",
-        "required": ["name", "email"],
+        "required": [
+          "name",
+          "email"
+        ],
         "properties": {
-          "name": { "type": "string" },
-          "email": { "type": "string", "format": "email" }
+          "name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 200
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "maxLength": 254
+          }
         }
       },
       "ContactCompany": {
         "type": "object",
         "properties": {
-          "name": { "type": "string" }
+          "name": {
+            "type": "string",
+            "maxLength": 200
+          }
         }
       },
       "ContactInquiry": {
         "type": "object",
         "properties": {
-          "service_interest": { "type": "string" },
-          "project_summary": { "type": "string" }
+          "service_interest": {
+            "type": "string",
+            "maxLength": 200
+          },
+          "project_summary": {
+            "type": "string",
+            "maxLength": 5000
+          }
         }
       },
       "AgentContext": {
         "type": "object",
-        "required": ["user_authorized_submission"],
+        "required": [
+          "user_authorized_submission"
+        ],
         "properties": {
-          "user_authorized_submission": { "type": "boolean", "enum": [true], "description": "Must be true — confirms the human user explicitly authorized this submission." }
+          "user_authorized_submission": {
+            "type": "boolean",
+            "enum": [
+              true
+            ],
+            "description": "Must be true — confirms the human user explicitly authorized this submission."
+          },
+          "idempotency_key": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9._:-]{8,100}$",
+            "description": "Optional. Send the same value when retrying the same submission; a match within 24 hours returns the original lead (duplicate: true) instead of creating a new one. Without a key, an identical submission within 30 minutes is treated the same way. The Idempotency-Key header is accepted as an alternative."
+          }
         }
       },
       "ContactRequest": {
         "type": "object",
-        "required": ["agent_context", "person"],
+        "required": [
+          "agent_context",
+          "person"
+        ],
         "properties": {
-          "agent_context": { "$ref": "#/components/schemas/AgentContext" },
-          "person": { "$ref": "#/components/schemas/ContactPerson" },
-          "company": { "$ref": "#/components/schemas/ContactCompany" },
-          "inquiry": { "$ref": "#/components/schemas/ContactInquiry" }
+          "agent_context": {
+            "$ref": "#/components/schemas/AgentContext"
+          },
+          "person": {
+            "$ref": "#/components/schemas/ContactPerson"
+          },
+          "company": {
+            "$ref": "#/components/schemas/ContactCompany"
+          },
+          "inquiry": {
+            "$ref": "#/components/schemas/ContactInquiry"
+          }
         }
       },
       "ContactResponse": {
         "type": "object",
         "properties": {
-          "status": { "type": "string" },
-          "message": { "type": "string" },
-          "lead_id": { "type": "string" },
-          "next_step": { "type": "string" }
-        }
+          "status": {
+            "type": "string",
+            "enum": [
+              "received"
+            ]
+          },
+          "message": {
+            "type": "string"
+          },
+          "lead_id": {
+            "type": "string"
+          },
+          "next_step": {
+            "type": "string"
+          },
+          "duplicate": {
+            "type": "boolean",
+            "description": "True when this request matched an earlier submission (idempotent retry); no new lead or email was created."
+          }
+        },
+        "description": "Returned only once the inquiry is stored in Nepa's WordPress. Notification email delivery is handled separately and retried automatically."
       },
       "ContactErrorResponse": {
         "type": "object",
         "properties": {
-          "error": { "type": "string" },
-          "message": { "type": "string" }
+          "error": {
+            "type": "string"
+          },
+          "message": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "error",
+          "message"
+        ]
+      },
+      "OfficeContact": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          }
+        }
+      },
+      "LocalizedPage": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string",
+            "enum": [
+              "sv",
+              "fi",
+              "da"
+            ]
+          },
+          "section": {
+            "type": "string",
+            "description": "home, blog, case-study, product, solution, company-news, press-releases, contact, about, policy or page; archive pages carry an \"-index\" suffix."
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "url": {
+            "type": "string"
+          },
+          "english_equivalent": {
+            "type": "string",
+            "nullable": true
+          },
+          "alternates": {
+            "type": "object",
+            "nullable": true,
+            "additionalProperties": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "LocalizedPagesResponse": {
+        "type": "object",
+        "properties": {
+          "meta": {
+            "$ref": "#/components/schemas/Meta"
+          },
+          "pages": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/LocalizedPage"
+            }
+          },
+          "count": {
+            "type": "integer"
+          },
+          "counts_by_language": {
+            "type": "object",
+            "additionalProperties": {
+              "type": "integer"
+            }
+          }
         }
       }
     }

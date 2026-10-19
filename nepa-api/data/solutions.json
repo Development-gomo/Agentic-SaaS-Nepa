@@ -1,8 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/solutions.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08"
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16"
   },
   "solutions": [
     {
@@ -39,7 +40,8 @@
       "id": "solution-brandgrow-program",
       "name": "Nepa BrandGrow Program",
       "description": "A structured, expert-led add-on for brands already running continuous Brand Tracking with Nepa. Combines tracking data with external context (market share, media investment, trend reports, Google Search data) via a facilitated working session to turn tracking results into a shared view of priorities and an agreed action plan. Nepa states clients typically see 10-30% improvements in marketing efficiency from better-directed brand strategy.",
-      "url": "https://nepa.com/nepa-brandgrow-program/"
+      "url": "https://nepa.com/nepa-brandgrow-program/",
+      "source": "curated"
     }
   ]
 }

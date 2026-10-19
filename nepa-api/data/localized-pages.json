@@ -1,0 +1,1271 @@
+{
+  "meta": {
+    "source": "https://nepa.com/agent/v1/localized-pages.json",
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16",
+    "note": "Every live Swedish (sv), Finnish (fi) and Danish (da) page found in the 2026-10-16 crawl, with its English equivalent where the site declares an hreflang alternate. Filter with ?language= and ?section=. Swedish-language press releases live under /mfn_news/ and are in press-releases.json (language=sv)."
+  },
+  "pages": [
+    {
+      "id": "da-case-fashion",
+      "language": "da",
+      "section": "case-study",
+      "title": "En modedetailists rejse: Fra udfordring til gennembrud",
+      "description": "Sådan vendte en europæisk tøjkæde stilstand til vækst med Nepas datadrevne metode og klare brandindsigter.",
+      "url": "https://nepa.com/da/case/fashion/",
+      "english_equivalent": "https://nepa.com/case/a-fashion-retailers-journey-from-challenge-to-triumph/",
+      "alternates": {
+        "en": "https://nepa.com/case/a-fashion-retailers-journey-from-challenge-to-triumph/",
+        "fi": "https://nepa.com/fi/case/muotialan-jalleenmyyjan-matka/",
+        "sv": "https://nepa.com/sv/kundcase/mode/"
+      }
+    },
+    {
+      "id": "da-case-fastighetsbyran",
+      "language": "da",
+      "section": "case-study",
+      "title": "Fra spredte indsigter til tydelig strategi",
+      "description": "Få styr på dit brand med løbende indsigter fra Nepa. Se, hvordan Fastighetsbyrån skaber vækst gennem struktur, data og målrettede beslutninger.",
+      "url": "https://nepa.com/da/case/fastighetsbyran/",
+      "english_equivalent": "https://nepa.com/case/from-fragmented-insights-to-strategy-fastighetsbyran/",
+      "alternates": {
+        "en": "https://nepa.com/case/from-fragmented-insights-to-strategy-fastighetsbyran/",
+        "fi": "https://nepa.com/fi/case/fastighetsbyran/",
+        "sv": "https://nepa.com/sv/kundcase/fastighetsbyran/"
+      }
+    },
+    {
+      "id": "da-case-fjallraven",
+      "language": "da",
+      "section": "case-study",
+      "title": "Fjällräven Case Study – Brand Tracking",
+      "description": "Fjällräven bruger Nepas AI-baserede tracking til at træffe klogere beslutninger og følge effekten globalt – i realtid.",
+      "url": "https://nepa.com/da/case/fjallraven/",
+      "english_equivalent": "https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/",
+      "alternates": {
+        "en": "https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/",
+        "fi": "https://nepa.com/fi/case/fjallravenin/",
+        "sv": "https://nepa.com/sv/kundcase/fjallraven/"
+      }
+    },
+    {
+      "id": "da-case-gant",
+      "language": "da",
+      "section": "case-study",
+      "title": "GANT vækster globalt med Nepa",
+      "description": "Oplev hvordan Nepas løsninger inden for markedsanalyse og brand tracking hjalp GANT med at identificere vækstmuligheder og bevare konkurrenceevnen på 70 globale markeder.",
+      "url": "https://nepa.com/da/case/gant/",
+      "english_equivalent": "https://nepa.com/case/gant-trusts-nepa-to-help-it-grow/",
+      "alternates": {
+        "en": "https://nepa.com/case/gant-trusts-nepa-to-help-it-grow/",
+        "fi": "https://nepa.com/fi/case/gant/",
+        "sv": "https://nepa.com/sv/kundcase/gant/"
+      }
+    },
+    {
+      "id": "da-case-kelloggs",
+      "language": "da",
+      "section": "case-study",
+      "title": "Kellogg’s stoler på Nepa for at forblive relevant",
+      "description": "Sådan hjælper Nepa Kellogg’s med at styrke brandet, forstå forbrugere og skabe vækst med indsigter fra globale markedsanalyser.",
+      "url": "https://nepa.com/da/case/kelloggs/",
+      "english_equivalent": "https://nepa.com/case/kelloggs-trusts-nepa-to-help-it-remain-relevant/",
+      "alternates": {
+        "en": "https://nepa.com/case/kelloggs-trusts-nepa-to-help-it-remain-relevant/",
+        "fi": "https://nepa.com/fi/case/kelloggs/",
+        "sv": "https://nepa.com/sv/kundcase/kelloggs/"
+      }
+    },
+    {
+      "id": "da-case-mtv",
+      "language": "da",
+      "section": "case-study",
+      "title": "MTV bruger Nepa til at dokumentere effekten af tv-reklamer",
+      "description": "Sådan bruger MTV Nepas indsigter til at vise, hvordan tv-reklamer skaber resultater og styrker både brand og salg hos deres kunder.",
+      "url": "https://nepa.com/da/case/mtv/",
+      "english_equivalent": "https://nepa.com/case/mtv-trusts-nepa-to-prove-tv-advertising-is-key/",
+      "alternates": {
+        "en": "https://nepa.com/case/mtv-trusts-nepa-to-prove-tv-advertising-is-key/",
+        "fi": "https://nepa.com/fi/case/mtv/",
+        "sv": "https://nepa.com/sv/kundcase/mtv/"
+      }
+    },
+    {
+      "id": "da-case-sinebrychoff",
+      "language": "da",
+      "section": "case-study",
+      "title": "Sinebrychoff & Nepa kaster lys over kunderejsen i butik",
+      "description": "Sinebrychoff bruger Nepas kunderejseanalyse til at styrke salget og udvikle deres marketingstrategi.",
+      "url": "https://nepa.com/da/case/sinebrychoff/",
+      "english_equivalent": "https://nepa.com/case/navigating-complexity-in-a-transforming-beverage-category/",
+      "alternates": {
+        "en": "https://nepa.com/case/navigating-complexity-in-a-transforming-beverage-category/",
+        "fi": "https://nepa.com/fi/case/sinebrychoff/",
+        "sv": "https://nepa.com/sv/kundcase/sinebrychoff/"
+      }
+    },
+    {
+      "id": "da-case-telenor",
+      "language": "da",
+      "section": "case-study",
+      "title": "Telenor vælger Nepa for indsigt med forretningsværdi",
+      "description": "Telenor bruger Nepas brand tracking til at få dybere forretningsindsigt og træffe smartere beslutninger med realtidsdata.",
+      "url": "https://nepa.com/da/case/telenor/",
+      "english_equivalent": "https://nepa.com/case/telenor-trusts-nepa-to-understand-their-business-needs/",
+      "alternates": {
+        "en": "https://nepa.com/case/telenor-trusts-nepa-to-understand-their-business-needs/",
+        "fi": "https://nepa.com/fi/case/telenor/",
+        "sv": "https://nepa.com/sv/kundcase/telenor/"
+      }
+    },
+    {
+      "id": "da-case-varner",
+      "language": "da",
+      "section": "case-study",
+      "title": "Varner samarbejder med Nepa for at forløse sit potentiale",
+      "description": "VARNER bruger Nepas brand tracking til at finde vækstmuligheder og træffe bedre beslutninger med realtidsdata.",
+      "url": "https://nepa.com/da/case/varner/",
+      "english_equivalent": "https://nepa.com/case/varner-trusts-nepa-to-uncover-its-potential/",
+      "alternates": {
+        "en": "https://nepa.com/case/varner-trusts-nepa-to-uncover-its-potential/",
+        "fi": "https://nepa.com/fi/case/varner/",
+        "sv": "https://nepa.com/sv/kundcase/varner/"
+      }
+    },
+    {
+      "id": "da-case",
+      "language": "da",
+      "section": "case-study-index",
+      "title": "Indsigtsbaserede cases og resultater",
+      "description": "Udforsk Nepas cases og se, hvordan vi har hjulpet førende brands med at vækste gennem datadrevne indsigter og handlingsorienteret forbrugeranalyse.",
+      "url": "https://nepa.com/da/case/",
+      "english_equivalent": "https://nepa.com/case/",
+      "alternates": {
+        "en": "https://nepa.com/case/",
+        "fi": "https://nepa.com/fi/case/",
+        "sv": "https://nepa.com/sv/kundcase/"
+      }
+    },
+    {
+      "id": "da-contact",
+      "language": "da",
+      "section": "contact",
+      "title": "Kontakt os for markedsundersøgelser",
+      "description": "Kontakt Nepa: Har du brug for hjælp eller har du spørgsmål? Vores team står klar til at hjælpe dig med at få succes – tag kontakt i dag!",
+      "url": "https://nepa.com/da/contact/",
+      "english_equivalent": "https://nepa.com/contact-us/",
+      "alternates": {
+        "en": "https://nepa.com/contact-us/",
+        "fi": "https://nepa.com/fi/contact/",
+        "sv": "https://nepa.com/sv/kontakta-oss/"
+      }
+    },
+    {
+      "id": "da-home",
+      "language": "da",
+      "section": "home",
+      "title": "Nepa | Vækst gennem indsigt via markedsanalyse",
+      "description": "Nepa hjælper brands med at skabe vækst gennem markedsindsigter og omsætter data til strategier, der skaber målbar forretningseffekt.",
+      "url": "https://nepa.com/da/",
+      "english_equivalent": "https://nepa.com/",
+      "alternates": {
+        "en": "https://nepa.com/",
+        "fi": "https://nepa.com/fi/",
+        "sv": "https://nepa.com/sv/"
+      }
+    },
+    {
+      "id": "da-mfn_news",
+      "language": "da",
+      "section": "press-releases-index",
+      "title": "MFN News Items Archive",
+      "description": null,
+      "url": "https://nepa.com/da/mfn_news/",
+      "english_equivalent": "https://nepa.com/mfn_news/",
+      "alternates": {
+        "en": "https://nepa.com/mfn_news/",
+        "fi": "https://nepa.com/fi/mfn_news/",
+        "sv": "https://nepa.com/sv/mfn_news/"
+      }
+    },
+    {
+      "id": "da-products-brand-tracking",
+      "language": "da",
+      "section": "product",
+      "title": "Brand Tracking Løsninger",
+      "description": "Brand tracking, der giver løbende indsigter, identificerer trends med AI og forbinder brandets sundhed med vækst — så du kan handle hurtigere.",
+      "url": "https://nepa.com/da/products/brand-tracking/",
+      "english_equivalent": "https://nepa.com/products/brand-tracking/",
+      "alternates": {
+        "en": "https://nepa.com/products/brand-tracking/",
+        "fi": "https://nepa.com/fi/products/brand-tracking/",
+        "sv": "https://nepa.com/sv/produkter/brand-tracking/"
+      }
+    },
+    {
+      "id": "da-products-campaign-evaluation",
+      "language": "da",
+      "section": "product",
+      "title": "Kampagneindsigt",
+      "description": "Campaign Pulse afdækker den reelle kampagneeffekt — på brand, følelser og salg. Sammenlign resultater og få klare næste skridt til forbedring.",
+      "url": "https://nepa.com/da/products/campaign-evaluation/",
+      "english_equivalent": "https://nepa.com/products/campaign-pulse/",
+      "alternates": {
+        "en": "https://nepa.com/products/campaign-pulse/",
+        "fi": "https://nepa.com/fi/products/campaign-pulse/",
+        "sv": "https://nepa.com/sv/produkter/campaign-pulse/"
+      }
+    },
+    {
+      "id": "da-products-continuous-marketing-mix-modelling",
+      "language": "da",
+      "section": "product",
+      "title": "Marketing Mix Modelling-løsninger",
+      "description": "Marketing mix modelling, der leverer ugentlige indsigter, klarhed om ROI og smartere budgetbeslutninger — skræddersyet til din forretning.",
+      "url": "https://nepa.com/da/products/continuous-marketing-mix-modelling/",
+      "english_equivalent": "https://nepa.com/products/marketing-mix-modeling/",
+      "alternates": {
+        "en": "https://nepa.com/products/marketing-mix-modeling/",
+        "fi": "https://nepa.com/fi/products/myynninmallinnus/",
+        "sv": "https://nepa.com/sv/produkter/marketing-mix-modelling/"
+      }
+    },
+    {
+      "id": "da-products",
+      "language": "da",
+      "section": "product-index",
+      "title": "Alle Produkter",
+      "description": "Nepas produktsuite inkluderer Brand Tracking, MMM, CampaignPulse, Path-to-Purchase og avancerede analyseværktøjer til marketingfolk.",
+      "url": "https://nepa.com/da/products/",
+      "english_equivalent": "https://nepa.com/products/",
+      "alternates": {
+        "en": "https://nepa.com/products/",
+        "fi": "https://nepa.com/fi/products/",
+        "sv": "https://nepa.com/sv/produkter/"
+      }
+    },
+    {
+      "id": "da-solutions-brandudvikling",
+      "language": "da",
+      "section": "solution",
+      "title": "Brandudvikling",
+      "description": "Byg et stærkere brand med tydelige indsigter i, hvordan du opfattes – og kommunikation, der skaber tillid og loyalitet.",
+      "url": "https://nepa.com/da/solutions/brandudvikling/",
+      "english_equivalent": "https://nepa.com/solutions/brand-development/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/brand-development/",
+        "fi": "https://nepa.com/fi/solutions/brandin-kehittaminen/",
+        "sv": "https://nepa.com/sv/losningar/varumarkesutveckling/"
+      }
+    },
+    {
+      "id": "da-solutions-kampagnemaling",
+      "language": "da",
+      "section": "solution",
+      "title": "Kampagnemaling",
+      "description": "Mål marketingeffekt med Nepas kampagneanalyse – forbind annonceperformance med brandløft og langsigtet ROI.",
+      "url": "https://nepa.com/da/solutions/kampagnemaling/",
+      "english_equivalent": "https://nepa.com/solutions/campaign-measurement/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/campaign-measurement/",
+        "fi": "https://nepa.com/fi/solutions/kampanjamittaus/",
+        "sv": "https://nepa.com/sv/losningar/kampanjmatning/"
+      }
+    },
+    {
+      "id": "da-solutions-marketingstrategi",
+      "language": "da",
+      "section": "solution",
+      "title": "Marketingstrategi",
+      "description": "Styrk din markedsstrategi med indsigter fra Nepa. Fokuser på det, der virker – og skab vækst med effektive beslutninger.",
+      "url": "https://nepa.com/da/solutions/marketingstrategi/",
+      "english_equivalent": "https://nepa.com/solutions/marketing-strategy/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/marketing-strategy/",
+        "fi": "https://nepa.com/fi/solutions/markkinointistrategia/",
+        "sv": "https://nepa.com/sv/losningar/marknadsstrategi/"
+      }
+    },
+    {
+      "id": "da-solutions-mediestrategi",
+      "language": "da",
+      "section": "solution",
+      "title": "Mediestrategi",
+      "description": "Optimer dine medieinvesteringer med Nepas mediestrategiværktøjer – drevet af realtidsindsigter og ROI-fokuseret analyse.",
+      "url": "https://nepa.com/da/solutions/mediestrategi/",
+      "english_equivalent": "https://nepa.com/solutions/media-strategy/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/media-strategy/",
+        "fi": "https://nepa.com/fi/solutions/mediastrategia/",
+        "sv": "https://nepa.com/sv/losningar/mediastrategi/"
+      }
+    },
+    {
+      "id": "da-solutions-visuel-performance",
+      "language": "da",
+      "section": "solution",
+      "title": "Visuel performance",
+      "description": "Se hvordan dine visuelle idéer præsterer i realtid. Optimer brandidentitet og kampagner med Nepas kreative indsigter.",
+      "url": "https://nepa.com/da/solutions/visuel-performance/",
+      "english_equivalent": "https://nepa.com/solutions/visual-performance/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/visual-performance/",
+        "fi": "https://nepa.com/fi/solutions/vaikuttavaa-visuaalisuutta/",
+        "sv": "https://nepa.com/sv/losningar/visuell-effekt/"
+      }
+    },
+    {
+      "id": "da-solutions",
+      "language": "da",
+      "section": "solution-index",
+      "title": "Løsninger",
+      "description": "Nepa tilbyder løsninger til brandudvikling, mediestrategi, kampagnemåling, kundeoplevelser og markedssegmentering.",
+      "url": "https://nepa.com/da/solutions/",
+      "english_equivalent": "https://nepa.com/solutions/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/",
+        "fi": "https://nepa.com/fi/solutions/",
+        "sv": "https://nepa.com/sv/losningar/"
+      }
+    },
+    {
+      "id": "fi-case-atria",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Miten Vahvistaa Brändiä Ilman Uutta Logoa?",
+      "description": "Katso, miten Atria tunnisti Nepan avulla tärkeimmät brändivihjeet, jotka vahvistavat tunnettuutta ja kasvua.",
+      "url": "https://nepa.com/fi/case/atria/",
+      "english_equivalent": "https://nepa.com/case/how-atria-identified-the-brand-cues-that-matter-most/",
+      "alternates": {
+        "en": "https://nepa.com/case/how-atria-identified-the-brand-cues-that-matter-most/"
+      }
+    },
+    {
+      "id": "fi-case-fastighetsbyran",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Näin Fastighetsbyrån paransi brändistrategiaansa",
+      "description": "Lue, miten Fastighetsbyrån hyödynsi Nepan brändiseurantaa vahvistaakseen tunnettuutta ja kehittääkseen strategiaa kilpaillulla markkinalla.",
+      "url": "https://nepa.com/fi/case/fastighetsbyran/",
+      "english_equivalent": "https://nepa.com/case/from-fragmented-insights-to-strategy-fastighetsbyran/",
+      "alternates": {
+        "en": "https://nepa.com/case/from-fragmented-insights-to-strategy-fastighetsbyran/",
+        "da": "https://nepa.com/da/case/fastighetsbyran/",
+        "sv": "https://nepa.com/sv/kundcase/fastighetsbyran/"
+      }
+    },
+    {
+      "id": "fi-case-fjallravenin",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Oivalluksista vaikutukseksi yhdessä Fjällrävenin kanssa",
+      "description": "Lue, miten Fjällräven teki yhteistyötä Nepan kanssa hyödyntäen tekoälyä ja brändiseurantaa markkinoinnin optimointiin globaalisti.",
+      "url": "https://nepa.com/fi/case/fjallravenin/",
+      "english_equivalent": "https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/",
+      "alternates": {
+        "en": "https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/",
+        "da": "https://nepa.com/da/case/fjallraven/",
+        "sv": "https://nepa.com/sv/kundcase/fjallraven/"
+      }
+    },
+    {
+      "id": "fi-case-gant",
+      "language": "fi",
+      "section": "case-study",
+      "title": "GANT luottaa Nepaan kasvun vauhdittamisessa",
+      "description": "Lue, miten Nepan markkina-analyysi ja brändiseuranta auttoivat GANTia tunnistamaan kasvumahdollisuuksia ja vahvistamaan kilpailukykyä.",
+      "url": "https://nepa.com/fi/case/gant/",
+      "english_equivalent": "https://nepa.com/case/gant-trusts-nepa-to-help-it-grow/",
+      "alternates": {
+        "en": "https://nepa.com/case/gant-trusts-nepa-to-help-it-grow/",
+        "da": "https://nepa.com/da/case/gant/",
+        "sv": "https://nepa.com/sv/kundcase/gant/"
+      }
+    },
+    {
+      "id": "fi-case-kelloggs",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Kellogg's luottaa Nepaan pysyäkseen relevanttina",
+      "description": "Lue, miten Kellogg's ja Nepa kartoittivat ostopolkuja, kehittivät Pringles-strategioita ja vahvistivat brändiasemaa.",
+      "url": "https://nepa.com/fi/case/kelloggs/",
+      "english_equivalent": "https://nepa.com/case/kelloggs-trusts-nepa-to-help-it-remain-relevant/",
+      "alternates": {
+        "en": "https://nepa.com/case/kelloggs-trusts-nepa-to-help-it-remain-relevant/",
+        "da": "https://nepa.com/da/case/kelloggs/",
+        "sv": "https://nepa.com/sv/kundcase/kelloggs/"
+      }
+    },
+    {
+      "id": "fi-case-mtv",
+      "language": "fi",
+      "section": "case-study",
+      "title": "MTV luottaa Nepaan tv-mainonnan vaikutukseen",
+      "description": "Lue, miten MTV teki yhteistyötä Nepan kanssa todentaakseen tv-mainonnan vaikutuksen ja vahvistaakseen dataohjautuvaa päätöksentekoa.",
+      "url": "https://nepa.com/fi/case/mtv/",
+      "english_equivalent": "https://nepa.com/case/mtv-trusts-nepa-to-prove-tv-advertising-is-key/",
+      "alternates": {
+        "en": "https://nepa.com/case/mtv-trusts-nepa-to-prove-tv-advertising-is-key/",
+        "da": "https://nepa.com/da/case/mtv/",
+        "sv": "https://nepa.com/sv/kundcase/mtv/"
+      }
+    },
+    {
+      "id": "fi-case-muotialan-jalleenmyyjan-matka",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Muotikauppiaan matka: Haasteesta menestykseen",
+      "description": "Lue, kuinka Nepan oivallukset auttoivat muotikauppiasta siirtymään lyhyen aikavälin kampanjoista kestävään kasvuun ja vahvempaan brändiin.",
+      "url": "https://nepa.com/fi/case/muotialan-jalleenmyyjan-matka/",
+      "english_equivalent": "https://nepa.com/case/a-fashion-retailers-journey-from-challenge-to-triumph/",
+      "alternates": {
+        "en": "https://nepa.com/case/a-fashion-retailers-journey-from-challenge-to-triumph/",
+        "da": "https://nepa.com/da/case/fashion/",
+        "sv": "https://nepa.com/sv/kundcase/mode/"
+      }
+    },
+    {
+      "id": "fi-case-sinebrychoff",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Sinebrychoff ja Nepa valaisevat ostopolun",
+      "description": "Lue, miten Nepa auttoi Sinebrychoffiä kartoittamaan ostopolun ja tuottamaan oivalluksia brändin ja retail-yhteistyön kehittämiseen.",
+      "url": "https://nepa.com/fi/case/sinebrychoff/",
+      "english_equivalent": "https://nepa.com/case/navigating-complexity-in-a-transforming-beverage-category/",
+      "alternates": {
+        "en": "https://nepa.com/case/navigating-complexity-in-a-transforming-beverage-category/",
+        "da": "https://nepa.com/da/case/sinebrychoff/",
+        "sv": "https://nepa.com/sv/kundcase/sinebrychoff/"
+      }
+    },
+    {
+      "id": "fi-case-telenor",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Telenor luottaa Nepaan liiketoiminta-analytiikassa",
+      "description": "Lue, miten Telenor hyödynsi Nepan brändiseurantaa ymmärtääkseen asiakaskäyttäytymistä ja vahvistaakseen markkina-asemaa ja markkinointia.",
+      "url": "https://nepa.com/fi/case/telenor/",
+      "english_equivalent": "https://nepa.com/case/telenor-trusts-nepa-to-understand-their-business-needs/",
+      "alternates": {
+        "en": "https://nepa.com/case/telenor-trusts-nepa-to-understand-their-business-needs/",
+        "da": "https://nepa.com/da/case/telenor/",
+        "sv": "https://nepa.com/sv/kundcase/telenor/"
+      }
+    },
+    {
+      "id": "fi-case-varner",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Varner luottaa Nepaan potentiaalinsa vapauttamisessa",
+      "description": "Lue, miten Varner hyödynsi Nepan dataohjautuvaa lähestymistapaa brändin suorituskyvyn seurantaan, markkinapotentiaalin tunnistamiseen ja kestävien kasvupäätösten tekemiseen.",
+      "url": "https://nepa.com/fi/case/varner/",
+      "english_equivalent": "https://nepa.com/case/varner-trusts-nepa-to-uncover-its-potential/",
+      "alternates": {
+        "en": "https://nepa.com/case/varner-trusts-nepa-to-uncover-its-potential/",
+        "da": "https://nepa.com/da/case/varner/",
+        "sv": "https://nepa.com/sv/kundcase/varner/"
+      }
+    },
+    {
+      "id": "fi-case",
+      "language": "fi",
+      "section": "case-study-index",
+      "title": "Tutkimuslähtöiset asiakastarinat ja tulokset",
+      "description": "Tutustu Nepan caseihin ja näe, miten autamme johtavia brändejä kasvamaan dataohjautuvien oivallusten ja tehokkaiden kuluttajastrategioiden avulla.",
+      "url": "https://nepa.com/fi/case/",
+      "english_equivalent": "https://nepa.com/case/",
+      "alternates": {
+        "en": "https://nepa.com/case/",
+        "da": "https://nepa.com/da/case/",
+        "sv": "https://nepa.com/sv/kundcase/"
+      }
+    },
+    {
+      "id": "fi-contact",
+      "language": "fi",
+      "section": "contact",
+      "title": "Ota yhteyttä markkinatutkimuksesta",
+      "description": "Ota yhteyttä Nepaan jo tänään. Onko sinulla kysyttävää tai tarvitsetko apua? Tiimimme auttaa sinua kasvamaan ja saavuttamaan tavoitteesi.",
+      "url": "https://nepa.com/fi/contact/",
+      "english_equivalent": "https://nepa.com/contact-us/",
+      "alternates": {
+        "en": "https://nepa.com/contact-us/",
+        "da": "https://nepa.com/da/contact/",
+        "sv": "https://nepa.com/sv/kontakta-oss/"
+      }
+    },
+    {
+      "id": "fi-home",
+      "language": "fi",
+      "section": "home",
+      "title": "Nepa | Kasvua oivalluksilla markkinatutkimuksen avulla",
+      "description": "Nepa auttaa brändejä kasvamaan markkinatutkimuksen insighteilla ja muuttaa datan strategioiksi, jotka tuottavat mitattavaa liiketoiminnan kasvua.",
+      "url": "https://nepa.com/fi/",
+      "english_equivalent": "https://nepa.com/",
+      "alternates": {
+        "en": "https://nepa.com/",
+        "da": "https://nepa.com/da/",
+        "sv": "https://nepa.com/sv/"
+      }
+    },
+    {
+      "id": "fi-mfn_news",
+      "language": "fi",
+      "section": "press-releases-index",
+      "title": "MFN News Items Archive",
+      "description": null,
+      "url": "https://nepa.com/fi/mfn_news/",
+      "english_equivalent": "https://nepa.com/mfn_news/",
+      "alternates": {
+        "en": "https://nepa.com/mfn_news/",
+        "da": "https://nepa.com/da/mfn_news/",
+        "sv": "https://nepa.com/sv/mfn_news/"
+      }
+    },
+    {
+      "id": "fi-products-brand-tracking",
+      "language": "fi",
+      "section": "product",
+      "title": "Brändiseurantaratkaisut",
+      "description": "Brändiseuranta, joka tuottaa jatkuvaa tietoa, tunnistaa trendejä tekoälyn avulla ja yhdistää brändin terveyden kasvuun — jotta voit toimia nopeammin.",
+      "url": "https://nepa.com/fi/products/brand-tracking/",
+      "english_equivalent": "https://nepa.com/products/brand-tracking/",
+      "alternates": {
+        "en": "https://nepa.com/products/brand-tracking/",
+        "da": "https://nepa.com/da/products/brand-tracking/",
+        "sv": "https://nepa.com/sv/produkter/brand-tracking/"
+      }
+    },
+    {
+      "id": "fi-products-campaign-pulse",
+      "language": "fi",
+      "section": "product",
+      "title": "Kampanjapulssi",
+      "description": "Campaign Pulse näyttää kampanjan todellisen vaikutuksen – brändiin, tunteisiin ja myyntiin. Vertaa tuloksia benchmarkkeihin ja saat selkeät seuraavat askeleet kampanjan kehittämiseen.",
+      "url": "https://nepa.com/fi/products/campaign-pulse/",
+      "english_equivalent": "https://nepa.com/products/campaign-pulse/",
+      "alternates": {
+        "en": "https://nepa.com/products/campaign-pulse/",
+        "da": "https://nepa.com/da/products/campaign-evaluation/",
+        "sv": "https://nepa.com/sv/produkter/campaign-pulse/"
+      }
+    },
+    {
+      "id": "fi-products-myynninmallinnus",
+      "language": "fi",
+      "section": "product",
+      "title": "Myynninmallinnus",
+      "description": "Marketing mix modelling (Myynninmallinnus), joka tarjoaa jatkuvaa tietoa, selkeän ROI:n ja fiksummat budjettipäätökset – räätälöity liiketoimintaasi ja suunniteltu kasvua varten.",
+      "url": "https://nepa.com/fi/products/myynninmallinnus/",
+      "english_equivalent": "https://nepa.com/products/marketing-mix-modeling/",
+      "alternates": {
+        "en": "https://nepa.com/products/marketing-mix-modeling/",
+        "da": "https://nepa.com/da/products/continuous-marketing-mix-modelling/",
+        "sv": "https://nepa.com/sv/produkter/marketing-mix-modelling/"
+      }
+    },
+    {
+      "id": "fi-products",
+      "language": "fi",
+      "section": "product-index",
+      "title": "Tuotteet",
+      "description": "Nepan tuotevalikoimaan kuuluvat Brand Tracking, MMM, Campaign Pulse, Path-to-Purchase sekä edistyneet analytiikkatyökalut markkinoijille.",
+      "url": "https://nepa.com/fi/products/",
+      "english_equivalent": "https://nepa.com/products/",
+      "alternates": {
+        "en": "https://nepa.com/products/",
+        "da": "https://nepa.com/da/products/",
+        "sv": "https://nepa.com/sv/produkter/"
+      }
+    },
+    {
+      "id": "fi-solutions-brandin-kehittaminen",
+      "language": "fi",
+      "section": "solution",
+      "title": "Brändin kehittäminen",
+      "description": "Rakenna vahvempi brändi selkeiden insightien avulla. Seuraa brändin kehitystä ajan myötä, ymmärrä mikä erottaa sinut – ja tee viestintää, joka rakentaa luottamusta ja uskollisuutta.",
+      "url": "https://nepa.com/fi/solutions/brandin-kehittaminen/",
+      "english_equivalent": "https://nepa.com/solutions/brand-development/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/brand-development/",
+        "da": "https://nepa.com/da/solutions/brandudvikling/",
+        "sv": "https://nepa.com/sv/losningar/varumarkesutveckling/"
+      }
+    },
+    {
+      "id": "fi-solutions-kampanjamittaus",
+      "language": "fi",
+      "section": "solution",
+      "title": "Kampanjamittaus",
+      "description": "Campaign Pulse näyttää kampanjan todellisen vaikutuksen – brändiin, tunteisiin ja myyntiin. Vertaa tuloksia benchmarkkeihin ja saat selkeät seuraavat askeleet kampanjan kehittämiseen",
+      "url": "https://nepa.com/fi/solutions/kampanjamittaus/",
+      "english_equivalent": "https://nepa.com/solutions/campaign-measurement/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/campaign-measurement/",
+        "da": "https://nepa.com/da/solutions/kampagnemaling/",
+        "sv": "https://nepa.com/sv/losningar/kampanjmatning/"
+      }
+    },
+    {
+      "id": "fi-solutions-markkinointistrategia",
+      "language": "fi",
+      "section": "solution",
+      "title": "Markkinointistrategia",
+      "description": "Markkinointistrategia: Muuta strategia oivalluksiksi. Kasvu ei pysähdy yhdessä yössä – se hiipuu, kun tärkeät päätökset alkavat osua harhaan.",
+      "url": "https://nepa.com/fi/solutions/markkinointistrategia/",
+      "english_equivalent": "https://nepa.com/solutions/marketing-strategy/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/marketing-strategy/",
+        "da": "https://nepa.com/da/solutions/marketingstrategi/",
+        "sv": "https://nepa.com/sv/losningar/marknadsstrategi/"
+      }
+    },
+    {
+      "id": "fi-solutions-mediastrategia",
+      "language": "fi",
+      "section": "solution",
+      "title": "Mediastrategia",
+      "description": "Rakenna fiksumpi mediastrategia. Nepan reaaliaikainen tieto yhdistää jokaisen kanavan sekä myyntiin että brändin rakentamiseen – jotta voit tehdä parempia päätöksiä, nopeammin.",
+      "url": "https://nepa.com/fi/solutions/mediastrategia/",
+      "english_equivalent": "https://nepa.com/solutions/media-strategy/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/media-strategy/",
+        "da": "https://nepa.com/da/solutions/mediestrategi/",
+        "sv": "https://nepa.com/sv/losningar/mediastrategi/"
+      }
+    },
+    {
+      "id": "fi-solutions-vaikuttavaa-visuaalisuutta",
+      "language": "fi",
+      "section": "solution",
+      "title": "Vaikuttavaa visuaalisuutta",
+      "description": "Näe reaaliajassa, miten luovat ratkaisut toimivat. Optimoi brändimielikuva, kehitä kampanjoita ja tee nopeampia päätöksiä Nepan insightien avulla.",
+      "url": "https://nepa.com/fi/solutions/vaikuttavaa-visuaalisuutta/",
+      "english_equivalent": "https://nepa.com/solutions/visual-performance/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/visual-performance/",
+        "da": "https://nepa.com/da/solutions/visuel-performance/",
+        "sv": "https://nepa.com/sv/losningar/visuell-effekt/"
+      }
+    },
+    {
+      "id": "fi-solutions",
+      "language": "fi",
+      "section": "solution-index",
+      "title": "Ratkaisut",
+      "description": "Nepa tarjoaa ratkaisuja brändin kehittämiseen, mediastrategiaan, kampanjamittaukseen, asiakaskokemukseen ja markkinasegmentointiin.",
+      "url": "https://nepa.com/fi/solutions/",
+      "english_equivalent": "https://nepa.com/solutions/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/",
+        "da": "https://nepa.com/da/solutions/",
+        "sv": "https://nepa.com/sv/losningar/"
+      }
+    },
+    {
+      "id": "sv-om-nepa",
+      "language": "sv",
+      "section": "about",
+      "title": "Om oss",
+      "description": "Vi hjälper dig att gå från komplex data till tydliga insikter – så att du kan fatta beslut som driver tillväxt. Se hur Nepa hjälper marknadschefer att skapa varumärken som växer över tid.",
+      "url": "https://nepa.com/sv/om-nepa/",
+      "english_equivalent": "https://nepa.com/about/",
+      "alternates": {
+        "en": "https://nepa.com/about/"
+      }
+    },
+    {
+      "id": "sv-blog-ai-paverkar-hur-svenskar-fattar-kopbeslut-och-forandrar-kundresan",
+      "language": "sv",
+      "section": "blog",
+      "title": "AI påverkar hur svenskar fattar köpbeslut",
+      "description": "AI spelar en tydlig roll i forskningsfasen och vägleder köpbesluten. Läs mer i det här inlägget – och få djupare insikter i vårt webinar.",
+      "url": "https://nepa.com/sv/blog/ai-paverkar-hur-svenskar-fattar-kopbeslut-och-forandrar-kundresan/",
+      "english_equivalent": "https://nepa.com/ai-takes-a-clear-role-in-the-research-phase-and-guides-purchase-decisions/",
+      "alternates": {
+        "en": "https://nepa.com/ai-takes-a-clear-role-in-the-research-phase-and-guides-purchase-decisions/"
+      }
+    },
+    {
+      "id": "sv-blog-brand-tracking",
+      "language": "sv",
+      "section": "blog",
+      "title": "Varumärkesspårning – Mät och stärk ditt varumärke",
+      "description": "Följ varumärkets utveckling med brand tracking. Mät kännedom, position och lojalitet och fatta beslut som driver tillväxt i alla kanaler.",
+      "url": "https://nepa.com/sv/blog/brand-tracking/",
+      "english_equivalent": "https://nepa.com/blog/brand-tracking/",
+      "alternates": {
+        "en": "https://nepa.com/blog/brand-tracking/"
+      }
+    },
+    {
+      "id": "sv-blog-coop-sa-anvander-vi-data-for-att-ta-tillbaka-positionen",
+      "language": "sv",
+      "section": "blog",
+      "title": "Ta tillbaka positionen i en pressad dagligvarumarknad.",
+      "description": "Coop: Så använder vi data för att ta tillbaka positionen i en pressad dagligvarumarknad. Läs om Coops spännande resa.",
+      "url": "https://nepa.com/sv/blog/coop-sa-anvander-vi-data-for-att-ta-tillbaka-positionen/",
+      "english_equivalent": null,
+      "alternates": null
+    },
+    {
+      "id": "sv-blog-de-tre-vanligaste-orsakerna-till-att-kampanjer-underlevererar",
+      "language": "sv",
+      "section": "blog",
+      "title": "De tre vanligaste orsakerna till att kampanjer underlevererar",
+      "description": "De tre vanligaste orsakerna till att kampanjer underlevererar — och vad du kan göra åt det. Läs mer i denna bloggpost.",
+      "url": "https://nepa.com/sv/blog/de-tre-vanligaste-orsakerna-till-att-kampanjer-underlevererar/",
+      "english_equivalent": null,
+      "alternates": null
+    },
+    {
+      "id": "sv-blog-hemkop_och_nepa_effday2025",
+      "language": "sv",
+      "section": "blog",
+      "title": "Hemköp och Nepa på scen under EFFDay 2025",
+      "description": "Hemköp och Nepa på scen under EFFDay 2025. Hemköp och Nepa presenterade ett case som stack ut. Ta del av insikterna i det här inlägget.",
+      "url": "https://nepa.com/sv/blog/hemkop_och_nepa_effday2025/",
+      "english_equivalent": "https://nepa.com/blog/hemkop-and-nepa-on-stage-at-effday-2025/",
+      "alternates": {
+        "en": "https://nepa.com/blog/hemkop-and-nepa-on-stage-at-effday-2025/"
+      }
+    },
+    {
+      "id": "sv-blog-langsiktigt-varumarkesbygge-i-praktiken",
+      "language": "sv",
+      "section": "blog",
+      "title": "Långsiktigt varumärkesbygge i praktiken",
+      "description": "Långsiktigt varumärkesbygge i praktiken – ta del av alla lärdomar från Nepa Breakfast Session med Lantmännen & Coop.",
+      "url": "https://nepa.com/sv/blog/langsiktigt-varumarkesbygge-i-praktiken/",
+      "english_equivalent": null,
+      "alternates": null
+    },
+    {
+      "id": "sv-blog-lantmannen-langsiktigt-varumarkesbygge-fran-jord-till-bord-till-lange-leve-jorden",
+      "language": "sv",
+      "section": "blog",
+      "title": "Lantmännen: Långsiktigt varumärkesbygge",
+      "description": "Lantmännen: Långsiktigt varumärkesbygge från ”jord till bord” till ”Länge leve jorden”. Läs om Lantmännens långsiktiga varumärkesarbete.",
+      "url": "https://nepa.com/sv/blog/lantmannen-langsiktigt-varumarkesbygge-fran-jord-till-bord-till-lange-leve-jorden/",
+      "english_equivalent": null,
+      "alternates": null
+    },
+    {
+      "id": "sv-blog-marknadsforingsmix-modellering",
+      "language": "sv",
+      "section": "blog",
+      "title": "Marknadsföringsmix-modellering – Analys & insikter NEPA",
+      "description": "Marketing mix modelling (MMM) hjälper dig att mäta marknadsföringens effekt och optimera investeringarna för bättre ROI.",
+      "url": "https://nepa.com/sv/blog/marknadsforingsmix-modellering/",
+      "english_equivalent": "https://nepa.com/blog/marketing-mix-modelling-mmm/",
+      "alternates": {
+        "en": "https://nepa.com/blog/marketing-mix-modelling-mmm/"
+      }
+    },
+    {
+      "id": "sv-blog-marknadssegmentering-marknadsforingsmixmodellering",
+      "language": "sv",
+      "section": "blog",
+      "title": "Marknadssegmentering & mixmodellering",
+      "description": "Segmentering ger dig bättre affärsresultat. Maximera din marknadsföring med datadriven segmentering och MMM – få högre ROI och starkare kundlojalitet.",
+      "url": "https://nepa.com/sv/blog/marknadssegmentering-marknadsforingsmixmodellering/",
+      "english_equivalent": "https://nepa.com/blog/market-segmentation-and-marketing-mix-modeling/",
+      "alternates": {
+        "en": "https://nepa.com/blog/market-segmentation-and-marketing-mix-modeling/"
+      }
+    },
+    {
+      "id": "sv-blog-nar-en-gul-prick-slar-miljonkontrakt",
+      "language": "sv",
+      "section": "blog",
+      "title": "När en gul prick slår miljonkontrakt",
+      "description": "Hur en gul prick kan slå miljonkontrakt. Lär dig hur starka Brand Assets bygger igenkänning, påverkar val och driver långsiktig tillväxt.",
+      "url": "https://nepa.com/sv/blog/nar-en-gul-prick-slar-miljonkontrakt/",
+      "english_equivalent": null,
+      "alternates": null
+    },
+    {
+      "id": "sv-blog-path-to-purchase",
+      "language": "sv",
+      "section": "blog",
+      "title": "Path to Purchase – så optimerar Nepa kundresan med data",
+      "description": "Paths to Purchase: Få full insikt om kundresan. Nepas analys visar vilka kontaktpunkter som driver konvertering och affärsvärde.",
+      "url": "https://nepa.com/sv/blog/path-to-purchase/",
+      "english_equivalent": "https://nepa.com/blog/path-to-purchase/",
+      "alternates": {
+        "en": "https://nepa.com/blog/path-to-purchase/"
+      }
+    },
+    {
+      "id": "sv-blog-starkare-dataintegritet-marknadsundersokning",
+      "language": "sv",
+      "section": "blog",
+      "title": "Datakvalitet – vägen till tillförlitliga marknadsinsikter",
+      "description": "På Nepa ser vi på datakvalitet och integritet som helt avgörande. Nepas interna expert på datakvalitet, delar med sig av sina tankar.",
+      "url": "https://nepa.com/sv/blog/starkare-dataintegritet-marknadsundersokning/",
+      "english_equivalent": "https://nepa.com/blog/a-call-for-stronger-data-integrity-in-the-wake-of-recent-market-research-fraud/",
+      "alternates": {
+        "en": "https://nepa.com/blog/a-call-for-stronger-data-integrity-in-the-wake-of-recent-market-research-fraud/"
+      }
+    },
+    {
+      "id": "sv-blog-varumarkeskapital",
+      "language": "sv",
+      "section": "blog",
+      "title": "Varumärkeskapital: Bygg tillväxt med insikter & integritet",
+      "description": "Varumärkeskapital som tillväxtmotor. Med Nepas insikter mäter och bygger du varumärkesstyrka som driver lönsamhet och kundlojalitet.",
+      "url": "https://nepa.com/sv/blog/varumarkeskapital/",
+      "english_equivalent": "https://nepa.com/blog/brand-equity/",
+      "alternates": {
+        "en": "https://nepa.com/blog/brand-equity/"
+      }
+    },
+    {
+      "id": "sv-blog-varumarkespositionering",
+      "language": "sv",
+      "section": "blog",
+      "title": "Varumärkespositionering – särskilj ditt varumärke och väx",
+      "description": "Varumärkespositionering gör ditt varumärke unikt. Skapa tillväxt och lojalitet med tydlig position och brand tracking. Nepa guidar dig hela vägen.",
+      "url": "https://nepa.com/sv/blog/varumarkespositionering/",
+      "english_equivalent": "https://nepa.com/blog/brand-positioning/",
+      "alternates": {
+        "en": "https://nepa.com/blog/brand-positioning/"
+      }
+    },
+    {
+      "id": "sv-blog-vinnare-i-100-wattaren-2026-nar-kommunikation-bevisar-sin-effekt",
+      "language": "sv",
+      "section": "blog",
+      "title": "Vinnare i 100-wattaren 2026 – när kommunikation bevisar sin effekt",
+      "description": "Vinnare i 100-wattaren 2026 – när kommunikation bevisar sin effekt. Läs om alla vinnarna här - och vad som förenar effektiva kampanjer.",
+      "url": "https://nepa.com/sv/blog/vinnare-i-100-wattaren-2026-nar-kommunikation-bevisar-sin-effekt/",
+      "english_equivalent": null,
+      "alternates": null
+    },
+    {
+      "id": "sv-blog",
+      "language": "sv",
+      "section": "blog-index",
+      "title": "Marknadsinsikter, forskning och trender",
+      "description": "Upptäck NEPA Blogg – din källa till marknadsföringsinsikter, konsumentanalys och datadrivna strategier som hjälper varumärken att växa.",
+      "url": "https://nepa.com/sv/blog/",
+      "english_equivalent": "https://nepa.com/blog/",
+      "alternates": {
+        "en": "https://nepa.com/blog/"
+      }
+    },
+    {
+      "id": "sv-case-sbab",
+      "language": "sv",
+      "section": "case-study",
+      "title": "SBAB transformerade sin marknadsstrategi med hjälp av Nepa",
+      "description": "Från insikt till påverkan: Hur SBAB transformerade sin marknadsstrategi och påskyndade tillväxten med Nepas analysverktyg",
+      "url": "https://nepa.com/sv/case/sbab/",
+      "english_equivalent": "https://nepa.com/case/sbab/",
+      "alternates": {
+        "en": "https://nepa.com/case/sbab/"
+      }
+    },
+    {
+      "id": "sv-kundcase-fastighetsbyran",
+      "language": "sv",
+      "section": "case-study",
+      "title": "Kundcase Fastighetsbyrån – Tillväxt genom NEPA-insikter",
+      "description": "Se hur Fastighetsbyrån använde NEPAs datadrivna insikter för att stärka marknadsstrategin, öka kundengagemanget och driva lönsam tillväxt.",
+      "url": "https://nepa.com/sv/kundcase/fastighetsbyran/",
+      "english_equivalent": "https://nepa.com/case/from-fragmented-insights-to-strategy-fastighetsbyran/",
+      "alternates": {
+        "en": "https://nepa.com/case/from-fragmented-insights-to-strategy-fastighetsbyran/",
+        "da": "https://nepa.com/da/case/fastighetsbyran/",
+        "fi": "https://nepa.com/fi/case/fastighetsbyran/"
+      }
+    },
+    {
+      "id": "sv-kundcase-fjallraven",
+      "language": "sv",
+      "section": "case-study",
+      "title": "Kundcase Fjällräven",
+      "description": "Nepa – Kundcase Fjällräven. Med AI-drivna insikter följer Fjällräven varumärkets effekt globalt och fattar smartare beslut i realtid på alla marknader.",
+      "url": "https://nepa.com/sv/kundcase/fjallraven/",
+      "english_equivalent": "https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/",
+      "alternates": {
+        "en": "https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/",
+        "da": "https://nepa.com/da/case/fjallraven/",
+        "fi": "https://nepa.com/fi/case/fjallravenin/"
+      }
+    },
+    {
+      "id": "sv-kundcase-gant",
+      "language": "sv",
+      "section": "case-study",
+      "title": "Kundcase GANT",
+      "description": "Nepa – Kundcase GANT. Realtidsinsikter och brand tracking hjälper GANT att fatta rätt beslut, stärka varumärket och växa på fler marknader.",
+      "url": "https://nepa.com/sv/kundcase/gant/",
+      "english_equivalent": "https://nepa.com/case/gant-trusts-nepa-to-help-it-grow/",
+      "alternates": {
+        "en": "https://nepa.com/case/gant-trusts-nepa-to-help-it-grow/",
+        "da": "https://nepa.com/da/case/gant/",
+        "fi": "https://nepa.com/fi/case/gant/"
+      }
+    },
+    {
+      "id": "sv-kundcase-if-insurance",
+      "language": "sv",
+      "section": "case-study",
+      "title": "If Insurance",
+      "description": "Utforska hur If Insurance samarbetade med NEPA för att omvandla kunddata till insikter, stärka varumärket och skapa långsiktig tillväxt.",
+      "url": "https://nepa.com/sv/kundcase/if-insurance/",
+      "english_equivalent": "https://nepa.com/case/if-insurance/",
+      "alternates": {
+        "en": "https://nepa.com/case/if-insurance/"
+      }
+    },
+    {
+      "id": "sv-kundcase-kelloggs",
+      "language": "sv",
+      "section": "case-study",
+      "title": "Kundcase Kellogg’s",
+      "description": "Nepa – Kundcase Kellogg’s. Insikter i realtid gav Kellogg’s möjlighet att stärka varumärket, hitta nya tillväxtmöjligheter och agera på förändrade marknader.",
+      "url": "https://nepa.com/sv/kundcase/kelloggs/",
+      "english_equivalent": "https://nepa.com/case/kelloggs-trusts-nepa-to-help-it-remain-relevant/",
+      "alternates": {
+        "en": "https://nepa.com/case/kelloggs-trusts-nepa-to-help-it-remain-relevant/",
+        "da": "https://nepa.com/da/case/kelloggs/",
+        "fi": "https://nepa.com/fi/case/kelloggs/"
+      }
+    },
+    {
+      "id": "sv-kundcase-mode",
+      "language": "sv",
+      "section": "case-study",
+      "title": "Kundcase klädkedja",
+      "description": "Nepa – Kundcase klädkedja. Med Nepas analys lyfte en ledande klädkedja varumärket, optimerade investeringarna och ökade försäljningen markant.",
+      "url": "https://nepa.com/sv/kundcase/mode/",
+      "english_equivalent": "https://nepa.com/case/a-fashion-retailers-journey-from-challenge-to-triumph/",
+      "alternates": {
+        "en": "https://nepa.com/case/a-fashion-retailers-journey-from-challenge-to-triumph/",
+        "da": "https://nepa.com/da/case/fashion/",
+        "fi": "https://nepa.com/fi/case/muotialan-jalleenmyyjan-matka/"
+      }
+    },
+    {
+      "id": "sv-kundcase-mtv",
+      "language": "sv",
+      "section": "case-study",
+      "title": "Kundcase MTV",
+      "description": "Nepa – Kundcase MTV. Med Nepas insikter bevisar MTV att tv-kampanjer bygger varumärke och driver resultat för både egna och kunders affär.",
+      "url": "https://nepa.com/sv/kundcase/mtv/",
+      "english_equivalent": "https://nepa.com/case/mtv-trusts-nepa-to-prove-tv-advertising-is-key/",
+      "alternates": {
+        "en": "https://nepa.com/case/mtv-trusts-nepa-to-prove-tv-advertising-is-key/",
+        "da": "https://nepa.com/da/case/mtv/",
+        "fi": "https://nepa.com/fi/case/mtv/"
+      }
+    },
+    {
+      "id": "sv-kundcase-sinebrychoff",
+      "language": "sv",
+      "section": "case-study",
+      "title": "Kundcase Sinebrychoff",
+      "description": "Nepa – Kundcase Sinebrychoff. Med Nepas analys av kundresan får Sinebrychoff insikter som stärker varumärket och driver tillväxt i hela organisationen.",
+      "url": "https://nepa.com/sv/kundcase/sinebrychoff/",
+      "english_equivalent": "https://nepa.com/case/navigating-complexity-in-a-transforming-beverage-category/",
+      "alternates": {
+        "en": "https://nepa.com/case/navigating-complexity-in-a-transforming-beverage-category/",
+        "da": "https://nepa.com/da/case/sinebrychoff/",
+        "fi": "https://nepa.com/fi/case/sinebrychoff/"
+      }
+    },
+    {
+      "id": "sv-kundcase-telenor",
+      "language": "sv",
+      "section": "case-study",
+      "title": "Kundcase Telenor",
+      "description": "Nepa – Kundcase Telenor. Med Nepas realtidsinsikter får Telenor djupare förståelse för kundernas behov och kan fatta beslut som stärker varumärket.",
+      "url": "https://nepa.com/sv/kundcase/telenor/",
+      "english_equivalent": "https://nepa.com/case/telenor-trusts-nepa-to-understand-their-business-needs/",
+      "alternates": {
+        "en": "https://nepa.com/case/telenor-trusts-nepa-to-understand-their-business-needs/",
+        "da": "https://nepa.com/da/case/telenor/",
+        "fi": "https://nepa.com/fi/case/telenor/"
+      }
+    },
+    {
+      "id": "sv-kundcase-varner",
+      "language": "sv",
+      "section": "case-study",
+      "title": "Kundcase Varner – Hur NEPA hjälpte stärka varumärket",
+      "description": "Läs hur NEPA hjälpte Varner att förstå konsumentbeteenden, optimera marknadsinsatser och bygga ett starkare, mer relevant varumärke.",
+      "url": "https://nepa.com/sv/kundcase/varner/",
+      "english_equivalent": "https://nepa.com/case/varner-trusts-nepa-to-uncover-its-potential/",
+      "alternates": {
+        "en": "https://nepa.com/case/varner-trusts-nepa-to-uncover-its-potential/",
+        "da": "https://nepa.com/da/case/varner/",
+        "fi": "https://nepa.com/fi/case/varner/"
+      }
+    },
+    {
+      "id": "sv-kundcase",
+      "language": "sv",
+      "section": "case-study-index",
+      "title": "Nepa Kundcase",
+      "description": "Nepa – Kundcase. Ta del av insikter och konkreta exempel som visar hur datadriven marknadsföring skapar verklig affärsnytta och tillväxt.",
+      "url": "https://nepa.com/sv/kundcase/",
+      "english_equivalent": "https://nepa.com/case/",
+      "alternates": {
+        "en": "https://nepa.com/case/",
+        "da": "https://nepa.com/da/case/",
+        "fi": "https://nepa.com/fi/case/"
+      }
+    },
+    {
+      "id": "sv-news-avanza",
+      "language": "sv",
+      "section": "company-news",
+      "title": "Ny kund | Avanza väljer Nepa för löpande brand tracking",
+      "description": "Avanza väljer Nepa för löpande brand tracking – och tar sitt varumärkesarbete till nästa nivå med datadrivna insikter.",
+      "url": "https://nepa.com/sv/news/avanza/",
+      "english_equivalent": "https://nepa.com/news/avanza/",
+      "alternates": {
+        "en": "https://nepa.com/news/avanza/"
+      }
+    },
+    {
+      "id": "sv-news-enklare-se-chooses-nepas-continuous-brand-tracking-to-strengthen-its-brand-for-long-term-success",
+      "language": "sv",
+      "section": "company-news",
+      "title": "Enklare.se väljer Nepa",
+      "description": "Enklare.se väljer Nepas brand tracking för att stärka varumärket , med insikter som driver tillväxt och kundförtroende.",
+      "url": "https://nepa.com/sv/news/enklare-se-chooses-nepas-continuous-brand-tracking-to-strengthen-its-brand-for-long-term-success/",
+      "english_equivalent": "https://nepa.com/news/enklare-se-chooses-nepas-continuous-brand-tracking-to-strengthen-its-brand-for-long-term-success/",
+      "alternates": {
+        "en": "https://nepa.com/news/enklare-se-chooses-nepas-continuous-brand-tracking-to-strengthen-its-brand-for-long-term-success/"
+      }
+    },
+    {
+      "id": "sv-news-haglofs",
+      "language": "sv",
+      "section": "company-news",
+      "title": "Ny kund | Haglöfs väljer Nepa för att stärka sin varumärkesstrategi",
+      "description": "Haglöfs satsar på Nepas brand tracking för att följa varumärkets utveckling och fatta smartare, datadrivna beslut.",
+      "url": "https://nepa.com/sv/news/haglofs/",
+      "english_equivalent": "https://nepa.com/news/haglofs/",
+      "alternates": {
+        "en": "https://nepa.com/news/haglofs/"
+      }
+    },
+    {
+      "id": "sv-news-tydlighet-i-varje-steg-lundhags-valjer-nepa-for-att-starka-sin-varumarkesresa",
+      "language": "sv",
+      "section": "company-news",
+      "title": "Lundhags väljer Nepa",
+      "description": "Lundhags väljer Nepa för att stärka sin varumärkesresa",
+      "url": "https://nepa.com/sv/news/tydlighet-i-varje-steg-lundhags-valjer-nepa-for-att-starka-sin-varumarkesresa/",
+      "english_equivalent": "https://nepa.com/news/lundhags/",
+      "alternates": {
+        "en": "https://nepa.com/news/lundhags/"
+      }
+    },
+    {
+      "id": "sv-kontakta-oss",
+      "language": "sv",
+      "section": "contact",
+      "title": "Kontakta NEPA – Få insikter och stöd från vårt team",
+      "description": "Boka en konsultation med Nepa. Få insikter om hur du når dina affärsmål, med skräddarsydda lösningar, rätt prissättning och stöd från experter – valt av 300+ ledande varumärken.",
+      "url": "https://nepa.com/sv/kontakta-oss/",
+      "english_equivalent": "https://nepa.com/contact-us/",
+      "alternates": {
+        "en": "https://nepa.com/contact-us/",
+        "da": "https://nepa.com/da/contact/",
+        "fi": "https://nepa.com/fi/contact/"
+      }
+    },
+    {
+      "id": "sv-home",
+      "language": "sv",
+      "section": "home",
+      "title": "Nepa – Growth by insights",
+      "description": "Nepa – Growth by insights. Få insikter som driver tillväxt och skapar konkurrensfördelar. Agera på det som gör skillnad, före konkurrenterna.",
+      "url": "https://nepa.com/sv/",
+      "english_equivalent": "https://nepa.com/",
+      "alternates": {
+        "en": "https://nepa.com/",
+        "da": "https://nepa.com/da/",
+        "fi": "https://nepa.com/fi/"
+      }
+    },
+    {
+      "id": "sv-cookie-policy",
+      "language": "sv",
+      "section": "policy",
+      "title": "Cookie Policy – Läs om hur NEPA hanterar cookies",
+      "description": "Läs hur Nepa använder cookies för att förbättra din upplevelse, analysera trafik, anpassa innehåll och hantera dina samtycken.",
+      "url": "https://nepa.com/sv/cookie-policy/",
+      "english_equivalent": "https://nepa.com/cookie-policy/",
+      "alternates": {
+        "en": "https://nepa.com/cookie-policy/"
+      }
+    },
+    {
+      "id": "sv-mfn_news",
+      "language": "sv",
+      "section": "press-releases-index",
+      "title": "MFN News Items Archive",
+      "description": null,
+      "url": "https://nepa.com/sv/mfn_news/",
+      "english_equivalent": "https://nepa.com/mfn_news/",
+      "alternates": {
+        "en": "https://nepa.com/mfn_news/",
+        "da": "https://nepa.com/da/mfn_news/",
+        "fi": "https://nepa.com/fi/mfn_news/"
+      }
+    },
+    {
+      "id": "sv-produkter-brand-tracking",
+      "language": "sv",
+      "section": "product",
+      "title": "Brand Tracking med NEPA – Mät och stärk ditt varumärke",
+      "description": "NEPAs Brand Tracking hjälper dig följa varumärkets utveckling över tid, förstå målgruppen och fatta beslut baserade på realtidsinsikter.",
+      "url": "https://nepa.com/sv/produkter/brand-tracking/",
+      "english_equivalent": "https://nepa.com/products/brand-tracking/",
+      "alternates": {
+        "en": "https://nepa.com/products/brand-tracking/",
+        "da": "https://nepa.com/da/products/brand-tracking/",
+        "fi": "https://nepa.com/fi/products/brand-tracking/"
+      }
+    },
+    {
+      "id": "sv-produkter-campaign-pulse",
+      "language": "sv",
+      "section": "product",
+      "title": "Campaign Pulse – Mät kampanjens effekt med NEPA",
+      "description": "Campaign Pulse visar kampanjens verkliga effekt – på varumärke, känslor och försäljning. Jämför resultat och få tydliga nästa steg för att förbättra.",
+      "url": "https://nepa.com/sv/produkter/campaign-pulse/",
+      "english_equivalent": "https://nepa.com/products/campaign-pulse/",
+      "alternates": {
+        "en": "https://nepa.com/products/campaign-pulse/",
+        "da": "https://nepa.com/da/products/campaign-evaluation/",
+        "fi": "https://nepa.com/fi/products/campaign-pulse/"
+      }
+    },
+    {
+      "id": "sv-produkter-marketing-mix-modelling",
+      "language": "sv",
+      "section": "product",
+      "title": "Marketing Mix Modelling – Optimera ROI med NEPA",
+      "description": "Marketing mix modelling med löpande insikter, tydlig ROI och smartare budgetbeslut – anpassad efter din verksamhet och byggd för tillväxt.",
+      "url": "https://nepa.com/sv/produkter/marketing-mix-modelling/",
+      "english_equivalent": "https://nepa.com/products/marketing-mix-modeling/",
+      "alternates": {
+        "en": "https://nepa.com/products/marketing-mix-modeling/",
+        "da": "https://nepa.com/da/products/continuous-marketing-mix-modelling/",
+        "fi": "https://nepa.com/fi/products/myynninmallinnus/"
+      }
+    },
+    {
+      "id": "sv-produkter",
+      "language": "sv",
+      "section": "product-index",
+      "title": "Produkter",
+      "description": "Nepa – Produkter som driver tillväxt. Fatta rätt beslut med verktyg för brand tracking, marketing mix modelling och kampanjutvärdering i realtid",
+      "url": "https://nepa.com/sv/produkter/",
+      "english_equivalent": "https://nepa.com/products/",
+      "alternates": {
+        "en": "https://nepa.com/products/",
+        "da": "https://nepa.com/da/products/",
+        "fi": "https://nepa.com/fi/products/"
+      }
+    },
+    {
+      "id": "sv-losningar-kampanjmatning",
+      "language": "sv",
+      "section": "solution",
+      "title": "Kampanjmätning",
+      "description": "Nepa – Kampanjmätning i realtid. Se direkt vad som fungerar och optimera dina kampanjer medan de pågår, med insikter som gör skillnad för resultatet.",
+      "url": "https://nepa.com/sv/losningar/kampanjmatning/",
+      "english_equivalent": "https://nepa.com/solutions/campaign-measurement/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/campaign-measurement/",
+        "da": "https://nepa.com/da/solutions/kampagnemaling/",
+        "fi": "https://nepa.com/fi/solutions/kampanjamittaus/"
+      }
+    },
+    {
+      "id": "sv-losningar-marknadsstrategi",
+      "language": "sv",
+      "section": "solution",
+      "title": "Marknadsstrategi",
+      "description": "Nepa – Marknadsstrategi med effekt. Få insikter som visar vad som faktiskt fungerar, så att du kan fatta beslut som gör verklig skillnad för affären.",
+      "url": "https://nepa.com/sv/losningar/marknadsstrategi/",
+      "english_equivalent": "https://nepa.com/solutions/marketing-strategy/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/marketing-strategy/",
+        "da": "https://nepa.com/da/solutions/marketingstrategi/",
+        "fi": "https://nepa.com/fi/solutions/markkinointistrategia/"
+      }
+    },
+    {
+      "id": "sv-losningar-mediastrategi",
+      "language": "sv",
+      "section": "solution",
+      "title": "Mediastrategi",
+      "description": "Bygg en smartare mediestrategi. Med Nepa får du insikter i realtid som kopplar varje kanal till både försäljning och varumärkesbyggande – så att du fattar rätt beslut, snabbare.",
+      "url": "https://nepa.com/sv/losningar/mediastrategi/",
+      "english_equivalent": "https://nepa.com/solutions/media-strategy/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/media-strategy/",
+        "da": "https://nepa.com/da/solutions/mediestrategi/",
+        "fi": "https://nepa.com/fi/solutions/mediastrategia/"
+      }
+    },
+    {
+      "id": "sv-losningar-varumarkesutveckling",
+      "language": "sv",
+      "section": "solution",
+      "title": "Varumärkesutveckling",
+      "description": "Bygg ett starkare varumärke med tydliga insikter om hur du uppfattas. Följ varumärkets utveckling över tid, förstå vad som särskiljer dig – och skapa kommunikation som bygger förtroende och lojalitet.",
+      "url": "https://nepa.com/sv/losningar/varumarkesutveckling/",
+      "english_equivalent": "https://nepa.com/solutions/brand-development/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/brand-development/",
+        "da": "https://nepa.com/da/solutions/brandudvikling/",
+        "fi": "https://nepa.com/fi/solutions/brandin-kehittaminen/"
+      }
+    },
+    {
+      "id": "sv-losningar-visuell-effekt",
+      "language": "sv",
+      "section": "solution",
+      "title": "Visuell effekt",
+      "description": "Visuell Effekt från NEPA mäter hur din marknadsföring uppfattas, så du kan förbättra kommunikationen och maximera kampanjernas effekt.",
+      "url": "https://nepa.com/sv/losningar/visuell-effekt/",
+      "english_equivalent": "https://nepa.com/solutions/visual-performance/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/visual-performance/",
+        "da": "https://nepa.com/da/solutions/visuel-performance/",
+        "fi": "https://nepa.com/fi/solutions/vaikuttavaa-visuaalisuutta/"
+      }
+    },
+    {
+      "id": "sv-losningar",
+      "language": "sv",
+      "section": "solution-index",
+      "title": "Lösningar",
+      "description": "Datadrivna lösningar för marknadsförare som vill växa snabbare, arbeta smartare och bygga starkare varumärken.",
+      "url": "https://nepa.com/sv/losningar/",
+      "english_equivalent": "https://nepa.com/solutions/",
+      "alternates": {
+        "en": "https://nepa.com/solutions/",
+        "da": "https://nepa.com/da/solutions/",
+        "fi": "https://nepa.com/fi/solutions/"
+      }
+    }
+  ],
+  "count": 94,
+  "counts_by_language": {
+    "da": 23,
+    "fi": 24,
+    "sv": 47
+  }
+}

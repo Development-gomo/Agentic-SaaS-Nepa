@@ -1,956 +1,2830 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/press-releases.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08",
-    "note": "English-language releases only; Swedish-only originals excluded (see llms.txt Swedish Pages section for language alternates). One item (Svenska Spel selection, 2021-09-20) was manually recovered despite being mistagged mfn-lang-sv on the live site, because its actual title/content is in English — spot-checked and confirmed by hand."
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16",
+    "note": "All releases in English and Swedish, each tagged with 'language' (en|sv); filter with ?language=. 'alternate_language_url' links an English release to its Swedish counterpart where exactly one of each was published the same day. The Svenska Spel selection release (2021-09-20) is tagged mfn-lang-sv on the live site but its content is English, so it is kept as language 'en'."
   },
   "releases": [
+    {
+      "id": "mfn-ceo-anders-dahl-leaves-nepa-search-for-successor-initiated",
+      "title": "CEO Anders Dahl leaves Nepa – search for successor initiated",
+      "date": "2026-09-30",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/ceo-anders-dahl-leaves-nepa-search-for-successor-initiated/",
+      "language": "en",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/vd-anders-dahl-lamnar-nepa-rekrytering-av-eftertradare-inledd/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-vd-anders-dahl-lamnar-nepa-rekrytering-av-eftertradare-inledd",
+      "title": "VD Anders Dahl lämnar Nepa – rekrytering av efterträdare inledd",
+      "date": "2026-09-30",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/vd-anders-dahl-lamnar-nepa-rekrytering-av-eftertradare-inledd/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/ceo-anders-dahl-leaves-nepa-search-for-successor-initiated/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-ny-matning-varumarkena-som-byggt-starkast-reklamkapital",
+      "title": "Ny mätning: Varumärkena som byggt starkast reklamkapital",
+      "date": "2026-09-02",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/ny-matning-varumarkena-som-byggt-starkast-reklamkapital/",
+      "language": "sv"
+    },
     {
       "id": "mfn-nepa-interim-report-q2-2026",
       "title": "Nepa Interim Report Q2 2026",
       "date": "2026-08-14",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2026/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2026/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q2-2026/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q2-2026",
+      "title": "Nepa Delårsrapport Q2 2026",
+      "date": "2026-08-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q2-2026/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2026/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-q2-interim-report-2026",
       "title": "Invitation to presentation of Nepa’s Q2 interim report 2026",
       "date": "2026-08-05",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2026/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2026/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q2-2026/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q2-2026",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q2 2026",
+      "date": "2026-08-05",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q2-2026/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2026/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-thousands-of-tiktok-ads-in-a-new-ai-analysis-nepa-launches-creative-ai-for-creative-optimisation",
       "title": "Thousands of TikTok ads in a new AI analysis. Nepa launches Creative AI for creative optimisation",
       "date": "2026-06-24",
       "category": "Press Release",
-      "url": "https://nepa.com/mfn_news/thousands-of-tiktok-ads-in-a-new-ai-analysis-nepa-launches-creative-ai-for-creative-optimisation/"
+      "url": "https://nepa.com/mfn_news/thousands-of-tiktok-ads-in-a-new-ai-analysis-nepa-launches-creative-ai-for-creative-optimisation/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/tusentals-tiktok-annonser-i-ny-ai-analys-nu-lanserar-nepa-creative-ai-for-kreativ-optimering/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-tusentals-tiktok-annonser-i-ny-ai-analys-nu-lanserar-nepa-creative-ai-for-kreativ-optimering",
+      "title": "Tusentals TikTok-annonser i ny AI-analys. Nu lanserar Nepa Creative AI för kreativ optimering",
+      "date": "2026-06-24",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/tusentals-tiktok-annonser-i-ny-ai-analys-nu-lanserar-nepa-creative-ai-for-kreativ-optimering/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/thousands-of-tiktok-ads-in-a-new-ai-analysis-nepa-launches-creative-ai-for-creative-optimisation/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-appoints-morten-flamand-as-new-vp-sales-to-accelerate-international-growth",
       "title": "Nepa appoints Morten Flamand as new VP Sales to accelerate international growth",
       "date": "2026-06-01",
       "category": "Press Release",
-      "url": "https://nepa.com/mfn_news/nepa-appoints-morten-flamand-as-new-vp-sales-to-accelerate-international-growth/"
+      "url": "https://nepa.com/mfn_news/nepa-appoints-morten-flamand-as-new-vp-sales-to-accelerate-international-growth/",
+      "language": "en"
     },
     {
       "id": "mfn-report-from-nepa-abs-annual-general-meeting-2026",
       "title": "Report from Nepa AB’s Annual General Meeting 2026",
       "date": "2026-05-21",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2026/"
+      "url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2026/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kommunike-fran-nepa-abs-arsstamma-2026/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kommunike-fran-nepa-abs-arsstamma-2026",
+      "title": "Kommuniké från Nepa AB:s årsstämma 2026",
+      "date": "2026-05-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kommunike-fran-nepa-abs-arsstamma-2026/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2026/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-interim-report-q1-2026",
       "title": "Nepa Interim Report Q1 2026",
       "date": "2026-05-08",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2026/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2026/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q1-2026/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q1-2026",
+      "title": "Nepa Delårsrapport Q1 2026",
+      "date": "2026-05-08",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q1-2026/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2026/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-q1-interim-report-2026",
       "title": "Invitation to presentation of Nepa’s Q1 interim report 2026",
       "date": "2026-04-29",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2026/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2026/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q1-2026/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q1-2026",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q1 2026",
+      "date": "2026-04-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q1-2026/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2026/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-publishes-annual-report-for-2025",
       "title": "Nepa publishes Annual Report for 2025",
       "date": "2026-04-24",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-publishes-annual-report-for-2025/"
+      "url": "https://nepa.com/mfn_news/nepa-publishes-annual-report-for-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-publicerar-arsredovisning-for-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-publicerar-arsredovisning-for-2025",
+      "title": "Nepa publicerar årsredovisning för 2025",
+      "date": "2026-04-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-publicerar-arsredovisning-for-2025/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-publishes-annual-report-for-2025/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-change-in-nepas-group-management-team-2",
       "title": "Change in Nepa’s Group Management team",
       "date": "2026-04-21",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/change-in-nepas-group-management-team-2/"
+      "url": "https://nepa.com/mfn_news/change-in-nepas-group-management-team-2/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/forandring-i-nepas-koncernledning-2/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-forandring-i-nepas-koncernledning-2",
+      "title": "Förändring i Nepas koncernledning",
+      "date": "2026-04-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/forandring-i-nepas-koncernledning-2/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/change-in-nepas-group-management-team-2/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-notice-of-annual-general-meeting-in-nepa-ab-publ-3",
       "title": "Notice of Annual General Meeting in Nepa AB (publ)",
       "date": "2026-04-17",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ-3/"
+      "url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ-3/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kallelse-till-arsstamma-i-nepa-ab-publ-5/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kallelse-till-arsstamma-i-nepa-ab-publ-5",
+      "title": "Kallelse till årsstämma i Nepa AB (publ)",
+      "date": "2026-04-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kallelse-till-arsstamma-i-nepa-ab-publ-5/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ-3/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-year-end-report-2025",
       "title": "Nepa Year-end report 2025",
       "date": "2026-02-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-year-end-report-2025/"
+      "url": "https://nepa.com/mfn_news/nepa-year-end-report-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-bokslutskommunike-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-bokslutskommunike-2025",
+      "title": "Nepa Bokslutskommuniké 2025",
+      "date": "2026-02-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-bokslutskommunike-2025/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-year-end-report-2025/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-year-end-report-2025",
       "title": "Invitation to presentation of Nepa’s year-end report 2025",
       "date": "2026-02-16",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2025/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-bokslutskommunike-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-bokslutskommunike-2025",
+      "title": "Inbjudan till presentation av Nepas bokslutskommuniké 2025",
+      "date": "2026-02-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-bokslutskommunike-2025/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-starker-satsningen-pa-marketing-acceleration-med-hemvandande-toppteam-inom-mmm",
+      "title": "Nepa stärker satsningen på Marketing Acceleration med hemvändande toppteam inom MMM",
+      "date": "2025-12-17",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-starker-satsningen-pa-marketing-acceleration-med-hemvandande-toppteam-inom-mmm/",
+      "language": "sv"
+    },
+    {
+      "id": "mfn-ai-tar-en-tydlig-roll-i-researchfasen-och-styr-kopbesluten",
+      "title": "AI tar en tydlig roll i researchfasen - och styr köpbesluten",
+      "date": "2025-11-11",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/ai-tar-en-tydlig-roll-i-researchfasen-och-styr-kopbesluten/",
+      "language": "sv"
     },
     {
       "id": "mfn-nomination-committee-appointed-for-the-annual-general-meeting-2026-in-nepa-ab-publ",
       "title": "Nomination Committee appointed for the Annual General Meeting 2026 in Nepa AB (publ)",
       "date": "2025-10-28",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-annual-general-meeting-2026-in-nepa-ab-publ/"
+      "url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-annual-general-meeting-2026-in-nepa-ab-publ/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/valberedning-utsedd-infor-arsstamman-2026-i-nepa-ab-publ/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-valberedning-utsedd-infor-arsstamman-2026-i-nepa-ab-publ",
+      "title": "Valberedning utsedd inför årsstämman 2026 i Nepa AB (publ)",
+      "date": "2025-10-28",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/valberedning-utsedd-infor-arsstamman-2026-i-nepa-ab-publ/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-annual-general-meeting-2026-in-nepa-ab-publ/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-interim-report-q3-2025",
       "title": "Nepa Interim report Q3 2025",
       "date": "2025-10-24",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2025/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q3-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q3-2025",
+      "title": "Nepa Delårsrapport Q3 2025",
+      "date": "2025-10-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q3-2025/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2025/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-q3-interim-report-2025",
       "title": "Invitation to presentation of Nepa’s Q3 interim report 2025",
       "date": "2025-10-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2025/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q3-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q3-2025",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q3 2025",
+      "date": "2025-10-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q3-2025/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-sponsrar-100-wattaren-forstarker-satsningen-pa-effektfragan-tillsammans-med-sveriges-annonsorer",
+      "title": "Nepa sponsrar 100-wattaren - förstärker satsningen på effektfrågan tillsammans med Sveriges Annonsörer",
+      "date": "2025-10-08",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-sponsrar-100-wattaren-forstarker-satsningen-pa-effektfragan-tillsammans-med-sveriges-annonsorer/",
+      "language": "sv"
     },
     {
       "id": "mfn-nepa-appoints-andreas-nordfors-from-bcg-accelerating-the-focus-on-marketing-optimization-and-international-growth",
       "title": "Nepa appoints Andreas Nordfors from BCG – accelerating the focus on marketing optimization and international growth",
       "date": "2025-08-22",
       "category": "Press Release",
-      "url": "https://nepa.com/mfn_news/nepa-appoints-andreas-nordfors-from-bcg-accelerating-the-focus-on-marketing-optimization-and-international-growth/"
+      "url": "https://nepa.com/mfn_news/nepa-appoints-andreas-nordfors-from-bcg-accelerating-the-focus-on-marketing-optimization-and-international-growth/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-varvar-andreas-nordfors-fran-bcg-accelererar-satsningen-pa-marknadsforingsoptimering-och-internationell-tillvaxt/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-varvar-andreas-nordfors-fran-bcg-accelererar-satsningen-pa-marknadsforingsoptimering-och-internationell-tillvaxt",
+      "title": "Nepa värvar Andreas Nordfors från BCG – accelererar satsningen på marknadsföringsoptimering och internationell tillväxt",
+      "date": "2025-08-22",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-varvar-andreas-nordfors-fran-bcg-accelererar-satsningen-pa-marknadsforingsoptimering-och-internationell-tillvaxt/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-appoints-andreas-nordfors-from-bcg-accelerating-the-focus-on-marketing-optimization-and-international-growth/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-interim-report-q2-2025",
       "title": "Nepa Interim report Q2 2025",
       "date": "2025-08-15",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2025/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q2-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q2-2025",
+      "title": "Nepa Delårsrapport Q2 2025",
+      "date": "2025-08-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q2-2025/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2025/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-q2-interim-report-2025",
       "title": "Invitation to presentation of Nepa’s Q2 interim report 2025",
       "date": "2025-08-08",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2025/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q2-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q2-2025",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q2 2025",
+      "date": "2025-08-08",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q2-2025/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-tre-nya-kunder-till-nepa-wolt-clas-ohlson-och-maria-nila-inleder-insiktssamarbeten",
+      "title": "Tre nya kunder till Nepa – Wolt, Clas Ohlson och Maria Nila inleder insiktssamarbeten",
+      "date": "2025-06-25",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/tre-nya-kunder-till-nepa-wolt-clas-ohlson-och-maria-nila-inleder-insiktssamarbeten/",
+      "language": "sv"
     },
     {
       "id": "mfn-report-from-nepa-abs-annual-general-meeting-2025",
       "title": "Report from Nepa AB’s Annual General Meeting 2025",
       "date": "2025-06-23",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2025/"
+      "url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kommunike-fran-nepa-abs-arsstamma-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kommunike-fran-nepa-abs-arsstamma-2025",
+      "title": "Kommuniké från Nepa AB:s årsstämma 2025",
+      "date": "2025-06-23",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kommunike-fran-nepa-abs-arsstamma-2025/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2025/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-change-in-nepas-group-management-team",
       "title": "Change in Nepa’s Group Management Team",
       "date": "2025-05-26",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/change-in-nepas-group-management-team/"
+      "url": "https://nepa.com/mfn_news/change-in-nepas-group-management-team/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/forandring-i-nepas-koncernledning/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-forandring-i-nepas-koncernledning",
+      "title": "Förändring i Nepas koncernledning",
+      "date": "2025-05-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/forandring-i-nepas-koncernledning/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/change-in-nepas-group-management-team/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-marketing-intelligence-foretaget-nepa-tar-stallning-for-okad-datakvalitet-i-marknadsundersokningar",
+      "title": "Marketing intelligence-företaget Nepa tar ställning för ökad datakvalitet i marknadsundersökningar",
+      "date": "2025-05-22",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/marketing-intelligence-foretaget-nepa-tar-stallning-for-okad-datakvalitet-i-marknadsundersokningar/",
+      "language": "sv"
     },
     {
       "id": "mfn-notice-of-annual-general-meeting-in-nepa-ab-publ-2",
       "title": "Notice of Annual General Meeting in Nepa AB (publ)",
       "date": "2025-05-21",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ-2/"
+      "url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ-2/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kallelse-till-arsstamma-i-nepa-ab-publ-4/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kallelse-till-arsstamma-i-nepa-ab-publ-4",
+      "title": "Kallelse till årsstämma i Nepa AB (publ)",
+      "date": "2025-05-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kallelse-till-arsstamma-i-nepa-ab-publ-4/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ-2/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-interim-report-q1-2025",
       "title": "Nepa Interim report Q1 2025",
       "date": "2025-05-09",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2025/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q1-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q1-2025",
+      "title": "Nepa Delårsrapport Q1 2025",
+      "date": "2025-05-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q1-2025/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2025/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-q1-interim-report-2025",
       "title": "Invitation to presentation of Nepa’s Q1 interim report 2025",
       "date": "2025-04-29",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2025/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2025/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q1-2025/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q1-2025",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q1 2025",
+      "date": "2025-04-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q1-2025/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2025/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-publishes-the-annual-report-for-2024",
       "title": "Nepa publishes the annual report for 2024",
       "date": "2025-04-25",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-publishes-the-annual-report-for-2024/"
+      "url": "https://nepa.com/mfn_news/nepa-publishes-the-annual-report-for-2024/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-publicerar-arsredovisning-for-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-publicerar-arsredovisning-for-2024",
+      "title": "Nepa publicerar årsredovisning för 2024",
+      "date": "2025-04-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-publicerar-arsredovisning-for-2024/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-publishes-the-annual-report-for-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-lanserar-ett-nytt-varumarkeskoncept-for-att-driva-tillvaxt",
+      "title": "Nepa lanserar ett nytt varumärkeskoncept för att driva tillväxt",
+      "date": "2025-04-23",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-lanserar-ett-nytt-varumarkeskoncept-for-att-driva-tillvaxt/",
+      "language": "sv"
+    },
+    {
+      "id": "mfn-nepa-blir-samarbetspartner-till-friends-bidrar-med-expertis-inom-varumarkesanalys",
+      "title": "Nepa blir samarbetspartner till Friends – bidrar med expertis inom varumärkesanalys",
+      "date": "2025-04-10",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-blir-samarbetspartner-till-friends-bidrar-med-expertis-inom-varumarkesanalys/",
+      "language": "sv"
     },
     {
       "id": "mfn-nepa-and-opticom-deliver-brand-insights-for-b2b-launching-a-strategic-partnership-based-on-a-360-degree-view",
       "title": "Nepa and Opticom deliver brand insights for B2B: Launching a strategic partnership based on a 360-degree view",
       "date": "2025-02-26",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-and-opticom-deliver-brand-insights-for-b2b-launching-a-strategic-partnership-based-on-a-360-degree-view/"
+      "url": "https://nepa.com/mfn_news/nepa-and-opticom-deliver-brand-insights-for-b2b-launching-a-strategic-partnership-based-on-a-360-degree-view/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-nepa-och-opticom-levererar-varumarkesinsikter-for-b2b-inleder-ett-strategiskt-partnerskap-utifran-360-vy",
+      "title": "Nepa och Opticom levererar varumärkesinsikter för B2B: Inleder ett strategiskt partnerskap utifrån 360°-vy",
+      "date": "2025-02-26",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-och-opticom-levererar-varumarkesinsikter-for-b2b-inleder-ett-strategiskt-partnerskap-utifran-360-vy/",
+      "language": "sv"
+    },
+    {
+      "id": "mfn-nepa-och-opticom-levererar-varumarkesinsikter-for-b2b-inleder-ett-strategiskt-partnerskap-utifran-en-360-graders-vy",
+      "title": "Nepa och Opticom levererar varumärkesinsikter för B2B: Inleder ett strategiskt partnerskap utifrån en 360-graders vy",
+      "date": "2025-02-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-och-opticom-levererar-varumarkesinsikter-for-b2b-inleder-ett-strategiskt-partnerskap-utifran-en-360-graders-vy/",
+      "language": "sv"
     },
     {
       "id": "mfn-nepa-year-end-report-2024",
       "title": "Nepa Year-end report 2024",
       "date": "2025-02-21",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-year-end-report-2024/"
+      "url": "https://nepa.com/mfn_news/nepa-year-end-report-2024/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-bokslutskommunike-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-bokslutskommunike-2024",
+      "title": "Nepa Bokslutskommuniké 2024",
+      "date": "2025-02-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-bokslutskommunike-2024/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-year-end-report-2024/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-year-end-report-2024",
       "title": "Invitation to presentation of Nepa’s year-end report 2024",
       "date": "2025-02-14",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2024/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2024/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-bokslutskommunike-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-bokslutskommunike-2024",
+      "title": "Inbjudan till presentation av Nepas bokslutskommuniké 2024",
+      "date": "2025-02-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-bokslutskommunike-2024/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-mot-filip-tottie-nepas-nya-cfo-med-uppdrag-att-starka-bolagets-finansiella-utveckling",
+      "title": "Möt Filip Tottie: Nepas nya CFO med uppdrag att stärka bolagets finansiella utveckling",
+      "date": "2025-01-22",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/mot-filip-tottie-nepas-nya-cfo-med-uppdrag-att-starka-bolagets-finansiella-utveckling/",
+      "language": "sv"
     },
     {
       "id": "mfn-nepa-appoints-filip-tottie-as-new-chief-financial-officer",
       "title": "Nepa appoints Filip Tottie as new Chief Financial Officer",
       "date": "2025-01-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-appoints-filip-tottie-as-new-chief-financial-officer/"
+      "url": "https://nepa.com/mfn_news/nepa-appoints-filip-tottie-as-new-chief-financial-officer/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-utser-filip-tottie-till-ny-chief-financial-officer/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-utser-filip-tottie-till-ny-chief-financial-officer",
+      "title": "Nepa utser Filip Tottie till ny Chief Financial Officer",
+      "date": "2025-01-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-utser-filip-tottie-till-ny-chief-financial-officer/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-appoints-filip-tottie-as-new-chief-financial-officer/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nomination-committee-appointed-for-the-2025-annual-general-meeting",
       "title": "Nomination Committee appointed for the 2025 Annual General Meeting",
       "date": "2024-12-17",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-2025-annual-general-meeting/"
+      "url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-2025-annual-general-meeting/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-ett-ar-av-framsteg-och-forstarkning-nepas-vd-anders-dahl-blickar-tillbaka-pa-ett-handelserikt-2024",
+      "title": "Ett år av framsteg och förstärkning – Nepas VD Anders Dahl blickar tillbaka på ett händelserikt 2024",
+      "date": "2024-12-17",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/ett-ar-av-framsteg-och-forstarkning-nepas-vd-anders-dahl-blickar-tillbaka-pa-ett-handelserikt-2024/",
+      "language": "sv"
+    },
+    {
+      "id": "mfn-valberedning-utsedd-infor-arsstamman-2025",
+      "title": "Valberedning utsedd inför årsstämman 2025",
+      "date": "2024-12-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/valberedning-utsedd-infor-arsstamman-2025/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-report-from-the-extraordinary-general-meeting-in-nepa-ab-publ",
       "title": "Report from the Extraordinary General Meeting in Nepa AB (publ)",
       "date": "2024-11-19",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/report-from-the-extraordinary-general-meeting-in-nepa-ab-publ/"
+      "url": "https://nepa.com/mfn_news/report-from-the-extraordinary-general-meeting-in-nepa-ab-publ/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kommunike-fran-extra-bolagsstamma-i-nepa-ab-publ/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kommunike-fran-extra-bolagsstamma-i-nepa-ab-publ",
+      "title": "Kommuniké från extra bolagsstämma i Nepa AB (publ)",
+      "date": "2024-11-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kommunike-fran-extra-bolagsstamma-i-nepa-ab-publ/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/report-from-the-extraordinary-general-meeting-in-nepa-ab-publ/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-vi-moter-jakob-kofoed-nepas-nya-cto-som-ska-ta-techplattformen-till-nasta-niva",
+      "title": "Vi möter Jakob Kofoed – Nepas nya CTO som ska ta techplattformen till nästa nivå",
+      "date": "2024-11-04",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/vi-moter-jakob-kofoed-nepas-nya-cto-som-ska-ta-techplattformen-till-nasta-niva/",
+      "language": "sv"
     },
     {
       "id": "mfn-nepa-launches-cmmm-a-tool-for-real-time-optimization-of-marketing-investments",
       "title": "Nepa Launches cMMM – A Tool for Real-Time Optimization of Marketing Investments",
       "date": "2024-10-25",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-launches-cmmm-a-tool-for-real-time-optimization-of-marketing-investments/"
+      "url": "https://nepa.com/mfn_news/nepa-launches-cmmm-a-tool-for-real-time-optimization-of-marketing-investments/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-interim-report-q3-2024",
       "title": "Nepa Interim report Q3 2024",
       "date": "2024-10-25",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2024/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2024/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q3-2024",
+      "title": "Nepa Delårsrapport Q3 2024",
+      "date": "2024-10-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q3-2024/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-lanserar-cmmm-ett-verktyg-for-realtidsoptimering-av-marknadsinvesteringar-2",
+      "title": "Nepa lanserar cMMM – ett verktyg för realtidsoptimering av marknadsinvesteringar",
+      "date": "2024-10-25",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-lanserar-cmmm-ett-verktyg-for-realtidsoptimering-av-marknadsinvesteringar-2/",
+      "language": "sv"
+    },
+    {
+      "id": "mfn-nepa-lanserar-cmmm-ett-verktyg-for-realtidsoptimering-av-marknadsinvesteringar",
+      "title": "Nepa lanserar cMMM – ett verktyg för realtidsoptimering av marknadsinvesteringar",
+      "date": "2024-10-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-lanserar-cmmm-ett-verktyg-for-realtidsoptimering-av-marknadsinvesteringar/",
+      "language": "sv"
     },
     {
       "id": "mfn-nepa-appoints-jakob-kofoed-as-chief-technology-officer",
       "title": "Nepa appoints Jakob Kofoed as Chief Technology Officer",
       "date": "2024-10-24",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-appoints-jakob-kofoed-as-chief-technology-officer/"
+      "url": "https://nepa.com/mfn_news/nepa-appoints-jakob-kofoed-as-chief-technology-officer/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-utser-jakob-kofoed-till-chief-technology-officer/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-utser-jakob-kofoed-till-chief-technology-officer",
+      "title": "Nepa utser Jakob Kofoed till Chief Technology Officer",
+      "date": "2024-10-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-utser-jakob-kofoed-till-chief-technology-officer/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-appoints-jakob-kofoed-as-chief-technology-officer/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-notice-of-extraordinary-general-meeting-in-nepa-ab-publ",
       "title": "Notice of extraordinary general meeting in Nepa AB (publ)",
       "date": "2024-10-22",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ/"
+      "url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kallelse-till-extra-bolagsstamma-i-nepa-ab-publ/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kallelse-till-extra-bolagsstamma-i-nepa-ab-publ",
+      "title": "Kallelse till extra bolagsstämma i Nepa AB (publ)",
+      "date": "2024-10-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kallelse-till-extra-bolagsstamma-i-nepa-ab-publ/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-q3-interim-report-2024",
       "title": "Invitation to presentation of Nepa’s Q3 interim report 2024",
       "date": "2024-10-18",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2024/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2024/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q3-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q3-2024",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q3 2024",
+      "date": "2024-10-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q3-2024/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-annonserar-samarbetspartnerskap-med-effday-och-sveriges-annonsorer",
+      "title": "Nepa annonserar samarbetspartnerskap med EFFDay och Sveriges Annonsörer",
+      "date": "2024-10-15",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-annonserar-samarbetspartnerskap-med-effday-och-sveriges-annonsorer/",
+      "language": "sv"
     },
     {
       "id": "mfn-sonja-thorngren-steps-down-as-cfo-of-nepa",
       "title": "Sonja Thorngren steps down as CFO of Nepa",
       "date": "2024-10-14",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/sonja-thorngren-steps-down-as-cfo-of-nepa/"
+      "url": "https://nepa.com/mfn_news/sonja-thorngren-steps-down-as-cfo-of-nepa/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/sonja-thorngren-avgar-som-cfo-for-nepa/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-sonja-thorngren-avgar-som-cfo-for-nepa",
+      "title": "Sonja Thorngren avgår som CFO för Nepa",
+      "date": "2024-10-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/sonja-thorngren-avgar-som-cfo-for-nepa/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/sonja-thorngren-steps-down-as-cfo-of-nepa/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nytilltradda-ceo-anders-dahl-och-cro-sara-davidsson-nyman-leder-nepas-lonsamma-expansion",
+      "title": "Nytillträdda CEO Anders Dahl och CRO Sara Davidsson Nyman leder Nepas lönsamma expansion",
+      "date": "2024-10-02",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nytilltradda-ceo-anders-dahl-och-cro-sara-davidsson-nyman-leder-nepas-lonsamma-expansion/",
+      "language": "sv"
     },
     {
       "id": "mfn-nepa-loses-major-global-brand-tracking-contract",
       "title": "Nepa loses major global brand tracking contract",
       "date": "2024-09-17",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-loses-major-global-brand-tracking-contract/"
+      "url": "https://nepa.com/mfn_news/nepa-loses-major-global-brand-tracking-contract/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-forlorar-stort-brand-tracking-kontrakt/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-forlorar-stort-brand-tracking-kontrakt",
+      "title": "Nepa förlorar stort brand tracking-kontrakt",
+      "date": "2024-09-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-forlorar-stort-brand-tracking-kontrakt/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-loses-major-global-brand-tracking-contract/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-interim-report-q2-2024",
       "title": "Nepa Interim report Q2 2024",
       "date": "2024-08-16",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2024/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2024/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q2-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q2-2024",
+      "title": "Nepa Delårsrapport Q2 2024",
+      "date": "2024-08-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q2-2024/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2024/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-q2-interim-report-2024",
       "title": "Invitation to presentation of Nepa’s Q2 interim report 2024",
       "date": "2024-08-12",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2024/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2024/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q2-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q2-2024",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q2 2024",
+      "date": "2024-08-12",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q2-2024/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2024/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-report-from-nepa-abs-annual-general-meeting-2024",
       "title": "Report from Nepa AB’s Annual General Meeting 2024",
       "date": "2024-05-31",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2024/"
+      "url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2024/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kommunike-fran-nepa-abs-arsstamma-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kommunike-fran-nepa-abs-arsstamma-2024",
+      "title": "Kommuniké från Nepa AB:s årsstämma 2024",
+      "date": "2024-05-31",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kommunike-fran-nepa-abs-arsstamma-2024/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/report-from-nepa-abs-annual-general-meeting-2024/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-interim-report-q1-2024",
       "title": "Nepa Interim report Q1 2024",
       "date": "2024-05-07",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2024/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2024/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q1-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q1-2024",
+      "title": "Nepa Delårsrapport Q1 2024",
+      "date": "2024-05-07",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q1-2024/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2024/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-q1-interim-report-2024",
       "title": "Invitation to presentation of Nepa’s Q1 interim report 2024",
       "date": "2024-05-02",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2024/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2024/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q1-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q1-2024",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q1 2024",
+      "date": "2024-05-02",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q1-2024/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q1-interim-report-2024/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-notice-of-annual-general-meeting-in-nepa-ab-publ",
       "title": "Notice of annual general meeting in Nepa AB (publ)",
       "date": "2024-04-26",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ/"
+      "url": "https://nepa.com/mfn_news/notice-of-annual-general-meeting-in-nepa-ab-publ/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-kallelse-till-arsstamma-i-nepa-ab-publ",
+      "title": "Kallelse till årsstämma i Nepa AB (publ)",
+      "date": "2024-04-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kallelse-till-arsstamma-i-nepa-ab-publ/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-publicerar-arsredovisning-for-2023",
+      "title": "Nepa publicerar årsredovisning för 2023",
+      "date": "2024-04-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-publicerar-arsredovisning-for-2023/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-nepa-appoints-sara-davidsson-nyman-as-chief-revenue-officer",
       "title": "Nepa appoints Sara Davidsson Nyman as Chief Revenue Officer",
       "date": "2024-04-10",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-appoints-sara-davidsson-nyman-as-chief-revenue-officer/"
+      "url": "https://nepa.com/mfn_news/nepa-appoints-sara-davidsson-nyman-as-chief-revenue-officer/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-tillsatter-sara-davidsson-nyman-som-chief-revenue-officer/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-tillsatter-sara-davidsson-nyman-som-chief-revenue-officer",
+      "title": "Nepa tillsätter Sara Davidsson Nyman som Chief Revenue Officer",
+      "date": "2024-04-10",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-tillsatter-sara-davidsson-nyman-som-chief-revenue-officer/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-appoints-sara-davidsson-nyman-as-chief-revenue-officer/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-changes-to-nepas-nomination-committee",
       "title": "Changes to Nepa’s nomination committee",
       "date": "2024-03-25",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/changes-to-nepas-nomination-committee/"
+      "url": "https://nepa.com/mfn_news/changes-to-nepas-nomination-committee/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/andringar-i-nepas-valberedning/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-andringar-i-nepas-valberedning",
+      "title": "Ändringar i Nepas valberedning",
+      "date": "2024-03-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/andringar-i-nepas-valberedning/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/changes-to-nepas-nomination-committee/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-anders-dahl-appointed-ceo-of-nepa",
       "title": "Anders Dahl appointed CEO of Nepa",
       "date": "2024-03-15",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/anders-dahl-appointed-ceo-of-nepa/"
+      "url": "https://nepa.com/mfn_news/anders-dahl-appointed-ceo-of-nepa/",
+      "language": "en"
     },
     {
       "id": "mfn-changes-to-the-board-of-directors-report-from-the-extraordinary-general-meeting-in-nepa-ab-publ",
       "title": "Changes to the Board of Directors – report from the Extraordinary General Meeting in Nepa AB (publ)",
       "date": "2024-03-15",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/changes-to-the-board-of-directors-report-from-the-extraordinary-general-meeting-in-nepa-ab-publ/"
+      "url": "https://nepa.com/mfn_news/changes-to-the-board-of-directors-report-from-the-extraordinary-general-meeting-in-nepa-ab-publ/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-year-end-report-2023",
       "title": "Nepa Year-end report 2023",
       "date": "2024-03-15",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-year-end-report-2023/"
+      "url": "https://nepa.com/mfn_news/nepa-year-end-report-2023/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-anders-dahl-utsedd-till-ny-vd-for-nepa",
+      "title": "Anders Dahl utsedd till ny VD för Nepa",
+      "date": "2024-03-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/anders-dahl-utsedd-till-ny-vd-for-nepa/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-forandringar-i-styrelsen-kommunike-fran-extra-bolagsstamma-i-nepa-ab-publ",
+      "title": "Förändringar i styrelsen - kommuniké från extra bolagsstämma i Nepa AB (publ)",
+      "date": "2024-03-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/forandringar-i-styrelsen-kommunike-fran-extra-bolagsstamma-i-nepa-ab-publ/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-bokslutskommunike-2023",
+      "title": "Nepa Bokslutskommuniké 2023",
+      "date": "2024-03-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-bokslutskommunike-2023/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-invitation-to-presentation-of-nepas-year-end-report-2023",
       "title": "Invitation to presentation of Nepa’s year-end report 2023",
       "date": "2024-03-11",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2023/"
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2023/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-bokslutskommunike-2023/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-bokslutskommunike-2023",
+      "title": "Inbjudan till presentation av Nepas bokslutskommuniké 2023",
+      "date": "2024-03-11",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-bokslutskommunike-2023/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-year-end-report-2023/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-notice-of-extraordinary-general-meeting-in-nepa-ab-publ-2",
       "title": "Notice of extraordinary general meeting in Nepa AB (publ)",
       "date": "2024-02-07",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ-2/"
+      "url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ-2/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kallelse-till-extra-bolagsstamma-i-nepa-ab-publ-2/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kallelse-till-extra-bolagsstamma-i-nepa-ab-publ-2",
+      "title": "Kallelse till extra bolagsstämma i Nepa AB (publ)",
+      "date": "2024-02-07",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kallelse-till-extra-bolagsstamma-i-nepa-ab-publ-2/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ-2/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nomination-committee-appointed-for-the-2024-annual-general-meeting",
       "title": "Nomination Committee appointed for the 2024 Annual General Meeting",
       "date": "2024-01-08",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-2024-annual-general-meeting/"
+      "url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-2024-annual-general-meeting/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/valberedning-utsedd-infor-arsstamman-2024/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-valberedning-utsedd-infor-arsstamman-2024",
+      "title": "Valberedning utsedd inför årsstämman 2024",
+      "date": "2024-01-08",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/valberedning-utsedd-infor-arsstamman-2024/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nomination-committee-appointed-for-the-2024-annual-general-meeting/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-interim-report-q3-2023",
       "title": "Nepa Interim report Q3 2023",
       "date": "2023-11-17",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2023/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2023/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q3-2023/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q3-2023",
+      "title": "Nepa Delårsrapport Q3 2023",
+      "date": "2023-11-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q3-2023/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2023/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-nepas-q3-2023-report-presentation",
       "title": "Invitation to Nepa’s Q3 2023 report presentation",
       "date": "2023-11-13",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-nepas-q3-2023-report-presentation/"
+      "url": "https://nepa.com/mfn_news/invitation-to-nepas-q3-2023-report-presentation/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q3-2023/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q3-2023",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q3 2023",
+      "date": "2023-11-13",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q3-2023/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-nepas-q3-2023-report-presentation/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepas-largest-shareholder-issues-call-options-to-the-members-of-the-board",
       "title": "Nepa’s largest shareholder issues call options to the members of the board",
       "date": "2023-09-25",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepas-largest-shareholder-issues-call-options-to-the-members-of-the-board/"
+      "url": "https://nepa.com/mfn_news/nepas-largest-shareholder-issues-call-options-to-the-members-of-the-board/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepas-storsta-aktieagare-staller-ut-kopoptioner-till-bolagets-styrelseledamoter/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepas-storsta-aktieagare-staller-ut-kopoptioner-till-bolagets-styrelseledamoter",
+      "title": "Nepas största aktieägare ställer ut köpoptioner till bolagets styrelseledamöter",
+      "date": "2023-09-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepas-storsta-aktieagare-staller-ut-kopoptioner-till-bolagets-styrelseledamoter/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepas-largest-shareholder-issues-call-options-to-the-members-of-the-board/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-report-from-extraordinary-general-meeting-in-nepa-ab",
       "title": "Report from Extraordinary General Meeting in Nepa AB",
       "date": "2023-09-18",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/report-from-extraordinary-general-meeting-in-nepa-ab/"
+      "url": "https://nepa.com/mfn_news/report-from-extraordinary-general-meeting-in-nepa-ab/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kommunike-fran-extra-bolagsstamma-i-nepa-ab/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kommunike-fran-extra-bolagsstamma-i-nepa-ab",
+      "title": "Kommuniké från extra bolagsstämma i Nepa AB",
+      "date": "2023-09-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kommunike-fran-extra-bolagsstamma-i-nepa-ab/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/report-from-extraordinary-general-meeting-in-nepa-ab/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-appoints-robert-beatus-as-chief-product-officer-and-announces-leadership-changes",
       "title": "Nepa appoints Robert Beatus as Chief Product Officer and announces leadership changes",
       "date": "2023-08-30",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-appoints-robert-beatus-as-chief-product-officer-and-announces-leadership-changes/"
+      "url": "https://nepa.com/mfn_news/nepa-appoints-robert-beatus-as-chief-product-officer-and-announces-leadership-changes/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-tillsatter-robert-beatus-som-chief-product-officer-och-meddelar-ledningsforandringar/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-tillsatter-robert-beatus-som-chief-product-officer-och-meddelar-ledningsforandringar",
+      "title": "Nepa tillsätter Robert Beatus som Chief Product Officer och meddelar ledningsförändringar",
+      "date": "2023-08-30",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-tillsatter-robert-beatus-som-chief-product-officer-och-meddelar-ledningsforandringar/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-appoints-robert-beatus-as-chief-product-officer-and-announces-leadership-changes/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-notice-of-extraordinary-general-meeting-in-nepa-ab-publ-3",
       "title": "Notice of extraordinary general meeting in Nepa AB (publ)",
       "date": "2023-08-29",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ-3/"
+      "url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ-3/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kallelse-till-extra-bolagsstamma-i-nepa-ab-publ-3/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kallelse-till-extra-bolagsstamma-i-nepa-ab-publ-3",
+      "title": "Kallelse till extra bolagsstämma i Nepa AB (publ)",
+      "date": "2023-08-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kallelse-till-extra-bolagsstamma-i-nepa-ab-publ-3/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/notice-of-extraordinary-general-meeting-in-nepa-ab-publ-3/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-interim-report-q2-2023",
       "title": "Nepa Interim report Q2 2023",
       "date": "2023-08-18",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2023/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q2-2023/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-strengthens-its-group-management-team-and-appoints-anders-dahl-as-interim-chief-operating-officer-coo",
       "title": "Nepa strengthens its Group Management team and appoints Anders Dahl as interim Chief Operating Officer (COO)",
       "date": "2023-08-18",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-strengthens-its-group-management-team-and-appoints-anders-dahl-as-interim-chief-operating-officer-coo/"
+      "url": "https://nepa.com/mfn_news/nepa-strengthens-its-group-management-team-and-appoints-anders-dahl-as-interim-chief-operating-officer-coo/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q2-2023",
+      "title": "Nepa Delårsrapport Q2 2023",
+      "date": "2023-08-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q2-2023/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-starker-koncernledningen-och-utser-anders-dahl-till-tillforordnad-operativ-chef-coo",
+      "title": "Nepa stärker koncernledningen och utser Anders Dahl till tillförordnad Operativ Chef (COO)",
+      "date": "2023-08-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-starker-koncernledningen-och-utser-anders-dahl-till-tillforordnad-operativ-chef-coo/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-invitation-to-nepas-q2-2023-report-presentation",
       "title": "Invitation to Nepa’s Q2 2023 report presentation",
       "date": "2023-08-14",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-nepas-q2-2023-report-presentation/"
+      "url": "https://nepa.com/mfn_news/invitation-to-nepas-q2-2023-report-presentation/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q2-2023/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q2-2023",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q2 2023",
+      "date": "2023-08-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q2-2023/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-nepas-q2-2023-report-presentation/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-publishes-preliminary-results-for-q2-2023",
       "title": "Nepa publishes preliminary results for Q2 2023",
       "date": "2023-07-31",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-publishes-preliminary-results-for-q2-2023/"
+      "url": "https://nepa.com/mfn_news/nepa-publishes-preliminary-results-for-q2-2023/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-publicerar-preliminara-resultat-for-q2-2023/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-publicerar-preliminara-resultat-for-q2-2023",
+      "title": "Nepa publicerar preliminära resultat för Q2 2023",
+      "date": "2023-07-31",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-publicerar-preliminara-resultat-for-q2-2023/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-publishes-preliminary-results-for-q2-2023/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kommunike-fran-nepa-abs-arsstamma-2023",
+      "title": "Kommuniké från Nepa AB:s årsstämma 2023",
+      "date": "2023-06-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kommunike-fran-nepa-abs-arsstamma-2023/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-nepa-appoints-ferry-wolswinkel-to-interim-ceo",
       "title": "Nepa appoints Ferry Wolswinkel to interim CEO",
       "date": "2023-06-01",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-appoints-ferry-wolswinkel-to-interim-ceo/"
+      "url": "https://nepa.com/mfn_news/nepa-appoints-ferry-wolswinkel-to-interim-ceo/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-utser-ferry-wolswinkel-som-tillforordnad-vd/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-utser-ferry-wolswinkel-som-tillforordnad-vd",
+      "title": "Nepa utser Ferry Wolswinkel som tillförordnad VD",
+      "date": "2023-06-01",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-utser-ferry-wolswinkel-som-tillforordnad-vd/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-appoints-ferry-wolswinkel-to-interim-ceo/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-complementing-information-ahead-of-the-agm-2023-in-nepa",
       "title": "Complementing information ahead of the AGM 2023 in Nepa",
       "date": "2023-05-29",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/complementing-information-ahead-of-the-agm-2023-in-nepa/"
+      "url": "https://nepa.com/mfn_news/complementing-information-ahead-of-the-agm-2023-in-nepa/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-takes-the-next-step-activates-search-process-to-find-permanent-ceo",
       "title": "Nepa takes the next step – activates search process to find permanent CEO",
       "date": "2023-05-29",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-takes-the-next-step-activates-search-process-to-find-permanent-ceo/"
+      "url": "https://nepa.com/mfn_news/nepa-takes-the-next-step-activates-search-process-to-find-permanent-ceo/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-kompletterande-information-till-nepas-arsstamma-2023",
+      "title": "Kompletterande information till Nepas årsstämma 2023",
+      "date": "2023-05-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kompletterande-information-till-nepas-arsstamma-2023/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-tar-nasta-steg-aktiverar-sokprocess-for-att-hitta-en-permanent-vd",
+      "title": "Nepa tar nästa steg – aktiverar sökprocess för att hitta en permanent VD",
+      "date": "2023-05-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-tar-nasta-steg-aktiverar-sokprocess-for-att-hitta-en-permanent-vd/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-nepa-interim-report-q1-2023",
       "title": "Nepa Interim report Q1 2023",
       "date": "2023-05-16",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2023/"
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2023/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q1-2023/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q1-2023",
+      "title": "Nepa Delårsrapport Q1 2023",
+      "date": "2023-05-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q1-2023/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q1-2023/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-invites-to-a-company-presentation-at-redeye",
       "title": "Nepa invites to a company presentation at Redeye",
       "date": "2023-05-10",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-invites-to-a-company-presentation-at-redeye/"
+      "url": "https://nepa.com/mfn_news/nepa-invites-to-a-company-presentation-at-redeye/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-bjuder-in-till-bolagspresentation-hos-redeye/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-bjuder-in-till-bolagspresentation-hos-redeye",
+      "title": "Nepa bjuder in till bolagspresentation hos Redeye",
+      "date": "2023-05-10",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-bjuder-in-till-bolagspresentation-hos-redeye/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-invites-to-a-company-presentation-at-redeye/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kallelse-till-arsstamma-i-nepa-ab-publ-2",
+      "title": "Kallelse till årsstämma i Nepa AB (publ)",
+      "date": "2023-05-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kallelse-till-arsstamma-i-nepa-ab-publ-2/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-publicerar-arsredovisning-for-2022",
+      "title": "Nepa publicerar årsredovisning för 2022",
+      "date": "2023-05-03",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-publicerar-arsredovisning-for-2022/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-nepa-india-expands-into-asia-pacific",
       "title": "Nepa India expands into Asia-Pacific",
       "date": "2023-04-27",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-india-expands-into-asia-pacific/"
+      "url": "https://nepa.com/mfn_news/nepa-india-expands-into-asia-pacific/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-indien-expanderar-till-apac-regionen/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-indien-expanderar-till-apac-regionen",
+      "title": "Nepa Indien expanderar till APAC-regionen",
+      "date": "2023-04-27",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-indien-expanderar-till-apac-regionen/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-india-expands-into-asia-pacific/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-changes-in-nepas-group-management-team",
       "title": "Changes in Nepa’s Group Management team",
       "date": "2023-04-04",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/changes-in-nepas-group-management-team/"
+      "url": "https://nepa.com/mfn_news/changes-in-nepas-group-management-team/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/forandringar-i-nepas-koncernledning/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-forandringar-i-nepas-koncernledning",
+      "title": "Förändringar i Nepas koncernledning",
+      "date": "2023-04-04",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/forandringar-i-nepas-koncernledning/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/changes-in-nepas-group-management-team/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-year-end-report-2022",
       "title": "Year-end report 2022",
       "date": "2023-03-17",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/year-end-report-2022/"
+      "url": "https://nepa.com/mfn_news/year-end-report-2022/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/bokslutskommunike-2022/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-bokslutskommunike-2022",
+      "title": "Bokslutskommuniké 2022",
+      "date": "2023-03-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/bokslutskommunike-2022/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/year-end-report-2022/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-invitation-to-nepas-q4-2022-presentation-and-conference-call",
       "title": "Invitation to Nepa’s Q4 2022 presentation and conference call",
       "date": "2023-03-09",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/invitation-to-nepas-q4-2022-presentation-and-conference-call/"
+      "url": "https://nepa.com/mfn_news/invitation-to-nepas-q4-2022-presentation-and-conference-call/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-nepas-q4-2022-presentation-och-telefonkonferens/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-nepas-q4-2022-presentation-och-telefonkonferens",
+      "title": "Inbjudan till Nepas Q4 2022 presentation och telefonkonferens",
+      "date": "2023-03-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-nepas-q4-2022-presentation-och-telefonkonferens/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-nepas-q4-2022-presentation-and-conference-call/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-changes-certified-adviser-to-redeye-ab",
       "title": "Nepa AB (publ): Nepa changes Certified Adviser to Redeye AB",
       "date": "2022-12-15",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-changes-certified-adviser-to-redeye-ab/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-changes-certified-adviser-to-redeye-ab/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-byter-certified-adviser-till-redeye-ab/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-byter-certified-adviser-till-redeye-ab",
+      "title": "Nepa AB (publ): Nepa byter Certified Adviser till Redeye AB",
+      "date": "2022-12-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-byter-certified-adviser-till-redeye-ab/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-changes-certified-adviser-to-redeye-ab/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-intensifies-its-strategic-transformation-and-initiates-a-global-cost-savings-program",
       "title": "Nepa AB (publ): Nepa intensifies its strategic transformation and initiates a global cost savings program",
       "date": "2022-12-14",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-intensifies-its-strategic-transformation-and-initiates-a-global-cost-savings-program/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-intensifies-its-strategic-transformation-and-initiates-a-global-cost-savings-program/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-paskyndar-sin-strategiska-transformation-och-initierar-ett-globalt-kostnadsbesparingsprogram/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-paskyndar-sin-strategiska-transformation-och-initierar-ett-globalt-kostnadsbesparingsprogram",
+      "title": "Nepa AB (publ): Nepa påskyndar sin strategiska transformation och initierar ett globalt kostnadsbesparingsprogram",
+      "date": "2022-12-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-paskyndar-sin-strategiska-transformation-och-initierar-ett-globalt-kostnadsbesparingsprogram/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-intensifies-its-strategic-transformation-and-initiates-a-global-cost-savings-program/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-changes-to-nepas-nomination-committee",
       "title": "Nepa AB (publ): Changes to Nepa’s Nomination Committee",
       "date": "2022-12-12",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-changes-to-nepas-nomination-committee/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-changes-to-nepas-nomination-committee/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-andringar-i-nepas-valberedning/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-andringar-i-nepas-valberedning",
+      "title": "Nepa AB (publ): Ändringar i Nepas valberedning",
+      "date": "2022-12-12",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-andringar-i-nepas-valberedning/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-changes-to-nepas-nomination-committee/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-forifying-our-brandtech-position",
       "title": "Nepa AB (publ): FORIFYING OUR BRANDTECH POSITION",
       "date": "2022-11-18",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-forifying-our-brandtech-position/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-forifying-our-brandtech-position/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-forstarker-var-position-inom-brandtech/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-forstarker-var-position-inom-brandtech",
+      "title": "Nepa AB (publ): FÖRSTÄRKER VÅR POSITION INOM BRANDTECH",
+      "date": "2022-11-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-forstarker-var-position-inom-brandtech/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-forifying-our-brandtech-position/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-appoints-sonja-thorngren-as-chief-financial-officer",
       "title": "Nepa AB (publ): Nepa appoints Sonja Thorngren as Chief Financial Officer",
       "date": "2022-11-10",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-appoints-sonja-thorngren-as-chief-financial-officer/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-appoints-sonja-thorngren-as-chief-financial-officer/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-tillsatter-sonja-thorngren-som-chief-financial-officer/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-tillsatter-sonja-thorngren-som-chief-financial-officer",
+      "title": "Nepa AB (publ): Nepa tillsätter Sonja Thorngren som Chief Financial Officer",
+      "date": "2022-11-10",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-tillsatter-sonja-thorngren-som-chief-financial-officer/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-appoints-sonja-thorngren-as-chief-financial-officer/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-invitation-to-nepas-q3-2022-presentation-and-conference-call",
       "title": "Nepa AB (publ): Invitation to Nepa’s Q3 2022 presentation and conference call",
       "date": "2022-11-07",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-invitation-to-nepas-q3-2022-presentation-and-conference-call/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-invitation-to-nepas-q3-2022-presentation-and-conference-call/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-inbjudan-till-nepas-q3-2022-presentation-och-telefonkonferens/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-inbjudan-till-nepas-q3-2022-presentation-och-telefonkonferens",
+      "title": "Nepa AB (publ): Inbjudan till Nepas Q3 2022 presentation och telefonkonferens",
+      "date": "2022-11-07",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-inbjudan-till-nepas-q3-2022-presentation-och-telefonkonferens/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-invitation-to-nepas-q3-2022-presentation-and-conference-call/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nomination-committee-appointed-for-the-2023-annual-general-meeting",
       "title": "Nepa AB (publ): Nomination Committee appointed for the 2023 Annual General Meeting",
       "date": "2022-11-03",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nomination-committee-appointed-for-the-2023-annual-general-meeting/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nomination-committee-appointed-for-the-2023-annual-general-meeting/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-valberedning-utsedd-infor-arsstamman-2023/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-valberedning-utsedd-infor-arsstamman-2023",
+      "title": "Nepa AB (publ): Valberedning utsedd inför årsstämman 2023",
+      "date": "2022-11-03",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-valberedning-utsedd-infor-arsstamman-2023/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nomination-committee-appointed-for-the-2023-annual-general-meeting/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-ann-christine-fick-resigns-as-cfo",
       "title": "Nepa AB (publ): Ann-Christine Fick resigns as CFO",
       "date": "2022-09-29",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-ann-christine-fick-resigns-as-cfo/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-ann-christine-fick-resigns-as-cfo/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-ann-christine-fick-avgar-som-cfo/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-ann-christine-fick-avgar-som-cfo",
+      "title": "Nepa AB (publ): Ann-Christine Fick avgår som CFO",
+      "date": "2022-09-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-ann-christine-fick-avgar-som-cfo/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-ann-christine-fick-resigns-as-cfo/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-continued-growth-and-profitability",
       "title": "Nepa AB (publ): CONTINUED GROWTH AND PROFITABILITY",
       "date": "2022-08-19",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-growth-and-profitability/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-growth-and-profitability/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-fortsatt-tillvaxt-och-lonsamhet/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-fortsatt-tillvaxt-och-lonsamhet",
+      "title": "Nepa AB (publ): FORTSATT TILLVÄXT OCH LÖNSAMHET",
+      "date": "2022-08-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-fortsatt-tillvaxt-och-lonsamhet/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-growth-and-profitability/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-strengthens-its-growth-initiatives-and-appoints-ferry-wolswinkel-as-chief-revenue-officer",
       "title": "Nepa AB (publ): Nepa strengthens its growth initiatives and appoints Ferry Wolswinkel as Chief Revenue Officer",
       "date": "2022-08-17",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-strengthens-its-growth-initiatives-and-appoints-ferry-wolswinkel-as-chief-revenue-officer/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-strengthens-its-growth-initiatives-and-appoints-ferry-wolswinkel-as-chief-revenue-officer/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-starker-sina-tillvaxtinitiativ-och-tillsatter-ferry-wolswinkel-som-chief-revenue-officer/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-starker-sina-tillvaxtinitiativ-och-tillsatter-ferry-wolswinkel-som-chief-revenue-officer",
+      "title": "Nepa AB (publ): Nepa stärker sina tillväxtinitiativ och tillsätter Ferry Wolswinkel som Chief Revenue Officer",
+      "date": "2022-08-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-starker-sina-tillvaxtinitiativ-och-tillsatter-ferry-wolswinkel-som-chief-revenue-officer/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-strengthens-its-growth-initiatives-and-appoints-ferry-wolswinkel-as-chief-revenue-officer/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-invitation-to-nepas-q2-2022-presentation-and-conference-call",
       "title": "Nepa AB (publ): Invitation to Nepa’s Q2 2022 presentation and conference call",
       "date": "2022-08-09",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-invitation-to-nepas-q2-2022-presentation-and-conference-call/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-invitation-to-nepas-q2-2022-presentation-and-conference-call/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-inbjudan-till-nepas-q2-2022-presentation-och-telefonkonferens/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-inbjudan-till-nepas-q2-2022-presentation-och-telefonkonferens",
+      "title": "Nepa AB (publ): Inbjudan till Nepas Q2 2022 presentation och telefonkonferens",
+      "date": "2022-08-09",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-inbjudan-till-nepas-q2-2022-presentation-och-telefonkonferens/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-invitation-to-nepas-q2-2022-presentation-and-conference-call/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-a-good-start-and-focus-on-the-future",
       "title": "Nepa AB (publ): A GOOD START AND FOCUS ON THE FUTURE",
       "date": "2022-05-19",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-a-good-start-and-focus-on-the-future/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-a-good-start-and-focus-on-the-future/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-en-bra-start-och-fokus-pa-framtiden",
+      "title": "Nepa AB (publ): EN BRA START OCH FOKUS PÅ FRAMTIDEN",
+      "date": "2022-05-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-en-bra-start-och-fokus-pa-framtiden/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-kommunike-fran-nepa-abs-arsstamma-2022",
+      "title": "Nepa AB (publ): Kommuniké från Nepa AB:s årsstämma 2022",
+      "date": "2022-05-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kommunike-fran-nepa-abs-arsstamma-2022/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepas-arsredovisning-for-2021-tillganglig-pa-hemsidan",
+      "title": "Nepa AB (publ): Nepas årsredovisning för 2021 tillgänglig på hemsidan",
+      "date": "2022-04-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepas-arsredovisning-for-2021-tillganglig-pa-hemsidan/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-kallelse-till-arsstamma-i-nepa-ab-publ",
+      "title": "Nepa AB (publ): KALLELSE TILL ÅRSSTÄMMA I NEPA AB (PUBL)",
+      "date": "2022-04-14",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kallelse-till-arsstamma-i-nepa-ab-publ/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-nepa-ab-publ-strong-end-to-a-strong-year",
       "title": "Nepa AB (publ): STRONG END TO A STRONG YEAR",
       "date": "2022-03-18",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-strong-end-to-a-strong-year/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-strong-end-to-a-strong-year/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-stark-avslutning-pa-ett-starkt-ar/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-stark-avslutning-pa-ett-starkt-ar",
+      "title": "Nepa AB (publ): STARK AVSLUTNING PÅ ETT STARKT ÅR",
+      "date": "2022-03-18",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-stark-avslutning-pa-ett-starkt-ar/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-strong-end-to-a-strong-year/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-continued-strong-profitability-and-growth",
       "title": "Nepa AB (publ): CONTINUED STRONG PROFITABILITY AND GROWTH",
       "date": "2021-11-19",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-strong-profitability-and-growth/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-strong-profitability-and-growth/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-fortsatt-stark-lonsamhet-och-tillvaxt/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-fortsatt-stark-lonsamhet-och-tillvaxt",
+      "title": "Nepa AB (publ): FORTSATT STARK LÖNSAMHET OCH TILLVÄXT",
+      "date": "2021-11-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-fortsatt-stark-lonsamhet-och-tillvaxt/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-strong-profitability-and-growth/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-ab-appoints-nomination-committee",
       "title": "Nepa AB (publ): Nepa AB appoints Nomination Committee",
       "date": "2021-10-22",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-ab-appoints-nomination-committee/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-ab-appoints-nomination-committee/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-ab-utser-valberedning/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-ab-utser-valberedning",
+      "title": "Nepa AB (publ): Nepa AB utser valberedning",
+      "date": "2021-10-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-ab-utser-valberedning/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-ab-appoints-nomination-committee/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-selected-by-svenska-spel-for-brand-tracking-and-campaign-measurement-program",
       "title": "Nepa AB (publ): Nepa selected by Svenska Spel for Brand Tracking- and Campaign Measurement program.",
       "date": "2021-09-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-selected-by-svenska-spel-for-brand-tracking-and-campaign-measurement-program/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-selected-by-svenska-spel-for-brand-tracking-and-campaign-measurement-program/",
+      "language": "en",
+      "language_override": true
     },
     {
       "id": "mfn-nepa-ab-publ-ceo-steps-down-at-his-own-request-chairman-of-the-board-takes-over-as-ceo",
       "title": "Nepa AB (publ): CEO steps down at his own request, Chairman of the Board takes over as CEO",
       "date": "2021-08-24",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-ceo-steps-down-at-his-own-request-chairman-of-the-board-takes-over-as-ceo/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-ceo-steps-down-at-his-own-request-chairman-of-the-board-takes-over-as-ceo/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepas-vd-lamnar-bolaget-pa-egen-begaran-styrelseordforande-gar-in-som-vd/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepas-vd-lamnar-bolaget-pa-egen-begaran-styrelseordforande-gar-in-som-vd",
+      "title": "Nepa AB (publ): Nepas VD lämnar bolaget på egen begäran, styrelseordförande går in som VD",
+      "date": "2021-08-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepas-vd-lamnar-bolaget-pa-egen-begaran-styrelseordforande-gar-in-som-vd/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-ceo-steps-down-at-his-own-request-chairman-of-the-board-takes-over-as-ceo/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-all-time-high-revenue-and-profitability",
       "title": "Nepa AB (publ): ALL-TIME HIGH REVENUE AND PROFITABILITY",
       "date": "2021-08-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-all-time-high-revenue-and-profitability/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-all-time-high-revenue-and-profitability/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-slar-omsattnings-och-lonsamhetsrekord/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-slar-omsattnings-och-lonsamhetsrekord",
+      "title": "Nepa AB (publ): SLÅR OMSÄTTNINGS- OCH LÖNSAMHETSREKORD",
+      "date": "2021-08-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-slar-omsattnings-och-lonsamhetsrekord/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-all-time-high-revenue-and-profitability/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-all-time-high-revenue-and-improved-profitability",
       "title": "Nepa AB (publ): ALL-TIME HIGH REVENUE AND IMPROVED PROFITABILITY",
       "date": "2021-05-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-all-time-high-revenue-and-improved-profitability/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-all-time-high-revenue-and-improved-profitability/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-kommunike-fran-nepa-abs-arsstamma-2021",
+      "title": "Nepa AB (publ): Kommuniké från Nepa AB:s årsstämma 2021",
+      "date": "2021-05-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kommunike-fran-nepa-abs-arsstamma-2021/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-rekordomsattning-och-forbattrad-lonsamhet",
+      "title": "Nepa AB (publ): REKORDOMSÄTTNING OCH FÖRBÄTTRAD LÖNSAMHET",
+      "date": "2021-05-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-rekordomsattning-och-forbattrad-lonsamhet/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-kallelse-till-arsstamma-i-nepa-ab-publ-2",
+      "title": "Nepa AB (publ): KALLELSE TILL ÅRSSTÄMMA I NEPA AB (PUBL)",
+      "date": "2021-04-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kallelse-till-arsstamma-i-nepa-ab-publ-2/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-nepa-ab-publ-turned-profitable-with-clear-strategy-for-profitable-growth",
       "title": "Nepa AB (publ): TURNED PROFITABLE WITH CLEAR STRATEGY FOR PROFITABLE GROWTH",
       "date": "2021-03-19",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-turned-profitable-with-clear-strategy-for-profitable-growth/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-turned-profitable-with-clear-strategy-for-profitable-growth/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-vant-till-vinst-lagt-strategi-for-lonsam-tillvaxt/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-vant-till-vinst-lagt-strategi-for-lonsam-tillvaxt",
+      "title": "Nepa AB (publ): VÄNT TILL VINST, LAGT STRATEGI FÖR LÖNSAM TILLVÄXT",
+      "date": "2021-03-19",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-vant-till-vinst-lagt-strategi-for-lonsam-tillvaxt/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-turned-profitable-with-clear-strategy-for-profitable-growth/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-the-strongest-operating-profit-ever",
       "title": "Nepa AB (publ): THE STRONGEST OPERATING PROFIT EVER",
       "date": "2020-11-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-the-strongest-operating-profit-ever/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-the-strongest-operating-profit-ever/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-det-starkaste-rorelseresultatet-nagonsin/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-det-starkaste-rorelseresultatet-nagonsin",
+      "title": "Nepa AB (publ): DET STARKASTE RÖRELSERESULTATET NÅGONSIN",
+      "date": "2020-11-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-det-starkaste-rorelseresultatet-nagonsin/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-the-strongest-operating-profit-ever/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-new-study-challenges-the-view-of-social-media-marketing-proving-it-can-drive-long-term-sales",
       "title": "Nepa AB (publ): New study challenges the view of social media marketing, proving it can drive long-term sales",
       "date": "2020-10-06",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-new-study-challenges-the-view-of-social-media-marketing-proving-it-can-drive-long-term-sales/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-new-study-challenges-the-view-of-social-media-marketing-proving-it-can-drive-long-term-sales/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-ab-publ-improved-profitability-and-financial-position",
       "title": "Nepa AB (publ): IMPROVED PROFITABILITY AND FINANCIAL POSITION",
       "date": "2020-08-21",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-improved-profitability-and-financial-position/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-improved-profitability-and-financial-position/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-starker-lonsamheten-och-den-finansiella-stallningen/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-starker-lonsamheten-och-den-finansiella-stallningen",
+      "title": "Nepa AB (publ): STÄRKER LÖNSAMHETEN OCH DEN FINANSIELLA STÄLLNINGEN",
+      "date": "2020-08-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-starker-lonsamheten-och-den-finansiella-stallningen/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-improved-profitability-and-financial-position/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-world-leading-online-gambling-operator-kindred-extends-brand-tracking-and-player-insight-partnership-with-nepa-in-all-major-markets",
       "title": "Nepa AB (publ): World leading online gambling operator Kindred extends brand tracking and player insight partnership with Nepa in all major markets",
       "date": "2020-05-26",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-world-leading-online-gambling-operator-kindred-extends-brand-tracking-and-player-insight-partnership-with-nepa-in-all-major-markets/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-world-leading-online-gambling-operator-kindred-extends-brand-tracking-and-player-insight-partnership-with-nepa-in-all-major-markets/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-ab-publ-varner-chooses-nepa-for-their-brand-tracking-program",
       "title": "Nepa AB (publ): Varner chooses Nepa for their brand tracking program",
       "date": "2020-05-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-varner-chooses-nepa-for-their-brand-tracking-program/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-varner-chooses-nepa-for-their-brand-tracking-program/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-ab-publ-improved-earnings-and-continued-growth",
       "title": "Nepa AB (publ): IMPROVED EARNINGS AND CONTINUED GROWTH",
       "date": "2020-05-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-improved-earnings-and-continued-growth/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-improved-earnings-and-continued-growth/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-kommunike-fran-nepa-abs-arsstamma-2020",
+      "title": "Nepa AB (publ): Kommuniké från Nepa AB:s årsstämma 2020",
+      "date": "2020-05-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kommunike-fran-nepa-abs-arsstamma-2020/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-resultatforstarkning-under-fortsatt-tillvaxt",
+      "title": "Nepa AB (publ): RESULTATFÖRSTÄRKNING UNDER FORTSATT TILLVÄXT",
+      "date": "2020-05-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-resultatforstarkning-under-fortsatt-tillvaxt/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepas-arsredovisning-for-2019-tillganglig-pa-hemsidan",
+      "title": "Nepa AB (publ): Nepas årsredovisning för 2019 tillgänglig på hemsidan",
+      "date": "2020-04-28",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepas-arsredovisning-for-2019-tillganglig-pa-hemsidan/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-kallelse-till-arsstamma-i-nepa-ab-publ-3",
+      "title": "Nepa AB (publ): KALLELSE TILL ÅRSSTÄMMA I NEPA AB (PUBL)",
+      "date": "2020-04-17",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kallelse-till-arsstamma-i-nepa-ab-publ-3/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-nepa-ab-publ-taking-action-to-address-the-changed-market-sentiment",
       "title": "Nepa AB (publ): Taking action to address the changed market sentiment",
       "date": "2020-04-07",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-taking-action-to-address-the-changed-market-sentiment/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-taking-action-to-address-the-changed-market-sentiment/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-vidtar-atgarder-for-att-mota-ett-forandrat-marknadssentiment/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-vidtar-atgarder-for-att-mota-ett-forandrat-marknadssentiment",
+      "title": "Nepa AB (publ): Vidtar åtgärder för att möta ett förändrat marknadssentiment",
+      "date": "2020-04-07",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-vidtar-atgarder-for-att-mota-ett-forandrat-marknadssentiment/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-taking-action-to-address-the-changed-market-sentiment/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-continued-growth-and-increased-focus-on-profitability",
       "title": "Nepa AB (publ): CONTINUED GROWTH AND INCREASED FOCUS ON PROFITABILITY",
       "date": "2020-03-20",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-growth-and-increased-focus-on-profitability/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-growth-and-increased-focus-on-profitability/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-fortsatt-tillvaxt-med-okat-lonsamhetsfokus/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-fortsatt-tillvaxt-med-okat-lonsamhetsfokus",
+      "title": "Nepa AB (publ): FORTSATT TILLVÄXT MED ÖKAT LÖNSAMHETSFOKUS",
+      "date": "2020-03-20",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-fortsatt-tillvaxt-med-okat-lonsamhetsfokus/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-continued-growth-and-increased-focus-on-profitability/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-appoints-ann-christine-fick-as-cfo-and-michael-wallin-as-ir",
       "title": "Nepa AB (publ): Appoints Ann-Christine Fick as CFO and Michael Wallin as IR",
       "date": "2020-02-25",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-appoints-ann-christine-fick-as-cfo-and-michael-wallin-as-ir/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-appoints-ann-christine-fick-as-cfo-and-michael-wallin-as-ir/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-utser-ann-christine-fick-till-cfo-och-michael-wallin-till-ny-ir-chef/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-utser-ann-christine-fick-till-cfo-och-michael-wallin-till-ny-ir-chef",
+      "title": "Nepa AB (publ): Utser Ann-Christine Fick till CFO och Michael Wallin till ny IR-chef",
+      "date": "2020-02-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-utser-ann-christine-fick-till-cfo-och-michael-wallin-till-ny-ir-chef/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-appoints-ann-christine-fick-as-cfo-and-michael-wallin-as-ir/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets-2",
       "title": "Nepa AB (publ): Global lifestyle and clothing brand GANT selects Nepa as brand tracking provider in all major markets",
       "date": "2020-02-04",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets-2/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets-2/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets",
+      "title": "Nepa AB (publ): Global lifestyle and clothing brand GANT selects Nepa as brand tracking provider in all major markets",
+      "date": "2020-02-04",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets-2/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-p-o-westerlund-appointed-new-ceo",
       "title": "Nepa AB (publ): P-O Westerlund appointed new CEO",
       "date": "2020-01-26",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-p-o-westerlund-appointed-new-ceo/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-p-o-westerlund-appointed-new-ceo/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-p-o-westerlund-utsedd-till-ny-vd-och-koncernchef/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-p-o-westerlund-utsedd-till-ny-vd-och-koncernchef",
+      "title": "Nepa AB (publ): P-O Westerlund utsedd till ny VD och koncernchef",
+      "date": "2020-01-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-p-o-westerlund-utsedd-till-ny-vd-och-koncernchef/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-p-o-westerlund-appointed-new-ceo/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-byggmax-selects-nepa-for-customer-experience-program",
       "title": "Nepa AB (publ): Byggmax selects Nepa for Customer Experience program",
       "date": "2020-01-17",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-byggmax-selects-nepa-for-customer-experience-program/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-byggmax-selects-nepa-for-customer-experience-program/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-ab-publ-marginal-gross-profit-growth-in-third-quarter",
       "title": "Nepa AB (publ): MARGINAL GROSS PROFIT GROWTH IN THIRD QUARTER",
       "date": "2019-11-21",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-marginal-gross-profit-growth-in-third-quarter/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-marginal-gross-profit-growth-in-third-quarter/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-bruttoresultatet-okade-marginellt-i-tredje-kvartalet/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-bruttoresultatet-okade-marginellt-i-tredje-kvartalet",
+      "title": "Nepa AB (publ): BRUTTORESULTATET ÖKADE MARGINELLT I TREDJE KVARTALET",
+      "date": "2019-11-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-bruttoresultatet-okade-marginellt-i-tredje-kvartalet/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-marginal-gross-profit-growth-in-third-quarter/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-appoints-mangold-as-liquidity-provider",
       "title": "Nepa AB (publ): Nepa Appoints Mangold as Liquidity Provider",
       "date": "2019-10-15",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-appoints-mangold-as-liquidity-provider/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-appoints-mangold-as-liquidity-provider/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-utser-mangold-till-likviditetsgarant/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-utser-mangold-till-likviditetsgarant",
+      "title": "Nepa AB (publ): Nepa utser Mangold till likviditetsgarant",
+      "date": "2019-10-15",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-utser-mangold-till-likviditetsgarant/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-appoints-mangold-as-liquidity-provider/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-among-vendors-in-new-analyst-report-on-marketing-measurement-and-optimization",
       "title": "Nepa AB (publ): Nepa among vendors in new Analyst Report on Marketing Measurement and Optimization",
       "date": "2019-10-01",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-among-vendors-in-new-analyst-report-on-marketing-measurement-and-optimization/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-among-vendors-in-new-analyst-report-on-marketing-measurement-and-optimization/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-changes-md-in-subsidiary",
       "title": "Nepa AB (publ): Nepa changes MD in subsidiary",
       "date": "2019-09-22",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-changes-md-in-subsidiary/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-changes-md-in-subsidiary/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-byter-vd-i-dotterbolag/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-nepa-byter-vd-i-dotterbolag",
+      "title": "Nepa AB (publ): Nepa byter VD i dotterbolag",
+      "date": "2019-09-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-byter-vd-i-dotterbolag/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-changes-md-in-subsidiary/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-wins-in-two-2019-achievement-in-insight-and-research-award-categories",
       "title": "Nepa AB (publ): Nepa Wins in two 2019 Achievement in Insight and Research Award Categories",
       "date": "2019-09-17",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-wins-in-two-2019-achievement-in-insight-and-research-award-categories/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-wins-in-two-2019-achievement-in-insight-and-research-award-categories/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-ab-publ-gross-profit-growth-of-14-percent-growth-on-all-markets",
       "title": "Nepa AB (publ): GROSS PROFIT GROWTH OF 14 PERCENT, GROWTH ON ALL MARKETS",
       "date": "2019-08-21",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-gross-profit-growth-of-14-percent-growth-on-all-markets/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-gross-profit-growth-of-14-percent-growth-on-all-markets/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-bruttoresultatet-okade-med-14-procent-tillvaxt-pa-samtliga-marknader/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-bruttoresultatet-okade-med-14-procent-tillvaxt-pa-samtliga-marknader",
+      "title": "Nepa AB (publ): BRUTTORESULTATET ÖKADE MED 14 PROCENT, TILLVÄXT PÅ SAMTLIGA MARKNADER",
+      "date": "2019-08-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-bruttoresultatet-okade-med-14-procent-tillvaxt-pa-samtliga-marknader/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-gross-profit-growth-of-14-percent-growth-on-all-markets/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-former-coach-cmo-marie-audier-dalessandris-named-advisor-to-nepa-ab",
       "title": "Nepa AB (publ): Former Coach CMO, Marie Audier D’Alessandris, Named Advisor to Nepa AB",
       "date": "2019-06-25",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-former-coach-cmo-marie-audier-dalessandris-named-advisor-to-nepa-ab/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-former-coach-cmo-marie-audier-dalessandris-named-advisor-to-nepa-ab/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-names-esha-nagar-managing-director-in-india",
       "title": "Nepa AB (publ): Nepa names Esha Nagar Managing Director in India",
       "date": "2019-06-19",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-names-esha-nagar-managing-director-in-india/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-names-esha-nagar-managing-director-in-india/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-ab-publ-kristin-luck-leading-marketing-technology-entrepreneur-and-strategist-named-to-nepa-board",
       "title": "Nepa AB (publ): Kristin Luck, Leading Marketing Technology Entrepreneur and Strategist, Named to Nepa Board",
       "date": "2019-06-11",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kristin-luck-leading-marketing-technology-entrepreneur-and-strategist-named-to-nepa-board/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kristin-luck-leading-marketing-technology-entrepreneur-and-strategist-named-to-nepa-board/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-kommunike-fran-nepa-abs-arsstamma-2019",
+      "title": "Nepa AB (publ): Kommuniké från Nepa AB:s årsstämma 2019",
+      "date": "2019-05-29",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kommunike-fran-nepa-abs-arsstamma-2019/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-nepa-ab-publ-gross-profit-growth-of-19-percent-improved-ebit",
       "title": "Nepa AB (publ): GROSS PROFIT GROWTH OF 19 PERCENT, IMPROVED EBIT",
       "date": "2019-05-21",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-gross-profit-growth-of-19-percent-improved-ebit/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-gross-profit-growth-of-19-percent-improved-ebit/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-bruttoresultatet-okade-med-19-procent-forbattrat-rorelseresultat/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-ab-publ-bruttoresultatet-okade-med-19-procent-forbattrat-rorelseresultat",
+      "title": "Nepa AB (publ): BRUTTORESULTATET ÖKADE MED 19 PROCENT, FÖRBÄTTRAT RÖRELSERESULTAT",
+      "date": "2019-05-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-bruttoresultatet-okade-med-19-procent-forbattrat-rorelseresultat/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-ab-publ-gross-profit-growth-of-19-percent-improved-ebit/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-and-touch-a-prize-announce-new-partnership-for-experience-and-engagement",
       "title": "Nepa AB (publ): Nepa and Touch-A-Prize Announce new Partnership for Experience and Engagement",
       "date": "2019-05-14",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-and-touch-a-prize-announce-new-partnership-for-experience-and-engagement/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-and-touch-a-prize-announce-new-partnership-for-experience-and-engagement/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-nepa-ab-publ-kallelse-till-arsstamma-i-nepa-ab-publ-4",
+      "title": "Nepa AB (publ): KALLELSE TILL ÅRSSTÄMMA I NEPA AB (PUBL)",
+      "date": "2019-04-25",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-kallelse-till-arsstamma-i-nepa-ab-publ-4/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-nepa-ab-publ-nepa-to-enhance-customer-experience-measurement-program-for-nent-group",
       "title": "Nepa AB (publ): Nepa to enhance Customer Experience measurement program for NENT Group",
       "date": "2019-04-16",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-to-enhance-customer-experience-measurement-program-for-nent-group/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-nepa-to-enhance-customer-experience-measurement-program-for-nent-group/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-ab-publ-northern-europes-leading-audiobook-service-storytel-selects-nepa-to-measure-global-customer-experience",
       "title": "Nepa AB (publ): Northern Europe’s leading audiobook service Storytel selects Nepa to measure Global Customer Experience",
       "date": "2019-04-09",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-ab-publ-northern-europes-leading-audiobook-service-storytel-selects-nepa-to-measure-global-customer-experience/"
+      "url": "https://nepa.com/mfn_news/nepa-ab-publ-northern-europes-leading-audiobook-service-storytel-selects-nepa-to-measure-global-customer-experience/",
+      "language": "en"
     },
     {
       "id": "mfn-full-year-report-nepa-ab-publ-q4-2018",
       "title": "Full Year Report Nepa AB (publ), Q4 2018",
       "date": "2019-03-22",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/full-year-report-nepa-ab-publ-q4-2018/"
+      "url": "https://nepa.com/mfn_news/full-year-report-nepa-ab-publ-q4-2018/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/bokslutskommunike-nepa-ab-publ-q4-2018/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-bokslutskommunike-nepa-ab-publ-q4-2018",
+      "title": "Bokslutskommuniké Nepa AB (publ), Q4 2018",
+      "date": "2019-03-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/bokslutskommunike-nepa-ab-publ-q4-2018/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/full-year-report-nepa-ab-publ-q4-2018/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-has-carried-out-a-directed-share-issue-of-714835-shares-raising-proceeds-of-sek-39-3-million",
       "title": "Nepa has carried out a directed share issue of 714,835 shares, raising proceeds of SEK 39.3 million",
       "date": "2018-12-12",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-has-carried-out-a-directed-share-issue-of-714835-shares-raising-proceeds-of-sek-39-3-million/"
+      "url": "https://nepa.com/mfn_news/nepa-has-carried-out-a-directed-share-issue-of-714835-shares-raising-proceeds-of-sek-39-3-million/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-har-genomfort-en-riktad-nyemission-om-714-835-aktier-och-tillfors-harigenom-cirka-393-msek/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-har-genomfort-en-riktad-nyemission-om-714-835-aktier-och-tillfors-harigenom-cirka-393-msek",
+      "title": "Nepa har genomfört en riktad nyemission om 714 835 aktier och tillförs härigenom cirka 39,3 MSEK",
+      "date": "2018-12-12",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-har-genomfort-en-riktad-nyemission-om-714-835-aktier-och-tillfors-harigenom-cirka-393-msek/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-has-carried-out-a-directed-share-issue-of-714835-shares-raising-proceeds-of-sek-39-3-million/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-sats-selects-nepa-for-brand-health-measurement",
       "title": "SATS selects Nepa for brand health measurement",
       "date": "2018-12-03",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/sats-selects-nepa-for-brand-health-measurement/"
+      "url": "https://nepa.com/mfn_news/sats-selects-nepa-for-brand-health-measurement/",
+      "language": "en"
     },
     {
       "id": "mfn-gross-profit-growth-of-24-5-percent-and-substantially-improved-ebit",
       "title": "GROSS PROFIT GROWTH OF 24.5 PERCENT AND SUBSTANTIALLY IMPROVED EBIT",
       "date": "2018-11-23",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/gross-profit-growth-of-24-5-percent-and-substantially-improved-ebit/"
+      "url": "https://nepa.com/mfn_news/gross-profit-growth-of-24-5-percent-and-substantially-improved-ebit/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/tillvaxt-i-bruttoresultat-om-245-procent-och-kraftigt-forbattrat-rorelseresultat/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-tillvaxt-i-bruttoresultat-om-245-procent-och-kraftigt-forbattrat-rorelseresultat",
+      "title": "TILLVÄXT i BRUTTORESULTAT OM 24,5 PROCENT OCH KRAFTIGT FÖRBÄTTRAT RÖRELSERESULTAT",
+      "date": "2018-11-23",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/tillvaxt-i-bruttoresultat-om-245-procent-och-kraftigt-forbattrat-rorelseresultat/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/gross-profit-growth-of-24-5-percent-and-substantially-improved-ebit/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-natural-skincare-manufacturer-liz-earle-maximizes-profit-with-nepas-pricing-optimization-tools",
       "title": "Natural skincare manufacturer Liz Earle maximizes profit with Nepa’s pricing optimization tools",
       "date": "2018-11-02",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/natural-skincare-manufacturer-liz-earle-maximizes-profit-with-nepas-pricing-optimization-tools/"
+      "url": "https://nepa.com/mfn_news/natural-skincare-manufacturer-liz-earle-maximizes-profit-with-nepas-pricing-optimization-tools/",
+      "language": "en"
     },
     {
       "id": "mfn-dressmann-nordic-menswear-fashion-chain-chooses-nepa-for-customer-experience-measurement",
       "title": "Dressmann, Nordic menswear fashion chain, chooses Nepa for Customer Experience measurement",
       "date": "2018-10-09",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/dressmann-nordic-menswear-fashion-chain-chooses-nepa-for-customer-experience-measurement/"
+      "url": "https://nepa.com/mfn_news/dressmann-nordic-menswear-fashion-chain-chooses-nepa-for-customer-experience-measurement/",
+      "language": "en"
     },
     {
       "id": "mfn-nepa-marketing-mix-modelling-research-leverages-facebook-data-to-optimize-media-spending",
       "title": "Nepa Marketing Mix Modelling Research Leverages Facebook Data to Optimize Media Spending",
       "date": "2018-09-13",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-marketing-mix-modelling-research-leverages-facebook-data-to-optimize-media-spending/"
+      "url": "https://nepa.com/mfn_news/nepa-marketing-mix-modelling-research-leverages-facebook-data-to-optimize-media-spending/",
+      "language": "en"
     },
     {
       "id": "mfn-plantagen-european-specialty-retailer-announces-customer-experience-partnership-with-nepa",
       "title": "Plantagen, European specialty retailer, announces customer experience partnership with Nepa.",
       "date": "2018-09-04",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/plantagen-european-specialty-retailer-announces-customer-experience-partnership-with-nepa/"
+      "url": "https://nepa.com/mfn_news/plantagen-european-specialty-retailer-announces-customer-experience-partnership-with-nepa/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/plantagen-europeisk-detaljist-ingar-partnerskap-med-nepa-kring-kundupplevelse/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-plantagen-europeisk-detaljist-ingar-partnerskap-med-nepa-kring-kundupplevelse",
+      "title": "Plantagen, europeisk detaljist, ingår partnerskap med Nepa kring kundupplevelse.",
+      "date": "2018-09-04",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/plantagen-europeisk-detaljist-ingar-partnerskap-med-nepa-kring-kundupplevelse/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/plantagen-european-specialty-retailer-announces-customer-experience-partnership-with-nepa/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-interim-report-nepa-ab-publ-q2-2018",
       "title": "Interim Report Nepa AB (publ), Q2 2018",
       "date": "2018-08-24",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/interim-report-nepa-ab-publ-q2-2018/"
+      "url": "https://nepa.com/mfn_news/interim-report-nepa-ab-publ-q2-2018/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/delarsrapport-nepa-ab-publ-q2-2018/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-delarsrapport-nepa-ab-publ-q2-2018",
+      "title": "Delårsrapport Nepa AB (publ), Q2 2018",
+      "date": "2018-08-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/delarsrapport-nepa-ab-publ-q2-2018/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/interim-report-nepa-ab-publ-q2-2018/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-nepa-expands-into-global-sports-signs-u-s-based-industry-veteran-to-lead-charge",
       "title": "Nepa expands into global sports; signs U.S. based industry veteran to lead charge",
       "date": "2018-08-22",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/nepa-expands-into-global-sports-signs-u-s-based-industry-veteran-to-lead-charge/"
+      "url": "https://nepa.com/mfn_news/nepa-expands-into-global-sports-signs-u-s-based-industry-veteran-to-lead-charge/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-expanderar-i-den-globala-sportbranschen-under-ledning-av-marknadsveteran-fran-usa/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-expanderar-i-den-globala-sportbranschen-under-ledning-av-marknadsveteran-fran-usa",
+      "title": "Nepa expanderar i den globala sportbranschen under ledning av marknadsveteran från USA",
+      "date": "2018-08-22",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-expanderar-i-den-globala-sportbranschen-under-ledning-av-marknadsveteran-fran-usa/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-expands-into-global-sports-signs-u-s-based-industry-veteran-to-lead-charge/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-psyonix-acclaimed-video-game-developer-selects-nepa-for-global-brand-measurement-insights",
       "title": "Psyonix, acclaimed video-game developer, selects Nepa for Global Brand Measurement Insights",
       "date": "2018-07-31",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/psyonix-acclaimed-video-game-developer-selects-nepa-for-global-brand-measurement-insights/"
+      "url": "https://nepa.com/mfn_news/psyonix-acclaimed-video-game-developer-selects-nepa-for-global-brand-measurement-insights/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/psyonix-den-amerikanska-videospelsjatten-valjer-nepa-for-att-globalt-optimera-sina-varumarkesinsikter/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-psyonix-den-amerikanska-videospelsjatten-valjer-nepa-for-att-globalt-optimera-sina-varumarkesinsikter",
+      "title": "Psyonix, den amerikanska videospelsjätten, väljer Nepa för att globalt optimera sina varumärkesinsikter",
+      "date": "2018-07-31",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/psyonix-den-amerikanska-videospelsjatten-valjer-nepa-for-att-globalt-optimera-sina-varumarkesinsikter/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/psyonix-acclaimed-video-game-developer-selects-nepa-for-global-brand-measurement-insights/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-snap-inc-adds-nepa-to-mmm-partner-program",
       "title": "Snap Inc adds Nepa to MMM Partner Program",
       "date": "2018-06-28",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/snap-inc-adds-nepa-to-mmm-partner-program/"
+      "url": "https://nepa.com/mfn_news/snap-inc-adds-nepa-to-mmm-partner-program/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/snap-inc-lagger-till-nepa-i-sitt-mmm-partnerprogram/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-snap-inc-lagger-till-nepa-i-sitt-mmm-partnerprogram",
+      "title": "Snap Inc lägger till Nepa i sitt MMM-partnerprogram",
+      "date": "2018-06-28",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/snap-inc-lagger-till-nepa-i-sitt-mmm-partnerprogram/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/snap-inc-adds-nepa-to-mmm-partner-program/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-jan-carlzon-former-ceo-of-sas-and-annika-steiber-management-innovation-expert-appointed-to-the-board-of-nepa-ab",
       "title": "Jan Carlzon, former CEO of SAS, and Annika Steiber, Management Innovation expert, Appointed to The Board of Nepa AB",
       "date": "2018-05-31",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/jan-carlzon-former-ceo-of-sas-and-annika-steiber-management-innovation-expert-appointed-to-the-board-of-nepa-ab/"
+      "url": "https://nepa.com/mfn_news/jan-carlzon-former-ceo-of-sas-and-annika-steiber-management-innovation-expert-appointed-to-the-board-of-nepa-ab/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-kommunike-fran-nepa-abs-arsstamma-2018",
+      "title": "Kommuniké från Nepa AB:s årsstämma 2018",
+      "date": "2018-05-31",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kommunike-fran-nepa-abs-arsstamma-2018/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-new-product-launch-and-continued-growth-in-q1",
       "title": "NEW PRODUCT LAUNCH AND CONTINUED GROWTH IN Q1",
       "date": "2018-05-24",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/new-product-launch-and-continued-growth-in-q1/"
+      "url": "https://nepa.com/mfn_news/new-product-launch-and-continued-growth-in-q1/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/produktlansering-och-fortsatt-tillvaxt-i-forsta-kvartalet/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-produktlansering-och-fortsatt-tillvaxt-i-forsta-kvartalet",
+      "title": "PRODUKTLANSERING OCH FORTSATT TILLVÄXT I FÖRSTA KVARTALET",
+      "date": "2018-05-24",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/produktlansering-och-fortsatt-tillvaxt-i-forsta-kvartalet/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/new-product-launch-and-continued-growth-in-q1/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kallelse-till-arsstamma-i-nepa-ab-publ-3",
+      "title": "KALLELSE TILL ÅRSSTÄMMA I NEPA AB (PUBL)",
+      "date": "2018-04-27",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kallelse-till-arsstamma-i-nepa-ab-publ-3/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-full-year-report-nepa-ab-publ-q4-2017",
       "title": "Full Year Report Nepa AB (publ), Q4 2017",
       "date": "2018-03-28",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/full-year-report-nepa-ab-publ-q4-2017/"
+      "url": "https://nepa.com/mfn_news/full-year-report-nepa-ab-publ-q4-2017/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/bokslutskommunike-nepa-ab-publ-q4-2017/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-bokslutskommunike-nepa-ab-publ-q4-2017",
+      "title": "Bokslutskommuniké Nepa AB (publ), Q4 2017",
+      "date": "2018-03-28",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/bokslutskommunike-nepa-ab-publ-q4-2017/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/full-year-report-nepa-ab-publ-q4-2017/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-matt-nitzberg-named-chief-client-officer-at-nepa-us",
       "title": "Matt Nitzberg named Chief Client Officer at Nepa US",
       "date": "2018-03-21",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/matt-nitzberg-named-chief-client-officer-at-nepa-us/"
+      "url": "https://nepa.com/mfn_news/matt-nitzberg-named-chief-client-officer-at-nepa-us/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/matt-nitzberg-rekryterad-som-chief-client-officer-till-nepa-i-usa/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-matt-nitzberg-rekryterad-som-chief-client-officer-till-nepa-i-usa",
+      "title": "Matt Nitzberg rekryterad som Chief Client Officer till Nepa i USA",
+      "date": "2018-03-21",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/matt-nitzberg-rekryterad-som-chief-client-officer-till-nepa-i-usa/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/matt-nitzberg-named-chief-client-officer-at-nepa-us/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-ikea-sweden-and-nepa-in-new-partnership",
       "title": "IKEA Sweden and Nepa in new partnership",
       "date": "2017-12-06",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/ikea-sweden-and-nepa-in-new-partnership/"
+      "url": "https://nepa.com/mfn_news/ikea-sweden-and-nepa-in-new-partnership/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/ikea-sverige-och-nepa-i-nytt-partnerskap/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-ikea-sverige-och-nepa-i-nytt-partnerskap",
+      "title": "IKEA Sverige och Nepa i nytt partnerskap",
+      "date": "2017-12-06",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/ikea-sverige-och-nepa-i-nytt-partnerskap/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/ikea-sweden-and-nepa-in-new-partnership/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-interim-report-nepa-ab-publ-q3-2017",
       "title": "Interim report Nepa AB (publ) Q3 2017",
       "date": "2017-11-30",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/interim-report-nepa-ab-publ-q3-2017/"
+      "url": "https://nepa.com/mfn_news/interim-report-nepa-ab-publ-q3-2017/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/delarsrapport-nepa-ab-publ-q3-2017/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-delarsrapport-nepa-ab-publ-q3-2017",
+      "title": "Delårsrapport Nepa AB (publ) Q3 2017",
+      "date": "2017-11-30",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/delarsrapport-nepa-ab-publ-q3-2017/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/interim-report-nepa-ab-publ-q3-2017/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-lonsam-tillvaxt-och-uppstart-i-usa",
+      "title": "LÖNSAM TILLVÄXT OCH UPPSTART I USA",
+      "date": "2016-08-30",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/lonsam-tillvaxt-och-uppstart-i-usa/",
+      "language": "sv",
+      "regulatory": true
     },
     {
       "id": "mfn-jan-scherman-becomes-senior-advisor-at-nepa",
       "title": "Jan Scherman becomes senior advisor at Nepa",
       "date": "2016-06-30",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/jan-scherman-becomes-senior-advisor-at-nepa/"
+      "url": "https://nepa.com/mfn_news/jan-scherman-becomes-senior-advisor-at-nepa/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/jan-scherman-blir-strategisk-radgivare-hos-nepa/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-jan-scherman-blir-strategisk-radgivare-hos-nepa",
+      "title": "Jan Scherman blir strategisk rådgivare hos Nepa",
+      "date": "2016-06-30",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/jan-scherman-blir-strategisk-radgivare-hos-nepa/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/jan-scherman-becomes-senior-advisor-at-nepa/",
+      "alternate_language_verified": true
     },
     {
       "id": "mfn-with-a-z-varner-ibrahimovic-is-creating-a-true-customer-centric-brand",
       "title": "With A-Z, Varner Ibrahimovic is creating a true customer centric brand",
       "date": "2016-06-16",
       "category": "Investor Relations",
-      "url": "https://nepa.com/mfn_news/with-a-z-varner-ibrahimovic-is-creating-a-true-customer-centric-brand/"
+      "url": "https://nepa.com/mfn_news/with-a-z-varner-ibrahimovic-is-creating-a-true-customer-centric-brand/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/kundinsikter-ar-nyckeln-nar-varner-ibrahimovic-bygger-varumarket-a-z/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-kundinsikter-ar-nyckeln-nar-varner-ibrahimovic-bygger-varumarket-a-z",
+      "title": "Kundinsikter är nyckeln när Varner Ibrahimovic bygger varumärket A-Z",
+      "date": "2016-06-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/kundinsikter-ar-nyckeln-nar-varner-ibrahimovic-bygger-varumarket-a-z/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/with-a-z-varner-ibrahimovic-is-creating-a-true-customer-centric-brand/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-fortsatt-tillvaxt-under-kvartal-med-fokus-pa-kapitalanskaffning-for-framtida-tillvaxt",
+      "title": "Fortsatt tillväxt under kvartal med fokus på kapitalanskaffning för framtida tillväxt",
+      "date": "2016-05-31",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/fortsatt-tillvaxt-under-kvartal-med-fokus-pa-kapitalanskaffning-for-framtida-tillvaxt/",
+      "language": "sv",
+      "regulatory": true
+    },
+    {
+      "id": "mfn-erbjudandet-i-nepa-ab-tecknat-till-mer-an-400-procent-handel-pa-nasdaq-first-north-inleds-den-26-april-2016",
+      "title": "Erbjudandet i Nepa AB tecknat till mer än 400 procent - handel på Nasdaq First North inleds den 26 april 2016",
+      "date": "2016-04-26",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/erbjudandet-i-nepa-ab-tecknat-till-mer-an-400-procent-handel-pa-nasdaq-first-north-inleds-den-26-april-2016/",
+      "language": "sv",
+      "regulatory": true
     }
   ],
-  "total": 135
+  "total": 287
 }

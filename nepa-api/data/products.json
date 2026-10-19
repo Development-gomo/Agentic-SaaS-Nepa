@@ -1,15 +1,16 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/products.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08"
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16"
   },
   "products": [
     {
       "id": "product-brand-tracking",
       "name": "Brand Tracking",
       "category": null,
-      "description": "A continuously updated brand health dashboard that measures brand awareness, perception, and purchase intent, and benchmarks the brand against competitors in real time. It uses AI-powered trend detection to flag risks and links campaign activity to shifts in brand KPIs, with plans starting from 15,000 SEK/month covering brand funnel tracking, 8 brands, and 8 target groups.",
+      "description": "A continuously updated brand health dashboard that measures brand awareness, perception, and purchase intent, and benchmarks the brand against competitors in real time. It uses AI-powered trend detection to flag risks and links campaign activity to shifts in brand KPIs, covering brand funnel tracking, 8 brands and 8 target groups. Plans start from 1,500 EUR (16,300 SEK) per month on the pricing page; the product page itself says from 15,000 SEK per month.",
       "url": "https://nepa.com/products/brand-tracking/"
     },
     {
@@ -87,7 +88,8 @@
       "name": "Nepa Trinity",
       "category": "bundle",
       "description": "A unified decision framework combining Marketing Mix Modelling, Brand Tracking, and Campaign Pulse into one AI-supported planning tool, aimed at brands investing 20M+ per year in media. Nepa states Trinity engagements typically deliver 10-20% higher marketing ROI within 12-24 months, double-digit improvements in consideration/preference, and reduced promotion dependency.",
-      "url": "https://nepa.com/make-every-marketing-euro-work-10-20-harder/"
+      "url": "https://nepa.com/make-every-marketing-euro-work-10-20-harder/",
+      "source": "curated"
     }
   ],
   "count": 12

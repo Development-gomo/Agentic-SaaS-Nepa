@@ -1,8 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/resources.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08",
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16",
     "note": "Gated thought-leadership reports and positioning/campaign landing pages found during the crawl that don't fit the products/solutions/case-studies/blog taxonomy. 'type' is 'report' (downloadable trend report, usually gated behind a form) or 'campaign-landing' (a persuasion/positioning page, e.g. 'Rethink SaaS-only MMM'). Summaries are extracted verbatim from real page text, not written from scratch. Six more items (3 'report' CPT + 3 'download' CPT entries) were recovered by querying /wp-json/wp/v2/report and /wp-json/wp/v2/download directly — these pages had no internal links from anywhere else on the crawled site, so the original link-based crawl never discovered them. Their live-rendered content is thin (title + publish date only, no body text), consistent with being HubSpot form-gated downloads whose real content is a PDF delivered after submission."
   },
   "resources": [
@@ -24,28 +25,28 @@
       "id": "resource-christmas-pre-testing",
       "title": "Christmas Pre-testing",
       "type": "campaign-landing",
-      "summary": "The holiday season is the most competitive time of year. Enormous sums are spent on campaigns that risk disappearing into the chaos. Pressure is high – and standing out isn’t easy. ![](https://vimeo.com/1018698332?share=copy&iframe=true%22%20rel=%22nofollow) Massive investments are made during the holidays – and the stakes are higher than ever. Pre",
+      "summary": "The holiday season is the most competitive time of year. Enormous sums are spent on campaigns that risk disappearing into the chaos. Pressure is high – and standing out isn’t easy. Massive investments are made during the holidays – and the stakes are higher than ever. Pre",
       "url": "https://nepa.com/christmas-pre-testing/"
     },
     {
       "id": "resource-fashion-retail-marketing-2026",
       "title": "Fashion & Retail Marketing 2026",
       "type": "report",
-      "summary": "Download the full  Fashion & Retail Marketing 2026 report Or get in touch with one of our insight experts! LOOKING AHEAD Nordic fashion and retail head into 2026 with consumer demand under pressure, rapid AI adoption, rising expectations for seamless omnichannel experiences and a tougher insistence on proof of ROI. Inflation and cautious spending d",
+      "summary": "Download the full Fashion & Retail Marketing 2026 report Or get in touch with one of our insight experts! LOOKING AHEAD Nordic fashion and retail head into 2026 with consumer demand under pressure, rapid AI adoption, rising expectations for seamless omnichannel experiences and a tougher insistence on proof of ROI. Inflation and cautious spending d",
       "url": "https://nepa.com/fashion-retail-marketing-2026/"
     },
     {
       "id": "resource-fashion-retail-marketing-in-the-nordics",
       "title": "Fashion retail marketing in the Nordics: What drove growth in 2025 – and the playbook for winning in 2026",
       "type": "report",
-      "summary": "Download the full 2025–2026 Fashion retail marketing Report Or get in touch with one of our insight experts! LOOKING BACK What really shaped performance in 2025? This executive summary distils the key marketing trends, lessons and success factors from Nepa’s work with leading fashion and lifestyle brands across Sweden, Finland, Denmark and Norway. ",
+      "summary": "Download the full 2025–2026 Fashion retail marketing Report Or get in touch with one of our insight experts! LOOKING BACK What really shaped performance in 2025? This executive summary distils the key marketing trends, lessons and success factors from Nepa’s work with leading fashion and lifestyle brands across Sweden, Finland, Denmark and Norway.",
       "url": "https://nepa.com/fashion-retail-marketing-in-the-nordics/"
     },
     {
       "id": "resource-finance-insurance-marketing-2026-how-nordic-cmos-will-turn-ai-trust-and-journeys-into-growth",
       "title": "Finance and insurance marketing 2026",
       "type": "report",
-      "summary": "Download the full  Finance & Insurance Marketing 2026 report Or get in touch with one of our insight experts! LOOKING AHEAD Nordic finance and insurance enter 2026 in the middle of a major behavioural and technological reset. Customers expect seamless digital journeys, contextual offers and full transparency, while boards demand provable ROI and re",
+      "summary": "Download the full Finance & Insurance Marketing 2026 report Or get in touch with one of our insight experts! LOOKING AHEAD Nordic finance and insurance enter 2026 in the middle of a major behavioural and technological reset. Customers expect seamless digital journeys, contextual offers and full transparency, while boards demand provable ROI and re",
       "url": "https://nepa.com/finance-insurance-marketing-2026-how-nordic-cmos-will-turn-ai-trust-and-journeys-into-growth/"
     },
     {
@@ -73,7 +74,7 @@
       "id": "resource-maximise-your-marketing-investments-with-cmmm",
       "title": "Maximise Your Marketing Investments with cMMM",
       "type": "campaign-landing",
-      "summary": "Empower your brand with data-driven tools that optimize campaigns, refine media strategies, and enhance customer connections for your business. GET IN TOUCH Trusted by Leading Brands PRODUCT OVERVIEW In today’s complex marketing landscape, understanding the true impact of your media investments is crucial. Traditional Marketing Mix Modelling (MMM) ",
+      "summary": "Empower your brand with data-driven tools that optimize campaigns, refine media strategies, and enhance customer connections for your business. GET IN TOUCH Trusted by Leading Brands PRODUCT OVERVIEW In today’s complex marketing landscape, understanding the true impact of your media investments is crucial. Traditional Marketing Mix Modelling (MMM)",
       "url": "https://nepa.com/maximise-your-marketing-investments-with-cmmm/"
     },
     {
@@ -136,7 +137,7 @@
       "id": "resource-the-age-of-influence",
       "title": "The Age of Influence: AI, Algorithms and the New Purchase Journey",
       "type": "report",
-      "summary": "Earlier this year, Nepa hosted a webinar based on our latest study, The Age of Influence – Understanding what drives purchase decisions today and tomorrow. Drawing on fresh data from more than 1,300 Swedish consumers across categories such as personal care and cosmetics, shoes and clothing, home appliances and personal electronics, we explored how ",
+      "summary": "Earlier this year, Nepa hosted a webinar based on our latest study, The Age of Influence – Understanding what drives purchase decisions today and tomorrow. Drawing on fresh data from more than 1,300 Swedish consumers across categories such as personal care and cosmetics, shoes and clothing, home appliances and personal electronics, we explored how",
       "url": "https://nepa.com/the-age-of-influence/"
     },
     {
@@ -186,9 +187,9 @@
     },
     {
       "id": "resource-download-advertising-equity",
-      "title": "Advertising Equity",
+      "title": "Advertising Equity 2026",
       "type": "download",
-      "summary": "Gated download page (published 2026-08-28), form-gated via HubSpot. Related to a Swedish press release ('Ny matning: Varumarkena som byggt starkast reklamkapital') about Nepa's Advertising Equity study of 95 major Swedish brands. No body content beyond the title and form was rendered on the live page at time of crawl.",
+      "summary": "Gated download of Nepa's Advertising Equity 2026 report (published 2026-08-28): a study of 2,226 people in Sweden aged 16–64 covering 95 major brands, measuring the cumulative value of a brand's advertising from the consumer's perspective. Related: the 'Advertising Equity 2026 study' blog post, the Lantmännen case study and an on-demand webinar.",
       "url": "https://nepa.com/downloads/advertising-equity/",
       "date": "2026-08-28"
     },
@@ -235,7 +236,23 @@
       "type": "trust-page",
       "summary": "Nepa's whistleblower policy enables employees, customers, and suppliers to anonymously report serious or sensitive concerns. Reports are submitted via a third-party platform: https://lantero.report/nepaswedenab.",
       "url": "https://nepa.com/whistleblower-policy/"
+    },
+    {
+      "id": "resource-brand-tracking-ska-inte-stanna-vid-kannedom-och-kampanjutfall",
+      "title": "Brand tracking ska inte stanna vid kännedom och kampanjutfall",
+      "type": "campaign-landing",
+      "language": "sv",
+      "summary": "Få ut mer av din brand tracking. Koppla varumärkesresa och kampanjer till faktisk försäljning, marginal och ROI.",
+      "url": "https://nepa.com/brand-tracking-ska-inte-stanna-vid-kannedom-och-kampanjutfall/"
+    },
+    {
+      "id": "resource-nepa-breakfast-session-did-your-marketing-budget-for-2026-get-cut-too",
+      "title": "Nepa Breakfast Session Helsinki – Did your marketing budget for 2026 get cut too?",
+      "type": "campaign-landing",
+      "language": "en",
+      "summary": "Sign-up page for a Helsinki breakfast session (Nordic Marketing 2026) on proving more with a reduced marketing budget.",
+      "url": "https://nepa.com/nepa-breakfast-session-did-your-marketing-budget-for-2026-get-cut-too/"
     }
   ],
-  "count": 32
+  "count": 34
 }

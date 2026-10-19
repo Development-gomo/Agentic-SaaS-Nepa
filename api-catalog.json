@@ -3,9 +3,15 @@
   "description": "Machine-readable catalog of Nepa AB's AI-agent-facing resources: the semantic agent page, llms.txt/ai.txt discovery files, REST API, OpenAPI spec, MCP server, and sitemap.",
   "url": "https://nepa.com/api-catalog.json",
   "created": "2026-09-08",
-  "modified": "2026-09-08",
+  "modified": "2026-10-16",
   "specificationVersion": "0.16",
-  "tags": ["marketing-research", "brand-tracking", "market-research", "ai-agent-ready", "mcp"],
+  "tags": [
+    "marketing-research",
+    "brand-tracking",
+    "market-research",
+    "ai-agent-ready",
+    "mcp"
+  ],
   "apis": [
     {
       "name": "Nepa Agent Page",
@@ -16,7 +22,10 @@
       "X-contentType": "semantic-html",
       "X-purpose": "primary-llm-endpoint",
       "properties": [],
-      "tags": ["agent-page", "semantic-html"]
+      "tags": [
+        "agent-page",
+        "semantic-html"
+      ]
     },
     {
       "name": "Nepa llms.txt",
@@ -27,7 +36,9 @@
       "X-contentType": "llms-txt",
       "X-purpose": "llm-discovery",
       "properties": [],
-      "tags": ["llms-txt"]
+      "tags": [
+        "llms-txt"
+      ]
     },
     {
       "name": "Nepa ai.txt",
@@ -38,7 +49,10 @@
       "X-contentType": "ai-txt",
       "X-purpose": "ai-permissions",
       "properties": [],
-      "tags": ["ai-txt", "permissions"]
+      "tags": [
+        "ai-txt",
+        "permissions"
+      ]
     },
     {
       "name": "Nepa Agent REST API",
@@ -50,67 +64,245 @@
       "X-openapi": "https://nepa.com/openapi.json",
       "X-purpose": "agent-tool-calling",
       "properties": [
-        { "type": "X-endpoint", "route": "/agent/v1/index.json", "method": "GET", "description": "API discovery document." },
-        { "type": "X-endpoint", "route": "/agent/v1/schema.json", "method": "GET", "description": "Field-level schema reference for all entities." },
-        { "type": "X-endpoint", "route": "/agent/v1/company.json", "method": "GET", "description": "Company profile and leadership summary." },
-        { "type": "X-endpoint", "route": "/agent/v1/products.json", "method": "GET", "description": "12 products (including the Nepa Trinity bundle), filterable by ?category=." },
-        { "type": "X-endpoint", "route": "/agent/v1/solutions.json", "method": "GET", "description": "6 solutions by business need (including the BrandGrow Program)." },
-        { "type": "X-endpoint", "route": "/agent/v1/industries.json", "method": "GET", "description": "8 industries served." },
-        { "type": "X-endpoint", "route": "/agent/v1/case-studies.json", "method": "GET", "description": "19 client case studies, filterable by ?industry=&segment=&service=." },
-        { "type": "X-endpoint", "route": "/agent/v1/team.json", "method": "GET", "description": "9 leadership/board members." },
-        { "type": "X-endpoint", "route": "/agent/v1/offices.json", "method": "GET", "description": "Office locations (Stockholm HQ, Finland)." },
-        { "type": "X-endpoint", "route": "/agent/v1/jobs.json", "method": "GET", "description": "Open roles (links to external hiring portal; none listed on-site at time of writing)." },
-        { "type": "X-endpoint", "route": "/agent/v1/events.json", "method": "GET", "description": "27 events/webinars with status (upcoming/past/on-demand)." },
-        { "type": "X-endpoint", "route": "/agent/v1/blog-posts.json", "method": "GET", "description": "247 blog/insight posts, paginated via ?limit=&offset=." },
-        { "type": "X-endpoint", "route": "/agent/v1/press-releases.json", "method": "GET", "description": "135 English-language investor press releases, paginated." },
-        { "type": "X-endpoint", "route": "/agent/v1/company-news.json", "method": "GET", "description": "12 client-win/partnership announcements." },
-        { "type": "X-endpoint", "route": "/agent/v1/resources.json", "method": "GET", "description": "32 gated thought-leadership reports, downloads, positioning/campaign landing pages, and trust pages (security disclosure, DEI, whistleblower), including items only discoverable via the WordPress REST API's report/download post types and a full sitemap cross-check." },
-        { "type": "X-endpoint", "route": "/agent/v1/pricing.json", "method": "GET", "description": "Published pricing tiers (Marketing Mix Modelling; other products link to contact-us for a quote)." },
-        { "type": "X-endpoint", "route": "/agent/v1/investor-relations.json", "method": "GET", "description": "Financial reports, calendar, governance links. Not investment advice." },
-        { "type": "X-endpoint", "route": "/agent/v1/contact.json", "method": "POST", "description": "Submit a qualified B2B inquiry — requires agent_context.user_authorized_submission: true." }
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/index.json",
+          "method": "GET",
+          "description": "API discovery document."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/schema.json",
+          "method": "GET",
+          "description": "Field-level schema reference for all entities."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/company.json",
+          "method": "GET",
+          "description": "Company profile and leadership summary."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/products.json",
+          "method": "GET",
+          "description": "12 products (including the Nepa Trinity bundle), filterable by ?category=."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/solutions.json",
+          "method": "GET",
+          "description": "6 solutions by business need (including the BrandGrow Program)."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/industries.json",
+          "method": "GET",
+          "description": "8 industries served."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/case-studies.json",
+          "method": "GET",
+          "description": "20 client case studies, filterable by ?industry=&segment=&service=."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/team.json",
+          "method": "GET",
+          "description": "9 leadership/board members."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/offices.json",
+          "method": "GET",
+          "description": "Office locations (Stockholm HQ, Finland)."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/jobs.json",
+          "method": "GET",
+          "description": "Open roles (links to external hiring portal; none listed on-site at time of writing)."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/events.json",
+          "method": "GET",
+          "description": "30 events/webinars with status (upcoming/past/on-demand)."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/blog-posts.json",
+          "method": "GET",
+          "description": "261 blog/insight posts (246 English, 15 Swedish), paginated via ?limit=&offset=. Filter with ?language=en|sv."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/press-releases.json",
+          "method": "GET",
+          "description": "287 investor/press releases (136 English, 151 Swedish), paginated via ?limit=&offset=. Filter with ?language=en|sv and ?category=."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/company-news.json",
+          "method": "GET",
+          "description": "12 client-win/partnership announcements."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/resources.json",
+          "method": "GET",
+          "description": "34 gated thought-leadership reports, downloads, positioning/campaign landing pages, and trust pages (security disclosure, DEI, whistleblower)."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/pricing.json",
+          "method": "GET",
+          "description": "Published \"from\" prices for all three priced products: Brand Tracking (from 1,500 EUR / 16,300 SEK per month), Marketing Mix Modelling (from 33,000 EUR one-time) and Campaign Pulse (from 5,700 EUR), 11 tiers, with notes on the product-page price discrepancy."
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/investor-relations.json",
+          "method": "GET",
+          "description": "Financial reports, calendar, governance links. Not investment advice."
+        },
+        {
+          "type": "X-endpoint",
+          "method": "GET",
+          "route": "/agent/v1/localized-pages.json",
+          "description": "94 Swedish, Finnish and Danish pages with their English equivalents; filter with ?language=sv|fi|da and ?section="
+        },
+        {
+          "type": "X-endpoint",
+          "route": "/agent/v1/contact.json",
+          "method": "POST",
+          "description": "Submit a qualified B2B inquiry — requires agent_context.user_authorized_submission: true."
+        }
       ],
-      "tags": ["rest-api", "agent-actionable"]
+      "tags": [
+        "rest-api",
+        "agent-actionable"
+      ]
     },
     {
       "name": "Nepa OpenAPI Specification",
-      "description": "OpenAPI 3.0.3 spec for the Nepa Agent REST API — 18 paths, 39 schemas.",
+      "description": "OpenAPI 3.0.3 spec for the Nepa Agent REST API — 19 paths, 42 schemas.",
       "baseURL": "https://nepa.com/openapi.json",
       "humanURL": "https://nepa.com/openapi.json",
       "X-format": "json",
       "X-contentType": "rest-api",
       "X-purpose": "api-specification",
       "properties": [],
-      "tags": ["openapi", "specification"]
+      "tags": [
+        "openapi",
+        "specification"
+      ]
     },
     {
       "name": "Nepa MCP Server",
       "description": "Model Context Protocol server exposing Nepa's agent API as callable tools for MCP-compatible LLM clients.",
-      "baseURL": "https://nepa.com/mcp",
-      "humanURL": "https://nepa.com/mcp/health",
+      "baseURL": "https://agentic-mcp-saas-nepa.onrender.com/mcp",
+      "humanURL": "https://agentic-mcp-saas-nepa.onrender.com/health",
       "X-format": "json",
       "X-contentType": "mcp-server",
       "X-transport": "Streamable HTTP (MCP spec)",
       "X-purpose": "agent-tool-calling",
       "properties": [
-        { "type": "X-mcp-tool", "name": "get_company", "description": "Get Nepa's company profile." },
-        { "type": "X-mcp-tool", "name": "list_products", "description": "List products, optional ?category filter." },
-        { "type": "X-mcp-tool", "name": "list_solutions", "description": "List solutions." },
-        { "type": "X-mcp-tool", "name": "list_industries", "description": "List industries served." },
-        { "type": "X-mcp-tool", "name": "list_case_studies", "description": "List case studies, optional industry/segment/service filters." },
-        { "type": "X-mcp-tool", "name": "get_case_study", "description": "Get one case study by id." },
-        { "type": "X-mcp-tool", "name": "list_team", "description": "List leadership team." },
-        { "type": "X-mcp-tool", "name": "list_offices", "description": "List office locations." },
-        { "type": "X-mcp-tool", "name": "list_jobs", "description": "List open roles." },
-        { "type": "X-mcp-tool", "name": "list_events", "description": "List events/webinars." },
-        { "type": "X-mcp-tool", "name": "list_company_news", "description": "List client-win/partnership announcements." },
-        { "type": "X-mcp-tool", "name": "list_resources", "description": "List gated thought-leadership reports, downloads, and campaign landing pages." },
-        { "type": "X-mcp-tool", "name": "list_pricing", "description": "List published pricing plans." },
-        { "type": "X-mcp-tool", "name": "list_blog_posts", "description": "List blog posts, paginated." },
-        { "type": "X-mcp-tool", "name": "list_press_releases", "description": "List press releases, paginated." },
-        { "type": "X-mcp-tool", "name": "get_investor_relations", "description": "Get investor relations summary. Not investment advice." },
-        { "type": "X-mcp-tool", "name": "submit_contact_inquiry", "description": "Submit a qualified B2B inquiry — requires explicit human authorization." }
+        {
+          "type": "X-mcp-tool",
+          "name": "get_company",
+          "description": "Get Nepa's company profile."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_products",
+          "description": "List products, optional ?category filter."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_solutions",
+          "description": "List solutions."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_industries",
+          "description": "List industries served."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_case_studies",
+          "description": "List case studies, optional industry/segment/service filters."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "get_case_study",
+          "description": "Get one case study by id."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_team",
+          "description": "List leadership team."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_offices",
+          "description": "List office locations."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_jobs",
+          "description": "List open roles."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_events",
+          "description": "List events/webinars."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_company_news",
+          "description": "List client-win/partnership announcements."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_resources",
+          "description": "List gated thought-leadership reports, downloads, and campaign landing pages."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_pricing",
+          "description": "List published pricing tiers for Brand Tracking, Marketing Mix Modelling and Campaign Pulse."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_blog_posts",
+          "description": "List Nepa's blog/insight posts (English and Swedish), paginated, optionally filtered by language."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_press_releases",
+          "description": "List Nepa's investor/press releases (English and Swedish), paginated, optionally filtered by language or category."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "list_localized_pages",
+          "description": "List Nepa's Swedish, Finnish and Danish pages with their English equivalents, optionally filtered by language or section."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "get_investor_relations",
+          "description": "Get investor relations summary. Not investment advice."
+        },
+        {
+          "type": "X-mcp-tool",
+          "name": "submit_contact_inquiry",
+          "description": "Submit a qualified B2B inquiry — requires explicit human authorization."
+        }
       ],
-      "tags": ["mcp-server", "agent-actionable"]
+      "tags": [
+        "mcp-server",
+        "agent-actionable"
+      ]
     },
     {
       "name": "Nepa XML Sitemap",
@@ -121,18 +313,22 @@
       "X-contentType": "sitemap-xml",
       "X-purpose": "crawl-discovery",
       "properties": [],
-      "tags": ["sitemap"]
+      "tags": [
+        "sitemap"
+      ]
     },
     {
       "name": "Nepa robots.txt (AI crawler allowlist)",
-      "description": "robots.txt entries allowing known AI/LLM crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.).",
+      "description": "robots.txt entries allowing known AI/LLM crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, etc.). Declares Content-Signal: ai-train=yes, search=yes, ai-input=yes (AI training, search and AI answers all allowed).",
       "baseURL": "https://nepa.com/robots.txt",
       "humanURL": "https://nepa.com/robots.txt",
       "X-format": "text/plain",
       "X-contentType": "robots-txt",
       "X-purpose": "crawler-permissions",
       "properties": [],
-      "tags": ["robots-txt"]
+      "tags": [
+        "robots-txt"
+      ]
     },
     {
       "name": "Nepa Contact Page",
@@ -143,7 +339,9 @@
       "X-contentType": "contact-page",
       "X-purpose": "human-contact",
       "properties": [],
-      "tags": ["contact"]
+      "tags": [
+        "contact"
+      ]
     },
     {
       "name": "Nepa Investor Relations",
@@ -154,7 +352,10 @@
       "X-contentType": "landing-page",
       "X-purpose": "investor-relations",
       "properties": [],
-      "tags": ["investor-relations", "not-investment-advice"]
+      "tags": [
+        "investor-relations",
+        "not-investment-advice"
+      ]
     },
     {
       "name": "Nepa API Catalog",
@@ -165,11 +366,16 @@
       "X-contentType": "apis-json",
       "X-purpose": "self-reference",
       "properties": [],
-      "tags": ["apis-json"]
+      "tags": [
+        "apis-json"
+      ]
     }
   ],
   "maintainers": [
-    { "FN": "Nepa AB", "email": "info@nepa.com" }
+    {
+      "FN": "Nepa AB",
+      "email": "info@nepa.com"
+    }
   ],
   "X-organization": {
     "name": "Nepa",
@@ -180,7 +386,16 @@
     "phone": "+46 8 400 268 00",
     "email": "info@nepa.com",
     "listing": "Nasdaq First North Growth Market (ticker: NEPA, ISIN: SE0008066302); Certified Adviser: Redeye AB",
-    "sameAs": ["https://www.linkedin.com/company/nepa_2/"]
+    "sameAs": [
+      "https://www.linkedin.com/company/nepa_2/",
+      "https://www.youtube.com/@NepaInsights"
+    ],
+    "languages": [
+      "en",
+      "sv",
+      "fi",
+      "da"
+    ]
   },
   "X-discovery": {
     "agent_page": "https://nepa.com/agent/",
@@ -188,7 +403,7 @@
     "ai_txt": "https://nepa.com/ai.txt",
     "rest_api_index": "https://nepa.com/agent/v1/index.json",
     "openapi": "https://nepa.com/openapi.json",
-    "mcp_server": "https://nepa.com/mcp",
+    "mcp_server": "https://agentic-mcp-saas-nepa.onrender.com/mcp",
     "sitemap": "https://nepa.com/sitemap_index.xml"
   }
 }

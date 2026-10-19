@@ -1,10 +1,42 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/events.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08"
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16"
   },
   "events": [
+    {
+      "id": "event-fi-nepa-breakfast-session-planning-for-impact-fueling-smarter-marketing-in-2027",
+      "title": "Nepa Breakfast Session Helsinki – Planning for impact: Fueling smarter marketing in 2027",
+      "type": "event",
+      "date": "2026-11-11",
+      "location": "Helsinki, Finland",
+      "status": "upcoming",
+      "summary": "How data, AI, insights and measurement help marketing and insight teams make better decisions, with Valio, Metsä Tissue and a case from Wolt.",
+      "url": "https://nepa.com/events/fi-nepa-breakfast-session-planning-for-impact-fueling-smarter-marketing-in-2027/"
+    },
+    {
+      "id": "event-nepa-breakfast-session-12-november-2026",
+      "title": "Nepa Breakfast Session med Lyko – I det nya beslutslandskapet: så landar du på Gen Z:s radar",
+      "type": "event",
+      "date": "2026-11-12",
+      "location": "Stockholm, Sweden",
+      "status": "upcoming",
+      "summary": "Swedish-language session on AI, influencers and the new purchase journey, together with Lyko.",
+      "url": "https://nepa.com/events/nepa-breakfast-session-12-november-2026/",
+      "language": "sv"
+    },
+    {
+      "id": "webinar-on-demand-webinar-advertising-equity",
+      "title": "On-demand webinar: Measuring Advertising Equity – the Lantmännen case",
+      "type": "webinar",
+      "date": null,
+      "location": "Online",
+      "status": "on-demand",
+      "summary": "20-minute session in which Lantmännen and Nepa show how advertising equity turns long-term creative consistency into a measurable asset.",
+      "url": "https://nepa.com/webinar/on-demand-webinar-advertising-equity/"
+    },
     {
       "id": "event-nepa-breakfast-session-29-jan",
       "title": "Nepa Breakfast Session Stockholm 29 Jan 2026",
@@ -225,5 +257,5 @@
       "url": "https://nepa.com/webinar/webinar-the-age-of-influence/"
     }
   ],
-  "count": 27
+  "count": 30
 }

@@ -1,8 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/investor-relations.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08",
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16",
     "disclaimer": "For informational purposes only; not investment advice. See https://nepa.com/investor-relations/ for the authoritative source."
   },
   "overview": "Nepa AB (publ) is a Swedish publicly listed marketing research company, listed on Nasdaq First North Growth Market under the short name NEPA (ISIN: SE0008066302). Its investor relations page keeps investors updated with its latest financial reports and stock information.",
@@ -125,5 +126,25 @@
       "event": "Year-end report 2026",
       "date": "2027-02-19"
     }
-  ]
+  ],
+  "recent_announcements": [
+    {
+      "title": "CEO Anders Dahl leaves Nepa – search for successor initiated",
+      "date": "2026-09-30",
+      "category": "Regulatory Disclosure",
+      "summary": "Anders Dahl will remain CEO during a transition period and leave during Q1 2027. In Q2 2026 ARR grew 16.4% to SEK 140.9 million, net revenue retention was 101.0% and churn declined to 0.7%.",
+      "url": "https://nepa.com/mfn_news/ceo-anders-dahl-leaves-nepa-search-for-successor-initiated/",
+      "url_sv": "https://nepa.com/mfn_news/vd-anders-dahl-lamnar-nepa-rekrytering-av-eftertradare-inledd/"
+    }
+  ],
+  "next_report": {
+    "event": "Q3 interim report 2026",
+    "date": "2026-10-23"
+  },
+  "investor_contact_url": "https://nepa.com/contact-information/",
+  "certified_adviser": {
+    "name": "Redeye AB",
+    "email": "certifiedadviser@redeye.se",
+    "phone": "+46 (0)8 121 576 90"
+  }
 }

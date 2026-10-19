@@ -1,8 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/team.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08"
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16"
   },
   "team": [
     {
@@ -12,7 +13,9 @@
       "email": null,
       "linkedin": null,
       "bio": "Anders Dahl is CEO of Nepa, a role he has held since March 2024, after serving as a Group Management member and interim COO since 2023. He studied Economics and Business Law at Lund University. During the 14 years prior to Nepa he held key executive and advisory roles in various B2B and B2C companies in the United States, preceded by over ten years in permanent and interim executive positions in the Nordic media market.",
-      "url": "https://nepa.com/person/anders-dahl/"
+      "url": "https://nepa.com/person/anders-dahl/",
+      "status_note": "Announced 2026-09-30 that he is resigning as CEO; remains in the role during a transition period and leaves Nepa during Q1 2027. Successor search initiated by the Board.",
+      "status_source": "https://nepa.com/mfn_news/ceo-anders-dahl-leaves-nepa-search-for-successor-initiated/"
     },
     {
       "id": "person-annika-lamborn",

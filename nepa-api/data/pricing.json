@@ -1,66 +1,186 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/pricing.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08",
-    "note": "nepa.com/pricing is a JS tab component (choose Brand Tracking / Marketing Mix Modelling / Campaign Pulse). Only the Marketing Mix Modelling tab's tier content was captured in the crawl (its default-rendered tab); the Brand Tracking and Campaign Pulse tabs may show additional tiers not captured here. Brand Tracking's own product page separately states plans start from 15,000 SEK/month."
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16",
+    "note": "All three tabs of the pricing widget (Brand Tracking, Marketing Mix Modelling, Campaign Pulse), read from the page source on 2026-10-16. Replaces the v1.0 file, which captured only the MMM tab and listed outdated MMM tiers."
   },
   "page_url": "https://nepa.com/pricing/",
   "plans": [
     {
-      "id": "pricing-mmm-mini",
-      "product": "Marketing Mix Modelling",
-      "tier": "MMM Mini",
-      "tagline": "Self-service MMM tool for in-house analysis & optimizations",
-      "price": "From 4,000 EUR/month",
+      "id": "pricing-brand-tracking-brand-tracking-mini",
+      "product": "Brand Tracking",
+      "tier": "Brand Tracking Mini",
+      "tagline": "Get a top-level view of your brand health within your category",
+      "price": "From 1,500 EUR/month (16,300 SEK/month)",
       "includes": [
-        "Dashboard access",
-        "Weekly model refresh",
-        "Business driver trends",
-        "Media effects and effectiveness development",
-        "Short- and long-term effects per media",
-        "Scenario modeling for budget optimization"
+        "Brand funnel: Included",
+        "Market overview: Not included",
+        "Brand coverage: 8 brands",
+        "Bespoke questions: 8 brand position statements",
+        "Dashboard logins: Unlimited",
+        "Target groups: 8",
+        "Service hours: None included",
+        "Interviews per week: 75"
       ],
       "cta_url": "https://nepa.com/contact-us/#contact-form"
     },
     {
-      "id": "pricing-mmm-core",
-      "product": "Marketing Mix Modelling",
-      "tier": "MMM Core",
-      "tagline": "MMM Mini + fuel to your budget & strategy decision rhythms",
-      "price": "From 5,900 EUR/month",
+      "id": "pricing-brand-tracking-brand-tracking-core",
+      "product": "Brand Tracking",
+      "tier": "Brand Tracking Core",
+      "tagline": "Gain a holistic understanding of your brand KPIs in relation to your key business questions",
+      "price": "From 2,500 EUR/month (27,100 SEK/month)",
       "includes": [
-        "Everything in MMM Mini",
-        "Quarterly 'management ready' reports with workshop on key development and optimization opportunities",
-        "One yearly big-room meeting with an extensive report to establish full baseline and holistic business optimization"
+        "Brand funnel: Included",
+        "Market overview: Included",
+        "Brand coverage: 8 brands",
+        "Bespoke questions: 10 brand position statements + 2–3 category/background questions",
+        "Dashboard logins: Unlimited",
+        "Target groups: 15",
+        "Service hours: 10 hours included",
+        "Interviews per week: 125"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    },
+    {
+      "id": "pricing-brand-tracking-brand-tracking-plus",
+      "product": "Brand Tracking",
+      "tier": "Brand Tracking Plus",
+      "tagline": "Paint the full picture of your brand health and the competitive landscape, with a customized, consultative solution",
+      "price": "From 3,200 EUR/month (34,700 SEK/month)",
+      "includes": [
+        "Brand funnel: Included",
+        "Market overview: Included",
+        "Brand coverage: 16 brands",
+        "Bespoke questions: 16 brand position statements + category/background questions",
+        "Dashboard logins: Unlimited",
+        "Target groups: Up to 30",
+        "Service hours: 30 hours included",
+        "Interviews per week: 125"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    },
+    {
+      "id": "pricing-brand-tracking-enterprise",
+      "product": "Brand Tracking",
+      "tier": "Enterprise",
+      "tagline": "Create a custom solution based on your specific research objectives",
+      "price": "Price on request",
+      "includes": [
+        "Everything is tailored to your needs",
+        "Bespoke research design and advanced consultancy",
+        "Full customization of coverage, questions, and service levels"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    },
+    {
+      "id": "pricing-marketing-mix-modelling-small",
+      "product": "Marketing Mix Modelling",
+      "tier": "Small",
+      "tagline": "Setup + 360 Review — the mandatory first step for every engagement.",
+      "price": "From 33,000 EUR (358,100 SEK) one-time",
+      "includes": [
+        "Data structuring & model creation (1 model incl.)",
+        "Full '360' baseline for annual budget & strategy",
+        "Strategic decisions: allocation, pacing, in-channel campaigns & executional excellence",
+        "Onsite workshop (90 min) & PowerPoint report (40+ slides)",
+        "Executive summary & strategic recommendations",
+        "Digital attribution (GA4) multiplier adjustments"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    },
+    {
+      "id": "pricing-marketing-mix-modelling-medium",
+      "product": "Marketing Mix Modelling",
+      "tier": "Medium",
+      "tagline": "Setup + 360 Review + MMM Dashboard — continuous, self-serve steering.",
+      "price": "From 40,000 EUR (434,000 SEK) one-time + 2,500 EUR (27,100 SEK)/month",
+      "includes": [
+        "Everything in Small, plus:",
+        "Weekly updated dashboard for executive overview & self-serve optimization",
+        "On-demand tactical steering: full market scoring, tracking & drill-downs, scenario optimization",
+        "KPI, marketing spend, sales contribution & ROI timeseries",
+        "Performance drill-downs by period, market & brand",
+        "Scenario \"what-if\" planning on budget shifts",
+        "Integration into reporting: financial budgeting, media dashboards & platforms like TikTok"
       ],
       "cta_url": "https://nepa.com/contact-us/#contact-form",
       "most_popular": true
     },
     {
-      "id": "pricing-mmm-plus",
+      "id": "pricing-marketing-mix-modelling-large",
       "product": "Marketing Mix Modelling",
-      "tier": "MMM Plus",
-      "tagline": "MMM Mini + MMM Core + a '360' view of the full marketing measurement suite",
-      "price": "From 6,400 EUR/month",
+      "tier": "Large",
+      "tagline": "Medium + biannual/quarterly reviews — the full steering suite.",
+      "price": "From 60,000 EUR (651,000 SEK) one-time + 4,000 EUR (43,400 SEK)/month",
       "includes": [
-        "Everything in MMM Mini and MMM Core",
-        "Integration of existing brand tracking and campaign evaluations with MMM results for comprehensive '360' recommendations"
+        "Everything in Medium, plus:",
+        "Biannual or quarterly performance follow-up reports",
+        "Tactical decisions: allocation, pacing, in-channel campaigns & executional excellence",
+        "Workshop (60 min) & PowerPoint report (10–15 slides)",
+        "Market-specific presentation (60 min/market)"
       ],
       "cta_url": "https://nepa.com/contact-us/#contact-form"
     },
     {
-      "id": "pricing-mmm-enterprise",
-      "product": "Marketing Mix Modelling",
-      "tier": "MMM Enterprise",
-      "tagline": "A bespoke modelling framework tailored to very specific needs & rhythms",
+      "id": "pricing-campaign-pulse-campaign-pulse-basic",
+      "product": "Campaign Pulse",
+      "tier": "Campaign Pulse Basic",
+      "tagline": "Cross-channel campaign evaluation and benchmarking",
+      "price": "From 5,700 EUR/month (61,900 SEK/month)",
+      "includes": [
+        "Brand impact, emotional & sales measures",
+        "Cross-channel performance insights",
+        "Benchmarking vs 2,800+ campaigns",
+        "Fast reporting & recommendations"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    },
+    {
+      "id": "pricing-campaign-pulse-campaign-pulse-standard",
+      "product": "Campaign Pulse",
+      "tier": "Campaign Pulse Standard",
+      "tagline": "Get emotional clarity—measure not just whether people noticed your campaign, but how it made them feel.",
+      "price": "From 6,700 EUR/month (72,700 SEK/month)",
+      "includes": [
+        "Everything included in Campaign Pulse Basic, plus:",
+        "Emotion Palette: emotional reaction breakdown"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    },
+    {
+      "id": "pricing-campaign-pulse-campaign-pulse-recommended",
+      "product": "Campaign Pulse",
+      "tier": "Campaign Pulse Recommended",
+      "tagline": "Full evaluation with creative and brand strategy guidance",
+      "price": "From 8,200 EUR/month (89,000 SEK/month)",
+      "includes": [
+        "Everything included in Campaign Pulse Basic, plus:",
+        "Brand Touch: emotional fingerprint & brand personality",
+        "Expert recommendations for creative & strategy"
+      ],
+      "cta_url": "https://nepa.com/contact-us/#contact-form"
+    },
+    {
+      "id": "pricing-campaign-pulse-enterprise",
+      "product": "Campaign Pulse",
+      "tier": "Enterprise",
+      "tagline": "Create a custom solution based on your specific research objectives",
       "price": "Price on request",
       "includes": [
-        "Free 'board ready' business case",
-        "Free 'light' data audit"
+        "Everything is tailored to your needs",
+        "Bespoke research design and advanced consultancy",
+        "Full customization of coverage, questions, and service levels"
       ],
       "cta_url": "https://nepa.com/contact-us/#contact-form"
     }
   ],
-  "count": 4
+  "count": 11,
+  "notes": [
+    "Prices are published \"from\" prices in EUR with SEK equivalents, as shown in the tabbed price widget on https://nepa.com/pricing/. Brand Tracking and Campaign Pulse use the widget's default \"/month\" period; Marketing Mix Modelling is a one-time fee plus an optional monthly fee.",
+    "Marketing Mix Modelling: an additional model (a new channel or product category) comes at extra cost; adding 2+ markets simultaneously gives -20% on one-time and monthly fees.",
+    "The Brand Tracking product page text says plans start \"from 15.000 SEK/month\", while the pricing widget shows from 16,300 SEK (1,500 EUR)/month. Quote the pricing page and confirm with Nepa."
+  ]
 }

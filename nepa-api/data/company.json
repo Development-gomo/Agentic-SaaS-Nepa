@@ -1,8 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/company.json",
-    "version": "1.0",
-    "last_updated": "2026-09-08"
+    "version": "1.1",
+    "release": "agentic-web-2026-10",
+    "last_updated": "2026-10-16"
   },
   "name": "Nepa",
   "legal_name": "Nepa AB (publ)",
@@ -12,11 +13,38 @@
   "website": "https://nepa.com",
   "phone": "+46 8 400 268 00",
   "email": "info@nepa.com",
-  "overview": "Nepa is a marketing research company that helps brands turn complex data into actionable insights and real-time strategy. Its platform combines brand monitoring, media mix modelling, and campaign evaluation, researching more than 50 markets globally, tracking more than 7,500 brands and campaigns daily, and working with more than 300 blue-chip clients annually. The company describes its mission as delivering 'insight that grows your business, fast and every day,' and describes its culture as a team of creative problem-solvers focused on crafting winning solutions for its partners. Nepa is listed on Nasdaq First North Growth Market, with Redeye AB serving as its Certified Adviser. Its leadership team, as presented on its About page, includes CEO Anders Dahl, Head of HR Annika Lamborn, CRO Sara Davidsson Nyman, and CPO Robert Beatus.",
+  "overview": "Nepa is a marketing research company that helps brands turn complex data into actionable insights and real-time strategy. Its platform combines brand monitoring, media mix modelling, and campaign evaluation, researching more than 50 markets globally, tracking more than 7,500 brands and campaigns daily, and working with more than 300 blue-chip clients annually. The company describes its mission as delivering 'insight that grows your business, fast and every day,' and describes its culture as a team of creative problem-solvers focused on crafting winning solutions for its partners. Nepa is listed on Nasdaq First North Growth Market, with Redeye AB serving as its Certified Adviser. Its leadership team, as presented on its About page, includes CEO Anders Dahl (who announced on 2026-09-30 that he will leave Nepa during Q1 2027), Head of HR Annika Lamborn, CRO Sara Davidsson Nyman, and CPO Robert Beatus.",
   "leadership_summary": [
-    {"name": "Anders Dahl", "title": "CEO"},
-    {"name": "Annika Lamborn", "title": "Head of HR"},
-    {"name": "Sara Davidsson Nyman", "title": "CRO"},
-    {"name": "Robert Beatus", "title": "CPO"}
-  ]
+    {
+      "name": "Anders Dahl",
+      "title": "CEO"
+    },
+    {
+      "name": "Annika Lamborn",
+      "title": "Head of HR"
+    },
+    {
+      "name": "Sara Davidsson Nyman",
+      "title": "CRO"
+    },
+    {
+      "name": "Robert Beatus",
+      "title": "CPO"
+    }
+  ],
+  "leadership_change": {
+    "summary": "On 2026-09-30 Nepa announced that CEO Anders Dahl has resigned. He remains CEO during a transition period and will leave Nepa during the first quarter of 2027. The Board, chaired by Dan Foreman, has initiated a search for a successor.",
+    "announced": "2026-09-30",
+    "source": "https://nepa.com/mfn_news/ceo-anders-dahl-leaves-nepa-search-for-successor-initiated/"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/company/nepa_2/",
+    "youtube": "https://www.youtube.com/@NepaInsights"
+  },
+  "languages": {
+    "en": "https://nepa.com/",
+    "sv": "https://nepa.com/sv/",
+    "fi": "https://nepa.com/fi/",
+    "da": "https://nepa.com/da/"
+  }
 }
