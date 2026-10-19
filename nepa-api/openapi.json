@@ -3,7 +3,7 @@
   "info": {
     "title": "Nepa Agent API",
     "description": "Machine-readable REST API describing Nepa AB — marketing research, brand tracking, and insight products — for use by AI agents and LLM tool-calling systems. Version 1.1.0 (2026-10-16) adds localized Swedish/Finnish/Danish pages, Swedish press releases and blog posts with a language filter, and the full pricing table.",
-    "version": "1.1.0",
+    "version": "1.2.0",
     "contact": {
       "name": "Nepa AB",
       "url": "https://nepa.com/contact-us/"
@@ -446,7 +446,7 @@
     },
     "/contact.json": {
       "post": {
-        "summary": "Submit a qualified inquiry on behalf of a human (requires explicit authorization)",
+        "summary": "Submit an inquiry on behalf of a person: stored by Nepa and forwarded to Nepa's HubSpot contact form",
         "operationId": "submitContact",
         "requestBody": {
           "required": true,
@@ -460,7 +460,7 @@
         },
         "responses": {
           "200": {
-            "description": "Accepted",
+            "description": "Stored. See hubspot.status for delivery to Nepa's HubSpot form (delivered, pending, retryable, uncertain, manual_review or disabled). A repeat of the same submission returns the existing lead and its current status with duplicate: true, without creating or sending anything.",
             "content": {
               "application/json": {
                 "schema": {
@@ -480,11 +480,18 @@
             }
           },
           "422": {
-            "description": "Missing name, invalid email, or a field over its maximum length (error: invalid_input, field_too_long).",
+            "description": "Either the input failed validation before anything was stored (error: missing_required_fields, invalid_email, invalid_phone, first_name_required, processing_consent_required, field_too_long, ...), or the inquiry was stored but HubSpot rejected the details (status: rejected, error: hubspot_rejected, hubspot.errors lists the HubSpot error types; not retried).",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/ContactErrorResponse"
+                  "oneOf": [
+                    {
+                      "$ref": "#/components/schemas/ContactErrorResponse"
+                    },
+                    {
+                      "$ref": "#/components/schemas/ContactResponse"
+                    }
+                  ]
                 }
               }
             }
@@ -1446,41 +1453,78 @@
       "ContactPerson": {
         "type": "object",
         "required": [
-          "name",
-          "email"
+          "first_name",
+          "email",
+          "phone"
+        ],
+        "properties": {
+          "first_name": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 100
+          },
+          "last_name": {
+            "type": "string",
+            "maxLength": 100,
+            "description": "Optional. Send separately - a full name is never split automatically."
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "maxLength": 254,
+            "description": "Business email address. Nepa's HubSpot form blocks free webmail domains (BLOCKED_EMAIL)."
+          },
+          "phone": {
+            "type": "string",
+            "maxLength": 40,
+            "description": "7-20 digits; digits, spaces, +, -, (, ), . and / allowed. Include the country code."
+          },
+          "name": {
+            "type": "string",
+            "deprecated": true,
+            "description": "Not accepted on its own: sending only a full name returns 422 first_name_required."
+          }
+        }
+      },
+      "ContactCompany": {
+        "type": "object",
+        "required": [
+          "name"
         ],
         "properties": {
           "name": {
             "type": "string",
             "minLength": 1,
             "maxLength": 200
-          },
-          "email": {
-            "type": "string",
-            "format": "email",
-            "maxLength": 254
-          }
-        }
-      },
-      "ContactCompany": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string",
-            "maxLength": 200
           }
         }
       },
       "ContactInquiry": {
         "type": "object",
+        "required": [
+          "message"
+        ],
         "properties": {
-          "service_interest": {
+          "message": {
             "type": "string",
-            "maxLength": 200
+            "minLength": 1,
+            "maxLength": 5000
           },
           "project_summary": {
             "type": "string",
-            "maxLength": 5000
+            "maxLength": 5000,
+            "deprecated": true,
+            "description": "Accepted as an alias of message."
+          },
+          "service_interest": {
+            "type": "string",
+            "maxLength": 200,
+            "description": "Optional; appended to the message sent to HubSpot."
+          },
+          "language": {
+            "type": "string",
+            "maxLength": 35,
+            "description": "Optional preferred language (e.g. \"sv\" or \"Swedish\"); appended to the message. Every inquiry goes to Nepa's English HubSpot form."
           }
         }
       },
@@ -1501,6 +1545,13 @@
             "type": "string",
             "pattern": "^[A-Za-z0-9._:-]{8,100}$",
             "description": "Optional. Send the same value when retrying the same submission; a match within 24 hours returns the original lead (duplicate: true) instead of creating a new one. Without a key, an identical submission within 30 minutes is treated the same way. The Idempotency-Key header is accepted as an alternative."
+          },
+          "via": {
+            "type": "string",
+            "enum": [
+              "mcp"
+            ],
+            "description": "Set by Nepa's MCP server so the message sent to HubSpot states it was submitted via MCP."
           }
         }
       },
@@ -1508,6 +1559,9 @@
         "type": "object",
         "required": [
           "agent_context",
+          "company",
+          "consent",
+          "inquiry",
           "person"
         ],
         "properties": {
@@ -1522,6 +1576,9 @@
           },
           "inquiry": {
             "$ref": "#/components/schemas/ContactInquiry"
+          },
+          "consent": {
+            "$ref": "#/components/schemas/ContactConsent"
           }
         }
       },
@@ -1531,7 +1588,8 @@
           "status": {
             "type": "string",
             "enum": [
-              "received"
+              "received",
+              "rejected"
             ]
           },
           "message": {
@@ -1546,9 +1604,21 @@
           "duplicate": {
             "type": "boolean",
             "description": "True when this request matched an earlier submission (idempotent retry); no new lead or email was created."
+          },
+          "hubspot": {
+            "$ref": "#/components/schemas/HubSpotDelivery"
+          },
+          "error": {
+            "type": "string",
+            "description": "hubspot_rejected when status is rejected."
           }
         },
-        "description": "Returned only once the inquiry is stored in Nepa's WordPress. Notification email delivery is handled separately and retried automatically."
+        "description": "Returned once the inquiry is stored in Nepa's WordPress. HubSpot delivery is reported separately in hubspot.status - \"received\" alone never means it reached HubSpot.",
+        "required": [
+          "status",
+          "lead_id",
+          "hubspot"
+        ]
       },
       "ContactErrorResponse": {
         "type": "object",
@@ -1563,7 +1633,13 @@
         "required": [
           "error",
           "message"
-        ]
+        ],
+        "not": {
+          "required": [
+            "status"
+          ]
+        },
+        "description": "Error before anything was stored (or the request was refused). Never has a status field."
       },
       "OfficeContact": {
         "type": "object",
@@ -1644,6 +1720,58 @@
             "additionalProperties": {
               "type": "integer"
             }
+          }
+        }
+      },
+      "ContactConsent": {
+        "type": "object",
+        "required": [
+          "process"
+        ],
+        "properties": {
+          "process": {
+            "type": "boolean",
+            "enum": [
+              true
+            ],
+            "description": "Required. The person agreed: \"I agree to allow Nepa to store and process my personal data.\""
+          },
+          "marketing_opt_in": {
+            "type": "boolean",
+            "default": false,
+            "description": "Optional, separate marketing subscription (HubSpot subscription type 789062182). true only if the person explicitly asked for Nepa's updates; never inferred."
+          }
+        }
+      },
+      "HubSpotDelivery": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": [
+              "delivered",
+              "pending",
+              "sending",
+              "retryable",
+              "uncertain",
+              "rejected",
+              "manual_review",
+              "disabled"
+            ],
+            "description": "delivered = confirmed by HubSpot (or found by lookup); pending/sending/retryable = saved, being delivered; uncertain = saved, HubSpot may have it, checked before any resend; manual_review = saved, Nepa staff must act; rejected = HubSpot refused the details; disabled = HubSpot delivery not enabled on the server."
+          },
+          "attempts": {
+            "type": "integer"
+          },
+          "message": {
+            "type": "string"
+          },
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "HubSpot errorType values, only when rejected (e.g. BLOCKED_EMAIL)."
           }
         }
       }

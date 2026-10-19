@@ -3,7 +3,7 @@
   "description": "Machine-readable catalog of Nepa AB's AI-agent-facing resources: the semantic agent page, llms.txt/ai.txt discovery files, REST API, OpenAPI spec, MCP server, and sitemap.",
   "url": "https://nepa.com/api-catalog.json",
   "created": "2026-09-08",
-  "modified": "2026-10-16",
+  "modified": "2026-10-19",
   "specificationVersion": "0.16",
   "tags": [
     "marketing-research",
@@ -176,7 +176,7 @@
           "type": "X-endpoint",
           "route": "/agent/v1/contact.json",
           "method": "POST",
-          "description": "Submit a qualified B2B inquiry — requires agent_context.user_authorized_submission: true."
+          "description": "Submit an inquiry on behalf of a person: stored by Nepa and forwarded to Nepa's HubSpot contact form. Requires agent_context.user_authorized_submission: true and consent.process: true; marketing opt-in is separate and off by default. The response reports HubSpot delivery separately (hubspot.status)."
         }
       ],
       "tags": [
@@ -186,7 +186,7 @@
     },
     {
       "name": "Nepa OpenAPI Specification",
-      "description": "OpenAPI 3.0.3 spec for the Nepa Agent REST API — 19 paths, 42 schemas.",
+      "description": "OpenAPI 3.0.3 spec for the Nepa Agent REST API — 19 paths, 44 schemas.",
       "baseURL": "https://nepa.com/openapi.json",
       "humanURL": "https://nepa.com/openapi.json",
       "X-format": "json",
@@ -296,7 +296,7 @@
         {
           "type": "X-mcp-tool",
           "name": "submit_contact_inquiry",
-          "description": "Submit a qualified B2B inquiry — requires explicit human authorization."
+          "description": "Submit an inquiry to Nepa on behalf of a person (saved by Nepa, forwarded to Nepa's HubSpot contact form) - requires explicit authorization and consent to processing; marketing opt-in separate and off by default; reports delivered / pending / needs review / rejected accurately."
         }
       ],
       "tags": [

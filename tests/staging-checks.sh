@@ -3,6 +3,7 @@
 #
 #   bash tests/staging-checks.sh duplicates https://staging.example.com [WP-CLI command]
 #   bash tests/staging-checks.sh edge       https://nepa.com [origin-host]
+#   bash tests/staging-checks.sh hubspot    https://<mcp-host>/mcp <test-email>
 #
 # duplicates - CREATES TEST LEADS AND SENDS NOTIFICATION EMAILS. Staging only: refuses
 #              nepa.com / www.nepa.com. Fires simultaneous identical requests (same
@@ -16,6 +17,12 @@
 #              endpoints with HTTP 200 (no Cloudflare challenge, block or 429), and - if
 #              you give the origin host (e.g. nepa.wpengine.com) - whether the origin can
 #              be reached directly, bypassing the edge.
+#
+# hubspot    - SUBMITS A REAL INQUIRY TO NEPA'S HUBSPOT FORM through the deployed MCP tool
+#              (company "Nepa staging check", names "STAGING TEST"), then repeats it to check
+#              that no second inquiry or HubSpot submission is created, and prints the
+#              checklist to verify in HubSpot. Use a mailbox you control on a business
+#              domain (free webmail is rejected by the form).
 #
 # Requires bash, curl and python3. Exit code 0 = check passed.
 set -uo pipefail
@@ -47,7 +54,7 @@ duplicates() {
     local accepted=0 dup=0 inflight=0 other=0 leads=""
     for i in $(seq 1 $N); do
       local code; code="$(cat "$WORK/$label.$i.code")"
-      if [ "$code" = 200 ]; then
+      if [ "$code" = 200 ] || { [ "$code" = 422 ] && [ "$(json "$WORK/$label.$i.json" status)" = rejected ]; }; then
         leads="$leads $(json "$WORK/$label.$i.json" lead_id)"
         if [ "$(json "$WORK/$label.$i.json" duplicate)" = "False" ]; then accepted=$((accepted+1)); else dup=$((dup+1)); fi
       elif [ "$code" = 409 ] && [ "$(json "$WORK/$label.$i.json" error)" = in_progress ]; then inflight=$((inflight+1))
@@ -61,18 +68,19 @@ duplicates() {
     sleep 2
     local code; code=$(curl -s -o "$WORK/$label.after.json" -w '%{http_code}' -X POST "$BASE/agent/v1/contact.json" -H 'Content-Type: application/json' --data "$body")
     check "$label: a later identical retry returns duplicate=true and the same lead" \
-      "$([ "$code" = 200 ] && [ "$(json "$WORK/$label.after.json" duplicate)" = True ] && echo $leads | grep -q -- "$(json "$WORK/$label.after.json" lead_id)" && echo true || echo false)"
+      "$({ [ "$code" = 200 ] || [ "$code" = 422 ]; } && [ "$(json "$WORK/$label.after.json" duplicate)" = True ] && echo $leads | grep -q -- "$(json "$WORK/$label.after.json" lead_id)" && echo true || echo false)"
     echo "$(echo $leads | tr ' ' '\n' | sort -u | head -1)" > "$WORK/$label.lead"
   }
   local key="staging-check-$run"
-  local base_person="\"person\":{\"name\":\"STAGING TEST - delete me\",\"email\":\"staging-check+$run@example.com\"},\"company\":{\"name\":\"Nepa staging check\"}"
-  scenario keyed "{\"agent_context\":{\"user_authorized_submission\":true,\"idempotency_key\":\"$key\"},$base_person,\"inquiry\":{\"service_interest\":\"Test\",\"project_summary\":\"Concurrency check $run (keyed)\"}}"
+  local email_domain="${NEPA_TEST_EMAIL_DOMAIN:-example.com}"
+  local base_person="\"consent\":{\"process\":true},\"person\":{\"first_name\":\"STAGING TEST\",\"last_name\":\"delete me\",\"email\":\"staging-check+$run@$email_domain\",\"phone\":\"+46 70 000 00 00\"},\"company\":{\"name\":\"Nepa staging check\"}"
+  scenario keyed "{\"agent_context\":{\"user_authorized_submission\":true,\"idempotency_key\":\"$key\"},$base_person,\"inquiry\":{\"service_interest\":\"Test\",\"message\":\"Concurrency check $run (keyed)\"}}"
   local code
   code=$(curl -s -o "$WORK/reuse.json" -w '%{http_code}' -X POST "$BASE/agent/v1/contact.json" -H 'Content-Type: application/json' \
-    --data "{\"agent_context\":{\"user_authorized_submission\":true,\"idempotency_key\":\"$key\"},$base_person,\"inquiry\":{\"project_summary\":\"DIFFERENT content $run\"}}")
+    --data "{\"agent_context\":{\"user_authorized_submission\":true,\"idempotency_key\":\"$key\"},$base_person,\"inquiry\":{\"message\":\"DIFFERENT content $run\"}}")
   check "same key with different content -> 409 idempotency_key_reused" "$([ "$code" = 409 ] && [ "$(json "$WORK/reuse.json" error)" = idempotency_key_reused ] && echo true || echo false)"
-  local base_person2="\"person\":{\"name\":\"STAGING TEST - delete me\",\"email\":\"staging-check2+$run@example.com\"},\"company\":{\"name\":\"Nepa staging check\"}"
-  scenario fingerprint "{\"agent_context\":{\"user_authorized_submission\":true},$base_person2,\"inquiry\":{\"service_interest\":\"Test\",\"project_summary\":\"Concurrency check $run (no key)\"}}"
+  local base_person2="\"consent\":{\"process\":true},\"person\":{\"first_name\":\"STAGING TEST\",\"last_name\":\"delete me\",\"email\":\"staging-check2+$run@$email_domain\",\"phone\":\"+46 70 000 00 00\"},\"company\":{\"name\":\"Nepa staging check\"}"
+  scenario fingerprint "{\"agent_context\":{\"user_authorized_submission\":true},$base_person2,\"inquiry\":{\"service_interest\":\"Test\",\"message\":\"Concurrency check $run (no key)\"}}"
   if [ -n "$EXTRA" ]; then
     local count
     count=$($EXTRA post list --post_type=nepa_lead --post_status=private --s="Concurrency check $run" --format=count 2>/dev/null)
@@ -118,9 +126,53 @@ edge() {
   fi
 }
 
+
+hubspot_acceptance() {
+  local email="$EXTRA"
+  if [ -z "$email" ]; then echo "Give a test email on a business domain you control as the 3rd argument."; exit 2; fi
+  local run key; run="$(date +%Y%m%d%H%M%S)"; key="hubspot-acceptance-$run"
+  local args="{\"user_authorized_submission\":true,\"consent_to_process\":true,\"marketing_opt_in\":false,\"first_name\":\"STAGING TEST\",\"last_name\":\"delete me\",\"email\":\"$email\",\"phone\":\"+46 70 000 00 00\",\"company\":\"Nepa staging check\",\"message\":\"HubSpot acceptance test $run - please ignore.\",\"service_interest\":\"Test\",\"language\":\"Swedish\",\"idempotency_key\":\"$key\"}"
+  call() { curl -s --max-time 60 "$BASE" -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' \
+    -d "{\"jsonrpc\":\"2.0\",\"id\":1,\"method\":\"tools/call\",\"params\":{\"name\":\"submit_contact_inquiry\",\"arguments\":$args}}" | sed -n 's/^data: //p'; }
+  text() { python3 -c 'import json,sys
+r=json.load(sys.stdin)["result"]; t=r["content"][0]["text"]
+try: j=json.loads(t); print(("ERR " if r.get("isError") else "OK ")+(j.get("outcome") or j.get("error") or "")); print(j.get("lead_id",""))
+except Exception: print(("ERR " if r.get("isError") else "OK ")+t.splitlines()[0]); print("")' <<<"$1"; }
+  local first second
+  first="$(text "$(call)")"; echo "First call:  $(echo "$first" | head -1)"
+  local lead; lead="$(echo "$first" | sed -n 2p)"
+  check "the MCP tool saved the inquiry (lead $lead)" "$([ -n "$lead" ] && echo true || echo false)"
+  check "HubSpot delivery confirmed (outcome DELIVERED)" "$(echo "$first" | head -1 | grep -q '^OK DELIVERED' && echo true || echo false)"
+  sleep 3
+  second="$(text "$(call)")"; echo "Second call: $(echo "$second" | head -1)"
+  check "repeating the same request returns the same lead, nothing new created or sent" "$(echo "$second" | head -1 | grep -q 'ALREADY SUBMITTED' && [ "$(echo "$second" | sed -n 2p)" = "$lead" ] && echo true || echo false)"
+  cat <<CHECKLIST
+
+Now verify in HubSpot (portal 146131568, form 7c631e31-cc3b-44ba-a580-113ab3489db6, "contact-us" English form):
+  1. Exactly ONE new submission on that form from $email (the repeat must not add a second).
+  2. Contact properties: First name "STAGING TEST", Last name "delete me", Phone "+46 70 000 00 00",
+     Company "Nepa staging check"; Message starts "HubSpot acceptance test $run" and ends with
+     "Service interest: Test", "Preferred language: Swedish", "Submitted via MCP ...", "Nepa lead ID: $lead".
+  3. Consent: processing consent recorded with "I agree to allow Nepa to store and process my personal data.";
+     the contact is NOT subscribed to subscription type 789062182 (marketing_opt_in was false).
+  4. The form's normal workflows/notifications ran as they do for a website submission (check the
+     workflow history and any HubSpot notification email).
+  5. In WordPress -> Agent Leads -> $lead: HubSpot status "delivered", 1 attempt.
+  6. Temporary-failure recovery: on staging set NEPA_HUBSPOT_SUBMIT_BASE to an unreachable host
+     (e.g. https://127.0.0.1:9), submit once (status should be "retryable"), restore the setting,
+     wait for the 5-minute worker: the lead must become "delivered" with one HubSpot submission.
+  7. Permanent failure handling: set NEPA_HUBSPOT_FORM_ID to an invalid ID on staging, submit once:
+     the lead must show "manual_review" with an attention email; restore the ID and use
+     "Retry HubSpot delivery now" on the lead - it must become "delivered".
+Delete the test contact in HubSpot and the test leads in WordPress afterwards (deleting a WordPress
+lead does not delete the HubSpot contact).
+CHECKLIST
+}
+
 case "$MODE" in
   duplicates) duplicates;;
   edge) edge;;
+  hubspot) hubspot_acceptance;;
   *) echo "Unknown mode: $MODE (use duplicates or edge)"; exit 2;;
 esac
 echo; echo "$PASS passed, $FAIL failed"

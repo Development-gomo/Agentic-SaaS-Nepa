@@ -50,3 +50,45 @@ These are the two go-live checks in DEPLOYMENT.md §10.
 
 - **`duplicates`** creates test leads and sends emails. It is staging only and refuses nepa.com. It checks that simultaneous identical submissions create exactly one lead. Its pass/fail logic was validated against a correct and a deliberately buggy mock server.
 - **`edge`** is read-only. It checks that common AI agents get HTTP 200 from the agent endpoints, and whether the origin can be reached directly.
+
+## HubSpot delivery (PHP 7.4+)
+
+```bash
+php -d error_reporting='E_ALL & ~E_DEPRECATED & ~E_WARNING' tests/run-hubspot-tests.php token
+php -d error_reporting='E_ALL & ~E_DEPRECATED & ~E_WARNING' tests/run-hubspot-tests.php notoken
+```
+
+WordPress **and HubSpot are both mocked**. The HubSpot mock answers as HubSpot's documented API does: 200; 400 with `errorType`; 401; 429 with rate-limit headers; 5xx; timeouts; and the submissions lookup. The suite runs in two modes:
+
+- **`token`**, with `NEPA_HUBSPOT_TOKEN` set: 76 checks.
+- **`notoken`**, without a token: 68 checks.
+
+The checks cover:
+- field mapping and successful submission;
+- missing required fields, and invalid option values reported by HubSpot;
+- consent without unintended marketing opt-in;
+- repeated and simultaneous requests;
+- concurrent retry workers;
+- rate limits, server errors and timeouts;
+- permanent validation and configuration failures;
+- HubSpot accepting a submission whose response was lost;
+- the local status write failing after HubSpot accepted;
+- administrator actions and permissions;
+- the token never being stored.
+
+The MCP smoke test (now 26 checks) uses `tests/mock-contact-api.py` to check that the tool reports every delivery outcome accurately (delivered, pending, retrying, unconfirmed, needs review, disabled, rejected, in progress, not saved, unknown), and that it sends consent and marketing choices correctly.
+
+`tests/mock-duplicates-server.py` validates `staging-checks.sh duplicates` itself: the check passes against its `correct` mode and fails against its `buggy` mode.
+
+`bash tests/staging-checks.sh hubspot https://<mcp-host>/mcp <test-email>` is the **real** end-to-end acceptance check, through the deployed MCP tool into the real HubSpot form. See DEPLOYMENT.md §11.
+
+## OpenAPI response check (Python + jsonschema)
+
+```bash
+NEPA_DUMP_RESPONSES=/tmp/responses.jsonl php -d error_reporting='E_ALL & ~E_DEPRECATED & ~E_WARNING' tests/run-hubspot-tests.php token
+python3 tests/validate-openapi-examples.py /tmp/responses.jsonl
+```
+
+This validates hand-written examples and every `/contact.json` response the plugin produced during the HubSpot suite against `openapi.json`. It needs the `jsonschema` package and skips cleanly without it.
+
+The stubs in `wp-stubs.php` strip slashes from saved meta and post fields exactly like WordPress, so escaping mistakes show up in tests. Like WordPress, post meta is cached per simulated request (`T['ctx']`). `nepa_test_request()` runs code as a separate request, so stale-cache races can be reproduced. Three one-shot hooks replay races: `T['after_insert']` runs right after a lead is created, `T['before_meta_write']` runs just before a chosen field is written, and `T['before_option_insert']` runs just before a lock is taken.

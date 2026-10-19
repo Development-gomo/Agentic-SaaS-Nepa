@@ -56,6 +56,12 @@ function post($body) {
     return [$GLOBALS['T']['status'], json_decode($out, true)];
 }
 function with($base, $section, $values) { $base[$section] = array_merge($base[$section] ?? [], $values); return $base; }
+/** Same content fingerprint the endpoint computes (see contact_submission()). */
+function fp_of($b) {
+    return hash('sha256', implode("\n", [strtolower($b['person']['email']), $b['person']['first_name'] ?? '', $b['person']['last_name'] ?? '', $b['person']['phone'] ?? '',
+        $b['company']['name'] ?? '', $b['inquiry']['service_interest'] ?? '', $b['inquiry']['message'] ?? '', $b['inquiry']['language'] ?? '',
+        !empty($b['consent']['marketing_opt_in']) ? '1' : '0']));
+}
 function lead_count() { return count($GLOBALS['T']['posts']); }
 function mail_count() { return count($GLOBALS['T']['mail']); }
 function reset_limits() { $GLOBALS['T']['transients'] = []; }
@@ -87,9 +93,10 @@ echo "== Contact: validation\n";
 $_SERVER['REMOTE_ADDR'] = '203.0.113.5';
 $good = [
     'agent_context' => ['user_authorized_submission' => true],
-    'person' => ['name' => 'Ada Test', 'email' => 'ada@example.com'],
+    'person' => ['first_name' => 'Ada', 'last_name' => 'Test', 'email' => 'ada@example.com', 'phone' => '+46 70 123 45 67'],
     'company' => ['name' => 'Acme'],
-    'inquiry' => ['service_interest' => 'Brand Tracking', 'project_summary' => 'Need a tracker'],
+    'inquiry' => ['service_interest' => 'Brand Tracking', 'message' => 'Need a tracker'],
+    'consent' => ['process' => true],
 ];
 [$s, $r] = post('not json');
 check('invalid JSON -> 400 invalid_json', $s === 400 && $r['error'] === 'invalid_json');
@@ -97,14 +104,28 @@ check('invalid JSON -> 400 invalid_json', $s === 400 && $r['error'] === 'invalid
 check('consent not confirmed -> 403', $s === 403);
 [$s, $r] = post(array_merge($good, ['person' => 'Ada']));
 check('person as a string -> 400 invalid_structure', $s === 400 && $r['error'] === 'invalid_structure');
-[$s, $r] = post(with($good, 'person', ['name' => ['x']]));
+[$s, $r] = post(with($good, 'person', ['first_name' => ['x']]));
 check('name as an array -> 400 invalid_type', $s === 400 && $r['error'] === 'invalid_type');
-[$s, $r] = post(with($good, 'inquiry', ['project_summary' => str_repeat('a', 5001)]));
+[$s, $r] = post(with($good, 'inquiry', ['message' => str_repeat('a', 5001)]));
 check('summary over 5,000 characters -> 422 field_too_long', $s === 422 && $r['error'] === 'field_too_long');
 [$s] = post(json_encode($good) . str_repeat(' ', 20001));
 check('body over 20,000 bytes -> 413', $s === 413);
 [$s] = post(with($good, 'agent_context', ['idempotency_key' => 'bad key!']));
 check('malformed idempotency key -> 400', $s === 400);
+[$s, $r] = post(array_merge($good, ['person' => ['name' => 'Ada Test', 'email' => 'ada@example.com', 'phone' => '+46 70 123 45 67']]));
+check('a full name without first_name -> 422 first_name_required (never split automatically)', $s === 422 && $r['error'] === 'first_name_required');
+[$s, $r] = post(with($good, 'person', ['phone' => '']));
+check('missing phone (required by the HubSpot form) -> 422 missing_required_fields', $s === 422 && $r['error'] === 'missing_required_fields' && strpos($r['message'], 'person.phone') !== false);
+[$s, $r] = post(with($good, 'person', ['phone' => '12345']));
+check('phone with fewer than 7 digits -> 422 invalid_phone', $s === 422 && $r['error'] === 'invalid_phone');
+[$s, $r] = post(array_merge($good, ['company' => []]));
+check('missing company -> 422 missing_required_fields', $s === 422 && strpos($r['message'], 'company.name') !== false);
+[$s, $r] = post(array_merge($good, ['consent' => []]));
+check('no processing consent -> 422 processing_consent_required', $s === 422 && $r['error'] === 'processing_consent_required');
+[$s, $r] = post(array_merge($good, ['consent' => ['process' => 'yes']]));
+check('processing consent must be boolean true, not a string -> 400', $s === 400 && $r['error'] === 'invalid_type');
+[$s, $r] = post(array_merge($good, ['consent' => ['process' => true, 'marketing_opt_in' => 'true']]));
+check('marketing_opt_in must be a boolean (the string "true" is refused) -> 400', $s === 400 && $r['error'] === 'invalid_type');
 check('rejected requests stored nothing and used no quota', lead_count() === 0 && !$GLOBALS['T']['transients'] && !$GLOBALS['wpdb']->rows);
 
 echo "== Contact: acceptance and idempotency\n";
@@ -117,16 +138,16 @@ check('one notification email sent', mail_count() === 1);
 [$s, $r] = post($good);
 check('identical retry -> duplicate with the same lead, nothing new', $s === 200 && $r['duplicate'] === true && $r['lead_id'] === $first && lead_count() === 1 && mail_count() === 1);
 
-$keyed = with(with($good, 'agent_context', ['idempotency_key' => 'order-0001-abc']), 'inquiry', ['project_summary' => 'Keyed request']);
+$keyed = with(with($good, 'agent_context', ['idempotency_key' => 'order-0001-abc']), 'inquiry', ['message' => 'Keyed request']);
 [, $r1] = post($keyed);
 [, $r2] = post($keyed);
 check('same idempotency key + same content -> original lead returned', $r1['duplicate'] === false && $r2['duplicate'] === true && $r1['lead_id'] === $r2['lead_id']);
-[$s, $r] = post(with($keyed, 'inquiry', ['project_summary' => 'A completely different inquiry']));
+[$s, $r] = post(with($keyed, 'inquiry', ['message' => 'A completely different inquiry']));
 check('same idempotency key + different content -> 409 idempotency_key_reused, nothing stored', $s === 409 && $r['error'] === 'idempotency_key_reused' && lead_count() === 2);
 
 // A request that is still being processed holds the reservation without a lead yet.
-$pending = with($good, 'inquiry', ['project_summary' => 'Concurrent request']);
-$fp = hash('sha256', "ada@example.com\nAda Test\nAcme\nBrand Tracking\nConcurrent request");
+$pending = with($good, 'inquiry', ['message' => 'Concurrent request']);
+$fp = fp_of($pending);
 $GLOBALS['wpdb']->insert('wp_options', ['option_name' => 'nepa_lead_res_' . sha1('fp:' . $fp), 'option_value' => json_encode(['fingerprint' => $fp, 'created' => time(), 'ttl' => 1800, 'lead_post_id' => 0, 'lead_id' => '']), 'autoload' => 'no']);
 [$s, $r] = post($pending);
 check('overlapping identical request while the first is in flight -> 409 in_progress, no second lead', $s === 409 && $r['error'] === 'in_progress' && lead_count() === 2);
@@ -138,7 +159,7 @@ check('an expired reservation is replaced and the submission accepted', $s === 2
 // Codex race: two requests read the SAME expired reservation. Request A replaces it;
 // request B (which read the old value before A acted) must not delete A's new reservation.
 $race_name = 'nepa_lead_res_' . sha1('key:race-key-0001');
-$race_fp = hash('sha256', "ada@example.com\nAda Test\nAcme\nBrand Tracking\nRace");
+$race_fp = fp_of(with($good, 'inquiry', ['message' => 'Race']));
 $expired_raw = json_encode(['fingerprint' => $race_fp, 'created' => time() - 90000, 'ttl' => 86400, 'lead_post_id' => 0, 'lead_id' => '', 'token' => 'old']);
 $GLOBALS['wpdb']->insert('wp_options', ['option_name' => $race_name, 'option_value' => $expired_raw, 'autoload' => 'no']);
 [$a] = invoke($api, 'reserve_submission', 'key:race-key-0001', $race_fp, 86400);
@@ -152,18 +173,18 @@ check('releasing removes only this request\'s own reservation', !isset($GLOBALS[
 
 // Reservation storage failure (database error, no existing row) -> retryable 503, not 409.
 $GLOBALS['wpdb']->insert_fails = true;
-[$s, $r] = post(with(with($good, 'agent_context', ['idempotency_key' => 'brand-new-key-777']), 'inquiry', ['project_summary' => 'DB down']));
+[$s, $r] = post(with(with($good, 'agent_context', ['idempotency_key' => 'brand-new-key-777']), 'inquiry', ['message' => 'DB down']));
 check('database failure while reserving -> 503 reservation_unavailable (not 409)', $s === 503 && ($r['error'] ?? '') === 'reservation_unavailable');
 $GLOBALS['wpdb']->insert_fails = false;
 
 echo "== Contact: rate limits\n";
-[$s] = post(with($good, 'inquiry', ['project_summary' => 'fourth for this email']));
+[$s] = post(with($good, 'inquiry', ['message' => 'fourth for this email']));
 check('4th distinct submission for one email within the hour -> 429', $s === 429);
 check('a rate-limited request leaves no reservation behind', !array_filter($GLOBALS['wpdb']->rows, function ($v) { return json_decode($v, true)['lead_post_id'] === 0; }));
-[$s1] = post(with($good, 'person', ['name' => 'B', 'email' => 'b@example.com']));
-[$s2] = post(with($good, 'person', ['name' => 'C', 'email' => 'c@example.com']));
+[$s1] = post(with($good, 'person', ['first_name' => 'B', 'email' => 'b@example.com']));
+[$s2] = post(with($good, 'person', ['first_name' => 'C', 'email' => 'c@example.com']));
 check('IP quota allows 5 accepted submissions in 10 minutes', $s1 === 200 && $s2 === 200);
-[$s] = post(with($good, 'person', ['name' => 'D', 'email' => 'd@example.com']));
+[$s] = post(with($good, 'person', ['first_name' => 'D', 'email' => 'd@example.com']));
 check('6th from the same IP -> 429', $s === 429);
 check('the IP-limited request did not use its email quota', !preg_grep('/^nepa_contact_rl_email_' . md5('d@example.com') . '/', array_keys($GLOBALS['T']['transients'])));
 check('counters are fixed-window (window index in the key)', (bool) preg_grep('/^nepa_contact_rl_[0-9a-f]{32}_\d+$/', array_keys($GLOBALS['T']['transients'])));
@@ -172,14 +193,14 @@ echo "== Contact: storage and notification failures\n";
 reset_limits();
 $GLOBALS['T']['insert_fail'] = true;
 $before_mail = mail_count();
-[$s, $r] = post(with($good, 'person', ['name' => 'E', 'email' => 'e@example.com']));
+[$s, $r] = post(with($good, 'person', ['first_name' => 'E', 'email' => 'e@example.com']));
 check('lead cannot be stored -> 503 not_recorded, no email, reservation released', $s === 503 && $r['error'] === 'not_recorded' && mail_count() === $before_mail);
 $GLOBALS['T']['insert_fail'] = false;
-[$s, $r] = post(with($good, 'person', ['name' => 'E', 'email' => 'e@example.com']));
+[$s, $r] = post(with($good, 'person', ['first_name' => 'E', 'email' => 'e@example.com']));
 check('the retry after a storage failure is accepted (not blocked as a duplicate)', $s === 200 && $r['duplicate'] === false);
 
 $GLOBALS['T']['mail_ok'] = false;
-[$s] = post(with($good, 'person', ['name' => 'F', 'email' => 'f@example.com']));
+[$s] = post(with($good, 'person', ['first_name' => 'F', 'email' => 'f@example.com']));
 $f = array_key_last($GLOBALS['T']['posts']);
 check('email failure -> still 200 (lead stored) and queued for retry', $s === 200 && get_post_meta($f, 'mail_sent') === '0' && get_post_meta($f, 'mail_attempts') === '1');
 
@@ -205,7 +226,7 @@ check('exhausted leads are not re-sent', mail_count() === $sent_before + 1);
 reset_limits();
 $GLOBALS['T']['meta_fail'] = ['mail_sent' => true, 'mail_attempts' => true];
 $GLOBALS['T']['mail_ok'] = false;
-[$s] = post(with($good, 'person', ['name' => 'Lost State', 'email' => 'lost@example.com']));
+[$s] = post(with($good, 'person', ['first_name' => 'Lost State', 'email' => 'lost@example.com']));
 $lost = array_key_last($GLOBALS['T']['posts']);
 $GLOBALS['T']['meta_fail'] = [];
 $GLOBALS['T']['mail_ok'] = true;
@@ -225,12 +246,12 @@ echo "== Metadata write failures\n";
 reset_limits();
 $GLOBALS['T']['meta_fail'] = ['mail_sent' => true];
 $mail_before_g = mail_count();
-[$s, $r] = post(with($good, 'person', ['name' => 'G', 'email' => 'g@example.com']));
+[$s, $r] = post(with($good, 'person', ['first_name' => 'G', 'email' => 'g@example.com']));
 $g = array_key_last($GLOBALS['T']['posts']);
 check('if retry state cannot be stored, the stored lead is still accepted and its email still sent', $s === 200 && mail_count() === $mail_before_g + 1);
 $GLOBALS['T']['meta_fail'] = ['idempotency_key' => true, 'fingerprint' => true];
-[, $r1] = post(with($good, 'person', ['name' => 'H', 'email' => 'h@example.com']));
-[$s, $r2] = post(with($good, 'person', ['name' => 'H', 'email' => 'h@example.com']));
+[, $r1] = post(with($good, 'person', ['first_name' => 'H', 'email' => 'h@example.com']));
+[$s, $r2] = post(with($good, 'person', ['first_name' => 'H', 'email' => 'h@example.com']));
 check('idempotency does not depend on post meta: a retry is still a duplicate when meta writes fail', $s === 200 && $r2['duplicate'] === true && $r1['lead_id'] === $r2['lead_id']);
 $GLOBALS['T']['meta_fail'] = [];
 

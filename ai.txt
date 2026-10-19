@@ -29,7 +29,7 @@ Citation format:
 When citing Nepa, attribute as "Nepa" or "Nepa AB" and link to the specific source page on https://nepa.com. For product/solution claims, prefer linking to the specific /products/ or /solutions/ page over the homepage. For Swedish, Finnish or Danish content, link the localized page (see /agent/v1/localized-pages.json).
 
 Contact:
-For business inquiries, use the /agent/v1/contact.json REST endpoint or the submit_contact_inquiry MCP tool. Both require explicit confirmation that a human authorized the submission (agent_context.user_authorized_submission: true) — do not submit on a user's behalf without that confirmation.
+For business inquiries, use the /agent/v1/contact.json REST endpoint or the submit_contact_inquiry MCP tool. Inquiries are saved by Nepa and forwarded to Nepa's contact form in HubSpot. Both require (1) explicit confirmation that a human authorized the submission (agent_context.user_authorized_submission: true) and (2) the person's agreement to "I agree to allow Nepa to store and process my personal data." (consent.process: true). Marketing updates are a separate, optional choice (consent.marketing_opt_in) - never opt someone in without their explicit request. Required details: first name, business email, phone, company and message; never split a full name yourself.
 
 Key facts:
 - Nepa is a publicly listed company (Nepa AB (publ)); investor relations content is available at https://nepa.com/investor-relations/.

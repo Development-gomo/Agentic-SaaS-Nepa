@@ -1,6 +1,6 @@
 {
   "name": "nepa-mcp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "module",
   "description": "Model Context Protocol server exposing Nepa's agent-facing REST API as MCP tools",
   "main": "dist/index.js",

@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Nepa Agent API
  * Description: Serves clean, WordPress-agnostic JSON endpoints at /agent/v1/ for AI agents and LLMs. Companion to /agent/ (agent-page.html), llms.txt, ai.txt, and openapi.json.
- * Version: 1.2.0
+ * Version: 1.3.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Nepa AB
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('NEPA_API_VERSION', '1.2.0');
+define('NEPA_API_VERSION', '1.3.0');
 /**
  * Set to true in wp-config.php ONLY if every request to this site passes through Cloudflare
  * (as nepa.com did at the 2026-10-16 crawl). Rate limiting then keys on Cloudflare's
@@ -79,8 +79,12 @@ function nepa_agent_api_data_path($filename) {
 }
 
 require_once NEPA_API_DIR . 'includes/class-sync.php';
+require_once NEPA_API_DIR . 'includes/class-hubspot.php';
 
 class Nepa_Agent_API {
+
+    /** @var Nepa_HubSpot_Delivery HubSpot form delivery (see includes/class-hubspot.php). */
+    public $hubspot;
 
     /** @var array Endpoint slug => data file (relative to data/), or null for computed endpoints */
     private $file_endpoints = [
@@ -536,11 +540,14 @@ class Nepa_Agent_API {
 
     /** Field length limits for contact submissions (characters). */
     const CONTACT_FIELD_LIMITS = [
-        'name'             => 200,
+        'first_name'       => 100,
+        'last_name'        => 100,
         'email'            => 254,
+        'phone'            => 40,
         'company'          => 200,
         'service_interest' => 200,
-        'project_summary'  => 5000,
+        'message'          => 5000,
+        'language'         => 35,
         'idempotency_key'  => 100,
     ];
     /** Largest accepted request body, in bytes. */
@@ -549,19 +556,29 @@ class Nepa_Agent_API {
     /**
      * Validates the request's structure and types before anything is sanitized or stored.
      * Returns [values, null] on success or [null, [http_status, code, message]] on failure.
+     *
+     * Required fields follow Nepa's English HubSpot contact form, where every inquiry is
+     * delivered: first name, email, company, phone and message (last name is optional).
+     * A single full name is NOT split into first/last name - the caller must send them
+     * separately. Consent to process personal data must be explicit (consent.process =
+     * true); marketing subscription is separate, optional and off unless
+     * consent.marketing_opt_in is exactly true.
      */
     private function validate_contact_body($body) {
-        foreach (['agent_context', 'person', 'company', 'inquiry'] as $section) {
+        foreach (['agent_context', 'person', 'company', 'inquiry', 'consent'] as $section) {
             if (isset($body[$section]) && !is_array($body[$section])) {
                 return [null, [400, 'invalid_structure', "{$section} must be a JSON object."]];
             }
         }
         $fields = [
-            'name'             => $body['person']['name'] ?? null,
+            'first_name'       => $body['person']['first_name'] ?? null,
+            'last_name'        => $body['person']['last_name'] ?? null,
             'email'            => $body['person']['email'] ?? null,
+            'phone'            => $body['person']['phone'] ?? null,
             'company'          => $body['company']['name'] ?? null,
             'service_interest' => $body['inquiry']['service_interest'] ?? null,
-            'project_summary'  => $body['inquiry']['project_summary'] ?? null,
+            'message'          => $body['inquiry']['message'] ?? ($body['inquiry']['project_summary'] ?? null),
+            'language'         => $body['inquiry']['language'] ?? null,
             'idempotency_key'  => $body['agent_context']['idempotency_key'] ?? ($_SERVER['HTTP_IDEMPOTENCY_KEY'] ?? null),
         ];
         foreach ($fields as $field => $value) {
@@ -572,19 +589,53 @@ class Nepa_Agent_API {
                 return [null, [422, 'field_too_long', "{$field} must be at most " . self::CONTACT_FIELD_LIMITS[$field] . ' characters.']];
             }
         }
+        foreach (['process', 'marketing_opt_in'] as $flag) {
+            if (isset($body['consent'][$flag]) && !is_bool($body['consent'][$flag])) {
+                return [null, [400, 'invalid_type', "consent.{$flag} must be true or false."]];
+            }
+        }
+        $via = $body['agent_context']['via'] ?? '';
         $values = [
-            'name'             => sanitize_text_field($fields['name'] ?? ''),
+            'first_name'       => sanitize_text_field($fields['first_name'] ?? ''),
+            'last_name'        => sanitize_text_field($fields['last_name'] ?? ''),
             'email'            => sanitize_email($fields['email'] ?? ''),
+            'phone'            => sanitize_text_field($fields['phone'] ?? ''),
             'company'          => sanitize_text_field($fields['company'] ?? ''),
             'service_interest' => sanitize_text_field($fields['service_interest'] ?? ''),
-            'project_summary'  => sanitize_textarea_field($fields['project_summary'] ?? ''),
+            'message'          => sanitize_textarea_field($fields['message'] ?? ''),
+            'language'         => sanitize_text_field($fields['language'] ?? ''),
             'idempotency_key'  => $fields['idempotency_key'] ?? '',
+            'consent_to_process' => ($body['consent']['process'] ?? null) === true,
+            'marketing_opt_in' => ($body['consent']['marketing_opt_in'] ?? false) === true,
+            'via'              => $via === 'mcp' ? 'mcp' : 'api',
         ];
         if ($values['idempotency_key'] !== '' && !preg_match('/^[A-Za-z0-9._:-]{8,100}$/', $values['idempotency_key'])) {
             return [null, [400, 'invalid_idempotency_key', 'idempotency_key must be 8-100 characters of letters, digits, ".", "_", ":" or "-".']];
         }
-        if (!$values['name'] || !$values['email'] || !is_email($values['email'])) {
-            return [null, [422, 'invalid_input', 'person.name and a valid person.email are required.']];
+        if ($values['first_name'] === '' && !empty($body['person']['name'])) {
+            return [null, [422, 'first_name_required', 'Send person.first_name (and person.last_name if known) separately; a full name is not split automatically.']];
+        }
+        $missing = [];
+        foreach (['first_name' => 'person.first_name', 'email' => 'person.email', 'phone' => 'person.phone', 'company' => 'company.name', 'message' => 'inquiry.message'] as $key => $label) {
+            if ($values[$key] === '') {
+                $missing[] = $label;
+            }
+        }
+        if ($missing) {
+            return [null, [422, 'missing_required_fields', 'Required by Nepa\'s contact form: ' . implode(', ', $missing) . '.']];
+        }
+        if (!is_email($values['email'])) {
+            return [null, [422, 'invalid_email', 'person.email must be a valid email address (a business address - Nepa\'s form rejects free webmail domains).']];
+        }
+        $digits = preg_replace('/\D/', '', $values['phone']);
+        if (!preg_match('/^[0-9+()\-.\/ ]+$/', $values['phone']) || strlen($digits) < 7 || strlen($digits) > 20) {
+            return [null, [422, 'invalid_phone', 'person.phone must be a phone number with 7-20 digits (digits, spaces, +, -, (, ), . or / only).']];
+        }
+        if ($values['language'] !== '' && !preg_match('/^[\p{L} ()-]{2,35}$/u', $values['language'])) {
+            return [null, [422, 'invalid_language', 'inquiry.language must be a language name or code, e.g. "sv" or "Swedish".']];
+        }
+        if (!$values['consent_to_process']) {
+            return [null, [422, 'processing_consent_required', 'consent.process must be true: the person must agree that Nepa may store and process their personal data ("' . NEPA_HUBSPOT_PROCESSING_TEXT . '").']];
         }
         return [$values, null];
     }
@@ -681,18 +732,29 @@ class Nepa_Agent_API {
         $wpdb->delete($wpdb->options, ['option_name' => $reservation['name'], 'option_value' => $reservation['raw']]);
     }
 
-    private function received_response($lead_id, $duplicate) {
-        status_header(200);
+    /**
+     * Response for a stored lead, with its HubSpot delivery state reported separately from
+     * the local record: HTTP 200 when stored (delivery delivered/pending/retrying/uncertain/
+     * under review/disabled), 422 when HubSpot rejected the submitted details.
+     */
+    private function lead_response($lead_post_id, $lead_id, $duplicate) {
+        $hubspot = $this->hubspot ? $this->hubspot->public_status($lead_post_id) : ['status' => 'disabled'];
+        $rejected = $hubspot['status'] === 'rejected';
+        status_header($rejected ? 422 : 200);
         header('Content-Type: application/json; charset=utf-8');
-        echo wp_json_encode([
-            'status'    => 'received',
+        $body = [
+            'status'    => $rejected ? 'rejected' : 'received',
             'duplicate' => $duplicate,
-            'message'   => $duplicate
-                ? 'This inquiry was already received - no new submission was created.'
-                : 'Thank you - a member of the Nepa team will follow up shortly.',
             'lead_id'   => $lead_id,
-            'next_step' => 'A Nepa representative will contact the provided email within 1-2 business days.',
-        ]);
+            'message'   => ($duplicate ? 'This inquiry was already submitted - nothing new was created or sent. ' : '') . $hubspot['message'],
+            'hubspot'   => $hubspot,
+        ];
+        if ($rejected) {
+            $body['error'] = 'hubspot_rejected';
+        } else {
+            $body['next_step'] = 'A Nepa representative will contact the provided email within 1-2 business days.';
+        }
+        echo wp_json_encode($body);
     }
 
     /**
@@ -702,7 +764,9 @@ class Nepa_Agent_API {
      */
     private function store_meta($post_id, $key, $value) {
         for ($attempt = 0; $attempt < 2; $attempt++) {
-            update_post_meta($post_id, $key, $value);
+            // update_post_meta() unslashes its input; slash first so backslashes in a
+            // person's text (or escaped quotes in JSON) are stored exactly.
+            update_post_meta($post_id, $key, wp_slash($value));
             if ((string) get_post_meta($post_id, $key, true) === (string) $value) {
                 return true;
             }
@@ -771,7 +835,8 @@ class Nepa_Agent_API {
             return;
         }
 
-        $fingerprint = hash('sha256', strtolower($v['email']) . "\n" . $v['name'] . "\n" . $v['company'] . "\n" . $v['service_interest'] . "\n" . $v['project_summary']);
+        $fingerprint = hash('sha256', implode("\n", [strtolower($v['email']), $v['first_name'], $v['last_name'], $v['phone'], $v['company'],
+            $v['service_interest'], $v['message'], $v['language'], $v['marketing_opt_in'] ? '1' : '0']));
         $has_key = $v['idempotency_key'] !== '';
         $scope = $has_key ? 'key:' . $v['idempotency_key'] : 'fp:' . $fingerprint;
         $ttl = $has_key ? self::IDEMPOTENCY_KEY_TTL : self::FINGERPRINT_TTL;
@@ -789,7 +854,8 @@ class Nepa_Agent_API {
                 return;
             }
             if (!empty($current['lead_post_id'])) {
-                $this->received_response((string) $current['lead_id'], true);
+                // A repeat never creates a lead or submits to HubSpot again: report the current state.
+                $this->lead_response((int) $current['lead_post_id'], (string) $current['lead_id'], true);
                 return;
             }
             $this->error(409, 'in_progress', 'An identical submission is still being processed. Wait a few seconds and retry with the same details.');
@@ -803,20 +869,39 @@ class Nepa_Agent_API {
         }
 
         $lead_id = 'nepa-lead-' . gmdate('Y') . '-' . strtoupper(substr(md5(uniqid('', true)), 0, 8));
-        $name = $v['name'];
+        $full_name = trim($v['first_name'] . ' ' . $v['last_name']);
+        $submitted_at_ms = (string) (int) round(microtime(true) * 1000);
+        $hubspot_message = Nepa_HubSpot_Delivery::compose_message($v['message'], $v['service_interest'], $v['language'], $v['via'], $lead_id);
+        // Everything HubSpot needs, stored in the lead's own row by the same INSERT that
+        // creates it: the lead and its complete submission data exist together or not at all.
+        $snapshot = Nepa_HubSpot_Delivery::encode_snapshot([
+            'lead_id'            => $lead_id,
+            'first_name'         => $v['first_name'],
+            'last_name'          => $v['last_name'],
+            'email'              => $v['email'],
+            'phone'              => $v['phone'],
+            'company'            => $v['company'],
+            'message'            => $hubspot_message,
+            'consent_to_process' => true,
+            'marketing_opt_in'   => $v['marketing_opt_in'],
+            'submitted_at_ms'    => $submitted_at_ms,
+        ]);
         $email = $v['email'];
         $company = $v['company'];
-        $service_interest = $v['service_interest'];
-        $project_summary = $v['project_summary'];
 
-        // Name, email and summary are in the post itself, so the stored post alone has
-        // everything needed to follow up and to rebuild the notification email.
-        $lead_post_id = wp_insert_post([
-            'post_type'    => 'nepa_lead',
-            'post_status'  => 'private',
-            'post_title'   => "{$lead_id}: {$name} <{$email}>" . ($company ? " ({$company})" : ''),
-            'post_content' => "Email: {$email}\nService interest: {$service_interest}\n\n{$project_summary}",
-        ], true);
+        // The post itself holds everything needed to follow up and to rebuild the
+        // notification email, even if every meta write below failed.
+        // wp_insert_post() expects slashed data and unslashes it before saving.
+        $lead_post_id = wp_insert_post(wp_slash([
+            'post_type'             => 'nepa_lead',
+            'post_status'           => 'private',
+            'post_title'            => "{$lead_id}: {$full_name} <{$email}>" . ($company ? " ({$company})" : ''),
+            'post_content'          => "Email: {$email}\nPhone: {$v['phone']}\nCompany: {$company}\n"
+                . ($v['service_interest'] !== '' ? "Service interest: {$v['service_interest']}\n" : '')
+                . ($v['language'] !== '' ? "Preferred language: {$v['language']}\n" : '')
+                . 'Marketing opt-in: ' . ($v['marketing_opt_in'] ? 'yes' : 'no') . "\n\n{$v['message']}",
+            'post_content_filtered' => $snapshot,
+        ]), true);
 
         if (is_wp_error($lead_post_id) || !$lead_post_id) {
             $this->release_reservation($reservation);
@@ -839,22 +924,48 @@ class Nepa_Agent_API {
         }
         $details = [
             'email'                      => $email,
-            'name'                       => $name,
+            'name'                       => $full_name,
+            'first_name'                 => $v['first_name'],
+            'last_name'                  => $v['last_name'],
+            'phone'                      => $v['phone'],
             'company'                    => $company,
-            'service_interest'           => $service_interest,
+            'service_interest'           => $v['service_interest'],
+            'language'                   => $v['language'],
+            'message'                    => $v['message'],
             'submitted_at'               => current_time('mysql'),
             'fingerprint'                => $fingerprint,
             'idempotency_key'            => $v['idempotency_key'],
-            // Record of consent as asserted by the caller, and through which channel.
+            // Three separate records: authorization to submit, consent to processing, marketing opt-in.
             'user_authorized_submission' => '1',
             'authorization_asserted_at'  => gmdate('c'),
-            'channel'                    => $this->is_trusted_mcp_request() ? 'mcp' : 'direct',
+            'consent_to_process'         => '1',
+            'consent_process_text'       => NEPA_HUBSPOT_PROCESSING_TEXT,
+            'marketing_opt_in'           => $v['marketing_opt_in'] ? '1' : '0',
+            'marketing_consent_text'     => NEPA_HUBSPOT_SUBSCRIPTION_LABEL . ' | ' . NEPA_HUBSPOT_SUBSCRIPTION_NOTICE,
+            'channel'                    => $this->is_trusted_mcp_request() ? 'mcp' : ($v['via'] === 'mcp' ? 'mcp (asserted)' : 'direct'),
             'client_ip_hash'             => hash_hmac('sha256', $this->get_client_ip(), wp_salt('auth')),
+            // Copies for wp-admin; delivery itself reads the snapshot stored in the post row.
+            'hubspot_message'            => $hubspot_message,
+            // Fixed submission time: the same value on every attempt, used to find the submission in HubSpot.
+            'hubspot_submitted_at_ms'    => $submitted_at_ms,
+            // No hubspot_* delivery state here: the worker may already be delivering this
+            // lead (it picks up leads with no status), and these writes must not reset it.
         ];
         foreach ($details as $key => $value) {
             if ($value !== '') {
                 $this->store_meta($lead_post_id, $key, $value);
             }
+        }
+        if (Nepa_HubSpot_Delivery::enabled()) {
+            if ($this->hubspot->read_snapshot($lead_post_id) === null) {
+                error_log("Nepa Agent API: lead {$lead_id} was stored but its submission data could not be read back; it goes to manual review.");
+            }
+            // Initial status + first attempt under the same per-lead lock as the worker, never
+            // overwriting a status the worker already recorded. Failures are retried by the
+            // worker (every 5 minutes) with backoff.
+            $this->hubspot->initialize_and_process($lead_post_id);
+        } else {
+            $this->store_meta($lead_post_id, 'hubspot_status', 'disabled');
         }
 
         $sent = $this->send_lead_notification($lead_post_id);
@@ -866,7 +977,7 @@ class Nepa_Agent_API {
             error_log("Nepa Agent API: wp_mail() failed for lead {$lead_id}; queued for retry.");
         }
 
-        $this->received_response($lead_id, false);
+        $this->lead_response($lead_post_id, $lead_id, false);
     }
 
     /** Builds the notification from the stored post itself (no dependency on extra meta) and sends it. */
@@ -882,7 +993,9 @@ class Nepa_Agent_API {
         $name = (string) get_post_meta($post_id, 'name', true);
         $email = (string) get_post_meta($post_id, 'email', true);
         $headers = ($name !== '' && $email !== '') ? ["Reply-To: {$name} <{$email}>"] : [];
-        $message = "Lead: {$post->post_title}\n\n{$post->post_content}\n\n(Saved as Agent Lead #{$post_id} in wp-admin.)\n"
+        $hubspot_status = (string) get_post_meta($post_id, 'hubspot_status', true);
+        $message = "Lead: {$post->post_title}\n\n{$post->post_content}\n\n(Saved as Agent Lead #{$post_id} in wp-admin."
+            . ($hubspot_status !== '' ? " HubSpot delivery at the time of this email: {$hubspot_status}." : '') . ")\n"
             . ($resend ? "(Re-sent automatically after an earlier send failure.)\n" : '');
         return (bool) wp_mail(self::LEAD_NOTIFY_TO, "New agent-submitted inquiry: {$lead_id}", $message, $headers);
     }
@@ -966,6 +1079,17 @@ class Nepa_Agent_API {
             "SELECT option_name, option_value FROM {$wpdb->options} WHERE option_name LIKE %s LIMIT 500",
             $wpdb->esc_like('nepa_lead_res_') . '%'
         ));
+        // Expired HubSpot delivery leases left by a crashed process (normally released at once).
+        $leases = $wpdb->get_results($wpdb->prepare(
+            "SELECT option_name, option_value FROM {$wpdb->options} WHERE option_name LIKE %s LIMIT 500",
+            $wpdb->esc_like('nepa_hs_lease_') . '%'
+        ));
+        foreach ((array) $leases as $row) {
+            $lease = json_decode((string) $row->option_value, true);
+            if (!is_array($lease) || ($lease['expires'] ?? 0) < time()) {
+                $wpdb->delete($wpdb->options, ['option_name' => $row->option_name, 'option_value' => $row->option_value]);
+            }
+        }
         foreach ((array) $rows as $row) {
             $value = json_decode((string) $row->option_value, true);
             if (!is_array($value) || ($value['created'] ?? 0) + ($value['ttl'] ?? 0) < time()) {
@@ -1000,6 +1124,7 @@ class Nepa_Agent_API {
 }
 
 $nepa_agent_api = new Nepa_Agent_API();
+$nepa_agent_api->hubspot = new Nepa_HubSpot_Delivery();
 
 register_activation_hook(__FILE__, function () use ($nepa_agent_api) {
     // The rules must be registered in this request before flushing - 'init' has already
@@ -1009,10 +1134,12 @@ register_activation_hook(__FILE__, function () use ($nepa_agent_api) {
     $nepa_agent_api->register_lead_post_type();
     $nepa_agent_api->grant_lead_capabilities_to_administrators();
     $nepa_agent_api->schedule_jobs();
+    $nepa_agent_api->hubspot->schedule();
     flush_rewrite_rules();
 });
 register_deactivation_hook(__FILE__, function () {
     wp_clear_scheduled_hook('nepa_agent_api_retry_notifications');
     wp_clear_scheduled_hook('nepa_agent_api_purge_leads');
+    wp_clear_scheduled_hook('nepa_agent_api_hubspot_worker');
     flush_rewrite_rules();
 });

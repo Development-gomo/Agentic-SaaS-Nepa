@@ -1,5 +1,101 @@
 # Changelog — Nepa Agentic Web package
 
+## HubSpot form delivery — 2026-10-19 (plugin 1.3.0, MCP server 1.2.0, OpenAPI 1.2.0)
+
+Agent inquiries are now forwarded to Nepa's HubSpot contact form, after the durable WordPress lead is stored. The full description is in DEPLOYMENT.md §11.
+
+- **API choice.** HubSpot's Forms v3 submission endpoint is used (`/submissions/v3/integration/[secure/]submit/{portal}/{form}`). It is the only API that creates a real form submission; the newer Forms APIs manage form definitions only. Checked against developers.hubspot.com on 2026-10-19.
+- **Form choice.** Every inquiry goes to the English form `7c631e31-…` (Nepa's decision). The Swedish, Finnish and Danish forms require the marketing-subscription checkbox, so they are not used. CAPTCHA is off on all four forms.
+- **Mapping.** The form's own field names are used. The MCP origin, service interest and preferred language are appended to the message (Nepa's decision: no hidden field). Full names are never split.
+- **Consent.** Authorization, processing consent and marketing opt-in are three separate inputs. Processing consent uses the form's exact text. Marketing is off unless explicitly requested. No cookie, IP address or page context is sent.
+- **Delivery tracking.** HubSpot delivery is tracked separately from storage and email:
+  - states: `pending`, `sending`, `delivered`, `retryable`, `uncertain`, `rejected`, `manual_review`, `disabled`;
+  - attempts, timestamps and a sanitized log are kept per lead;
+  - retries use bounded backoff and honour HubSpot's rate-limit headers;
+  - data errors are not retried, and configuration errors go to manual review with an email;
+  - per-lead locks stop overlapping workers.
+- **Uncertain outcomes.** These are looked up in HubSpot (with a token) before any resend, or sent to manual review (without one). Exactly-once delivery is not claimed; the remaining risk and recovery are documented.
+- **Responses.** `/contact.json` reports `hubspot.status`, and returns 422 `hubspot_rejected` when HubSpot refused the details. A repeat returns the existing lead and its current status without resending.
+- **MCP tool.** The result's first line states the real outcome.
+- **Admin.** A HubSpot column, a delivery box with the log, "Retry now" and "Mark as delivered" (administrators only, nonce-protected), and a warning banner.
+- **Notifications.** The WordPress email is unchanged (Nepa's decision) and now states the HubSpot status. HubSpot's own form notifications also run, so there may be two notifications per inquiry (documented).
+- **Settings.** The token is optional and configured in wp-config.php only. Delivery is off until `NEPA_HUBSPOT_ENABLED` is true.
+- **Tests.**
+  - New `tests/run-hubspot-tests.php`: 52 checks with a token, 48 without.
+  - MCP smoke test: 26 checks, including every outcome message.
+  - `staging-checks.sh` has a new `hubspot` mode for real acceptance, and its `duplicates` mode was updated to the new request shape.
+  - Six injected defects were each caught by the tests.
+
+**What was tested against real systems: nothing yet.** All HubSpot and WordPress behaviour above was tested with mocks. The real staging acceptance (`staging-checks.sh hubspot`) has not been run, because it needs the staging site and HubSpot access.
+
+### HubSpot delivery — fourth-pass review fix (Codex, 2026-10-19)
+
+**Problem.** WordPress keeps each post's meta in a per-request cache, and the database lock did not refresh it. A contact request could hold a stale copy (no HubSpot status yet), let a separate worker request deliver the inquiry, and then take the lock, see no status and submit it again.
+
+**Fix.** Whenever the per-lead lock is taken, this request's cached copy of the lead's meta is dropped, so every status, counter and timestamp decided under the lock comes from the database. The fix sits in the lock function itself, so request setup, the worker and both admin actions all get it.
+
+**Tests.** The stubs now give each simulated request its own meta cache, as WordPress does. New tests C1 (contact request vs. worker) and C2 (stale admin page vs. worker) replay the sequence with separate request caches. Both failed before the fix: C1 produced two submissions. Both pass after it, and removing the refresh makes them fail again.
+
+| Suite | Result |
+|---|---|
+| Plugin | 67/67 |
+| HubSpot, with token | 76/76 |
+| HubSpot, without token | 68/68 |
+| MCP | 26/26 |
+| OpenAPI | all real plugin responses valid |
+
+**Still mocks only.** Live MCP → WordPress → HubSpot verification is required before production.
+
+### HubSpot delivery — third-pass review fixes (Codex, 2026-10-19)
+
+All 3 findings were confirmed and fixed. Each has a test that replays the reported race, and with the original code put back each test fails.
+
+1. **Lead setup raced the worker.** Lead setup and the background worker now share one per-lead lock. The contact request sets the initial status and makes its first attempt under that lock, and never overwrites a status the worker already recorded. The write that reset the attempt counter to 0 after creation is removed.
+   - Replay: the worker delivers the new lead mid-request. Result: one submission, and the status stays `delivered` (it was two submissions).
+2. **Admin retry rewrote status outside the lock.** Admin retry and "mark as delivered" now read, decide and write entirely under the lock. Retry records the request in the log only, never by rewriting the status, and returns "locked" while a worker is handling the lead.
+   - Replay: a worker runs just before the admin's first status write. Result: one submission (it was two).
+3. **The lookup counter could fail to save.** If the counter can't be saved, the lead goes to manual review with an email, instead of being looked up without a limit.
+   - Replay: with the counter unwritable, one lookup and then manual review (it was 10 lookups, still unconfirmed).
+
+**Tests:**
+| Suite | Result |
+|---|---|
+| Plugin | 67/67 |
+| HubSpot, with token | 73/73 |
+| HubSpot, without token | 65/65 |
+| MCP | 26/26 |
+| OpenAPI | all real plugin responses valid |
+
+The test stubs gained two one-shot hooks, which run a worker after a lead is inserted or before a chosen field is written, to replay races.
+
+**Still mocks only.** All "real responses" are the real plugin answering against simulated WordPress and HubSpot. Live MCP → WordPress → HubSpot verification is still required.
+
+### HubSpot delivery — review fixes (Codex, 2026-10-19)
+
+All 8 findings were confirmed and fixed. Each has a regression test that reproduces the reported scenario, and reverting each fix in a throwaway copy makes its test fail.
+
+1. **Waiting leads blocked due ones.** The worker now selects only leads that are due, inside the query itself, before the batch limit is applied. Ten leads waiting for later retries can no longer starve a newer lead that is due.
+2. **Submission data was not verified.** The complete submission is now stored in the lead's own database row by the same insert that creates the lead, and HubSpot's payload is built from it. If the lead exists, its full submission data exists; a failed field write can no longer send an empty message. If the stored data can't be read, nothing is sent and the lead goes to manual review.
+3. **Leads with no saved state were stuck.** The worker also picks up leads that have no delivery state yet. Leads saved before HubSpot delivery existed are marked `not_applicable` once and never sent.
+4. **Failed lookups were unbounded.** Unconfirmed leads now honour their retry time. A lookup refused with 401/403/404 goes straight to manual review. Other lookup failures back off and go to manual review after 8 tries.
+5. **Retry counters weren't verified.** The `sending` status, the attempt counter and the retry time must all be stored before any request is made, so the 8-attempt limit can always be enforced.
+6. **Admins could resend delivered leads.** Delivered is final. Administrator retries, including repeated clicks or stale pages, are refused under the per-lead lock.
+7. **Saved JSON and text could be corrupted.** Every stored value is slashed before saving, because WordPress strips slashes. Delivery logs with quotes stay valid JSON, and backslashes in a person's message are kept. The same fix covers the post title and body; this wider escaping bug was found during this fix.
+8. **The OpenAPI 422 schema was ambiguous.** The two response types are now mutually exclusive: error bodies never have `status`, and stored-lead bodies require `status`, `lead_id` and `hubspot`. All 88 real responses from the test suite validate.
+
+**Tests:**
+| Suite | Result |
+|---|---|
+| Plugin | 67/67 |
+| HubSpot, with token | 66/66 |
+| HubSpot, without token | 59/59 |
+| MCP | 26/26 |
+| OpenAPI response check | 96/96 |
+
+The test stubs now strip slashes like WordPress does.
+
+**Still tested with mocks only.** A real run through MCP → WordPress → HubSpot has not been done.
+
 ## agentic-web-2026-10 — 2026-10-16
 
 Rebuilt from a fresh crawl of the live https://nepa.com on 2026-10-16 and compared with the previous package (folder `Original/`, crawled 2026-09-08, published 2026-09-09).

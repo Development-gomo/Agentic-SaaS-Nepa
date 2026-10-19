@@ -4,15 +4,15 @@ This package has three parts that deploy separately:
 
 | Part | Folder / files | Where it goes |
 |---|---|---|
-| WordPress plugin "Nepa Agent API" 1.2.0 | `nepa-api/` | `wp-content/plugins/nepa-api/` |
+| WordPress plugin "Nepa Agent API" 1.3.0 | `nepa-api/` | `wp-content/plugins/nepa-api/` |
 | Discovery files | `llms.txt`, `ai.txt`, `api-catalog.json`, `robots-addition.txt` | Web root (`https://nepa.com/<file>`) and robots.txt |
-| MCP server 1.1.0 | `nepa-mcp/` | Render web service |
+| MCP server 1.2.0 | `nepa-mcp/` | Render web service |
 
 The plugin serves `/agent/`, `/agent/v1/*.json` and `/openapi.json` itself. It does **not** serve `llms.txt`, `ai.txt` or `api-catalog.json`, and it does not edit `robots.txt`; those are separate steps below.
 
 Requirements: WordPress 6.0+, PHP 7.4+, Node.js 20+ for the MCP server (a locked dependency, `@hono/node-server`, requires Node 20).
 
-Before deploying, run the packaged tests (see `tests/README.md`): `php -d error_reporting='E_ALL & ~E_DEPRECATED & ~E_WARNING' tests/run-plugin-tests.php` and `bash tests/mcp-smoke-test.sh`. Both must report 0 failed.
+Before deploying, run the packaged tests (see `tests/README.md`): `tests/run-plugin-tests.php`, `tests/run-hubspot-tests.php token`, `tests/run-hubspot-tests.php notoken`, `bash tests/mcp-smoke-test.sh` and `tests/validate-openapi-examples.py`. All must report 0 failed.
 
 ---
 
@@ -35,6 +35,15 @@ Before deploying, run the packaged tests (see `tests/README.md`): `php -d error_
    // Days to keep Agent Leads before automatic permanent deletion. 0 = keep (default).
    // Agree the period with Nepa's privacy policy before enabling.
    define('NEPA_LEAD_RETENTION_DAYS', 0);
+
+   // HubSpot form delivery (section 11). Off until set to true.
+   define('NEPA_HUBSPOT_ENABLED', true);
+   // Optional private-app token with the `forms` scope. Never commit it.
+   define('NEPA_HUBSPOT_TOKEN', 'pat-eu1-...');
+   // Defaults, shown for reference - only change them together with the HubSpot form:
+   // define('NEPA_HUBSPOT_PORTAL_ID', '146131568');
+   // define('NEPA_HUBSPOT_FORM_ID', '7c631e31-cc3b-44ba-a580-113ab3489db6'); // English /contact-us/ form
+   // define('NEPA_HUBSPOT_SUBMIT_BASE', 'https://api.hsforms.com');
    ```
 
 4. **Persistent object cache (recommended).** With Redis or Memcached, the contact rate limits are exact (atomic counters). Without one they use WordPress transients and two simultaneous requests can occasionally both pass the limit.
@@ -107,7 +116,7 @@ curl -s https://nepa.com/agent/v1/index.json | head -c 300
 
 ## 7. Rollback
 
-1. Restore the backed-up `wp-content/plugins/nepa-api/` folder and re-activate the plugin (Settings → Permalinks → Save).
+1. Restore the backed-up `wp-content/plugins/nepa-api/` folder and re-activate the plugin (Settings → Permalinks → Save). To stop HubSpot delivery without a rollback, set `NEPA_HUBSPOT_ENABLED` to false; leads are then saved in WordPress only.
 2. If the problem is synced data, delete `wp-content/uploads/nepa-agent-api/manifest.json` (or the whole folder); the plugin then serves its bundled `data/` files.
 3. Restore the backed-up `llms.txt`, `ai.txt`, `api-catalog.json`, `robots.txt`.
 4. In Render, redeploy the previous commit.
@@ -181,3 +190,116 @@ The script's logic was checked against two local mock servers before shipping. I
 2. **Before enabling `NEPA_TRUST_CLOUDFLARE_IP`**, check two things:
    - **Is the origin directly reachable?** WP Engine installs normally also answer on `<install>.wpengine.com`. Pass that host as the third argument. If it answers 200, anyone can bypass the edge and send a fake `CF-Connecting-IP`, so **leave the setting off**.
    - **What does PHP see as the client address?** On WP Engine, `REMOTE_ADDR` is normally already the visitor's real IP, in which case the setting is unnecessary. To check on staging, temporarily add `error_log('REMOTE_ADDR=' . ($_SERVER['REMOTE_ADDR'] ?? '') . ' CF=' . ($_SERVER['HTTP_CF_CONNECTING_IP'] ?? '-'));` to wp-config.php, load any page, and compare the logged `REMOTE_ADDR` with your own public IP. If they match, leave `NEPA_TRUST_CLOUDFLARE_IP` off. Remove the line afterwards.
+
+
+## 11. HubSpot form delivery (plugin 1.3.0, MCP server 1.2.0)
+
+Agent inquiries now follow this path:
+
+`MCP client → submit_contact_inquiry → /agent/v1/contact.json → stored Agent Lead in WordPress → HubSpot Forms submission API → Nepa's English contact form`
+
+All HubSpot logic and credentials stay on the WordPress server.
+
+### What is sent
+
+- **Form.** Every inquiry goes to the English form `7c631e31-cc3b-44ba-a580-113ab3489db6` on portal 146131568 (EU), whatever the person's language. The Swedish, Finnish and Danish forms are not used because each of them **requires** the marketing-subscription checkbox (see "Open points for Nepa" below). The person's preferred language is written into the message.
+- **Fields.** These are the form's own internal names:
+
+  | Field | Object | Required? |
+  |---|---|---|
+  | `firstname` | contact (0-1) | Yes |
+  | `lastname` | contact (0-1) | Optional; only sent when given |
+  | `email` | contact (0-1) | Yes. HubSpot's default block list rejects free webmail. |
+  | `name` | company (0-2) | Yes |
+  | `phone` | contact (0-1) | Yes, 7–20 digits |
+  | `message` | contact (0-1) | Yes |
+
+  A full name is never split. The tool and endpoint require `first_name` separately.
+- **Message.** The person's text, then a separated block with:
+  - `Service interest: …` (if given)
+  - `Preferred language: …` (if given)
+  - `Submitted via MCP (an AI agent using Nepa's agent API) on behalf of the person named in this form.`
+  - `Nepa lead ID: …`
+- **Consent.** Three separate inputs, each recorded on the lead:
+  1. Authorization to submit (`agent_context.user_authorized_submission`).
+  2. Consent to processing (`consent.process`, required), sent as `consentToProcess: true` with the form's text "I agree to allow Nepa to store and process my personal data."
+  3. Marketing (`consent.marketing_opt_in`, default **false**), sent as `communications[0].value` for subscription type 789062182 with the form's checkbox label.
+
+  Nobody is opted into marketing unless they explicitly asked.
+- **Not sent:** no HubSpot cookie (`hutk`), IP address or page URL. The person never visited a page, so none of that would be true.
+
+### Is a HubSpot token needed?
+
+**No, it is optional.** Without `NEPA_HUBSPOT_TOKEN` the plugin uses HubSpot's unauthenticated submit endpoint, and submissions work. With a token (a private app with the `forms` scope, created by a HubSpot super admin), the plugin:
+
+- uses the authenticated endpoint, which has higher rate limits;
+- and, more importantly, **can check whether an unconfirmed submission arrived** before sending it again (`GET /form-integrations/v1/submissions/forms/{form}`).
+
+Without a token, unconfirmed submissions go to manual review instead of being resent.
+
+### Delivery states (WordPress → Agent Leads → "HubSpot" column and side box)
+
+| State | Meaning | What happens next |
+|---|---|---|
+| `delivered` | HubSpot answered 200, or the submission was found by lookup | Nothing |
+| `pending` / `sending` | Saved, being sent | Automatic |
+| `retryable` | Temporary failure: 429, 500/503, or connection refused | The worker (every 5 minutes) retries with backoff of 1 min, 5 min, 15 min, 30 min, 1 h, 2 h, 4 h and 8 h, honouring HubSpot's rate-limit window. After 8 attempts the lead moves to `manual_review`. |
+| `uncertain` | HubSpot may have accepted it (timeout, 502/504, crash mid-request, or the result couldn't be recorded) | **With a token:** looked up first, and resent only if not found after 10 minutes. **Without a token:** `manual_review`. |
+| `rejected` | HubSpot refused the person's details (for example `BLOCKED_EMAIL`, `REQUIRED_FIELD`, `VALUE_NOT_IN_FIELD_DEFINITION`) | Not retried. The agent is told which details to fix and to submit again. |
+| `manual_review` | Needs a person: wrong token or form ID (401/403/404), a form or consent configuration error, retries exhausted, or an unknown outcome without a token | An email goes to info@nepa.com once per lead and reason |
+| `disabled` | `NEPA_HUBSPOT_ENABLED` is not true | Saved in WordPress only |
+| `not_applicable` | A lead saved before HubSpot delivery existed | Never sent |
+
+**Operations.** Open the lead in wp-admin → Agent Leads. The **HubSpot delivery** box shows the attempts, next attempt, review reason, the exact submission time sent to HubSpot, and a log. Two buttons are available to administrators only (nonce-protected):
+
+- **Retry HubSpot delivery now**
+- **Mark as delivered (found in HubSpot)**
+
+A banner lists leads that need a check. Errors are logged without email addresses or tokens.
+
+### Duplicates: what is and isn't guaranteed
+
+- **One inquiry per submission.** A repeated or simultaneous request with the same `idempotency_key` (or identical content within 30 minutes) never creates a second lead or a second HubSpot submission. It returns the existing lead and its current delivery status.
+- **No blind resends.** HubSpot's submission API has **no idempotency key**, so exactly-once delivery can't be guaranteed. The plugin records `sending` before every request and never sends if it can't. It sends every attempt with the same fixed `submittedAt`. It never blindly resends anything that may have arrived.
+- **Remaining risk (token mode only).** HubSpot accepts a submission, the response is lost, and after 10 minutes the submission is still not visible in the newest 250 submissions of the form. The plugin then resends it and the contact gets a second submission on the form, which could re-trigger form workflows. **Recovery:** delete the duplicate submission in HubSpot. Without a token this can't happen, because unknown outcomes always go to manual review.
+
+### Notifications
+
+Unchanged, as Nepa decided:
+
+- WordPress emails info@nepa.com for every new inquiry. The email now states the HubSpot delivery status at the time it was sent.
+- The HubSpot form's own notification and workflows also run for every delivered submission.
+
+Nepa may therefore receive **two notifications per inquiry** (one from WordPress, one from HubSpot). To keep only one, remove info@nepa.com from the form's notification settings in HubSpot, or ask to switch off the WordPress email for delivered leads.
+
+### Retention
+
+Agent Leads in WordPress, including their delivery metadata, are deleted only by hand (`NEPA_LEAD_RETENTION_DAYS` = 0, as decided). **Deleting a WordPress lead does not delete the HubSpot contact or form submission.** Those follow Nepa's HubSpot retention and deletion processes.
+
+### Staging acceptance (real WordPress + real HubSpot)
+
+After deploying plugin 1.3.0 and MCP server 1.2.0 to staging, with `NEPA_HUBSPOT_ENABLED` true:
+
+```bash
+bash tests/staging-checks.sh hubspot https://<staging-mcp-host>/mcp <test-email-on-a-business-domain>
+```
+
+This submits a real inquiry through the MCP tool (company "Nepa staging check", names "STAGING TEST"), repeats it, and prints the checklist to verify in HubSpot:
+
+1. one submission on the intended form;
+2. correct contact properties;
+3. consent recorded and no marketing subscription;
+4. workflows and notifications ran;
+5. the repeat created nothing new;
+6. temporary-failure recovery;
+7. permanent-failure handling.
+
+Run `bash tests/staging-checks.sh duplicates https://<staging-wordpress-host>` again too. It now also submits to HubSpot, so set `NEPA_TEST_EMAIL_DOMAIN` to a business domain you control.
+
+### Open points for Nepa
+
+- **Mislabelled marketing checkbox.** On all four contact forms, the marketing subscription checkbox (type 789062182) is labelled as a privacy-policy acknowledgement. On the Swedish, Finnish and Danish forms it is **required**, so submitting those forms subscribes people to marketing. Fix the labels, and the required setting on the localized forms. Agent inquiries avoid this by using the English form, where the box is optional.
+- **Unverified on real HubSpot (checked during staging acceptance):**
+  - whether this EU account needs a regional API address (configurable via `NEPA_HUBSPOT_SUBMIT_BASE`);
+  - whether HubSpot stores the `submittedAt` sent with each submission, which the lookup relies on;
+  - the exact phone format HubSpot's validation accepts.

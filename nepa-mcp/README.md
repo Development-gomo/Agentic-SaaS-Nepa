@@ -39,3 +39,34 @@ The MCP endpoint is `https://<your-render-host>/mcp` (CORS enabled for browser-b
 - Rate limiting trusts one proxy hop (`TRUST_PROXY`); session cleanup also runs when a client disconnects early.
 - Dependencies updated with `npm audit fix` (MCP SDK 1.32.1, proxy-addr 2.0.8, qs 6.16.1 and others): `npm audit` reports 0 vulnerabilities as of 2026-10-16.
 - 18 tools in total. `node_modules/` is not shipped; Render's `npm ci` installs it from `package-lock.json`.
+
+## Version 1.2.0 (2026-10) - HubSpot form delivery
+
+`submit_contact_inquiry` now matches Nepa's HubSpot contact form, where every inquiry is forwarded by the WordPress plugin (1.3.0).
+
+**Inputs:**
+- `first_name`, `email` (business address), `phone`, `company` and `message` are required.
+- `last_name`, `service_interest`, `language` and `idempotency_key` are optional.
+- Three separate consent and authorization inputs:
+  - `user_authorized_submission: true` (required);
+  - `consent_to_process: true` (required, for the exact statement "I agree to allow Nepa to store and process my personal data.");
+  - `marketing_opt_in` (default `false`; `true` only on the person's explicit request).
+- Full names are never split.
+
+**Results.** The first line of the result states the real outcome:
+
+| Outcome | Meaning |
+|---|---|
+| `DELIVERED` | Confirmed in HubSpot |
+| `SAVED, DELIVERY PENDING` / `RETRYING` / `UNCONFIRMED` | Saved by Nepa; delivery is still in progress |
+| `SAVED, NEEDS NEPA REVIEW` | Saved; Nepa's team must act on the HubSpot delivery |
+| `REJECTED` | Error. HubSpot refused the details, for example a webmail address. |
+| `IN PROGRESS` | Error. An identical request is still being processed. |
+| `NOT SAVED (temporary)` | Error. Nothing was recorded; retry later. |
+| `Outcome unknown` | Error. Retry with the same details. |
+
+`ALREADY SUBMITTED` is prefixed when a repeat matched an earlier submission. No credentials for HubSpot live on this server.
+
+**Settings:**
+- The contact call waits up to `CONTACT_TIMEOUT_MS` (default 30000) because WordPress makes its first HubSpot attempt inside the request.
+- The request body now sends `consent`, `person.first_name`/`last_name`/`phone`, `inquiry.message`/`language`, and `agent_context.via = "mcp"`.
