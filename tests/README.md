@@ -74,6 +74,14 @@ php tests/run-markdown-tests.php
 
 22 checks of the `?format=md` pages served by `nepa-agent-discovery.php` 1.2.0. On `tests/fixtures/enfold-page.php`, a page in the shape of nepa.com's Enfold theme: content before, inside and after `<main>` is kept (Enfold puts most sections after it), the site header, footer menu, widgets and socket are left out, scripts (including `text/html` templates), styles, iframes, forms and buttons don't leak, lists, tables, bold text and absolute links come through, and the H1 that repeats the title is dropped. Then over real HTTP (`php -S` with `tests/md-hook-probe.php`): Markdown content type, noindex, canonical link and CORS headers, the front matter, a body with the page content, the cache being reused, and non-Markdown requests left to the theme. With the content-area cut removed, the footer-menu check fails.
 
+## Page additions (PHP 7.4+ CLI)
+
+```bash
+php tests/run-page-additions-tests.php
+```
+
+26 checks of what `nepa-agent-discovery.php` 1.3.0 adds to pages: price strings from `pricing.json` turned into schema.org price specifications (monthly, one-time, one-time + monthly, price on request); the Offer catalogue on `/pricing/` (one Offer per plan, in order, with EUR and SEK, product pages and seller) and nowhere else; hreflang links from `localized-pages.json` without WPML (contact pages, home page, x-default, nothing for pages without language versions) and from WPML's language data with it (untranslated languages left out, nothing added when WPML prints hreflang itself); the `<noscript>` contact block printed once on the contact pages and not elsewhere, with email, phone, address and the agent contact endpoint, and the contact page list matching `localized-pages.json`.
+
 ## llms-full.txt
 
 ```bash

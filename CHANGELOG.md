@@ -1,6 +1,6 @@
 # Changelog — Nepa Agentic Web package
 
-## Fixes after the live audit — 2026-11-17 (discovery plugin 1.2.0, OpenAPI 1.4.0)
+## Fixes after the live audit — 2026-11-17 (discovery plugin 1.2.0 → 1.3.0, OpenAPI 1.4.0)
 
 Five fixes from an audit of the live site after the 2026-11 deployment. Deployment steps: DEPLOYMENT.md section 14.
 
@@ -9,6 +9,13 @@ Five fixes from an audit of the live site after the 2026-11 deployment. Deployme
 - **New `llms-full.txt`** (about 240 KB): the full plain-text reference - company, leadership, offices, products, pricing table, solutions, industries, case studies with results, investor relations, events, FAQ, every blog post, press release and localized page with its source URL. Generated from the data files by the new `tools/build-llms-full.py` (`--check` mode runs in `tests/run-all.sh`), so it cannot drift from the API. Linked from llms.txt, ai.txt (`LLM-Full:`), api-catalog.json, the agent page and every page's `<head>`.
 - **robots.txt:** removed `User-agent: Googlebot-Extended` (not a real token; `Google-Extended` stays). **Yoast SearchAction removed:** it pointed agents to `/?s=`, which robots.txt disallows; the plugin now switches off Yoast's SearchAction JSON-LD.
 - **New `/.well-known/security.txt`** (RFC 9116, also at `/security.txt`): `Contact: mailto:security@nepa.com`, the PGP key fingerprint, `Policy: https://nepa.com/security/`, `Expires` 2027-11-15 (constant `NEPA_AD_SECURITY_EXPIRES`; renew at each build).
+
+**Page additions (discovery plugin 1.3.0),** from the same audit:
+
+- **Offer schema on `/pricing/`** (item 2, schema part): an `OfferCatalog` JSON-LD with one catalogue per product and one `Offer` per plan (11), each with EUR and SEK "from" prices (monthly, one-time, or both for Marketing Mix Modelling) or "Price on request", the product page and Nepa as seller. Built from `pricing.json`, the data `/agent/v1/pricing.json` serves, so it changes with the next Sync. The prices in the page HTML still need the theme (they are filled in by JavaScript).
+- **`<noscript>` contact fallback** (item 7) on `/contact-us/` and the Swedish, Finnish and Danish contact pages: email, phone, headquarters address and the agent contact endpoint (`POST /agent/v1/contact.json`, MCP `submit_contact_inquiry`). Printed right after `<body>`, or at the start of the footer if the theme doesn't fire `wp_body_open`.
+- **hreflang links in `<head>`** (item 8) for en, sv, fi, da and x-default, from WPML's language data (untranslated languages left out). If WPML's own "alternative languages in the HEAD section" option is on, the plugin adds nothing. Without WPML it falls back to the alternates in `localized-pages.json`.
+- New tests: `tests/run-page-additions-tests.php` (26 checks).
 
 Also still to deploy from the 2026-11-16 fix commit: `agent-page.html` (three restored discovery links) and `data/localized-pages.json` (`alternates` null instead of `{}`).
 

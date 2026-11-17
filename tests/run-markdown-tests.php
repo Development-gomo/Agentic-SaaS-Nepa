@@ -1,6 +1,6 @@
 <?php
 /**
- * Tests for the ?format=md Markdown versions served by nepa-agent-discovery.php (1.2.0).
+ * Tests for the ?format=md Markdown versions served by nepa-agent-discovery.php (1.2.0 and later).
  *
  *   php tests/run-markdown-tests.php
  *

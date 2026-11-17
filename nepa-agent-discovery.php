@@ -3,8 +3,9 @@
  * Plugin Name: Nepa Agent Discovery
  * Description: Agent discovery layer for nepa.com — /.well-known/api-catalog (RFC 9727), /.well-known/mcp.json,
  *              /.well-known/security.txt (RFC 9116), <head> discovery links, Markdown versions of pages
- *              via ?format=md, and nepa.com's Agentic Resource Discovery (ARD) entries for /.well-known/ard.json.
- * Version:     1.2.0
+ *              via ?format=md, hreflang links, Offer schema on /pricing/, a <noscript> contact fallback, and
+ *              nepa.com's Agentic Resource Discovery (ARD) entries for /.well-known/ard.json.
+ * Version:     1.3.0
  * Author:      GO MO Group
  *
  * Install: upload to wp-content/mu-plugins/nepa-agent-discovery.php (must-use plugins load automatically),
@@ -16,7 +17,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const NEPA_AD_VERSION = '1.2.0';
+const NEPA_AD_VERSION = '1.3.0';
 const NEPA_AD_MCP_URL = 'https://agentic-mcp-saas-nepa.onrender.com/mcp';
 
 /**
@@ -277,6 +278,200 @@ add_action( 'wp_head', function () {
 		);
 	}
 }, 2 );
+
+/* -------------------------------------------------------------------------
+ * 2a. Page additions from the package data: Offer schema on /pricing/, hreflang links in <head>,
+ *     and a <noscript> contact fallback on the contact pages (their HubSpot form needs JavaScript).
+ * ---------------------------------------------------------------------- */
+
+/** Path of the current request (e.g. /pricing/), without query string. */
+function nepa_ad_request_path(): string {
+	$path = (string) wp_parse_url( (string) ( $_SERVER['REQUEST_URI'] ?? '/' ), PHP_URL_PATH );
+	return '' === $path ? '/' : $path;
+}
+
+/** A data file of the Nepa Agent API plugin (the synced copy if the plugin serves one), decoded; [] if unavailable. */
+function nepa_ad_api_data( string $file ): array {
+	static $cache = array();
+	if ( ! isset( $cache[ $file ] ) ) {
+		$path = function_exists( 'nepa_agent_api_data_path' )
+			? nepa_agent_api_data_path( $file )
+			: ( defined( 'WP_PLUGIN_DIR' ) ? WP_PLUGIN_DIR : ABSPATH . 'wp-content/plugins' ) . '/nepa-api/data/' . $file;
+		$data           = is_readable( $path ) ? json_decode( (string) file_get_contents( $path ), true ) : null;
+		$cache[ $file ] = is_array( $data ) ? $data : array();
+	}
+	return $cache[ $file ];
+}
+
+/**
+ * schema.org price specifications for a pricing.json price string, e.g.
+ * "From 40,000 EUR (434,000 SEK) one-time + 2,500 EUR (27,100 SEK)/month". Published prices are
+ * "from" prices, so they become minPrice. "Price on request" gives none.
+ */
+function nepa_ad_price_specs( string $price ): array {
+	$specs = array();
+	foreach ( preg_split( '/\s\+\s/', $price ) as $part ) {
+		$monthly = false !== stripos( $part, '/month' );
+		preg_match_all( '/(\d[\d,]*(?:\.\d+)?)\s*(EUR|SEK)\b/', $part, $m, PREG_SET_ORDER );
+		foreach ( $m as $hit ) {
+			$spec = array(
+				'@type'         => $monthly ? 'UnitPriceSpecification' : 'PriceSpecification',
+				'priceCurrency' => $hit[2],
+				'minPrice'      => false !== strpos( $hit[1], '.' ) ? (float) str_replace( ',', '', $hit[1] ) : (int) str_replace( ',', '', $hit[1] ),
+			);
+			if ( $monthly ) {
+				$spec['unitText'] = 'MONTH';
+				$spec['unitCode'] = 'MON';
+			} else {
+				$spec['description'] = 'One-time fee';
+			}
+			$specs[] = $spec;
+		}
+	}
+	return $specs;
+}
+
+/** OfferCatalog JSON-LD for the pricing page, built from pricing.json (the same data /agent/v1/pricing.json serves). */
+function nepa_ad_pricing_schema(): array {
+	$pricing = nepa_ad_api_data( 'pricing.json' );
+	if ( empty( $pricing['plans'] ) ) {
+		return array();
+	}
+	$product_urls = array();
+	foreach ( (array) ( nepa_ad_api_data( 'products.json' )['products'] ?? array() ) as $p ) {
+		$product_urls[ $p['name'] ?? '' ] = $p['url'] ?? '';
+	}
+	$page   = nepa_ad_url( '/pricing/' );
+	$groups = array();
+	foreach ( $pricing['plans'] as $plan ) {
+		$product = (string) ( $plan['product'] ?? '' );
+		$specs   = nepa_ad_price_specs( (string) ( $plan['price'] ?? '' ) );
+		$offer   = array(
+			'@type'        => 'Offer',
+			'name'         => (string) ( $plan['tier'] ?? '' ),
+			'description'  => (string) ( $plan['tagline'] ?? '' ),
+			'url'          => $page,
+			'availability' => 'https://schema.org/InStock',
+			'seller'       => array( '@id' => nepa_ad_url( '/#organization' ) ),
+			'itemOffered'  => array_filter( array( '@type' => 'Service', 'name' => $product, 'url' => $product_urls[ $product ] ?? '' ) ),
+		);
+		if ( $specs ) {
+			$offer['price']              = $specs[0]['minPrice'];
+			$offer['priceCurrency']      = $specs[0]['priceCurrency'];
+			$offer['priceSpecification'] = $specs;
+		} else {
+			$offer['description'] = trim( $offer['description'] . ' Price on request.' );
+		}
+		if ( ! isset( $groups[ $product ] ) ) {
+			$groups[ $product ] = array_filter( array( '@type' => 'OfferCatalog', 'name' => $product, 'url' => $product_urls[ $product ] ?? '' ) );
+		}
+		$groups[ $product ]['itemListElement'][] = $offer;
+	}
+	return array(
+		'@context'        => 'https://schema.org',
+		'@type'           => 'OfferCatalog',
+		'@id'             => $page . '#offers',
+		'name'            => 'Nepa pricing',
+		'url'             => $page,
+		'description'     => 'Published "from" prices in EUR with SEK equivalents. Machine-readable: ' . nepa_ad_url( '/agent/v1/pricing.json' ),
+		'provider'        => array( '@id' => nepa_ad_url( '/#organization' ) ),
+		'itemListElement' => array_values( $groups ),
+	);
+}
+
+/**
+ * Language versions of the current page: [language code => URL], at least two or none.
+ * From WPML (the language switcher's own data) when it runs, unless WPML already prints hreflang
+ * itself (WPML -> Languages -> SEO options); otherwise from localized-pages.json, which lists the
+ * alternates declared in the site's sitemap. nepa.com's <head> carries no hreflang today.
+ */
+function nepa_ad_hreflang_links(): array {
+	$links = array();
+	$wpml  = apply_filters( 'wpml_active_languages', null, array( 'skip_missing' => 1 ) );
+	if ( is_array( $wpml ) ) {
+		$seo = apply_filters( 'wpml_setting', array(), 'seo' );
+		if ( is_array( $seo ) && ! empty( $seo['head_langs'] ) ) {
+			return array(); // WPML prints them
+		}
+		foreach ( $wpml as $code => $lang ) {
+			$code = (string) ( $lang['language_code'] ?? $lang['code'] ?? $code );
+			if ( empty( $lang['missing'] ) && ! empty( $lang['url'] ) ) {
+				$links[ $code ] = (string) $lang['url'];
+			}
+		}
+	} else {
+		$current = nepa_ad_url( nepa_ad_request_path() );
+		foreach ( (array) ( nepa_ad_api_data( 'localized-pages.json' )['pages'] ?? array() ) as $p ) {
+			$group = array( (string) ( $p['language'] ?? '' ) => (string) ( $p['url'] ?? '' ) ) + (array) ( $p['alternates'] ?? array() );
+			if ( in_array( $current, $group, true ) ) {
+				$links = $group;
+				break;
+			}
+		}
+	}
+	$links = array_filter( $links, function ( $url, $code ) {
+		return preg_match( '/^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$/', (string) $code ) && preg_match( '#^https?://#', (string) $url );
+	}, ARRAY_FILTER_USE_BOTH );
+	if ( count( $links ) < 2 ) {
+		return array();
+	}
+	ksort( $links );
+	if ( isset( $links['en'] ) ) {
+		$links['x-default'] = $links['en'];
+	}
+	return $links;
+}
+
+add_action( 'wp_head', function () {
+	foreach ( nepa_ad_hreflang_links() as $code => $url ) {
+		printf( '<link rel="alternate" hreflang="%s" href="%s" />' . "\n", esc_attr( $code ), esc_url( $url ) );
+	}
+	if ( '/pricing/' === trailingslashit( nepa_ad_request_path() ) ) {
+		$schema = nepa_ad_pricing_schema();
+		if ( $schema ) {
+			echo '<script type="application/ld+json" id="nepa-pricing-offers">'
+				. wp_json_encode( $schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE | JSON_HEX_TAG )
+				. "</script>\n";
+		}
+	}
+}, 3 );
+
+/** Contact pages that get the <noscript> fallback (English and the WPML translations). */
+function nepa_ad_contact_paths(): array {
+	return (array) apply_filters( 'nepa_ad_contact_paths', array( '/contact-us/', '/sv/kontakta-oss/', '/fi/contact/', '/da/contact/' ) );
+}
+
+/** The <noscript> block: how to reach Nepa without the JavaScript form, for people and for agents. */
+function nepa_ad_noscript_contact(): string {
+	$c       = nepa_ad_api_data( 'company.json' );
+	$email   = (string) ( $c['email'] ?? 'info@nepa.com' );
+	$phone   = (string) ( $c['phone'] ?? '+46 8 400 268 00' );
+	$address = (string) ( $c['headquarters'] ?? 'Magnus Ladulåsgatan 65, 118 27 Stockholm, Sweden' );
+	$tel     = preg_replace( '/[^\d+]/', '', $phone );
+	return '<noscript><section class="nepa-noscript-contact" aria-label="Contact Nepa" style="max-width:960px;margin:24px auto;padding:16px 20px;border:1px solid #ccc">'
+		. '<h2>Contact Nepa</h2>'
+		. '<p>The contact form on this page needs JavaScript. You can also reach Nepa directly:</p><ul>'
+		. '<li>Email: <a href="mailto:' . esc_attr( $email ) . '">' . esc_html( $email ) . '</a></li>'
+		. '<li>Phone: <a href="tel:' . esc_attr( $tel ) . '">' . esc_html( $phone ) . '</a></li>'
+		. '<li>Headquarters: ' . esc_html( $address ) . '</li></ul>'
+		. '<p>AI agents: send an inquiry that a person has explicitly authorized with <code>POST ' . esc_html( nepa_ad_url( '/agent/v1/contact.json' ) ) . '</code> '
+		. '(described in <a href="' . esc_url( nepa_ad_url( '/openapi.json' ) ) . '">openapi.json</a>; rules in <a href="' . esc_url( nepa_ad_url( '/ai.txt' ) ) . '">ai.txt</a>), '
+		. 'or the MCP tool <code>submit_contact_inquiry</code> (<a href="' . esc_url( nepa_ad_url( '/.well-known/mcp.json' ) ) . '">mcp.json</a>).</p>'
+		. "</section></noscript>\n";
+}
+
+/* Printed once, right after <body> where the theme fires wp_body_open, else at the start of the footer scripts. */
+$nepa_ad_print_noscript = function () {
+	static $done = false;
+	if ( $done || is_admin() || ! in_array( trailingslashit( nepa_ad_request_path() ), nepa_ad_contact_paths(), true ) ) {
+		return;
+	}
+	$done = true;
+	echo nepa_ad_noscript_contact(); // phpcs:ignore WordPress.Security.EscapeOutput -- escaped above
+};
+add_action( 'wp_body_open', $nepa_ad_print_noscript, 5 );
+add_action( 'wp_footer', $nepa_ad_print_noscript, 1 );
+unset( $nepa_ad_print_noscript );
 
 /* -------------------------------------------------------------------------
  * 3. Markdown version of any page/post: https://nepa.com/<page>/?format=md

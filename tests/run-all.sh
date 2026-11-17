@@ -34,6 +34,7 @@ run "Data files vs OpenAPI" "$PY" tests/validate-data-files.py
 export ARD_MANIFEST_OUT="$TMP/ard.json"
 run "ARD"                  php tests/run-ard-tests.php
 run "Markdown versions"      "${PHPQ[@]}" tests/run-markdown-tests.php
+run "Page additions"         php tests/run-page-additions-tests.php
 run "ARD manifest schema"  "$PY" tests/validate-ard-manifest.py "$TMP/ard.json" nepa.com
 run "MCP smoke test"       bash tests/mcp-smoke-test.sh
 exit $status

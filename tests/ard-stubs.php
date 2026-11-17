@@ -36,6 +36,9 @@ function wp_parse_url($u, $c = -1) { return parse_url($u, $c); }
 function wp_json_encode($d, $o = 0) { return json_encode($d, $o); }
 function status_header($c) { http_response_code($c); }
 function esc_url($u) { return htmlspecialchars($u, ENT_QUOTES); }
+function esc_attr($s) { return htmlspecialchars((string) $s, ENT_QUOTES); }
+function esc_html($s) { return htmlspecialchars((string) $s, ENT_QUOTES); }
+function trailingslashit($s) { return rtrim((string) $s, '/\\') . '/'; }
 function is_admin() { return false; }
 function is_singular() { return !empty($GLOBALS['ARD_T']['singular']); }
 function get_permalink() { return home_url('/'); }

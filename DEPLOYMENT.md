@@ -7,7 +7,7 @@ This package has four parts that deploy separately:
 | Part | Folder / files | Where it goes |
 |---|---|---|
 | WordPress plugin "Nepa Agent API" 1.4.0 | `nepa-api/` | `wp-content/plugins/nepa-api/` |
-| Must-use plugins: "Nepa Agent Discovery" 1.2.0 and "Agentic Resource Discovery (ARD)" 1.0.0 | `nepa-agent-discovery.php`, `agentic-resource-discovery.php` | `wp-content/mu-plugins/` |
+| Must-use plugins: "Nepa Agent Discovery" 1.3.0 and "Agentic Resource Discovery (ARD)" 1.0.0 | `nepa-agent-discovery.php`, `agentic-resource-discovery.php` | `wp-content/mu-plugins/` |
 | Discovery files | `llms.txt`, `llms-full.txt`, `ai.txt`, `api-catalog.json`, `robots-addition.txt` | Web root (`https://nepa.com/<file>`) and robots.txt |
 | MCP server 1.2.1 | `nepa-mcp/` | Render web service |
 
@@ -385,7 +385,7 @@ For a site that already runs the 2026-11 package. Nothing in wp-config.php, HubS
 
 | Upload from the package | To |
 |---|---|
-| `nepa-agent-discovery.php` (1.2.0) | `wp-content/mu-plugins/` (replace) |
+| `nepa-agent-discovery.php` (1.3.0) | `wp-content/mu-plugins/` (replace) |
 | `nepa-api/openapi.json` (1.4.0) | `wp-content/plugins/nepa-api/openapi.json` |
 | `nepa-api/agent-page.html` | `wp-content/plugins/nepa-api/agent-page.html` (also restores the three discovery links from the 2026-10-27 commit) |
 | `nepa-api/data/localized-pages.json` | `wp-content/plugins/nepa-api/data/localized-pages.json` |
@@ -395,7 +395,9 @@ Then:
 
 1. **robots.txt:** delete the line `User-agent: Googlebot-Extended` (not a real crawler token; `Google-Extended` stays).
 2. **Purge caches** (section 4), including the HTML pages (new `llms-full.txt` link in `<head>`, SearchAction removed) and `/agent/`, `/openapi.json`, `/agent/v1/localized-pages.json`.
-3. **Check** (section 6): `?format=md` pages have content; `/openapi.json` shows 1.4.0 and the corrected pricing summary; `/llms-full.txt` and `/.well-known/security.txt` answer 200; the homepage JSON-LD has no SearchAction; `/agent/v1/localized-pages.json?language=fi` shows `"alternates": null` for the webinar page.
+3. **Check** (section 6): `?format=md` pages have content; `/pricing/` has a `<script type="application/ld+json" id="nepa-pricing-offers">` with 11 offers; `/contact-us/` (view source) has a `<noscript>` block with the email, phone and agent contact endpoint; `/`, `/contact-us/` and `/sv/` have `<link rel="alternate" hreflang="...">` for en, sv, fi, da and x-default (if not: WPML may already print them - see the note below); `/openapi.json` shows 1.4.0 and the corrected pricing summary; `/llms-full.txt` and `/.well-known/security.txt` answer 200; the homepage JSON-LD has no SearchAction; `/agent/v1/localized-pages.json?language=fi` shows `"alternates": null` for the webinar page.
 
-What these fix: empty Markdown versions (the converter read the post's stored content, which the Enfold theme leaves almost empty - it now converts the rendered page), the OpenAPI/plugin version mismatch and the stale pricing summary, the missing `llms-full.txt` and `security.txt`, the non-existent `Googlebot-Extended` token, and the SearchAction to a URL robots.txt disallows. See CHANGELOG.md.
+What these fix: empty Markdown versions (the converter read the post's stored content, which the Enfold theme leaves almost empty - it now converts the rendered page), the OpenAPI/plugin version mismatch and the stale pricing summary, the missing `llms-full.txt` and `security.txt`, the non-existent `Googlebot-Extended` token, and the SearchAction to a URL robots.txt disallows. Plugin 1.3.0 adds, from the same audit: Offer schema on `/pricing/` (built from `pricing.json`, so it follows the next Sync), hreflang links in `<head>` and a `<noscript>` contact fallback on the four contact pages. See CHANGELOG.md.
+
+**hreflang and WPML.** The plugin reads the language versions from WPML. If WPML -> Languages -> SEO options -> "Display alternative languages in the HEAD section" is switched on, WPML prints the links itself and the plugin adds none (no duplicates). Either way works; don't switch it on later without checking the result. The prices on `/pricing/` themselves still only appear after JavaScript runs - rendering them in the HTML is theme work (audit item 2).
 
