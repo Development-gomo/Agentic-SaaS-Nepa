@@ -38,6 +38,24 @@ def conv(node):
 
 
 defs = conv(spec['components']['schemas'])
+
+
+def empty_objects(node, path=''):
+    """Paths of empty JSON objects. The plugin re-encodes filtered/paginated responses with PHP,
+    which turns an empty object {} into an empty array [] - a type the schema doesn't allow -
+    so data files must use null (or leave the field out) instead."""
+    found = []
+    if isinstance(node, dict):
+        if not node:
+            found.append(path or '/')
+        for k, v in node.items():
+            found += empty_objects(v, f'{path}/{k}')
+    elif isinstance(node, list):
+        for i, v in enumerate(node):
+            found += empty_objects(v, f'{path}/{i}')
+    return found
+
+
 fails = checked = 0
 for path, ops in spec['paths'].items():
     get = ops.get('get')
@@ -50,9 +68,16 @@ for path, ops in spec['paths'].items():
         fails += 1
         continue
     schema = conv(get['responses']['200']['content']['application/json']['schema'])
-    errors = list(jsonschema.Draft7Validator({**schema, 'definitions': defs}).iter_errors(json.load(open(f, encoding='utf-8'))))
+    doc = json.load(open(f, encoding='utf-8'))
+    errors = list(jsonschema.Draft7Validator({**schema, 'definitions': defs}).iter_errors(doc))
+    empties = empty_objects(doc)
     checked += 1
-    fails += bool(errors)
-    print(('PASS' if not errors else 'FAIL') + f'  {name}' + ('' if not errors else f": {errors[0].message[:160]} at {'/'.join(map(str, errors[0].absolute_path))}"))
+    fails += bool(errors or empties)
+    if errors:
+        print(f"FAIL  {name}: {errors[0].message[:160]} at {'/'.join(map(str, errors[0].absolute_path))}")
+    elif empties:
+        print(f"FAIL  {name}: empty object(s) at {', '.join(empties[:3])} - use null (the plugin would serve them as [])")
+    else:
+        print(f'PASS  {name}')
 print(f'\n{checked - (fails if fails <= checked else checked)} of {checked} data files valid, {fails} failed')
 sys.exit(1 if fails else 0)

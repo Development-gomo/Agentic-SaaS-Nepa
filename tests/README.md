@@ -122,6 +122,6 @@ This validates hand-written examples and every `/contact.json` response the plug
 python3 tests/validate-data-files.py [folder]
 ```
 
-Validates all 17 data files in `nepa-api/data/` (or another folder, such as a synced `gen-…` generation) against their response schemas in `openapi.json`. Same INCOMPLETE rule.
+Validates all 17 data files in `nepa-api/data/` (or another folder, such as a synced `gen-…` generation) against their response schemas in `openapi.json`, and fails on any empty JSON object (`{}`): the plugin re-encodes filtered and paginated responses with PHP, which serves `{}` as `[]`. Same INCOMPLETE rule.
 
 The stubs in `wp-stubs.php` strip slashes from saved meta and post fields exactly like WordPress, so escaping mistakes show up in tests. Like WordPress, post meta is cached per simulated request (`T['ctx']`). `nepa_test_request()` runs code as a separate request, so stale-cache races can be reproduced. Three one-shot hooks replay races: `T['after_insert']` runs right after a lead is created, `T['before_meta_write']` runs just before a chosen field is written, and `T['before_option_insert']` runs just before a lock is taken.

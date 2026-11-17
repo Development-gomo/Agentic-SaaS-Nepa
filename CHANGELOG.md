@@ -295,6 +295,10 @@ An independent review (Codex, `NOVEMBER-REVIEW.md` next to the package folders) 
 
 Mutation checks: with the old behaviour restored in a temporary copy, the new tests fail for each defect (version 1.1; CMS author restored; non-atomic lock; manifest written regardless of a failed switch). With the old MCP mapping, the new smoke cases (a lead saved before a JSON 500, an unrecognised 503) would report "NOT SAVED".
 
+### Fix found by the live-site check (2026-11-17)
+
+A read-only check of nepa.com after deployment found one data bug from this build: the Finnish webinar page in `localized-pages.json` had `alternates: {}`. The plugin re-encodes filtered responses with PHP, which served it as `[]`, while OpenAPI documents `alternates` as an object or null. It is now `null` (re-upload `nepa-api/data/localized-pages.json`). `tests/validate-data-files.py` now fails on any empty JSON object in the data files; it flags the old file and passes the fixed one. The same check confirmed everything else matches the package: plugin 1.4.0, the other 16 data files, llms.txt, ai.txt, api-catalog.json, OpenAPI 1.3.0, the ARD manifest (0 errors against the official schema), discovery links on English and localized pages, robots.txt and MCP 1.2.1. Still open on the live site: the agent page re-upload (restored discovery links) and the WP Engine bot exemption (GPTBot and ClaudeBot get 429, generic clients 403).
+
 ### Merged before publishing to GitHub (2026-11-17)
 
 - **Agent page discovery links restored.** The GitHub repository had a commit after the 2026-10 tag ("updated", 2026-10-27) that added three items to the agent page's "LLM Discovery & Machine-Readable Resources" list: `/.well-known/api-catalog`, `/.well-known/mcp.json` and the `?format=md` Markdown versions. This package was built from a local copy without that commit, so the three items were missing; they are back in `nepa-api/agent-page.html`. If the November agent page was already uploaded, upload this version again.
