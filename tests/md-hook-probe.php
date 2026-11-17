@@ -7,6 +7,8 @@
  *   /?format=md          - cold cache: renders the page and converts it
  *   /?format=md&warm=1   - cache pre-filled: the cached Markdown must be served without rendering
  *   /?format=html        - not a Markdown request: the hook must leave the template alone
+ *   &user=1              - a logged-in visitor (the fixture then prints member-only text)
+ *   &store=<name>        - keep transients in a temp file across requests (cross-user cache tests)
  */
 require __DIR__ . '/ard-stubs.php';
 class WP_Post { public $ID = 11994; public $post_status = 'publish'; public $post_modified_gmt = '2026-08-13 05:22:54'; }
@@ -14,8 +16,15 @@ $GLOBALS['md_t'] = ['transients' => [], 'renders' => 0];
 $GLOBALS['ARD_T']['singular'] = true;
 function get_queried_object() { return new WP_Post(); }
 function post_password_required($p) { return false; }
+$GLOBALS['md_t']['store'] = isset($_GET['store']) && preg_match('/^[a-z0-9-]+$/', $_GET['store']) ? sys_get_temp_dir() . '/nepa-md-store-' . $_GET['store'] . '.json' : '';
+if ($GLOBALS['md_t']['store'] && is_readable($GLOBALS['md_t']['store'])) { $GLOBALS['md_t']['transients'] = json_decode(file_get_contents($GLOBALS['md_t']['store']), true) ?: []; }
 function get_transient($k) { return $GLOBALS['md_t']['transients'][$k] ?? false; }
-function set_transient($k, $v, $t) { $GLOBALS['md_t']['transients'][$k] = $v; return true; }
+function set_transient($k, $v, $t) {
+    $GLOBALS['md_t']['transients'][$k] = $v;
+    if ($GLOBALS['md_t']['store']) { file_put_contents($GLOBALS['md_t']['store'], json_encode($GLOBALS['md_t']['transients'])); }
+    return true;
+}
+function is_user_logged_in() { return !empty($_GET['user']); }
 function get_the_title($p) { return 'Brand Tracking'; }
 function get_post_meta($id, $k, $s) { return 'Continuous brand tracking from Nepa.'; }
 function get_the_modified_date($f, $p) { return '2026-08-13T05:22:54+00:00'; }

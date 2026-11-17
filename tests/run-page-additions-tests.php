@@ -71,6 +71,24 @@ check('/sv/kontakta-oss/: the same set (each version lists all, itself included)
 $home = hreflangs(head_for('/'));
 check('home page: en, sv, fi, da', array_keys($home) === ['da', 'en', 'fi', 'sv', 'x-default'] && $home['sv'] === 'https://nepa.com/sv/', json_encode($home));
 check('a page without language versions gets no hreflang', hreflangs(head_for('/investor-relations/')) === []);
+$sbab = ['en' => 'https://nepa.com/case/sbab/', 'fi' => 'https://nepa.com/fi/case/sbab/', 'sv' => 'https://nepa.com/sv/case/sbab/', 'x-default' => 'https://nepa.com/case/sbab/'];
+check('non-reciprocal records merged: SBAB case gives en, fi, sv on the English page', hreflangs(head_for('/case/sbab/')) === $sbab, json_encode(hreflangs(head_for('/case/sbab/'))));
+check('...and the same set on the Finnish and Swedish pages', hreflangs(head_for('/fi/case/sbab/')) === $sbab && hreflangs(head_for('/sv/case/sbab/')) === $sbab);
+check('If Insurance case: en, fi, sv on all three pages', count(array_unique(array_map(function ($p) { return json_encode(hreflangs(head_for($p))); }, ['/case/if-insurance/', '/fi/case/if/', '/sv/kundcase/if-insurance/']))) === 1 && count(hreflangs(head_for('/case/if-insurance/'))) === 4);
+$bad = [];
+$all = [];
+foreach ($loc_pages = json_decode(file_get_contents($root . '/nepa-api/data/localized-pages.json'), true)['pages'] as $p) {
+    foreach (array_merge([$p['url']], array_values((array) ($p['alternates'] ?? []))) as $u) { $all[$u] = true; }
+}
+foreach (array_keys($all) as $u) {
+    $set = hreflangs(head_for(parse_url($u, PHP_URL_PATH)));
+    if (!$set) { continue; }
+    if (!in_array($u, $set, true)) { $bad[] = "$u not in its own set"; continue; }
+    foreach ($set as $code => $member) {
+        if ($code !== 'x-default' && hreflangs(head_for(parse_url($member, PHP_URL_PATH))) !== $set) { $bad[] = "$u vs $member"; }
+    }
+}
+check('reciprocity: every page in every group emits exactly the same set, itself included (' . count($all) . ' URLs)', !$bad, implode('; ', array_slice($bad, 0, 3)));
 
 /* ---------------- 4. hreflang with WPML ---------------- */
 add_filter('wpml_active_languages', function () {

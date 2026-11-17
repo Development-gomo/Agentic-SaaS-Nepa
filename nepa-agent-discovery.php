@@ -400,14 +400,7 @@ function nepa_ad_hreflang_links(): array {
 			}
 		}
 	} else {
-		$current = nepa_ad_url( nepa_ad_request_path() );
-		foreach ( (array) ( nepa_ad_api_data( 'localized-pages.json' )['pages'] ?? array() ) as $p ) {
-			$group = array( (string) ( $p['language'] ?? '' ) => (string) ( $p['url'] ?? '' ) ) + (array) ( $p['alternates'] ?? array() );
-			if ( in_array( $current, $group, true ) ) {
-				$links = $group;
-				break;
-			}
-		}
+		$links = nepa_ad_translation_groups()[ nepa_ad_url( nepa_ad_request_path() ) ] ?? array();
 	}
 	$links = array_filter( $links, function ( $url, $code ) {
 		return preg_match( '/^[a-z]{2,3}(-[A-Za-z0-9]{2,8})?$/', (string) $code ) && preg_match( '#^https?://#', (string) $url );
@@ -420,6 +413,55 @@ function nepa_ad_hreflang_links(): array {
 		$links['x-default'] = $links['en'];
 	}
 	return $links;
+}
+
+/**
+ * Translation groups from localized-pages.json: [page URL => [language => URL]], the same group for
+ * every member. A record lists its own URL and the alternates it declares, and the site's
+ * declarations are not always reciprocal (the Finnish SBAB case names only the English page, the
+ * Swedish one likewise), so records that share any URL are merged into one group. Where a group
+ * has two URLs for one language, the page that is itself in that language wins over an alternate.
+ */
+function nepa_ad_translation_groups(): array {
+	static $by_url = null;
+	if ( null !== $by_url ) {
+		return $by_url;
+	}
+	$pages  = (array) ( nepa_ad_api_data( 'localized-pages.json' )['pages'] ?? array() );
+	$parent = array();
+	$find   = function ( $u ) use ( &$parent, &$find ) {
+		if ( ! isset( $parent[ $u ] ) ) {
+			$parent[ $u ] = $u;
+		}
+		return $parent[ $u ] === $u ? $u : ( $parent[ $u ] = $find( $parent[ $u ] ) );
+	};
+	foreach ( $pages as $p ) {
+		$own = (string) ( $p['url'] ?? '' );
+		foreach ( (array) ( $p['alternates'] ?? array() ) as $alt ) {
+			$parent[ $find( (string) $alt ) ] = $find( $own );
+		}
+		$find( $own );
+	}
+	$groups = array();
+	foreach ( array( true, false ) as $own_pass ) { // pages' own URLs first, then declared alternates
+		foreach ( $pages as $p ) {
+			$own   = (string) ( $p['url'] ?? '' );
+			$pairs = $own_pass ? array( (string) ( $p['language'] ?? '' ) => $own ) : (array) ( $p['alternates'] ?? array() );
+			foreach ( $pairs as $code => $url ) {
+				$root = $find( $own );
+				if ( ! isset( $groups[ $root ][ $code ] ) ) {
+					$groups[ $root ][ $code ] = (string) $url;
+				}
+			}
+		}
+	}
+	$by_url = array();
+	foreach ( $groups as $group ) {
+		foreach ( $group as $url ) {
+			$by_url[ $url ] = $group;
+		}
+	}
+	return $by_url;
 }
 
 add_action( 'wp_head', function () {
@@ -495,6 +537,24 @@ function nepa_ad_md_post() {
 	return $post;
 }
 
+/**
+ * True when this visitor may see a personalised page: logged in, or carrying a WordPress session,
+ * post-password, commenter or shop-session cookie. Such a render must never enter the shared
+ * Markdown cache (it would then be served to everyone) and must not be cached downstream either.
+ * Filter nepa_ad_md_personalized to add other signals (membership plugins, A/B testing).
+ */
+function nepa_ad_md_personalized(): bool {
+	if ( function_exists( 'is_user_logged_in' ) && is_user_logged_in() ) {
+		return true;
+	}
+	foreach ( array_keys( (array) $_COOKIE ) as $name ) {
+		if ( preg_match( '/^(wordpress_logged_in_|wordpress_sec_|wordpress_|wp-postpass_|comment_author_|wp_woocommerce_session_|woocommerce_)/', (string) $name ) ) {
+			return true;
+		}
+	}
+	return (bool) apply_filters( 'nepa_ad_md_personalized', false );
+}
+
 /*
  * template_include runs after WordPress has chosen the template (so the page renders exactly as
  * for a visitor) and before anything is output. PHP_INT_MAX: after other plugins' choices.
@@ -505,9 +565,11 @@ add_filter( 'template_include', function ( $template ) {
 		return $template;
 	}
 
-	// Versioned key: Markdown cached by 1.1.0 (title only) is not reused.
+	// Versioned key: Markdown cached by 1.1.0 (title only) is not reused. Only anonymous renders are
+	// cached and served from the cache; a personalised visitor gets a fresh, uncached render.
+	$personal  = nepa_ad_md_personalized();
 	$cache_key = 'nepa_md_v2_' . $post->ID . '_' . md5( $post->post_modified_gmt . NEPA_AD_VERSION );
-	$out       = get_transient( $cache_key );
+	$out       = $personal ? false : get_transient( $cache_key );
 
 	if ( false === $out ) {
 		ob_start();
@@ -528,7 +590,9 @@ add_filter( 'template_include', function ( $template ) {
 		$out .= "source: Nepa AB (https://nepa.com)\n";
 		$out .= "---\n\n# {$title}\n\n" . $body . "\n";
 
-		set_transient( $cache_key, $out, 12 * HOUR_IN_SECONDS );
+		if ( ! $personal ) {
+			set_transient( $cache_key, $out, 12 * HOUR_IN_SECONDS );
+		}
 	}
 
 	status_header( 200 );
@@ -536,6 +600,8 @@ add_filter( 'template_include', function ( $template ) {
 	header( 'X-Robots-Tag: noindex, follow' ); // avoid duplicate-content indexing of the .md variant
 	header( 'Link: <' . get_permalink( $post ) . '>; rel="canonical"' );
 	header( 'Access-Control-Allow-Origin: *' );
+	header( 'Vary: Cookie' );
+	header( $personal ? 'Cache-Control: private, no-store, max-age=0' : 'Cache-Control: public, max-age=3600' );
 	echo $out;
 	exit;
 }, PHP_INT_MAX );

@@ -6,7 +6,7 @@
 <header id='header' role="banner"><nav role="navigation"><ul><li><a href="/solutions/">HEADER MENU ITEM</a></li></ul></nav></header>
 <div id='main' class='all_colors'>
 <div class='av-layout-grid-container'><section><h1>Brand Tracking</h1><p>Prices start at 15.000 SEK/month.</p></section></div>
-<main role="main" class='template-page content'><div class='avia-section'><h2>Inside main</h2><p>First section text.</p></main>
+<main role="main" class='template-page content'><div class='avia-section'><h2>Inside main</h2><p>First section text.</p><?php if (function_exists('is_user_logged_in') && is_user_logged_in()) { echo '<p>MEMBER-ONLY TEXT</p>'; } ?></main>
 <div class='avia-section'><h2>Smarter brand tracking</h2><p>Text <strong>after</strong> the main element, with a <a href="/pricing/">pricing link</a>.</p>
 <iframe src="https://player.vimeo.com/video/1" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 <script type="text/html"><section><p>TEMPLATE SCRIPT TEXT</p></section></script>
