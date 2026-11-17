@@ -110,6 +110,16 @@ Render settings: build `npm ci && npm run build`, start `npm start`, health chec
 2. **Don't cache filtered API responses as one URL.** `/agent/v1/*.json` responses vary by query string (`?language=`, `?service=`, `?limit=` ...). Make sure the cache key includes the query string, or bypass the cache for `/agent/v1/`.
 3. **Never cache `POST /agent/v1/contact.json`.**
 4. **Let agents through the edge.** nepa.com sits behind WP Engine's Cloudflare-based edge, so request the exemption through WP Engine. On the live site, GPTBot and ClaudeBot get 429 on the agent files and a generic `python-requests` client gets 403. Ask WP Engine to exempt `/agent/*`, `/openapi.json`, `/api-catalog.json`, `/llms.txt`, `/ai.txt` and `/.well-known/*` (including `/.well-known/ard.json`) from bot challenges and crawler rate limits, then verify with section 10.2.
+5. **Markdown versions (`?format=md`) have their own cache inside WordPress.** nepa-agent-discovery.php stores each anonymous Markdown version as a WordPress transient named `nepa_md_v2_<post ID>_<hash>` for up to **12 hours**, and sends it with `Cache-Control: public, max-age=3600`, so the edge and browsers may keep a copy for up to **1 hour**. Logged-in or other personalised visitors are never cached. Purging WP Engine, NitroPack or Cloudflare does **not** delete these transients.
+   - **A page is edited and saved:** nothing to do. The hash includes the page's last-modified time, so the next request builds a new version; edge and browser copies of the old one can remain for up to 1 hour (purge the page's `?format=md` URL to shorten that).
+   - **The theme, a global section (header, footer, shared Enfold elements), a widget or anything else on the page changes without the page itself being saved:** first delete the plugin's transients, then purge the page and edge caches. Otherwise the old Markdown can be served for up to 12 hours. With WP-CLI (WP Engine SSH gateway):
+
+     ```bash
+     wp transient list --search='nepa_md_v2_*' --field=name | xargs -r -n1 wp transient delete
+     ```
+
+     If the site uses a persistent object cache (Memcached/Redis), transients live there and the command above may list nothing; then run `wp cache flush` instead (it clears the whole object cache, which WordPress rebuilds on its own). Without WP-CLI: re-saving a page also renews its Markdown version, and the transients expire by themselves after 12 hours.
+   - A new plugin version also starts fresh: the hash includes the plugin version.
 
 ## 5. Keeping content fresh
 
@@ -394,7 +404,7 @@ For a site that already runs the 2026-11 package. Nothing in wp-config.php, HubS
 Then:
 
 1. **robots.txt:** delete the line `User-agent: Googlebot-Extended` (not a real crawler token; `Google-Extended` stays).
-2. **Purge caches** (section 4), including the HTML pages (new `llms-full.txt` link in `<head>`, SearchAction removed) and `/agent/`, `/openapi.json`, `/agent/v1/localized-pages.json`.
+2. **Purge caches** (section 4; installing plugin 1.3.0 starts the Markdown cache fresh, so no transient clean-up is needed this time), including the HTML pages (new `llms-full.txt` link in `<head>`, SearchAction removed) and `/agent/`, `/openapi.json`, `/agent/v1/localized-pages.json`.
 3. **Check** (section 6): `?format=md` pages have content; `/pricing/` has a `<script type="application/ld+json" id="nepa-pricing-offers">` with 11 offers; `/contact-us/` (view source) has a `<noscript>` block with the email, phone and agent contact endpoint; `/`, `/contact-us/` and `/sv/` have `<link rel="alternate" hreflang="...">` for en, sv, fi, da and x-default (if not: WPML may already print them - see the note below); `/openapi.json` shows 1.4.0 and the corrected pricing summary; `/llms-full.txt` and `/.well-known/security.txt` answer 200; the homepage JSON-LD has no SearchAction; `/agent/v1/localized-pages.json?language=fi` shows `"alternates": null` for the webinar page.
 
 What these fix: empty Markdown versions (the converter read the post's stored content, which the Enfold theme leaves almost empty - it now converts the rendered page), the OpenAPI/plugin version mismatch and the stale pricing summary, the missing `llms-full.txt` and `security.txt`, the non-existent `Googlebot-Extended` token, and the SearchAction to a URL robots.txt disallows. Plugin 1.3.0 adds, from the same audit: Offer schema on `/pricing/` (built from `pricing.json`; Sync does not regenerate that file, so price changes reach the schema only with an updated `pricing.json` from a package build), hreflang links in `<head>` and a `<noscript>` contact fallback on the four contact pages. It also keeps personalised renders out of the shared Markdown cache: a logged-in visitor (or one with a WordPress session, post-password or commenter cookie) gets an uncached `?format=md` response with `Cache-Control: private, no-store`; only anonymous renders are cached and sent as `public, max-age=3600`. See CHANGELOG.md.
