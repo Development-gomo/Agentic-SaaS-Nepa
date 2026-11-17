@@ -6,13 +6,23 @@ import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/
 const API_BASE = process.env.NEPA_API_BASE ?? "https://nepa.com/agent/v1";
 const PORT = parseInt(process.env.PORT ?? "3000", 10);
 const API_TIMEOUT = parseInt(process.env.API_TIMEOUT_MS ?? "10000", 10);
+// submit_contact_inquiry waits while WordPress stores the lead, makes its first HubSpot
+// attempt (up to 10 s) and sends the notification, so it gets a longer limit.
+const CONTACT_TIMEOUT = Math.max(API_TIMEOUT, parseInt(process.env.CONTACT_TIMEOUT_MS ?? "30000", 10));
 // Identifies this server to nepa-api.php's contact endpoint as a trusted relay, so its
 // submissions get a shared, higher-ceiling rate-limit bucket instead of being lumped in
 // with direct public traffic under this server's one outbound IP (see is_rate_limited()
 // in nepa-api.php). Must match the NEPA_MCP_SHARED_SECRET constant set there; if unset
 // here, the header is simply omitted and requests fall back to ordinary IP-based limits.
 const MCP_SHARED_SECRET = process.env.NEPA_MCP_SHARED_SECRET;
-const SERVER_VERSION = "1.1.0";
+/**
+ * Contact switch: NEPA_CONTACT_ENABLED=false (Render environment variable) removes the
+ * submit_contact_inquiry tool, so agents can't submit inquiries through this server; every
+ * read-only tool keeps working. The WordPress plugin has its own switch (NEPA_CONTACT_ENABLED in
+ * wp-config.php) that blocks POST /agent/v1/contact.json for everyone, including direct callers.
+ */
+const CONTACT_ENABLED = (process.env.NEPA_CONTACT_ENABLED ?? "true").trim().toLowerCase() !== "false";
+const SERVER_VERSION = "1.2.1";
 // Number of reverse proxies in front of this server (Render has one). Needed so the rate
 // limiter keys on the real client IP from X-Forwarded-For instead of the proxy's address,
 // which every user would otherwise share. Set TRUST_PROXY=0 when running without a proxy.
@@ -66,6 +76,68 @@ async function getJson(path, query) {
     }
     return data;
 }
+/**
+ * Error codes the Nepa Agent API returns only when it has NOT stored the inquiry (validation,
+ * authorization, size and rate limits, idempotency-key reuse, and the two storage failures it
+ * reports itself). Any other error - an unexpected 5xx, a proxy/gateway error, an unrecognised
+ * body - does not prove that nothing was saved, so it is reported as an unknown outcome.
+ */
+const NOT_SAVED_CODES = new Set([
+    "invalid_json", "invalid_structure", "invalid_type", "invalid_idempotency_key", "not_authorized",
+    "payload_too_large", "rate_limited", "method_not_allowed", "not_found", "field_too_long",
+    "first_name_required", "invalid_email", "invalid_language", "invalid_phone", "missing_required_fields",
+    "processing_consent_required", "idempotency_key_reused", "not_recorded", "reservation_unavailable",
+    "contact_disabled",
+]);
+const TEMPORARY_CODES = new Set(["rate_limited", "not_recorded", "reservation_unavailable"]);
+/**
+ * How long the API recognises a repeat (nepa-api.php IDEMPOTENCY_KEY_TTL / FINGERPRINT_TTL).
+ * Since plugin 1.4.0 the API checks identical content for 30 minutes on every request, with or
+ * without a key, and the key for 24 hours when one is sent. A retry should still keep the key
+ * exactly as on the first call: after the 30 minutes only the original key matches, so a key
+ * added on a later retry would make it a new submission.
+ */
+export const REPEAT_WINDOW = "Nepa recognises a repeat for 24 hours when the same idempotency_key is sent, and for 30 minutes when the details are identical (with or without a key), and then creates no second inquiry.";
+const UNKNOWN_RETRY = "Retry with exactly the same details and the idempotency_key exactly as on the first call: the same key if you sent one, and no key if you did not (after 30 minutes only the original key is recognised, so a key added on a later retry would create a second inquiry). " + REPEAT_WINDOW;
+/**
+ * Turns the /contact.json answer into a result whose first line states the real outcome,
+ * so an agent never reports "sent to HubSpot" when the inquiry was only saved, or success
+ * when it was rejected.
+ */
+export function contactResult(httpStatus, data) {
+    const hubspot = data?.hubspot?.status;
+    const outcome = {
+        delivered: "DELIVERED: saved by Nepa and confirmed in Nepa's HubSpot contact form.",
+        pending: "SAVED, DELIVERY PENDING: saved by Nepa; forwarding to HubSpot is pending and retried automatically.",
+        sending: "SAVED, DELIVERY IN PROGRESS: saved by Nepa; forwarding to HubSpot is in progress.",
+        retryable: "SAVED, DELIVERY RETRYING: saved by Nepa; HubSpot failed temporarily and delivery is retried automatically.",
+        uncertain: "SAVED, DELIVERY UNCONFIRMED: saved by Nepa; whether HubSpot received it is being checked before any resend.",
+        manual_review: "SAVED, NEEDS NEPA REVIEW: saved by Nepa; HubSpot delivery needs attention from Nepa's team, who have the inquiry.",
+        disabled: "SAVED: saved by Nepa; forwarding to HubSpot is not enabled on Nepa's server.",
+    };
+    const text = (line) => `${line}\n\n${JSON.stringify(data, null, 2)}`;
+    if (httpStatus === 200 && data?.status === "received") {
+        const first = outcome[hubspot ?? ""] ?? "SAVED: saved by Nepa.";
+        return ok({ outcome: (data.duplicate ? "ALREADY SUBMITTED (nothing new created). " : "") + first, ...data });
+    }
+    if (httpStatus === 422 && data?.status === "rejected") {
+        return { content: [{ type: "text", text: text("REJECTED by Nepa's HubSpot form: not forwarded. Fix the fields listed in hubspot.errors (e.g. use a business email) and submit again with a new idempotency_key.") }], isError: true };
+    }
+    if (httpStatus === 409 && data?.error === "in_progress") {
+        return { content: [{ type: "text", text: text("IN PROGRESS: an identical submission is being processed. Wait a few seconds and retry with the same details.") }], isError: true };
+    }
+    const code = typeof data?.error === "string" ? data.error : "";
+    if (code === "contact_disabled") {
+        return { content: [{ type: "text", text: text("NOT SAVED: Nepa has paused agent contact submissions. Nothing was recorded. Point the person to https://nepa.com/contact-us/.") }], isError: true };
+    }
+    if (NOT_SAVED_CODES.has(code)) {
+        if (TEMPORARY_CODES.has(code)) {
+            return { content: [{ type: "text", text: text("NOT SAVED (temporary): nothing was recorded. Retry later with the same details.") }], isError: true };
+        }
+        return { content: [{ type: "text", text: text(`NOT SAVED: the request was refused (HTTP ${httpStatus}, ${code}). Fix the problem described below; nothing was recorded.`) }], isError: true };
+    }
+    return { content: [{ type: "text", text: text(`OUTCOME UNKNOWN: Nepa answered HTTP ${httpStatus} without a recognised result, so the inquiry may or may not have been saved. ${UNKNOWN_RETRY}`) }], isError: true };
+}
 const TOOLS = [
     { name: "get_company", phase: 1, method: "GET", description: "Get Nepa's company profile — overview, values, leadership summary, contact details." },
     { name: "list_products", phase: 1, method: "GET", description: "List Nepa's products (brand tracking, marketing mix modelling, campaign evaluation, etc.), optionally filtered by category." },
@@ -84,7 +156,7 @@ const TOOLS = [
     { name: "list_press_releases", phase: 1, method: "GET", description: "List Nepa's investor/press releases (English and Swedish), paginated, optionally filtered by language or category." },
     { name: "list_localized_pages", phase: 1, method: "GET", description: "List Nepa's Swedish, Finnish and Danish pages with their English equivalents, optionally filtered by language or section." },
     { name: "get_investor_relations", phase: 1, method: "GET", description: "Get Nepa's investor relations summary — financial reports, governance, shareholder meetings. Not investment advice." },
-    { name: "submit_contact_inquiry", phase: 2, method: "POST", description: "Submit a qualified B2B inquiry to Nepa on behalf of a human — requires explicit authorization." },
+    { name: "submit_contact_inquiry", phase: 2, method: "POST", description: "Submit a B2B inquiry to Nepa on behalf of a person (saved by Nepa and forwarded to Nepa's HubSpot contact form) - requires explicit authorization and consent to processing; marketing opt-in is separate and off by default." },
 ];
 function buildServer() {
     const server = new McpServer({ name: "nepa-mcp", version: SERVER_VERSION });
@@ -237,41 +309,61 @@ function buildServer() {
             return errResult(String(e));
         }
     });
-    server.tool("submit_contact_inquiry", "Submit a qualified B2B inquiry to Nepa on behalf of a human. You MUST set user_authorized_submission to true to confirm that consent was explicitly given by the person you are acting for — do not call this speculatively. If the call times out, retry with the same idempotency_key (an identical retry within 30 minutes is also recognised); the response then says duplicate: true instead of creating a second inquiry.", {
-        user_authorized_submission: z.literal(true),
-        name: z.string().min(1).max(200),
-        email: z.string().email().max(254),
-        company: z.string().max(200).optional(),
-        service_interest: z.string().max(200).optional(),
-        project_summary: z.string().max(5000).optional(),
-        idempotency_key: z
-            .string()
-            .regex(/^[A-Za-z0-9._:-]{8,100}$/)
-            .optional()
-            .describe("Optional. Reuse the same value when retrying the same submission so Nepa records it only once."),
-    }, { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: true }, async ({ user_authorized_submission, name, email, company, service_interest, project_summary, idempotency_key }) => {
-        try {
-            const { ok: success, data } = await fetchJsonWithTimeout(`${API_BASE}/contact.json`, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    ...(MCP_SHARED_SECRET ? { "X-Nepa-Agent-Key": MCP_SHARED_SECRET } : {}),
+    if (CONTACT_ENABLED) {
+        server.tool("submit_contact_inquiry", [
+            "Submit a B2B inquiry to Nepa on behalf of a person. It is saved by Nepa and forwarded to Nepa's English contact form in HubSpot.",
+            "Before calling, you MUST have, from the person in this conversation: (1) their explicit authorization to send this inquiry (user_authorized_submission: true);",
+            "(2) their agreement to this exact statement: \"I agree to allow Nepa to store and process my personal data.\" (consent_to_process: true);",
+            "(3) a separate, optional marketing choice. Show them: \"Nepa may occasionally share updates on products, services, events, and exclusive invitations to webinars. You can unsubscribe anytime by clicking the link at the bottom of any email. For details see https://nepa.com/privacy-policy/.\"",
+            "Set marketing_opt_in: true ONLY if they explicitly ask to receive these updates; otherwise leave it false. Nepa's form records this choice with the checkbox label \"I have read and understood Nepa's Privacy Policy\".",
+            "Required: first_name, email (a business address - free webmail is rejected), phone, company, message. Ask for last_name separately; never split a full name yourself.",
+            "The result states whether the inquiry was confirmed in HubSpot, is pending/being retried, needs Nepa's review, or was rejected (fix the listed fields and resubmit with a new idempotency_key).",
+            "If you may need to retry, set idempotency_key on the FIRST call. If a call times out or fails, retry with exactly the same details and the key exactly as on the first call - the same key if you sent one, no key if you did not; never add a key on a retry. " + REPEAT_WINDOW,
+        ].join(" "), {
+            user_authorized_submission: z.literal(true),
+            consent_to_process: z.literal(true).describe("The person agreed: \"I agree to allow Nepa to store and process my personal data.\""),
+            marketing_opt_in: z.boolean().default(false).describe("true only if the person explicitly asked to receive Nepa's marketing updates."),
+            first_name: z.string().min(1).max(100),
+            last_name: z.string().max(100).optional(),
+            email: z.string().email().max(254),
+            phone: z.string().min(7).max(40).describe("Phone number with 7-20 digits; include the country code."),
+            company: z.string().min(1).max(200),
+            message: z.string().min(1).max(5000).describe("What the person wants to discuss with Nepa."),
+            service_interest: z.string().max(200).optional(),
+            language: z.string().max(35).optional().describe("The person's preferred language, e.g. \"sv\" or \"Swedish\"; Nepa's English form is used for every language."),
+            idempotency_key: z
+                .string()
+                .regex(/^[A-Za-z0-9._:-]{8,100}$/)
+                .optional()
+                .describe("Optional; set it on the first call. Reuse the same value when retrying the same submission so Nepa records it only once. If the first call had no key, retry without one."),
+        }, { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: true }, async (args) => {
+            const body = {
+                agent_context: {
+                    user_authorized_submission: args.user_authorized_submission,
+                    via: "mcp",
+                    ...(args.idempotency_key ? { idempotency_key: args.idempotency_key } : {}),
                 },
-                body: JSON.stringify({
-                    agent_context: { user_authorized_submission, ...(idempotency_key ? { idempotency_key } : {}) },
-                    person: { name, email },
-                    company: { name: company },
-                    inquiry: { service_interest, project_summary },
-                }),
-            });
-            if (!success)
-                return errResult(JSON.stringify(data));
-            return ok(data);
-        }
-        catch (e) {
-            return errResult(String(e));
-        }
-    });
+                consent: { process: args.consent_to_process, marketing_opt_in: args.marketing_opt_in === true },
+                person: { first_name: args.first_name, last_name: args.last_name, email: args.email, phone: args.phone },
+                company: { name: args.company },
+                inquiry: { message: args.message, service_interest: args.service_interest, language: args.language },
+            };
+            try {
+                const { status, data } = await fetchJsonWithTimeout(`${API_BASE}/contact.json`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        ...(MCP_SHARED_SECRET ? { "X-Nepa-Agent-Key": MCP_SHARED_SECRET } : {}),
+                    },
+                    body: JSON.stringify(body),
+                }, CONTACT_TIMEOUT);
+                return contactResult(status, data);
+            }
+            catch (e) {
+                return errResult(`OUTCOME UNKNOWN: no answer from Nepa (${String(e)}). The inquiry may or may not have been saved. ` + UNKNOWN_RETRY);
+            }
+        });
+    }
     return server;
 }
 const app = express();
@@ -317,7 +409,7 @@ app.all("/mcp", async (req, res) => {
 // /health answers for this process only (cheap, for Render's health check).
 // /health?deep=1 also checks that the Nepa REST API answers with a readable index.json.
 app.get("/health", async (req, res) => {
-    const base = { name: "nepa-mcp", version: SERVER_VERSION, api_base: API_BASE };
+    const base = { name: "nepa-mcp", version: SERVER_VERSION, api_base: API_BASE, contact_submissions: CONTACT_ENABLED ? "enabled" : "paused" };
     if (req.query.deep !== "1") {
         res.json({ status: "ok", ...base });
         return;
@@ -335,7 +427,7 @@ app.get("/health", async (req, res) => {
     }
 });
 app.get("/tools", (_req, res) => {
-    res.json({ tools: TOOLS });
+    res.json({ tools: CONTACT_ENABLED ? TOOLS : TOOLS.filter((t) => t.name !== "submit_contact_inquiry"), contact_submissions: CONTACT_ENABLED ? "enabled" : "paused" });
 });
 app.listen(PORT, () => {
     console.log(`nepa-mcp listening on port ${PORT}, proxying ${API_BASE}`);

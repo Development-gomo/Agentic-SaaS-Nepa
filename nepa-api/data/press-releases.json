@@ -1,12 +1,82 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/press-releases.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
-    "last_updated": "2026-10-16",
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
+    "last_updated": "2026-11-16",
     "note": "All releases in English and Swedish, each tagged with 'language' (en|sv); filter with ?language=. 'alternate_language_url' links an English release to its Swedish counterpart where exactly one of each was published the same day. The Svenska Spel selection release (2021-09-20) is tagged mfn-lang-sv on the live site but its content is English, so it is kept as language 'en'."
   },
   "releases": [
+    {
+      "id": "mfn-new-nordic-study-from-nepa-never-used-an-ai-chatbot-for-one-in-three-non-users-ai-is-still-part-of-the-shopping-journey",
+      "title": "New Nordic study from Nepa: Never used an AI chatbot? For one in three “non-users”, AI is still part of the shopping journey",
+      "date": "2026-11-12",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/new-nordic-study-from-nepa-never-used-an-ai-chatbot-for-one-in-three-non-users-ai-is-still-part-of-the-shopping-journey/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/ny-nordisk-studie-fran-nepa-aldrig-anvant-en-ai-chatt-for-en-av-tre-icke-anvandare-ar-ai-anda-en-del-av-kopresan/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-ny-nordisk-studie-fran-nepa-aldrig-anvant-en-ai-chatt-for-en-av-tre-icke-anvandare-ar-ai-anda-en-del-av-kopresan",
+      "title": "Ny nordisk studie från Nepa: Aldrig använt en AI-chatt? För en av tre ”icke-användare” är AI ändå en del av köpresan",
+      "date": "2026-11-12",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/ny-nordisk-studie-fran-nepa-aldrig-anvant-en-ai-chatt-for-en-av-tre-icke-anvandare-ar-ai-anda-en-del-av-kopresan/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/new-nordic-study-from-nepa-never-used-an-ai-chatbot-for-one-in-three-non-users-ai-is-still-part-of-the-shopping-journey/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-interim-report-q3-2026",
+      "title": "Nepa Interim Report Q3 2026",
+      "date": "2026-10-23",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2026/",
+      "language": "en",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-delarsrapport-q3-2026/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-delarsrapport-q3-2026",
+      "title": "Nepa Delårsrapport Q3 2026",
+      "date": "2026-10-23",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/nepa-delarsrapport-q3-2026/",
+      "language": "sv",
+      "regulatory": true,
+      "alternate_language_url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2026/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-nepa-appoints-media-industry-leader-andrea-sahlgren-as-vp-sales",
+      "title": "Nepa appoints media industry leader Andrea Sahlgren as VP Sales",
+      "date": "2026-10-19",
+      "category": "Press Release",
+      "url": "https://nepa.com/mfn_news/nepa-appoints-media-industry-leader-andrea-sahlgren-as-vp-sales/",
+      "language": "en"
+    },
+    {
+      "id": "mfn-invitation-to-presentation-of-nepas-q3-interim-report-2026",
+      "title": "Invitation to presentation of Nepa’s Q3 interim report 2026",
+      "date": "2026-10-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2026/",
+      "language": "en",
+      "alternate_language_url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q3-2026/",
+      "alternate_language_verified": true
+    },
+    {
+      "id": "mfn-inbjudan-till-presentation-av-nepas-delarsrapport-q3-2026",
+      "title": "Inbjudan till presentation av Nepas delårsrapport Q3 2026",
+      "date": "2026-10-16",
+      "category": "Investor Relations",
+      "url": "https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q3-2026/",
+      "language": "sv",
+      "alternate_language_url": "https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2026/",
+      "alternate_language_verified": true
+    },
     {
       "id": "mfn-ceo-anders-dahl-leaves-nepa-search-for-successor-initiated",
       "title": "CEO Anders Dahl leaves Nepa – search for successor initiated",
@@ -97,14 +167,6 @@
       "language": "sv",
       "alternate_language_url": "https://nepa.com/mfn_news/thousands-of-tiktok-ads-in-a-new-ai-analysis-nepa-launches-creative-ai-for-creative-optimisation/",
       "alternate_language_verified": true
-    },
-    {
-      "id": "mfn-nepa-appoints-morten-flamand-as-new-vp-sales-to-accelerate-international-growth",
-      "title": "Nepa appoints Morten Flamand as new VP Sales to accelerate international growth",
-      "date": "2026-06-01",
-      "category": "Press Release",
-      "url": "https://nepa.com/mfn_news/nepa-appoints-morten-flamand-as-new-vp-sales-to-accelerate-international-growth/",
-      "language": "en"
     },
     {
       "id": "mfn-report-from-nepa-abs-annual-general-meeting-2026",
@@ -2826,5 +2888,5 @@
       "regulatory": true
     }
   ],
-  "total": 287
+  "total": 293
 }

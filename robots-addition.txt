@@ -25,5 +25,6 @@ LLM-Readable: https://nepa.com/agent/
 LLM-Text: https://nepa.com/llms.txt
 AI-File: https://nepa.com/ai.txt
 Sitemap: https://nepa.com/sitemap_index.xml
+Agentmap: https://nepa.com/.well-known/ard.json
 
 Content-Signal: ai-train=yes, search=yes, ai-input=yes

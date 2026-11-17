@@ -3,7 +3,7 @@
   "description": "Machine-readable catalog of Nepa AB's AI-agent-facing resources: the semantic agent page, llms.txt/ai.txt discovery files, REST API, OpenAPI spec, MCP server, and sitemap.",
   "url": "https://nepa.com/api-catalog.json",
   "created": "2026-09-08",
-  "modified": "2026-10-19",
+  "modified": "2026-11-16",
   "specificationVersion": "0.16",
   "tags": [
     "marketing-research",
@@ -104,7 +104,7 @@
           "type": "X-endpoint",
           "route": "/agent/v1/case-studies.json",
           "method": "GET",
-          "description": "20 client case studies, filterable by ?industry=&segment=&service=."
+          "description": "21 client case studies, filterable by ?industry=&segment=&service=."
         },
         {
           "type": "X-endpoint",
@@ -134,13 +134,13 @@
           "type": "X-endpoint",
           "route": "/agent/v1/blog-posts.json",
           "method": "GET",
-          "description": "261 blog/insight posts (246 English, 15 Swedish), paginated via ?limit=&offset=. Filter with ?language=en|sv."
+          "description": "266 blog/insight posts (250 English, 16 Swedish), paginated via ?limit=&offset=. Filter with ?language=en|sv."
         },
         {
           "type": "X-endpoint",
           "route": "/agent/v1/press-releases.json",
           "method": "GET",
-          "description": "287 investor/press releases (136 English, 151 Swedish), paginated via ?limit=&offset=. Filter with ?language=en|sv and ?category=."
+          "description": "293 investor/press releases (139 English, 154 Swedish), paginated via ?limit=&offset=. Filter with ?language=en|sv and ?category=."
         },
         {
           "type": "X-endpoint",
@@ -152,7 +152,7 @@
           "type": "X-endpoint",
           "route": "/agent/v1/resources.json",
           "method": "GET",
-          "description": "34 gated thought-leadership reports, downloads, positioning/campaign landing pages, and trust pages (security disclosure, DEI, whistleblower)."
+          "description": "37 gated thought-leadership reports, downloads, positioning/campaign landing pages, and trust pages (security disclosure, DEI, whistleblower)."
         },
         {
           "type": "X-endpoint",
@@ -170,7 +170,7 @@
           "type": "X-endpoint",
           "method": "GET",
           "route": "/agent/v1/localized-pages.json",
-          "description": "94 Swedish, Finnish and Danish pages with their English equivalents; filter with ?language=sv|fi|da and ?section="
+          "description": "107 Swedish, Finnish and Danish pages with their English equivalents; filter with ?language=sv|fi|da and ?section="
         },
         {
           "type": "X-endpoint",
@@ -358,6 +358,54 @@
       ]
     },
     {
+      "name": "Nepa Agentic Resource Discovery manifest",
+      "description": "Agentic Resource Discovery (ARD v0.91) manifest at the well-known path: five ARD entries (urn:air:nepa.com:...) for the MCP server card, the OpenAPI description, the RFC 9727 API catalog, the agent page and llms.txt, each with representative queries for search-based discovery. Also advertised by <link rel=\"ard\">, a Link: rel=\"ard\" header and an Agentmap line in robots.txt.",
+      "baseURL": "https://nepa.com/.well-known/ard.json",
+      "humanURL": "https://nepa.com/.well-known/ard.json",
+      "X-format": "json",
+      "X-contentType": "ard-manifest",
+      "X-specification": "https://agenticresourcediscovery.org/spec/",
+      "X-specVersion": "0.91",
+      "X-purpose": "agent-discovery",
+      "properties": [
+        {
+          "type": "X-ard-entry",
+          "identifier": "urn:air:nepa.com:mcp:nepa-mcp",
+          "mediaType": "application/mcp-server-card+json",
+          "url": "https://nepa.com/.well-known/mcp.json"
+        },
+        {
+          "type": "X-ard-entry",
+          "identifier": "urn:air:nepa.com:api:agent-rest-api",
+          "mediaType": "application/vnd.oai.openapi+json",
+          "url": "https://nepa.com/openapi.json"
+        },
+        {
+          "type": "X-ard-entry",
+          "identifier": "urn:air:nepa.com:catalog:api-catalog",
+          "mediaType": "application/linkset+json",
+          "url": "https://nepa.com/.well-known/api-catalog"
+        },
+        {
+          "type": "X-ard-entry",
+          "identifier": "urn:air:nepa.com:docs:agent-page",
+          "mediaType": "text/html",
+          "url": "https://nepa.com/agent/"
+        },
+        {
+          "type": "X-ard-entry",
+          "identifier": "urn:air:nepa.com:docs:llms-txt",
+          "mediaType": "text/plain",
+          "url": "https://nepa.com/llms.txt"
+        }
+      ],
+      "tags": [
+        "ard",
+        "agent-discovery",
+        "well-known"
+      ]
+    },
+    {
       "name": "Nepa API Catalog",
       "description": "This catalog — a self-referential entry per the APIs.json spec.",
       "baseURL": "https://nepa.com/api-catalog.json",
@@ -404,6 +452,7 @@
     "rest_api_index": "https://nepa.com/agent/v1/index.json",
     "openapi": "https://nepa.com/openapi.json",
     "mcp_server": "https://agentic-mcp-saas-nepa.onrender.com/mcp",
-    "sitemap": "https://nepa.com/sitemap_index.xml"
+    "sitemap": "https://nepa.com/sitemap_index.xml",
+    "ard_manifest": "https://nepa.com/.well-known/ard.json"
   }
 }

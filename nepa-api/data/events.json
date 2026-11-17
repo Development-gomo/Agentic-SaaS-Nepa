@@ -1,9 +1,10 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/events.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
-    "last_updated": "2026-10-16"
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
+    "last_updated": "2026-11-16",
+    "note": "No upcoming events were published on nepa.com at the 2026-11-16 crawl; the two November 2026 breakfast sessions are now past."
   },
   "events": [
     {
@@ -12,7 +13,7 @@
       "type": "event",
       "date": "2026-11-11",
       "location": "Helsinki, Finland",
-      "status": "upcoming",
+      "status": "past",
       "summary": "How data, AI, insights and measurement help marketing and insight teams make better decisions, with Valio, Metsä Tissue and a case from Wolt.",
       "url": "https://nepa.com/events/fi-nepa-breakfast-session-planning-for-impact-fueling-smarter-marketing-in-2027/"
     },
@@ -22,7 +23,7 @@
       "type": "event",
       "date": "2026-11-12",
       "location": "Stockholm, Sweden",
-      "status": "upcoming",
+      "status": "past",
       "summary": "Swedish-language session on AI, influencers and the new purchase journey, together with Lyko.",
       "url": "https://nepa.com/events/nepa-breakfast-session-12-november-2026/",
       "language": "sv"
@@ -39,7 +40,7 @@
     },
     {
       "id": "event-nepa-breakfast-session-29-jan",
-      "title": "Nepa Breakfast Session Stockholm 29 Jan 2026",
+      "title": "Nepa Breakfast Session – med Nordnet och Google. Se presentationen!",
       "type": "event",
       "date": "2026-01-29",
       "location": "Stockholm, Sweden",
@@ -57,7 +58,7 @@
     },
     {
       "id": "event-nepa-breakfast-session-stockholm-20-maj-2026",
-      "title": "Nepa Breakfast Session Stockholm 20 Maj 2026",
+      "title": "Nepa Breakfast session: Långsiktigt varumärkesbygge med Lantmännen och Coop",
       "type": "event",
       "date": "2026-05-20",
       "location": "Stockholm, Sweden",

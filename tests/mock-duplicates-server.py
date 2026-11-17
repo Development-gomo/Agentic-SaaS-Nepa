@@ -1,13 +1,13 @@
-"""Validates tests/staging-checks.sh 'duplicates' mode without a real site.
+"""Validates tests/live-checks.sh 'duplicates' mode without a real site.
 
   python3 tests/mock-duplicates-server.py 3931 correct   # one lead per submission (should PASS)
   python3 tests/mock-duplicates-server.py 3931 buggy     # check-then-act race (should FAIL)
-  bash tests/staging-checks.sh duplicates http://127.0.0.1:3931
+  bash tests/live-checks.sh duplicates http://127.0.0.1:3931
 
 'correct' reserves each submission atomically (like the plugin): repeats get the original
 lead, overlapping ones get 409 in_progress, key reuse with other content gets 409.
 'buggy' checks for an existing lead and creates one without atomicity, so simultaneous
-requests all create leads - the defect the staging check must catch.
+requests all create leads - the defect the duplicates check must catch.
 """
 import json, sys, threading, time, hashlib, itertools
 from http.server import ThreadingHTTPServer, BaseHTTPRequestHandler

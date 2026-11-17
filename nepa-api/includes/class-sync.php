@@ -27,6 +27,10 @@ define('NEPA_SYNC_POST_TYPE_PERSON', 'person');
 define('NEPA_SYNC_POST_TYPE_EVENT', 'event');
 define('NEPA_SYNC_POST_TYPE_WEBINAR', 'webinar');
 define('NEPA_SYNC_POST_TYPE_NEWS', 'news'); // client-win/partnership announcements at /news/
+// WordPress accounts that are CMS/agency logins, not authors. Override in wp-config.php if needed.
+if (!defined('NEPA_SYNC_CMS_AUTHORS')) {
+    define('NEPA_SYNC_CMS_AUTHORS', ['gomo_dev', 'Mridul GO MO']);
+}
 
 class Nepa_Agent_API_Sync {
 
@@ -78,22 +82,41 @@ class Nepa_Agent_API_Sync {
         return $dir;
     }
 
-    /** @var array<string,string> target path => staged temp file, committed together at the end of run_sync(). */
+    /** @var array<string,string> filename => file written into the new generation, published by commit_staged(). */
     private $staged = [];
 
+    /** @var string|null folder of the generation this run is writing (not served until commit_staged()). */
+    private $generation_dir = null;
+
     /**
-     * Stages a JSON file with a consistent { meta: {...}, ...body } envelope. Nothing
-     * replaces a served file until commit_staged() runs after every section has
-     * succeeded, so a sync that fails half-way leaves all files as they were. Top-level
-     * keys and meta notes that the sync doesn't produce (hand-written notes, extra
-     * summary fields) are carried over from the current file. Returns false if the temp
-     * file can't be written in full.
+     * The folder this run writes into: wp-content/uploads/nepa-agent-api/gen-<time>-<random>/.
+     * Nothing in it is served until commit_staged() switches the manifest to it, so readers
+     * never see a mix of old and new files.
+     */
+    private function generation_dir() {
+        if ($this->generation_dir === null) {
+            $name = 'gen-' . gmdate('Ymd\THis') . '-' . strtolower(wp_generate_password(8, false, false));
+            $dir = $this->data_dir() . $name . '/';
+            if (!wp_mkdir_p($dir) || !wp_is_writable($dir)) {
+                return null;
+            }
+            $this->generation_dir = $dir;
+        }
+        return $this->generation_dir;
+    }
+
+    /**
+     * Stages a JSON file with a consistent { meta: {...}, ...body } envelope in this run's
+     * generation folder. Nothing replaces a served file until commit_staged() runs after
+     * every section has succeeded. Top-level keys and meta notes that the sync doesn't
+     * produce (hand-written notes, extra summary fields) are carried over from the current
+     * file. Returns false if the file can't be written in full.
      */
     private function write_json($filename, $body) {
         $existing = $this->load_existing($filename) ?: [];
         $meta = array_merge(is_array($existing['meta'] ?? null) ? $existing['meta'] : [], [
             'source'       => home_url('/agent/v1/' . preg_replace('/\.json$/', '', $filename) . '.json'),
-            'version'      => '1.1',
+            'version'      => NEPA_DATA_VERSION,
             'release'      => NEPA_DATA_RELEASE,
             'last_updated' => gmdate('Y-m-d'),
             'synced_at'    => gmdate('c'),
@@ -104,65 +127,105 @@ class Nepa_Agent_API_Sync {
         if ($json === false) {
             return false;
         }
-        $dir = $this->data_dir();
-        if (!is_dir($dir) || !wp_is_writable($dir)) {
+        $dir = $this->generation_dir();
+        if ($dir === null) {
             return false;
         }
         $target = $dir . $filename;
-        $tmp = $target . '.tmp-' . wp_generate_password(8, false, false);
-        $written = file_put_contents($tmp, $json, LOCK_EX);
-        if ($written !== strlen($json)) {
-            @unlink($tmp);
+        if (@file_put_contents($target, $json, LOCK_EX) !== strlen($json)) {
+            @unlink($target);
             return false;
         }
-        $this->staged[$target] = $tmp;
+        $this->staged[$filename] = $target;
         return true;
     }
 
     /**
-     * Moves every staged file into place, then writes manifest.json (atomically) naming
-     * the release this sync was built on and every synced file - the manifest is what
-     * makes the synced copies served (see nepa_agent_api_data_path()). Files from an
-     * earlier sync of the same release stay listed; after a new release only files
-     * synced on top of it are listed. Returns the list of files that failed to move.
+     * Publishes this run's generation in one step. Files synced earlier on the same release
+     * but not re-written by this run (e.g. a section that was SKIPPED) are copied into the
+     * generation first, so it is complete on its own. Then manifest.json is replaced with an
+     * atomic rename naming the release, the generation folder and every file - that single
+     * rename is the moment the new data becomes visible. If anything fails before it, the
+     * generation is deleted and the previously served data stays exactly as it was.
+     * Returns the list of problems (empty on success).
      */
     private function commit_staged() {
-        $failed = [];
-        $moved = [];
-        foreach ($this->staged as $target => $tmp) {
-            if (@rename($tmp, $target)) {
-                $moved[] = basename($target);
-            } else {
-                @unlink($tmp);
-                $failed[] = basename($target);
+        if (!$this->staged || $this->generation_dir === null) {
+            return [];
+        }
+        $dir = $this->generation_dir;
+        $previous = nepa_agent_api_sync_manifest(true);
+        $files = array_keys($this->staged);
+        if (($previous['release'] ?? null) === NEPA_DATA_RELEASE) {
+            $prev_gen = (string) ($previous['generation'] ?? '');
+            $prev_dir = nepa_agent_api_upload_data_dir() . (preg_match('/^gen-[A-Za-z0-9-]+$/', $prev_gen) ? $prev_gen . '/' : '');
+            foreach ((array) ($previous['files'] ?? []) as $old) {
+                if (isset($this->staged[$old]) || !preg_match('/^[a-z-]+\.json$/', (string) $old)) {
+                    continue;
+                }
+                $src = $prev_dir . $old;
+                if (!is_readable($src) || !@copy($src, $dir . $old) || filesize($src) !== filesize($dir . $old)) {
+                    $this->discard_staged();
+                    return ["{$old} (could not carry the previously synced copy into the new generation)"];
+                }
+                $files[] = $old;
             }
+        }
+        $manifest = [
+            'release'    => NEPA_DATA_RELEASE,
+            'generation' => basename(rtrim($dir, '/')),
+            'synced_at'  => gmdate('c'),
+            'files'      => array_values(array_unique($files)),
+        ];
+        $path = nepa_agent_api_upload_data_dir() . 'manifest.json';
+        $tmp = $path . '.tmp-' . wp_generate_password(8, false, false);
+        $json = wp_json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        if (@file_put_contents($tmp, $json, LOCK_EX) !== strlen($json) || !$this->publish_manifest($tmp, $path)) {
+            @unlink($tmp);
+            $this->discard_staged();
+            return ['manifest.json'];
         }
         $this->staged = [];
-        if ($moved) {
-            $previous = nepa_agent_api_sync_manifest(true);
-            $files = ($previous['release'] ?? null) === NEPA_DATA_RELEASE ? (array) ($previous['files'] ?? []) : [];
-            $manifest = [
-                'release'   => NEPA_DATA_RELEASE,
-                'synced_at' => gmdate('c'),
-                'files'     => array_values(array_unique(array_merge($files, $moved))),
-            ];
-            $path = nepa_agent_api_upload_data_dir() . 'manifest.json';
-            $tmp = $path . '.tmp-' . wp_generate_password(8, false, false);
-            $json = wp_json_encode($manifest, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-            if (file_put_contents($tmp, $json, LOCK_EX) !== strlen($json) || !@rename($tmp, $path)) {
-                @unlink($tmp);
-                $failed[] = 'manifest.json';
+        $this->generation_dir = null;
+        nepa_agent_api_sync_manifest(true);
+        $this->prune_generations($manifest['generation'], (string) ($previous['generation'] ?? ''));
+        return [];
+    }
+
+    /** The atomic switch (a separate method so tests can make it fail). */
+    protected function publish_manifest($tmp, $path) {
+        return @rename($tmp, $path);
+    }
+
+    /**
+     * Deletes old generation folders, keeping the one just published and the one before it
+     * (a request that read the previous manifest a moment ago may still be reading from it).
+     * Unpublished folders left by an interrupted run are removed too; only one sync can run
+     * at a time (see acquire_lock()), so no other run can still be writing to them.
+     */
+    private function prune_generations($current, $previous) {
+        foreach ((array) glob(nepa_agent_api_upload_data_dir() . 'gen-*', GLOB_ONLYDIR) as $gen) {
+            $name = basename($gen);
+            if ($name === $current || $name === $previous) {
+                continue;
             }
-            nepa_agent_api_sync_manifest(true);
+            $this->remove_dir($gen);
         }
-        return $failed;
+    }
+
+    private function remove_dir($dir) {
+        foreach ((array) glob(rtrim($dir, '/') . '/*') as $f) {
+            @unlink($f);
+        }
+        @rmdir($dir);
     }
 
     private function discard_staged() {
-        foreach ($this->staged as $tmp) {
-            @unlink($tmp);
+        if ($this->generation_dir !== null) {
+            $this->remove_dir($this->generation_dir);
         }
         $this->staged = [];
+        $this->generation_dir = null;
     }
 
     /** Reads the copy currently being served (synced copy in uploads, or the bundled one). */
@@ -223,11 +286,11 @@ class Nepa_Agent_API_Sync {
     }
 
     public function run_sync() {
-        // One sync at a time: a second click (or a second admin) waits for the first to finish.
-        if (get_transient('nepa_agent_api_sync_lock')) {
+        // One sync at a time: a second click (or a second admin) is refused while the first runs.
+        $lock = $this->acquire_lock();
+        if ($lock === null) {
             return ['SKIPPED: another sync is already running. Try again in a few minutes.'];
         }
-        set_transient('nepa_agent_api_sync_lock', 1, 10 * MINUTE_IN_SECONDS);
 
         $log = [];
         try {
@@ -282,16 +345,55 @@ class Nepa_Agent_API_Sync {
                 $this->discard_staged();
                 $log[] = 'NOTHING WAS CHANGED: ' . count($failures) . ' section(s) failed, so no file was replaced (all-or-nothing). Fix the FAILED lines above and sync again.';
             } else {
-                $not_moved = $this->commit_staged();
-                $log[] = $not_moved
-                    ? 'PARTIAL: could not move these files into place: ' . implode(', ', $not_moved) . '. Check permissions on ' . nepa_agent_api_upload_data_dir() . '.'
+                $not_published = $this->commit_staged();
+                $log[] = $not_published
+                    ? 'NOTHING WAS CHANGED: the new files could not be published (' . implode(', ', $not_published) . '), so the data served before this sync is still served. Check permissions on ' . nepa_agent_api_upload_data_dir() . '.'
                     : 'DONE: files written to ' . nepa_agent_api_upload_data_dir() . ' and now served by /agent/v1/. Remember that agent-page.html, llms.txt and api-catalog.json are NOT regenerated by Sync - see DEPLOYMENT.md, "Keeping content fresh".';
             }
         } finally {
             $this->discard_staged();
-            delete_transient('nepa_agent_api_sync_lock');
+            $this->release_lock($lock);
         }
         return $log;
+    }
+
+    /**
+     * Atomic lock: a plain INSERT into wp_options, whose option_name is unique, so of two
+     * simultaneous syncs only one can create the row (the same technique as the contact
+     * endpoint's reservations - add_option() is not used because it upserts). The value
+     * carries a random token and an expiry; a lock left by a crashed run is taken over after
+     * 10 minutes by deleting exactly the value read (compare-and-swap), and only the owner's
+     * exact value is ever released. Returns the stored value, or null if another sync holds it.
+     */
+    private function acquire_lock() {
+        global $wpdb;
+        $name = 'nepa_agent_api_sync_lock';
+        for ($attempt = 0; $attempt < 3; $attempt++) {
+            $raw = wp_json_encode(['token' => wp_generate_password(16, false, false), 'expires' => time() + 10 * MINUTE_IN_SECONDS]);
+            $suppress = $wpdb->suppress_errors(true);
+            $inserted = $wpdb->insert($wpdb->options, ['option_name' => $name, 'option_value' => $raw, 'autoload' => 'no']);
+            $wpdb->suppress_errors($suppress);
+            if ($inserted) {
+                return $raw;
+            }
+            $current = $wpdb->get_var($wpdb->prepare("SELECT option_value FROM {$wpdb->options} WHERE option_name = %s", $name));
+            if (!is_string($current)) {
+                continue; // the row vanished between the two queries: try again
+            }
+            $decoded = json_decode($current, true);
+            if (is_array($decoded) && ($decoded['expires'] ?? 0) > time()) {
+                return null;
+            }
+            $wpdb->delete($wpdb->options, ['option_name' => $name, 'option_value' => $current]);
+        }
+        return null;
+    }
+
+    private function release_lock($raw) {
+        global $wpdb;
+        if ($raw !== null) {
+            $wpdb->delete($wpdb->options, ['option_name' => 'nepa_agent_api_sync_lock', 'option_value' => $raw]);
+        }
     }
 
     /**
@@ -474,7 +576,8 @@ class Nepa_Agent_API_Sync {
      * parameter), because translation plugins often return only the default language from
      * the plain endpoint. If a language that had posts still comes back empty, its
      * existing posts are carried over unchanged instead of being dropped, and the log says
-     * so - verify on staging which parameter this site honours.
+     * so - before the first Sync on production, check which parameter this site honours
+     * (DEPLOYMENT.md section 1, step 7).
      */
     private function sync_blog_posts() {
         $posts = $this->fetch_all_rest('posts', ['_embed' => 'author']);
@@ -507,7 +610,7 @@ class Nepa_Agent_API_Sync {
             $link = $p['link'] ?? '';
             $language = $this->language_from_link($link);
             $id = 'post-' . ($language === 'en' ? '' : $language . '-') . $this->slug_from_link($link);
-            $items[$id] = [
+            $item = [
                 'id'       => $id,
                 'title'    => $this->clean_html($p['title']['rendered'] ?? ''),
                 'author'   => $author,
@@ -516,6 +619,7 @@ class Nepa_Agent_API_Sync {
                 'url'      => $link,
                 'language' => $language,
             ];
+            $items[$id] = $this->merge_blog_post($item, $curated[$id] ?? null);
         }
 
         // Language protection: never drop a whole language because the REST output omitted it.
@@ -546,6 +650,29 @@ class Nepa_Agent_API_Sync {
             $note .= " WARNING: the REST API returned no '{$lang}' posts, so {$n} existing '{$lang}' post(s) were kept unchanged - check the translation plugin's REST language parameter.";
         }
         return 'OK blog-posts.json: ' . count($items) . ' post(s) refreshed live from /wp-json/wp/v2/posts.' . $note;
+    }
+
+    /**
+     * Applies the package's editorial corrections to a post fetched from WordPress.
+     * - A CMS or agency account (NEPA_SYNC_CMS_AUTHORS, e.g. gomo_dev) is never published
+     *   as an author: the curated author is kept instead - including an intentional null
+     *   (e.g. a post whose only author record is the CMS account) or the person named in the
+     *   visible byline. A post new to the package gets no author in that case.
+     * - Any other author from WordPress is used, so real re-attributions still come through.
+     * - A non-empty curated excerpt is kept (curated excerpts were cleaned of markup and
+     *   embed debris); WordPress's excerpt only fills an empty one.
+     * WordPress stays authoritative for id, title, url, date and language.
+     */
+    private function merge_blog_post($item, $curated) {
+        $cms = array_map('strtolower', (array) NEPA_SYNC_CMS_AUTHORS);
+        $is_cms = $item['author'] !== null && in_array(strtolower(trim($item['author'])), $cms, true);
+        if ($item['author'] === null || $is_cms) {
+            $item['author'] = (is_array($curated) && array_key_exists('author', $curated)) ? $curated['author'] : null;
+        }
+        if (is_array($curated) && is_string($curated['excerpt'] ?? null) && trim($curated['excerpt']) !== '') {
+            $item['excerpt'] = $curated['excerpt'];
+        }
+        return $item;
     }
 
     /** "sv", "fi" or "da" when a URL lives under that language prefix, otherwise "en". */

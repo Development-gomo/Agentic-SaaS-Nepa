@@ -2,7 +2,7 @@
 
 > Growth by insights. Nepa is a Swedish marketing research company that turns complex data into actionable brand and marketing insights — combining brand tracking, marketing mix modelling, and campaign evaluation into one continuous platform.
 
-Nepa helps brands unlock growth through marketing research insight, researching more than 50 markets globally, tracking 7,500+ brands and campaigns daily, and working with 300+ blue-chip clients annually. Nepa AB (publ) is listed on Nasdaq First North Growth Market (ticker: NEPA, ISIN: SE0008066302), with Redeye AB as Certified Adviser. Content last crawled 2026-10-16.
+Nepa helps brands unlock growth through marketing research insight, researching more than 50 markets globally, tracking 7,500+ brands and campaigns daily, and working with 300+ blue-chip clients annually. Nepa AB (publ) is listed on Nasdaq First North Growth Market (ticker: NEPA, ISIN: SE0008066302), with Redeye AB as Certified Adviser. Content last crawled 2026-11-16.
 
 ## Products
 - Brand Tracking: Continuously updated brand health dashboard measuring awareness, perception, and purchase intent, with AI-powered trend detection and competitor benchmarking. Can include an advertising equity measure — the accumulated value of a brand's advertising over time (Advertising Equity 2026 study: 95 Swedish brands, 2,226 respondents). Pricing page: from 1,500 EUR (16,300 SEK)/month.
@@ -35,10 +35,12 @@ Nepa helps brands unlock growth through marketing research insight, researching 
 - Wolt (Creative AI Analytics on TikTok): up to 40%+ potential CPA reduction identified by moving from current to best-practice ad creative.
 - Dafgårds: 600% increase in marketing investment, backed by confidence from Category Insight and Brand Tracking data, supporting a return to category leadership.
 - Lantmännen (Advertising Equity): advertising equity +25% after its renewed communication platform launched in 2021; positive brand attitude grew from 54% (2011) to 86%.
+- Laattapiste-Pukkila (Finnish tile and bathroom specialist): booked customer appointments +30% after a brand study and campaign evaluation led to one clear brand promise.
 
 ## Offices
 - Stockholm (Headquarters): Magnus Ladulåsgatan 65, 118 27 Stockholm, Sweden | +46 8 400 268 00 | info@nepa.com
-- Finland: regional office presence (no public street address); named account contacts on the Finland contact page
+- Helsinki, Finland: Erottajankatu 2, 2. krs (VillageWorks), 00120 Helsinki | +358 45 678 6939 | named account contacts on the Finland contact page
+- Copenhagen, Denmark: Havnegade 39, 1058 København K | +45 81 61 78 10
 - Consumer panel and participant questions: panel@nepa.com (not for sales inquiries)
 
 ## Leadership
@@ -49,6 +51,7 @@ Nepa helps brands unlock growth through marketing research insight, researching 
 - Dan Foreman — Chairman of the Board
 - Ulrich Boyer — Board Member, co-founder, former CEO (2021–2023)
 - Ashkan Senobari, Fredrik Lundqvist, Ludvig Blomqvist — Board Members
+- Andrea Sahlgren — VP Sales from early November 2026 (announced 2026-10-19; not yet listed on the About page)
 
 ## Key Pages
 - [Homepage](https://nepa.com/)
@@ -60,7 +63,8 @@ Nepa helps brands unlock growth through marketing research insight, researching 
 - [Case Studies](https://nepa.com/case/)
 - [Blog](https://nepa.com/blog/)
 - [Nepa Sessions (webinars and event summaries)](https://nepa.com/sessions/)
-- [Insights Hub](https://nepa.com/insight/brand-tracking/) (reports, downloads, and featured articles — not a general-content archive despite its URL)
+- [Insights](https://nepa.com/insight/) (articles, reports and studies by topic: [Brand Tracking](https://nepa.com/insight/brand-tracking/), [Brand Strategy](https://nepa.com/insight/brand-strategy/), [Marketing Mix Modelling](https://nepa.com/insight/marketing-mix-modelling/), [Campaign Effectiveness](https://nepa.com/insight/campaign-effectiveness/), [Creative](https://nepa.com/insight/creative/), [Growth](https://nepa.com/insight/growth/), [Channels](https://nepa.com/insight/channels/), [Industry](https://nepa.com/insight/industry/))
+- [Nordic Consumer Decision Study 2026 – Age of Agency](https://nepa.com/downloads/age-of-agency-nordic/) (report download)
 - [Newsroom](https://nepa.com/newsroom/)
 - [Contact Us](https://nepa.com/contact-us/)
 - [Contact Finland](https://nepa.com/contact-finland/)
@@ -76,45 +80,48 @@ Nepa helps brands unlock growth through marketing research insight, researching 
 - [OpenAPI Specification](https://nepa.com/openapi.json)
 - [MCP Server](https://agentic-mcp-saas-nepa.onrender.com/mcp)
 - [API Catalog (APIs.json)](https://nepa.com/api-catalog.json)
+- [Agentic Resource Discovery manifest (ARD)](https://nepa.com/.well-known/ard.json)
 - [XML Sitemap](https://nepa.com/sitemap_index.xml)
 
 ## Case Studies (selected)
 - [How Lantmännen and Nepa measure the value advertising builds over time](https://nepa.com/case/measure-the-value-advertising-builds-over-time/)
 - [GANT trusts Nepa to help it grow](https://nepa.com/case/gant-trusts-nepa-to-help-it-grow/)
 - [How Dafgårds used insight to regain consumer trust — 600% increase in marketing investment](https://nepa.com/case/how-dafgards-used-insight-to-regain-consumer-trust/)
-- [Standing out in a sea of sameness: Hemköp's strategic transformation](https://nepa.com/case/hemkop/)
+- [From lookalike to standout: Hemköp’s bold path to brand clarity with Nepa](https://nepa.com/case/hemkop/)
 - [How Creative AI analytics helped Wolt unlock a potential 40%+ CPA reduction on TikTok](https://nepa.com/case/how-creative-ai-analytics-helped-wolt-unlock-a-potential-40-cpa-reduction-on-tiktok/)
 - [Cure Media and Akademibokhandeln](https://nepa.com/case/cure-media-and-akademibokhandeln/)
 - [VARNER trusts Nepa to uncover its potential](https://nepa.com/case/varner-trusts-nepa-to-uncover-its-potential/)
 - [Telenor trusts Nepa to understand their business needs](https://nepa.com/case/telenor-trusts-nepa-to-understand-their-business-needs/)
-- [Turning insights into impact: Fjällräven's approach to global brand growth](https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/)
-- Full list of 20 case studies: [/agent/v1/case-studies.json](https://nepa.com/agent/v1/case-studies.json)
+- [Fjällräven’s global success through Insights](https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/)
+- [Using data to sharpen a specialist brand in a crowded market (Laattapiste-Pukkila)](https://nepa.com/case/laattapiste-pukkila/)
+- Full list of 21 case studies: [/agent/v1/case-studies.json](https://nepa.com/agent/v1/case-studies.json)
 
 ## Recent Blog Posts
+- [The changing path to purchase: lessons from Nepa and Lyko](https://nepa.com/blog/changing-path-to-purchase-nepa-breakfast-lyko/) (2026-11-13)
+- [Planning for impact: Highlights from Nepa’s Helsinki Breakfast Session](https://nepa.com/blog/planning-for-impact-helsinki-breakfast-session/) (2026-11-12)
+- [Nepa’s perspective: Black Week 2026 – advertise smart, measure everything](https://nepa.com/blog/black-week-2026-tips-for-advertisers/) (2026-11-04)
 - [Research should shape brand strategy, not rescue it](https://nepa.com/blog/research-should-shape-brand-strategy-not-rescue-it/) (2026-09-30)
 - [Sweden's 2026 Advertising Equity Study](https://nepa.com/blog/advertising-equity-2026-study/) (2026-09-17)
-- [EFFDay 2026: Takeaways](https://nepa.com/blog/effday-2026-takeaways/) (2026-09-04)
-- [What Swedish consumer data reveals about how purchase decisions are made](https://nepa.com/blog/swedish-consumer-purchase-behaviour/) (2026-07-10)
-- Full archive of 261 posts (246 English, 15 Swedish): [/agent/v1/blog-posts.json](https://nepa.com/agent/v1/blog-posts.json)
+- Full archive of 266 posts (250 English, 16 Swedish): [/agent/v1/blog-posts.json](https://nepa.com/agent/v1/blog-posts.json)
 
-## Upcoming Events
-- [Nepa Breakfast Session Helsinki – Planning for impact: Fueling smarter marketing in 2027](https://nepa.com/events/fi-nepa-breakfast-session-planning-for-impact-fueling-smarter-marketing-in-2027/) (2026-11-11)
-- [Nepa Breakfast Session med Lyko – så landar du på Gen Z:s radar (in Swedish)](https://nepa.com/events/nepa-breakfast-session-12-november-2026/) (2026-11-12)
+## Events
+- No upcoming events were published at the 2026-11-16 crawl; see [Nepa Sessions](https://nepa.com/sessions/) for new dates.
 - [On-demand webinar: Measuring Advertising Equity – the Lantmännen case](https://nepa.com/webinar/on-demand-webinar-advertising-equity/)
 
 ## Investor Relations
 - Nepa AB (publ) is listed on Nasdaq First North Growth Market (ticker NEPA, ISIN SE0008066302); Redeye AB is Certified Adviser. Not investment advice.
-- Latest regulatory release: [CEO Anders Dahl leaves Nepa – search for successor initiated](https://nepa.com/mfn_news/ceo-anders-dahl-leaves-nepa-search-for-successor-initiated/) (2026-09-30)
-- Next report: Q3 interim report 2026 on 2026-10-23
+- Latest regulatory release: [Nepa Interim Report Q3 2026](https://nepa.com/mfn_news/nepa-interim-report-q3-2026/) (2026-10-23): ARR +9.7% year-on-year to SEK 135.8 million; net sales SEK 47.6 million; adjusted EBITDA-Capex SEK 2.3 million
+- Leadership: [CEO Anders Dahl leaves Nepa – search for successor initiated](https://nepa.com/mfn_news/ceo-anders-dahl-leaves-nepa-search-for-successor-initiated/) (2026-09-30); [Andrea Sahlgren appointed VP Sales](https://nepa.com/mfn_news/nepa-appoints-media-industry-leader-andrea-sahlgren-as-vp-sales/) (2026-10-19)
+- Next report: Year-end report 2026 on 2027-02-19
 - [Investor Relations](https://nepa.com/investor-relations/) | [Financial Reports & Presentations](https://nepa.com/financial-reports-and-presentations/) | [Corporate Governance](https://nepa.com/corporate-governance/) | [Shareholder Meetings](https://nepa.com/shareholder-meetings/) | [Financial Calendar](https://nepa.com/calendar/) | [Investor Contacts](https://nepa.com/contact-information/)
-- Full catalog of 287 press releases (136 English, 151 Swedish): [/agent/v1/press-releases.json](https://nepa.com/agent/v1/press-releases.json)
+- Full catalog of 293 press releases (139 English, 154 Swedish): [/agent/v1/press-releases.json](https://nepa.com/agent/v1/press-releases.json)
 
 ## Social Media
 - [LinkedIn](https://www.linkedin.com/company/nepa_2/)
 - [YouTube](https://www.youtube.com/@NepaInsights)
 
 ## Nordic Language Pages (hreflang sv / fi / da alternates)
-Nepa publishes localized sections in Swedish, Finnish, and Danish alongside the primary English site. All 94 localized pages, with their English equivalents: [/agent/v1/localized-pages.json](https://nepa.com/agent/v1/localized-pages.json)
+Nepa publishes localized sections in Swedish, Finnish, and Danish alongside the primary English site. All 107 localized pages, with their English equivalents: [/agent/v1/localized-pages.json](https://nepa.com/agent/v1/localized-pages.json)
 ### Swedish (sv)
 - [Startsida](https://nepa.com/sv/)
 - [Om Nepa](https://nepa.com/sv/om-nepa/)

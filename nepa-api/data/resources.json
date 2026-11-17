@@ -1,9 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/resources.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
-    "last_updated": "2026-10-16",
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
+    "last_updated": "2026-11-16",
     "note": "Gated thought-leadership reports and positioning/campaign landing pages found during the crawl that don't fit the products/solutions/case-studies/blog taxonomy. 'type' is 'report' (downloadable trend report, usually gated behind a form) or 'campaign-landing' (a persuasion/positioning page, e.g. 'Rethink SaaS-only MMM'). Summaries are extracted verbatim from real page text, not written from scratch. Six more items (3 'report' CPT + 3 'download' CPT entries) were recovered by querying /wp-json/wp/v2/report and /wp-json/wp/v2/download directly — these pages had no internal links from anywhere else on the crawled site, so the original link-based crawl never discovered them. Their live-rendered content is thin (title + publish date only, no body text), consistent with being HubSpot form-gated downloads whose real content is a PDF delivered after submission."
   },
   "resources": [
@@ -252,7 +252,31 @@
       "language": "en",
       "summary": "Sign-up page for a Helsinki breakfast session (Nordic Marketing 2026) on proving more with a reduced marketing budget.",
       "url": "https://nepa.com/nepa-breakfast-session-did-your-marketing-budget-for-2026-get-cut-too/"
+    },
+    {
+      "id": "resource-download-age-of-agency-nordic",
+      "title": "Nordic Consumer Decision Study 2026 – Age of Agency",
+      "type": "download",
+      "summary": "Landing and download page for Nepa's Nordic Consumer Decision Study 2026 ('Influenced, but in control'): Nordic consumers take in more advertising, reviews, creator content, AI assistants and recommendations than ever, yet insist the final purchase decision is theirs. Published 2026-11-11; related to the 2026-11-12 press release on AI in the shopping journey (more than 3,100 consumers in Sweden, Denmark and Finland).",
+      "url": "https://nepa.com/downloads/age-of-agency-nordic/",
+      "date": "2026-11-11"
+    },
+    {
+      "id": "resource-download-age-of-agency-sweden",
+      "title": "Age of Agency – Nordic Consumer Decision Study 2026",
+      "type": "download",
+      "summary": "Gated download form for the Nordic Consumer Decision Study 2026 report (published 2026-11-02). The page renders only the title, a form and the date.",
+      "url": "https://nepa.com/downloads/age-of-agency-sweden/",
+      "date": "2026-11-02"
+    },
+    {
+      "id": "resource-download-creative-ai",
+      "title": "Creative AI",
+      "type": "download",
+      "summary": "Gated download of Nepa's Creative AI whitepaper (published 2026-10-29), related to the Creative AI Analytics product. The page renders only the title, a form and the date.",
+      "url": "https://nepa.com/downloads/creative-ai/",
+      "date": "2026-10-29"
     }
   ],
-  "count": 34
+  "count": 37
 }

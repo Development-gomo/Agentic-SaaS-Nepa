@@ -1,9 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/pricing.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
-    "last_updated": "2026-10-16",
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
+    "last_updated": "2026-11-16",
     "note": "All three tabs of the pricing widget (Brand Tracking, Marketing Mix Modelling, Campaign Pulse), read from the page source on 2026-10-16. Replaces the v1.0 file, which captured only the MMM tab and listed outdated MMM tiers."
   },
   "page_url": "https://nepa.com/pricing/",

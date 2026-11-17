@@ -40,6 +40,16 @@ The MCP endpoint is `https://<your-render-host>/mcp` (CORS enabled for browser-b
 - Dependencies updated with `npm audit fix` (MCP SDK 1.32.1, proxy-addr 2.0.8, qs 6.16.1 and others): `npm audit` reports 0 vulnerabilities as of 2026-10-16.
 - 18 tools in total. `node_modules/` is not shipped; Render's `npm ci` installs it from `package-lock.json`.
 
+## Version 1.2.1 (2026-11) - dependency security update and honest error outcomes
+
+Tools and inputs are unchanged. One behaviour change (after the Codex review): an error response is reported as "not saved" only when it carries one of the API's own error codes that guarantee nothing was stored; an unexpected 5xx, an unrecognised 503 or any other unrecognised answer is now reported as `OUTCOME UNKNOWN` (it used to say "nothing was recorded"). The retry promise states the real windows (24 hours with the same `idempotency_key`, 30 minutes for identical details) instead of "never". Retry guidance tells agents to keep the key exactly as on the first call and never to add one on a retry (a regression in an earlier draft of this release told them to add one, which would have created a second inquiry; found in Codex's second review). New advisories published after 2026-10-16 were fixed:
+
+- `npm audit fix` updated `@hono/node-server`, `hono`, `body-parser` and `fast-uri` (all transitive, non-breaking).
+- `zod` moved from 3.25.76 to **4.6.7**: the high-severity advisory GHSA-mrhx-c7xc-m3w5 (memory exhaustion when validating oversized constrained collections) is fixed only in zod 4.6.6 and later. The MCP SDK (1.32.1) supports `zod ^3.25 || ^4.0`; the source needed no changes, it type-checks, the published tool input schemas are unchanged, and all 26 smoke-test checks pass.
+- `npm audit` reports 0 vulnerabilities as of 2026-11-16. Redeploy on Render (`npm ci && npm run build`) to pick up the new lockfile.
+
+The server is also listed for Agentic Resource Discovery: nepa.com's `/.well-known/ard.json` carries an entry `urn:air:nepa.com:mcp:nepa-mcp` that points at the MCP card `/.well-known/mcp.json` and lists the 18 tool names as capabilities (kept in step with this file by `tests/run-ard-tests.php`).
+
 ## Version 1.2.0 (2026-10) - HubSpot form delivery
 
 `submit_contact_inquiry` now matches Nepa's HubSpot contact form, where every inquiry is forwarded by the WordPress plugin (1.3.0).
@@ -62,11 +72,13 @@ The MCP endpoint is `https://<your-render-host>/mcp` (CORS enabled for browser-b
 | `SAVED, NEEDS NEPA REVIEW` | Saved; Nepa's team must act on the HubSpot delivery |
 | `REJECTED` | Error. HubSpot refused the details, for example a webmail address. |
 | `IN PROGRESS` | Error. An identical request is still being processed. |
-| `NOT SAVED (temporary)` | Error. Nothing was recorded; retry later. |
-| `Outcome unknown` | Error. Retry with the same details. |
+| `NOT SAVED (temporary)` | Error. Nothing was recorded; retry later. Only for the API's own `rate_limited`, `not_recorded` and `reservation_unavailable` codes. |
+| `NOT SAVED: the request was refused` | Error. A validation, consent, authorization or size problem the API reported with its own error code; nothing was recorded. |
+| `OUTCOME UNKNOWN` | Error. No answer, a timeout, or an error the API did not produce itself (an unexpected 5xx, a gateway page, an unrecognised body): the inquiry may or may not have been saved. Retry with the same details and the `idempotency_key` exactly as on the first call: the same key if one was sent, **no key if none was**. A repeat is recognised for 24 hours with the same key, and for 30 minutes when the details are identical, with or without a key (plugin 1.4.0); after those 30 minutes only the original key matches, so a key added on a later retry would create a second inquiry. |
 
 `ALREADY SUBMITTED` is prefixed when a repeat matched an earlier submission. No credentials for HubSpot live on this server.
 
 **Settings:**
+- `NEPA_CONTACT_ENABLED=false` removes the `submit_contact_inquiry` tool (17 tools remain); `/health` and `/tools` then report `"contact_submissions":"paused"`. A `contact_disabled` answer from the WordPress plugin (its own switch) is reported as "NOT SAVED: Nepa has paused agent contact submissions". See DEPLOYMENT.md §7a.
 - The contact call waits up to `CONTACT_TIMEOUT_MS` (default 30000) because WordPress makes its first HubSpot attempt inside the request.
 - The request body now sends `consent`, `person.first_name`/`last_name`/`phone`, `inquiry.message`/`language`, and `agent_context.via = "mcp"`.

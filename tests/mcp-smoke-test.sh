@@ -13,7 +13,7 @@ WORK="$(mktemp -d "${TMPDIR:-/tmp}/nepa-mcp-smoke.XXXXXX")"
 MCP="$WORK/nepa-mcp"
 API_PORT=3918; MCP_PORT=3917; PASS=0; FAIL=0
 check() { if [ "$2" = "true" ]; then PASS=$((PASS+1)); echo "PASS  $1"; else FAIL=$((FAIL+1)); echo "FAIL  $1"; fi; }
-cleanup() { kill "${API_PID:-}" "${MCP_PID:-}" 2>/dev/null || true; wait 2>/dev/null || true; rm -rf "$WORK"; }
+cleanup() { kill "${API_PID:-}" "${MCP_PID:-}" "${MCP2_PID:-}" 2>/dev/null || true; wait 2>/dev/null || true; rm -rf "$WORK"; }
 trap cleanup EXIT
 fingerprint() { (cd "$PKG_MCP" && find . -type f -print0 | sort -z | xargs -0 shasum | shasum | cut -d' ' -f1); }
 BEFORE="$(fingerprint)"
@@ -47,11 +47,18 @@ outcome() { py 'import json,sys;r=json.load(sys.stdin)["result"];t=r["content"][
 try: j=json.loads(t); first=j.get("outcome") or j.get("error") or ""
 except Exception: first=t.split("\n")[0]
 print(("ERR " if r.get("isError") else "OK ")+first)' "$1"; }
-for item in "delivered:OK DELIVERED" "pending:OK SAVED, DELIVERY PENDING" "retryable:OK SAVED, DELIVERY RETRYING" "uncertain:OK SAVED, DELIVERY UNCONFIRMED" "manual_review:OK SAVED, NEEDS NEPA REVIEW" "disabled:OK SAVED:" "rejected:ERR REJECTED" "inprogress:ERR IN PROGRESS" "unavailable:ERR NOT SAVED (temporary)" "slow:ERR Outcome unknown"; do
+for item in "delivered:OK DELIVERED" "pending:OK SAVED, DELIVERY PENDING" "retryable:OK SAVED, DELIVERY RETRYING" "uncertain:OK SAVED, DELIVERY UNCONFIRMED" "manual_review:OK SAVED, NEEDS NEPA REVIEW" "disabled:OK SAVED:" "rejected:ERR REJECTED" "inprogress:ERR IN PROGRESS" "unavailable:ERR NOT SAVED (temporary)" "ratelimited:ERR NOT SAVED (temporary)" "invalid:ERR NOT SAVED: the request was refused" "paused:ERR NOT SAVED: Nepa has paused agent contact submissions" "savedthen500:ERR OUTCOME UNKNOWN" "odd503:ERR OUTCOME UNKNOWN" "gateway:ERR OUTCOME UNKNOWN" "slow:ERR OUTCOME UNKNOWN"; do
   local_part="${item%%:*}"; expect="${item#*:}"
   got="$(outcome "$(submit "$local_part")")"
   check "tool result for HubSpot '$local_part' starts with '$expect'" "$([[ "$got" == "$expect"* ]] && echo true || echo false)"
 done
+# Retry guidance must never tell an agent to ADD a key on a retry: the API matches a repeat by its key,
+# or by content when there is no key, so a key added on retry makes it a new submission (second lead).
+for case in savedthen500 slow; do
+  RT="$(py 'import json,sys;print(json.load(sys.stdin)["result"]["content"][0]["text"])' "$(submit "$case")")"
+  check "unknown outcome ($case) says to keep the key exactly as on the first call, never add one" "$(py 'import sys;t=sys.stdin.read();print(str("no key if you did not" in t and "set one if you did not" not in t and "never add" not in t.replace("never add a key on a retry","")).lower())' "$RT")"
+done
+check "tool description says to set the key on the first call and never add one on a retry" "$(py 'import json,sys;t=[x for x in json.load(sys.stdin)["result"]["tools"] if x["name"]=="submit_contact_inquiry"][0];d=t["description"];k=t["inputSchema"]["properties"]["idempotency_key"].get("description","");print(str("never add a key on a retry" in d and "first call" in d and "retry without one" in k and "set one if you did not" not in d).lower())' "$TOOLS")"
 SENT=$(head -1 "$WORK/contact-posts.jsonl")
 check "tool sends consent separately: process=true, marketing_opt_in=false by default, via=mcp" "$(py 'import json,sys;b=json.loads(sys.stdin.read());print(str(b["consent"]=={"process":True,"marketing_opt_in":False} and b["agent_context"]["via"]=="mcp" and b["person"]["first_name"]=="Ada" and b["inquiry"]["message"]=="Hello").lower())' "$SENT")"
 submit delivered ',"marketing_opt_in":true' >/dev/null
@@ -66,9 +73,24 @@ R=$(rpc '{"jsonrpc":"2.0","id":4,"method":"tools/call","params":{"name":"submit_
 check "submit rejects user_authorized_submission=false" "$(py 'import json,sys;print(str(json.load(sys.stdin)["result"].get("isError") is True).lower())' "$R")"
 HDR=$(curl -s -i -X OPTIONS "http://127.0.0.1:$MCP_PORT/mcp" -H 'Origin: https://example.com')
 check "CORS preflight answers 204 with Access-Control-Allow-Origin" "$(grep -q '204' <<<"$HDR" && grep -qi 'access-control-allow-origin: \*' <<<"$HDR" && echo true || echo false)"
-check "/health reports version 1.2.0" "$(curl -s "http://127.0.0.1:$MCP_PORT/health" | grep -q '"version":"1.2.0"' && echo true || echo false)"
+check "/health reports version 1.2.1" "$(curl -s "http://127.0.0.1:$MCP_PORT/health" | grep -q '"version":"1.2.1"' && echo true || echo false)"
 CODE=$(curl -s -o /dev/null -w '%{http_code}' "http://127.0.0.1:$MCP_PORT/health?deep=1")
 check "/health?deep=1 reports 503 when the API has no index.json (test server)" "$([ "$CODE" = 503 ] && echo true || echo false)"
+
+# Contact switch: a second server with NEPA_CONTACT_ENABLED=false keeps every read-only tool but has no submit tool.
+MCP2_PORT=$((MCP_PORT + 2))
+PORT=$MCP2_PORT NEPA_API_BASE="http://127.0.0.1:$API_PORT" NEPA_CONTACT_ENABLED=false node dist/index.js >/dev/null 2>&1 & MCP2_PID=$!
+for _ in $(seq 1 40); do curl -sf "http://127.0.0.1:$MCP2_PORT/health" >/dev/null && break; sleep 0.25; done
+rpc2() { curl -s "http://127.0.0.1:$MCP2_PORT/mcp" -H 'Content-Type: application/json' -H 'Accept: application/json, text/event-stream' -d "$1" | sed -n 's/^data: //p'; }
+T2=$(rpc2 '{"jsonrpc":"2.0","id":1,"method":"tools/list"}')
+check "switch off: 17 tools listed, submit_contact_inquiry absent" "$(py 'import json,sys;t=[x["name"] for x in json.load(sys.stdin)["result"]["tools"]];print(str(len(t)==17 and "submit_contact_inquiry" not in t).lower())' "$T2")"
+check "switch off: /tools and /health report contact submissions paused" "$(curl -s "http://127.0.0.1:$MCP2_PORT/tools" | grep -q '"contact_submissions":"paused"' && curl -s "http://127.0.0.1:$MCP2_PORT/health" | grep -q '"contact_submissions":"paused"' && echo true || echo false)"
+BEFORE_POSTS=$(wc -l < "$WORK/contact-posts.jsonl")
+R2=$(rpc2 '{"jsonrpc":"2.0","id":2,"method":"tools/call","params":{"name":"submit_contact_inquiry","arguments":{"user_authorized_submission":true,"consent_to_process":true,"first_name":"Ada","email":"delivered@acme-example.com","phone":"+46701234567","company":"Acme AB","message":"Hello"}}}')
+check "switch off: a submit call is refused and nothing reaches the API" "$(py 'import json,sys;r=json.load(sys.stdin);print(str(("error" in r) or bool(r.get("result",{}).get("isError"))).lower())' "$R2" 2>/dev/null || echo false)$([ "$(wc -l < "$WORK/contact-posts.jsonl")" = "$BEFORE_POSTS" ] && echo '' || echo '-but-posted')"
+R3=$(rpc2 '{"jsonrpc":"2.0","id":3,"method":"tools/call","params":{"name":"get_case_study","arguments":{"id":"case-measure-the-value-advertising-builds-over-time"}}}')
+check "switch off: read-only tools keep working" "$(py 'import json,sys;print(str("Lantm" in json.load(sys.stdin)["result"]["content"][0]["text"]).lower())' "$R3")"
+check "switch on (default): /health reports contact submissions enabled" "$(curl -s "http://127.0.0.1:$MCP_PORT/health" | grep -q '"contact_submissions":"enabled"' && echo true || echo false)"
 
 check "package nepa-mcp/ is unchanged (no node_modules added, dist not rewritten)" "$([ "$(fingerprint)" = "$BEFORE" ] && echo true || echo false)"
 

@@ -1,9 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/offices.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
-    "last_updated": "2026-10-16"
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
+    "last_updated": "2026-11-16"
   },
   "offices": [
     {
@@ -19,11 +19,11 @@
     },
     {
       "id": "office-finland",
-      "city": null,
+      "city": "Helsinki",
       "country": "Finland",
-      "address": null,
-      "role": "Nepa Finland office (regional presence; no street address published)",
-      "phone": null,
+      "address": "Erottajankatu 2, 2. krs (VillageWorks), 00120 Helsinki, Finland",
+      "role": "Nepa Finland office",
+      "phone": "+358 45 678 6939",
       "email": null,
       "contact_url": "https://nepa.com/contact-finland/",
       "contacts": [
@@ -45,7 +45,20 @@
           "email": "maija.heino@nepa.com",
           "phone": "+358 45 678 6939"
         }
-      ]
+      ],
+      "contact_url_fi": "https://nepa.com/fi/contact/",
+      "address_source": "Finnish-language contact page and footer of the /fi/ pages"
+    },
+    {
+      "id": "office-denmark",
+      "city": "Copenhagen",
+      "country": "Denmark",
+      "address": "Havnegade 39, 1058 København K, Denmark",
+      "role": "Nepa Denmark office",
+      "phone": "+45 81 61 78 10",
+      "email": null,
+      "contact_url": "https://nepa.com/da/contact/",
+      "address_source": "footer of the Danish-language /da/ pages"
     }
   ]
 }

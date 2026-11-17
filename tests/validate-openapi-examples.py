@@ -5,14 +5,16 @@
 With a file argument it also validates every response the plugin actually produced in the
 HubSpot test suite (NEPA_DUMP_RESPONSES=responses.jsonl php tests/run-hubspot-tests.php token).
 
-Needs the jsonschema package (pip install jsonschema); exits 0 with a SKIP note if it is
-missing. Each example is the exact shape the plugin returns for that case.
+Needs the jsonschema package (pip install jsonschema). Without it the result is INCOMPLETE
+(exit code 3) - never a pass - unless ALLOW_SKIP=1. Each example is the exact shape the plugin
+returns for that case.
 """
 import json, os, sys
 try:
     import jsonschema
 except ImportError:
-    print('SKIP  jsonschema not installed (pip install jsonschema)'); sys.exit(0)
+    print('INCOMPLETE  jsonschema not installed (pip install jsonschema); responses were NOT validated')
+    sys.exit(0 if os.environ.get('ALLOW_SKIP') == '1' else 3)
 
 root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 spec = json.load(open(os.path.join(root, 'nepa-api', 'openapi.json'), encoding='utf-8'))
@@ -43,6 +45,7 @@ examples = [
     ('422', 'HubSpot rejection', {'status': 'rejected', 'duplicate': False, 'lead_id': 'nepa-lead-2026-AB12CD34', 'message': 'x', 'hubspot': hubspot('rejected', errors=['BLOCKED_EMAIL']), 'error': 'hubspot_rejected'}, True),
     ('409', 'in progress', {'error': 'in_progress', 'message': 'x'}, True),
     ('503', 'not recorded', {'error': 'reservation_unavailable', 'message': 'x'}, True),
+    ('503', 'contact paused', {'error': 'contact_disabled', 'message': 'x'}, True),
     ('422', 'invalid: error body with a status', {'status': 'rejected', 'error': 'x', 'message': 'x'}, False),
     ('200', 'invalid: missing hubspot', {'status': 'received', 'duplicate': False, 'lead_id': 'x', 'message': 'x'}, False),
 ]

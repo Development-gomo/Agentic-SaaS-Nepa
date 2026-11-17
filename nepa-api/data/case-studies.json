@@ -1,9 +1,9 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/case-studies.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
-    "last_updated": "2026-10-16"
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
+    "last_updated": "2026-11-16"
   },
   "case_studies": [
     {
@@ -96,7 +96,7 @@
     },
     {
       "id": "case-hemkop",
-      "title": "Standing out in a sea of sameness: Hemköp's strategic transformation",
+      "title": "From lookalike to standout: Hemköp’s bold path to brand clarity with Nepa",
       "client": "Hemköp",
       "industry": "Grocery retail",
       "segment": null,
@@ -253,7 +253,7 @@
     },
     {
       "id": "case-turning-insights-into-impact-fjallravens-approach-to-global-brand-growth",
-      "title": "Turning insights into impact: Fjällräven's approach to global brand growth",
+      "title": "Fjällräven’s global success through Insights",
       "client": "Fjällräven",
       "industry": "Apparel & Gear",
       "segment": null,
@@ -275,7 +275,7 @@
     },
     {
       "id": "case-launching-marli-juissi-energy",
-      "title": "From idea tournament to store shelf: Launching Marli Juissi® Energy",
+      "title": "How Eckes-Granini launched Marli Juissi® Energy with Nepa",
       "client": "Eckes-Granini",
       "industry": "Beverages / FMCG – Juice and Energy Drinks",
       "segment": null,
@@ -313,7 +313,24 @@
       ],
       "url": "https://nepa.com/case/measure-the-value-advertising-builds-over-time/",
       "date_published": "2026-09-11"
+    },
+    {
+      "id": "case-laattapiste-pukkila",
+      "title": "Using data to sharpen a specialist brand in a crowded market",
+      "client": "Laattapiste-Pukkila",
+      "industry": "Retail (specialist retailer for bathroom and flooring materials)",
+      "segment": null,
+      "service": "Brand study, Campaign evaluation",
+      "summary": "Laattapiste-Pukkila, a family-owned Finnish specialist in tiles and bathroom solutions, was well known but did not convert awareness strongly enough into consideration and preference against large DIY chains. Nepa ran a tailored campaign evaluation and two consecutive years of brand dip studies across Finland's key urban areas, mapping the funnel from awareness to store visits and the brand's positioning against competitors. The findings were distilled into one clear brand promise.",
+      "results": [
+        {
+          "metric": "Booked customer appointments after the renewed brand promise",
+          "value": "+30%"
+        }
+      ],
+      "url": "https://nepa.com/case/laattapiste-pukkila/",
+      "date_published": "2026-11-06"
     }
   ],
-  "count": 20
+  "count": 21
 }

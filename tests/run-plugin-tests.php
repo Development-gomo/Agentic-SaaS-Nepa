@@ -70,6 +70,7 @@ function age_all_leads($seconds) { foreach ($GLOBALS['T']['posts'] as $id => $p)
 echo "== Activation\n";
 ($GLOBALS['T']['activate'])();
 check('flush happens with the agent rewrite rules registered', isset($GLOBALS['T']['flushed_rules']['^agent/v1/([a-z-]+)\.json$'], $GLOBALS['T']['flushed_rules']['^agent/?$'], $GLOBALS['T']['flushed_rules']['^openapi\.json$']));
+check('the API base URL /agent/v1/ is routed to the index', ($GLOBALS['T']['flushed_rules']['^agent/v1/?$'] ?? '') === 'index.php?nepa_endpoint=index');
 check('activation schedules the retry and purge jobs', isset($GLOBALS['T']['cron']['nepa_agent_api_retry_notifications'], $GLOBALS['T']['cron']['nepa_agent_api_purge_leads']));
 check('CORS allows the documented Idempotency-Key header', (bool) preg_match("/Access-Control-Allow-Headers: [^']*Idempotency-Key/", file_get_contents($copy . '/nepa-api.php')));
 
@@ -83,10 +84,10 @@ check('a partial word does not match', json_decode($out, true)['count'] === 0);
 $_GET = ['language' => 'sv', 'limit' => '5'];
 [, $out] = invoke($api, 'serve_paginated_json', 'press-releases.json', 'releases', ['language', 'category']);
 $j = json_decode($out, true);
-check('?language=sv is applied before pagination (151 total, 5 returned)', $j['total'] === 151 && count($j['releases']) === 5 && $j['releases'][0]['language'] === 'sv');
+check('?language=sv is applied before pagination (154 total, 5 returned)', $j['total'] === 154 && count($j['releases']) === 5 && $j['releases'][0]['language'] === 'sv');
 $_GET = ['language' => 'fi'];
 [, $out] = invoke($api, 'serve_filtered_json', 'localized-pages.json', 'pages', ['language', 'section']);
-check('localized-pages ?language=fi (24)', json_decode($out, true)['count'] === 24);
+check('localized-pages ?language=fi (35)', json_decode($out, true)['count'] === 35);
 $_GET = [];
 
 echo "== Contact: validation\n";
@@ -276,6 +277,79 @@ $ids = get_posts(['post_type' => 'nepa_lead', 'post_status' => ['publish', 'priv
 check('the retention query includes trashed leads', in_array($trashed, $ids, true) && in_array($old, $ids, true));
 check('the job uses that explicit status list (not "any")', strpos(file_get_contents($copy . '/nepa-api.php'), "'post_status'    => ['publish', 'private', 'draft', 'pending', 'future', 'trash']") !== false);
 
+echo "== Contact: retries that add or drop an idempotency key\n";
+$GLOBALS['T']['transients'] = [];   // fresh rate-limit window for this block
+$mixed = function ($local, $msg, $key = null) use ($good) {
+    $b = with(with($good, 'person', ['email' => "{$local}@acme-example.com"]), 'inquiry', ['message' => $msg]);
+    return $key ? with($b, 'agent_context', ['idempotency_key' => $key]) : $b;
+};
+$n0 = lead_count();
+[$s1, $r1] = post($mixed('mix1', 'Keyless first, keyed retry'));
+[$s2, $r2] = post($mixed('mix1', 'Keyless first, keyed retry', 'added-on-retry-01'));
+check('keyless request, then the same content with an added key -> the original lead, no second one', $s1 === 200 && $s2 === 200 && $r2['duplicate'] === true && $r2['lead_id'] === $r1['lead_id'] && lead_count() === $n0 + 1);
+[$s3, $r3] = post($mixed('mix2', 'Keyed first, keyless retry', 'keyed-first-0001'));
+[$s4, $r4] = post($mixed('mix2', 'Keyed first, keyless retry'));
+check('keyed request, then the same content without the key -> the original lead, no second one', $s3 === 200 && $r4['duplicate'] === true && $r4['lead_id'] === $r3['lead_id'] && lead_count() === $n0 + 2);
+[$s5, $r5] = post($mixed('mix2', 'Keyed first, keyless retry', 'keyed-first-0001'));
+check('the original key still finds the lead', $r5['duplicate'] === true && $r5['lead_id'] === $r3['lead_id'] && lead_count() === $n0 + 2);
+[$s6, $r6] = post($mixed('mix2', 'Keyed first, keyless retry', 'another-key-0002'));
+check('identical content with a different key within 30 minutes is treated as the same inquiry (documented trade-off)', $r6['duplicate'] === true && $r6['lead_id'] === $r3['lead_id'] && lead_count() === $n0 + 2);
+[$s7, $r7] = post($mixed('mix3', 'Different content, reused key', 'keyed-first-0001'));
+check('a key reused for different content -> 409 idempotency_key_reused, nothing stored', $s7 === 409 && $r7['error'] === 'idempotency_key_reused' && lead_count() === $n0 + 2);
+[$s8, $r8] = post($mixed('mix3', 'Different content, reused key'));
+check('the refused request left no content reservation behind (the same content without a key is accepted)', $s8 === 200 && $r8['duplicate'] === false && lead_count() === $n0 + 3);
+// After the 30-minute content window a keyed retry is still matched by its key.
+$fp9 = fp_of($mixed('mix4', 'Key outlives the content window', 'long-lived-key-01'));
+[, $r9] = post($mixed('mix4', 'Key outlives the content window', 'long-lived-key-01'));
+$fp_name = 'nepa_lead_res_' . sha1('fp:' . $fp9);
+$raw9 = json_decode($GLOBALS['wpdb']->rows[$fp_name], true);
+$raw9['created'] = time() - 4000;
+$GLOBALS['wpdb']->rows[$fp_name] = json_encode($raw9);
+[$s10, $r10] = post($mixed('mix4', 'Key outlives the content window', 'long-lived-key-01'));
+check('after the content window, the same key still returns the original lead', $s10 === 200 && $r10['duplicate'] === true && $r10['lead_id'] === $r9['lead_id'] && lead_count() === $n0 + 4);
+check('a request that loses on the key releases the content reservation it had taken', !isset($GLOBALS['wpdb']->rows[$fp_name]) || json_decode($GLOBALS['wpdb']->rows[$fp_name], true)['created'] < time() - 3000);
+
+$GLOBALS['T']['transients'] = [];   // fresh rate-limit window (5 new inquiries per 10 minutes per address)
+// Codex third review: a key already bound to inquiry A, sent with inquiry B's content, must be
+// refused - not answered with B as a content duplicate.
+[$sa, $ra] = post($mixed('mix5', 'Inquiry A', 'conflict-key-a01'));
+[$sb, $rb] = post($mixed('mix6', 'Inquiry B', 'conflict-key-b01'));
+$before_conflict = lead_count();
+[$sc, $rc] = post($mixed('mix6', 'Inquiry B', 'conflict-key-a01'));
+check('B content sent with A key -> 409 idempotency_key_reused (not a duplicate of B)', $sa === 200 && $sb === 200 && $sc === 409 && ($rc['error'] ?? '') === 'idempotency_key_reused' && lead_count() === $before_conflict);
+[$sd, $rd] = post($mixed('mix6', 'Inquiry B', 'conflict-key-b01'));
+check('B with its own key is still a duplicate of B afterwards', $sd === 200 && $rd['duplicate'] === true && $rd['lead_id'] === $rb['lead_id']);
+[$se, $re] = post($mixed('mix6', 'Inquiry B'));
+check('B without a key is still a duplicate of B afterwards', $se === 200 && $re['duplicate'] === true && $re['lead_id'] === $rb['lead_id']);
+[$sf, $rf] = post($mixed('mix5', 'Inquiry A', 'conflict-key-a01'));
+check('A with its key is still a duplicate of A (the refused request changed nothing)', $sf === 200 && $rf['duplicate'] === true && $rf['lead_id'] === $ra['lead_id'] && lead_count() === $before_conflict);
+// While B is still in flight (content reserved, no lead yet), A's key with B's content is also refused.
+$fp_g = fp_of($mixed('mix7', 'Inquiry G in flight'));
+$GLOBALS['wpdb']->insert('wp_options', ['option_name' => 'nepa_lead_res_' . sha1('fp:' . $fp_g), 'option_value' => json_encode(['fingerprint' => $fp_g, 'created' => time(), 'ttl' => 1800, 'lead_post_id' => 0, 'lead_id' => '', 'token' => 't']), 'autoload' => 'no']);
+[$sg, $rg] = post($mixed('mix7', 'Inquiry G in flight', 'conflict-key-a01'));
+check('content in flight + a key bound to other content -> 409 idempotency_key_reused, not in_progress', $sg === 409 && ($rg['error'] ?? '') === 'idempotency_key_reused');
+unset($GLOBALS['wpdb']->rows['nepa_lead_res_' . sha1('fp:' . $fp_g)]);
+
+echo "== Contact switch (NEPA_CONTACT_ENABLED)\n";
+$probe = function ($endpoint, $method, $enabled, $body = '') {
+    $cmd = escapeshellarg(PHP_BINARY) . ' -d ' . escapeshellarg('error_reporting=E_ALL & ~E_DEPRECATED & ~E_WARNING') . ' '
+        . escapeshellarg(__DIR__ . '/plugin-route-probe.php') . ' ' . escapeshellarg($endpoint) . ' ' . escapeshellarg($method) . ' ' . ($enabled ? '1' : '0')
+        . ($body !== '' ? ' ' . escapeshellarg($body) : '');
+    return json_decode((string) shell_exec($cmd), true);
+};
+$valid = json_encode($good);
+$off = $probe('contact', 'POST', false, $valid);
+check('switch off: POST /contact.json -> 503 contact_disabled', ($off['status'] ?? null) === 503 && ($off['body']['error'] ?? '') === 'contact_disabled');
+check('switch off: nothing stored, emailed, counted or sent to HubSpot', $off['leads'] === 0 && $off['mail'] === 0 && $off['counters'] === 0 && $off['http'] === 0);
+$idx_off = $probe('index', 'GET', false);
+check('switch off: index.json says paused and does not list the contact endpoint', ($idx_off['body']['contact_submissions'] ?? '') === 'paused' && !preg_grep('/contact\.json/', $idx_off['body']['endpoints'] ?? ['contact.json']));
+$read_off = $probe('company', 'GET', false);
+check('switch off: read-only endpoints keep working', ($read_off['status'] ?? null) === 200 && ($read_off['body']['name'] ?? '') === 'Nepa');
+$on = $probe('contact', 'POST', true, $valid);
+check('switch on (default): the request reaches the contact handler, not contact_disabled', ($on['body']['error'] ?? '') !== 'contact_disabled');
+$idx_on = $probe('index', 'GET', true);
+check('switch on: index.json says enabled and lists the contact endpoint', ($idx_on['body']['contact_submissions'] ?? '') === 'enabled' && preg_grep('/contact\.json \(POST\)/', $idx_on['body']['endpoints'] ?? []));
+
 echo "== Sync and data precedence\n";
 $sync = new Nepa_Agent_API_Sync();
 $products = ['brand-tracking', 'marketing-mix-modeling', 'campaign-pulse', 'brand-touch', 'brand-asset', 'brand-premium', 'segmentation', 'category-insight', 'path-to-purchase', 'creative-ai', 'category-entry-points'];
@@ -289,16 +363,54 @@ invoke($sync, 'discard_staged');
 [$line] = invoke($sync, 'sync_simple_cpt', 'products.json', 'product', 'products', function ($p) { return ['id' => 'product-' . $p->post_name, 'name' => $p->post_title, 'category' => null, 'description' => 'generic excerpt', 'url' => $p->link]; });
 check('before commit, the bundled file is still served', nepa_agent_api_data_path('products.json') === $copy . '/data/products.json');
 invoke($sync, 'commit_staged');
-$synced_path = nepa_agent_api_upload_data_dir() . 'products.json';
-check('after commit, the synced file is served (manifest names this release)', nepa_agent_api_data_path('products.json') === $synced_path);
+$synced_path = nepa_agent_api_data_path('products.json');
+$m1 = nepa_agent_api_sync_manifest(true);
+check('after commit, the synced file is served from the generation the manifest names', strpos($synced_path, nepa_agent_api_upload_data_dir() . 'gen-') === 0 && $synced_path === nepa_agent_api_upload_data_dir() . $m1['generation'] . '/products.json');
 $written = json_decode(file_get_contents($synced_path), true);
 $ids = array_column($written['products'], 'id');
 check('curated landing-page entry (Nepa Trinity) is kept', in_array('product-nepa-trinity', $ids, true) && count($ids) === 12);
 $bt = $written['products'][array_search('product-brand-tracking', $ids, true)];
 check('curated description is kept over a generic WordPress excerpt', strpos($bt['description'], 'continuously updated') !== false);
 check('synced file is stamped with release and synced_at', $written['meta']['release'] === NEPA_DATA_RELEASE && !empty($written['meta']['synced_at']));
+check('synced file keeps the current data schema version (not 1.1)', $written['meta']['version'] === NEPA_DATA_VERSION && NEPA_DATA_VERSION === '1.2');
 touch($copy . '/data/products.json', time() + 3600);
 check('a newer timestamp on the bundled file does not change which copy is served', nepa_agent_api_data_path('products.json') === $synced_path);
+
+// A second sync re-writes only solutions: products is carried into the new generation.
+$GLOBALS['T']['cpt_posts']['solution'] = array_map(function ($s) { return (object) ['post_name' => $s, 'post_title' => ucfirst($s), 'post_excerpt' => 'x', 'post_content' => '', 'link' => "https://nepa.com/solutions/{$s}/"]; }, ['marketing-strategy', 'brand-development', 'visual-performance', 'media-strategy', 'campaign-measurement']);
+invoke($sync, 'sync_simple_cpt', 'solutions.json', 'solution', 'solutions', function ($p) { return ['id' => 'solution-' . $p->post_name, 'name' => $p->post_title, 'description' => 'x', 'url' => $p->link]; });
+$reader_before = nepa_agent_api_data_path('products.json'); // a request that read the manifest just before the switch
+invoke($sync, 'commit_staged');
+$m2 = nepa_agent_api_sync_manifest(true);
+check('second commit switches to a new generation listing both files', $m2['generation'] !== $m1['generation'] && in_array('products.json', $m2['files'], true) && in_array('solutions.json', $m2['files'], true));
+check('a file not re-synced is carried forward unchanged', file_get_contents(nepa_agent_api_data_path('products.json')) === file_get_contents($reader_before));
+check('a reader still holding the previous manifest can finish reading (previous generation kept)', is_readable($reader_before));
+
+// Failure during commit: the manifest switch fails -> nothing that is served changes.
+class Nepa_Test_Sync_Failing_Switch extends Nepa_Agent_API_Sync {
+    protected function publish_manifest($tmp, $path) { return false; }
+}
+$bad = new Nepa_Test_Sync_Failing_Switch();
+$served_products = file_get_contents(nepa_agent_api_data_path('products.json'));
+$manifest_raw = file_get_contents(nepa_agent_api_upload_data_dir() . 'manifest.json');
+$GLOBALS['T']['cpt_posts']['product'][0]->post_title = 'CHANGED TITLE';
+invoke($bad, 'sync_simple_cpt', 'products.json', 'product', 'products', function ($p) { return ['id' => 'product-' . $p->post_name, 'name' => $p->post_title, 'category' => null, 'description' => 'x', 'url' => $p->link]; });
+[$problems] = invoke($bad, 'commit_staged');
+check('a failed switch reports the problem', $problems === ['manifest.json']);
+check('a failed switch changes nothing that is served (manifest and files)', file_get_contents(nepa_agent_api_upload_data_dir() . 'manifest.json') === $manifest_raw && file_get_contents(nepa_agent_api_data_path('products.json')) === $served_products && strpos($served_products, 'CHANGED TITLE') === false);
+check('a failed switch leaves no unpublished generation behind', count(glob(nepa_agent_api_upload_data_dir() . 'gen-*', GLOB_ONLYDIR)) === 2);
+$GLOBALS['T']['cpt_posts']['product'][0]->post_title = 'Brand-tracking';
+
+// Third commit prunes the oldest generation (keeps current + previous).
+invoke($sync, 'sync_simple_cpt', 'solutions.json', 'solution', 'solutions', function ($p) { return ['id' => 'solution-' . $p->post_name, 'name' => $p->post_title, 'description' => 'x', 'url' => $p->link]; });
+invoke($sync, 'commit_staged');
+$m3 = nepa_agent_api_sync_manifest(true);
+$gens = array_map('basename', glob(nepa_agent_api_upload_data_dir() . 'gen-*', GLOB_ONLYDIR));
+sort($gens);
+$expect = [$m2['generation'], $m3['generation']];
+sort($expect);
+check('old generations are pruned (current and previous kept)', $gens === $expect);
+
 $manifest_path = nepa_agent_api_upload_data_dir() . 'manifest.json';
 $m = json_decode(file_get_contents($manifest_path), true);
 $m['release'] = 'agentic-web-2026-09';
@@ -306,13 +418,69 @@ file_put_contents($manifest_path, json_encode($m));
 nepa_agent_api_sync_manifest(true);
 check('synced files from a different release are not served (new release takes effect)', nepa_agent_api_data_path('products.json') === $copy . '/data/products.json');
 
+echo "== Sync lock\n";
+global $wpdb;
+[$l1] = invoke($sync, 'acquire_lock');
+[$l2] = invoke($sync, 'acquire_lock');
+check('the lock is exclusive: a second sync cannot take it', is_string($l1) && $l2 === null);
+$log = $sync->run_sync();
+check('run_sync is refused while another sync holds the lock', $log === ['SKIPPED: another sync is already running. Try again in a few minutes.']);
+invoke($sync, 'release_lock', 'not-the-owner');
+check('only the owner can release the lock', isset($wpdb->rows['nepa_agent_api_sync_lock']));
+invoke($sync, 'release_lock', $l1);
+check('the owner releases it', !isset($wpdb->rows['nepa_agent_api_sync_lock']));
+$wpdb->rows['nepa_agent_api_sync_lock'] = json_encode(['token' => 'old', 'expires' => time() - 5]);
+[$l3] = invoke($sync, 'acquire_lock');
+check('a lock left by a crashed run is taken over after it expires', is_string($l3) && json_decode($wpdb->rows['nepa_agent_api_sync_lock'], true)['token'] !== 'old');
+invoke($sync, 'release_lock', $l3);
+
 $before = file_get_contents(nepa_agent_api_data_path('products.json'));
 $GLOBALS['T']['cpt_posts']['product'] = [];
 $GLOBALS['T']['cpt_posts']['solution'] = [(object) ['post_name' => 'x', 'post_title' => 'X', 'post_excerpt' => '', 'post_content' => '', 'link' => 'https://nepa.com/solutions/x/']];
 $log = $sync->run_sync();
 check('a FAILED section means no file is replaced (all-or-nothing)', strpos(end($log), 'NOTHING WAS CHANGED') === 0 && file_get_contents(nepa_agent_api_data_path('products.json')) === $before);
-check('the sync lock is released afterwards', get_transient('nepa_agent_api_sync_lock') === false);
-check('no temporary files are left behind', !glob(nepa_agent_api_upload_data_dir() . '*.tmp-*'));
+check('the sync lock is released afterwards', !isset($wpdb->rows['nepa_agent_api_sync_lock']));
+check('no temporary files or unpublished generations are left behind', !glob(nepa_agent_api_upload_data_dir() . '*.tmp-*') && !glob(nepa_agent_api_upload_data_dir() . 'gen-*/*.tmp-*'));
+
+echo "== Blog Sync keeps editorial corrections\n";
+$bundled_posts = json_decode(file_get_contents($copy . '/data/blog-posts.json'), true)['posts'];
+$cms_for = [
+    'https://nepa.com/blog/why-brand-salience-is-the-new-growth-driver/' => 'gomo_dev',           // curated author: null
+    'https://nepa.com/blog/research-should-shape-brand-strategy-not-rescue-it/' => 'gomo_dev',   // curated author: visible byline
+    'https://nepa.com/sv/blog/path-to-purchase/' => 'Mridul GO MO',                              // curated author: null
+];
+$rest_posts = array_map(function ($p) use ($cms_for) {
+    $author = $cms_for[$p['url']] ?? ($p['url'] === 'https://nepa.com/blog/black-week-2026-tips-for-advertisers/' ? 'Ulrika Berg' : ($p['author'] ?? 'Someone'));
+    return ['link' => $p['url'], 'date' => $p['date'] . 'T10:00:00', 'title' => ['rendered' => $p['title']], 'excerpt' => ['rendered' => '<p>RAW REST EXCERPT</p>'], '_embedded' => ['author' => [['name' => $author]]]];
+}, $bundled_posts);
+$rest_posts[] = ['link' => 'https://nepa.com/blog/brand-new-post/', 'date' => '2026-11-20T10:00:00', 'title' => ['rendered' => 'Brand new post'], 'excerpt' => ['rendered' => '<p>New excerpt</p>'], '_embedded' => ['author' => [['name' => 'gomo_dev']]]];
+$GLOBALS['T']['http_handler'] = function ($method, $url) use ($rest_posts) {
+    if (strpos($url, '/wp-json/wp/v2/posts') === false) return [404, []];
+    parse_str((string) parse_url($url, PHP_URL_QUERY), $q);
+    if (!empty($q['lang']) || !empty($q['wpml_language'])) {
+        $list = array_values(array_filter($rest_posts, function ($p) use ($q) { return strpos($p['link'], '/' . ($q['lang'] ?? $q['wpml_language']) . '/') !== false; }));
+    } else {
+        $list = $rest_posts;
+    }
+    $page = (int) ($q['page'] ?? 1);
+    return [200, array_slice($list, ($page - 1) * 100, 100), ['X-WP-TotalPages' => (string) max(1, ceil(count($list) / 100)), 'X-WP-Total' => (string) count($list)]];
+};
+$bsync = new Nepa_Agent_API_Sync();
+[$line] = invoke($bsync, 'sync_blog_posts');
+check('blog sync succeeds against the package posts', strpos($line, 'OK blog-posts.json') === 0, $line);
+$staged = (new ReflectionProperty($bsync, 'staged'));
+$staged->setAccessible(true);
+$out = json_decode(file_get_contents($staged->getValue($bsync)['blog-posts.json']), true);
+$by = array_column($out['posts'], null, 'url');
+check('CMS account is not restored as author (intentional null kept)', array_key_exists('author', $by['https://nepa.com/blog/why-brand-salience-is-the-new-growth-driver/']) && $by['https://nepa.com/blog/why-brand-salience-is-the-new-growth-driver/']['author'] === null);
+check('CMS account does not replace the curated byline', $by['https://nepa.com/blog/research-should-shape-brand-strategy-not-rescue-it/']['author'] === 'Dora Harfman Bromée');
+check('agency account on a Swedish post stays null', $by['https://nepa.com/sv/blog/path-to-purchase/']['author'] === null);
+check('a real author change in WordPress still comes through', $by['https://nepa.com/blog/black-week-2026-tips-for-advertisers/']['author'] === 'Ulrika Berg');
+check('a new post by a CMS account gets no author', $by['https://nepa.com/blog/brand-new-post/']['author'] === null && $by['https://nepa.com/blog/brand-new-post/']['excerpt'] === 'New excerpt');
+check('curated excerpts are kept over raw REST excerpts', $by['https://nepa.com/blog/research-should-shape-brand-strategy-not-rescue-it/']['excerpt'] !== 'RAW REST EXCERPT' && $by['https://nepa.com/blog/research-should-shape-brand-strategy-not-rescue-it/']['excerpt'] !== '');
+check('blog sync output carries schema version 1.2', $out['meta']['version'] === '1.2');
+invoke($bsync, 'discard_staged');
+$GLOBALS['T']['http_handler'] = null;
 
 echo "\n{$pass} passed, {$fail} failed\n";
 exit($fail ? 1 : 0);

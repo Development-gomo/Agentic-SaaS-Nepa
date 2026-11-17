@@ -1,5 +1,462 @@
 # Changelog — Nepa Agentic Web package
 
+## agentic-web-2026-11 — 2026-11-16
+
+Rebuilt from a fresh crawl of the live https://nepa.com on 2026-11-16 and compared with the previous package (`agentic-web-2026-10`, crawled 2026-10-16, deployed and live on 2026-11-16). This release also adds **Agentic Resource Discovery (ARD)** support.
+
+**Crawl method.** All 800 URLs in https://nepa.com/sitemap_index.xml (12 child sitemaps, including 3 hreflang-only alternates) plus every page URL in the previous package: 812 URLs, each status-checked without following redirects (811 × 200, 1 × 404, no redirects). The raw HTML of all 811 live pages was fetched for titles, dates, authors, hreflang, navigation and JSON-LD. 532 pages were scraped with the Firecrawl API (batch scrape, `maxAge: 0`, all succeeded); the other 279 are historical press releases whose sitemap `lastmod` predates the last build, checked from their HTML. Every package field (titles, dates, authors, prices, figures, contacts) was compared with the live pages. A **second review** the same day (see below) also compared every item the WordPress REST API publishes (posts, pages, press releases, insight, report and download types, in all four languages) and every internal link found on the crawled pages; it found 12 more pages and a bug in the live discovery plugin.
+
+**Versions.** Data files v1.1 → v1.2 (release `agentic-web-2026-11`) · Nepa Agent API WordPress plugin 1.3.0 → 1.4.0 · OpenAPI 1.2.0 → 1.3.0 · MCP server 1.2.0 → 1.2.1 · Nepa Agent Discovery must-use plugin 1.0.0 → 1.1.0 · new: Agentic Resource Discovery module 1.0.0.
+
+### Summary
+
+| | Count |
+|---|---|
+| Pages added to the package | 36 |
+| — newly published on the site since the last build | 32 |
+| — already live but not previously covered | 4 |
+| Pages updated (substantive) | 12 |
+| Pages re-saved on the site, package fields verified unchanged | 142 |
+| Pages removed (404) | 1 |
+| Live pages deliberately excluded | 20 |
+
+Totals now: 266 blog posts (250 English, 16 Swedish), 293 press releases (139 English, 154 Swedish), 21 case studies, 30 events, 37 resources, 107 localized pages (49 sv, 35 fi, 23 da), 18 financial reports.
+
+### Pages added
+
+#### Newly published on nepa.com since the last build (32)
+
+English blog posts (3):
+- 2026-11-13 — [The changing path to purchase: lessons from Nepa and Lyko](https://nepa.com/blog/changing-path-to-purchase-nepa-breakfast-lyko/) (Christoffer Steiser)
+- 2026-11-12 — [Planning for impact: Highlights from Nepa’s Helsinki Breakfast Session](https://nepa.com/blog/planning-for-impact-helsinki-breakfast-session/) (Christoffer Steiser)
+- 2026-11-04 — [Nepa’s perspective: Black Week 2026 – advertise smart, measure everything](https://nepa.com/blog/black-week-2026-tips-for-advertisers/) (Christoffer Steiser in the structured data; the visible byline shows Ulrika Berg, Marketing Director)
+
+Case study (1):
+- 2026-11-06 — [Using data to sharpen a specialist brand in a crowded market (Laattapiste-Pukkila)](https://nepa.com/case/laattapiste-pukkila/) — booked customer appointments +30%
+
+Press releases, English (4):
+- 2026-11-12 — [New Nordic study from Nepa: Never used an AI chatbot? For one in three “non-users”, AI is still part of the shopping journey](https://nepa.com/mfn_news/new-nordic-study-from-nepa-never-used-an-ai-chatbot-for-one-in-three-non-users-ai-is-still-part-of-the-shopping-journey/)
+- 2026-10-23 — [Nepa Interim Report Q3 2026](https://nepa.com/mfn_news/nepa-interim-report-q3-2026/) (regulatory)
+- 2026-10-19 — [Nepa appoints media industry leader Andrea Sahlgren as VP Sales](https://nepa.com/mfn_news/nepa-appoints-media-industry-leader-andrea-sahlgren-as-vp-sales/) (no Swedish version published)
+- 2026-10-16 — [Invitation to presentation of Nepa’s Q3 interim report 2026](https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q3-interim-report-2026/)
+
+Press releases, Swedish (3) — each linked to its English version (`alternate_language_url`, verified by title):
+- 2026-11-12 — [Ny nordisk studie från Nepa: Aldrig använt en AI-chatt? För en av tre ”icke-användare” är AI ändå en del av köpresan](https://nepa.com/mfn_news/ny-nordisk-studie-fran-nepa-aldrig-anvant-en-ai-chatt-for-en-av-tre-icke-anvandare-ar-ai-anda-en-del-av-kopresan/)
+- 2026-10-23 — [Nepa Delårsrapport Q3 2026](https://nepa.com/mfn_news/nepa-delarsrapport-q3-2026/) (regulatory)
+- 2026-10-16 — [Inbjudan till presentation av Nepas delårsrapport Q3 2026](https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q3-2026/)
+
+Finnish case pages (10) — the live pages declare no hreflang alternate, so the English case was matched by client name (`alternates_source` notes this):
+- [Suomi esiin ruoan avulla](https://nepa.com/fi/case/business-finland/) → Business Finland
+- [Vaikuttajamarkkinoinnista mitattavaa vaikutusta](https://nepa.com/fi/case/cure-media-ja-akademibokhandeln/) → Cure Media & Akademibokhandeln
+- [Kriisistä selkeyteen: näin Dafgårds palautti kuluttajien luottamuksen insightien avulla](https://nepa.com/fi/case/dafgards/) → Dafgårds
+- [Fortnox: tutkimustiedosta selkeä suunta](https://nepa.com/fi/case/fortnox/) → Fortnox
+- [Massasta erottuvaksi: Hemköpin rohkea tie selkeään brändiin Nepan kanssa](https://nepa.com/fi/case/hemkop/) → Hemköp
+- [If – Pohjoismaiden johtava vahinkovakuutusyhtiö](https://nepa.com/fi/case/if/) → If Insurance
+- [Datasta suuntaa – miten erikoisliike terävöitti brändiään kilpaillulla markkinalla](https://nepa.com/fi/case/laattapiste-pukkila/) → Laattapiste-Pukkila
+- [Näin Lantmännen mittaa mainonnan pitkän aikavälin arvoa](https://nepa.com/fi/case/lantmannen/) → Lantmännen (Advertising Equity)
+- [Insightista vaikutukseen](https://nepa.com/fi/case/sbab/) → SBAB
+- [Näin Creative AI -analytiikka paljasti Woltille jopa 40 %:n potentiaalin CPA:n laskuun TikTokissa](https://nepa.com/fi/case/wolt/) → Wolt
+
+Page (1):
+- [Brand, campaign and media insights that drive growth](https://nepa.com/insight/) — the new Insights hub (listed under Key Pages in llms.txt and the agent page's page index)
+
+Insights topic pages (7, found in the second review; WordPress `insight` type, published 2026-11-03, not in the sitemap) — linked from the agent page's page index and llms.txt Key Pages:
+- [Brand Strategy](https://nepa.com/insight/brand-strategy/) · [Marketing Mix Modelling](https://nepa.com/insight/marketing-mix-modelling/) · [Campaign Effectiveness](https://nepa.com/insight/campaign-effectiveness/) · [Creative](https://nepa.com/insight/creative/) · [Growth](https://nepa.com/insight/growth/) · [Channels](https://nepa.com/insight/channels/) · [Industry](https://nepa.com/insight/industry/)
+- The existing [Brand Tracking](https://nepa.com/insight/brand-tracking/) page became one of these eight topic pages (re-saved 2026-11-03); the agent page and llms.txt now present it that way instead of as "Insights Hub".
+
+Downloads (3, found in the second review; WordPress `download` type, not in the sitemap) — added to resources.json (37) and the agent page:
+- 2026-11-11 — [Nordic Consumer Decision Study 2026 – Age of Agency](https://nepa.com/downloads/age-of-agency-nordic/) (landing page with summary; also in llms.txt)
+- 2026-11-02 — [Age of Agency – Nordic Consumer Decision Study 2026](https://nepa.com/downloads/age-of-agency-sweden/) (gated form only)
+- 2026-10-29 — [Creative AI](https://nepa.com/downloads/creative-ai/) (gated whitepaper form only)
+
+Press releases: 287 + 7 new − 1 removed = 293. (The change list shown before the build said 8 new releases, 4 + 4; the Sahlgren appointment has no Swedish version, so it is 4 English + 3 Swedish.)
+
+#### Already live, not previously covered (4)
+- [Kundresan – kartlägg, optimera och skapa affärsnytta](https://nepa.com/sv/blog/kundresa/) (Swedish blog post, 2022-11-07; newly listed in the sitemap) → English version /blog/customer-journey/
+- [Vaikuttamisen aika: Mikä ohjaa suomalaisten ostopäätöksiä?](https://nepa.com/fi/vaikuttamisen-aika-mika-ohjaa-suomalaisten-ostopaatoksia/) (Finnish on-demand webinar page; returned 404 at the last build, now 200) — section `webinar`
+- [Why brand salience is the new growth driver](https://nepa.com/blog/why-brand-salience-is-the-new-growth-driver/) (2026-06-26; found in the second review) — removed last month because it returned 404; it is live again and linked from the new Insights pages, but is not in the sitemap and its page has no body text (title and date only), so it is listed with no author (the structured data names the CMS account `gomo_dev`) and no excerpt.
+- [Newsroom (Swedish)](https://nepa.com/sv/newsroom/) (live since 2025, found in the second review; not in the sitemap, so no earlier build saw it) — Swedish news list, added to localized-pages.json as `company-news-index` with the English /newsroom/ as its equivalent.
+
+### Pages updated
+
+#### Substantive changes (12)
+- [Investor Relations](https://nepa.com/investor-relations/) — Q3 2026 interim report published 2026-10-23 (ARR +9.7% to SEK 135.8 million, subscription revenue +14.8% to SEK 35.3 million, net sales SEK 47.6 million, adjusted EBITDA-Capex SEK 2.3 million); new Q3 2026 investor presentation; next report is now the **year-end report 2026 on 2027-02-19**. `investor-relations.json`: report added (18), `next_report`, `recent_announcements` (Q3 report, Sahlgren appointment, CEO departure), new `presentations`.
+- [Nepa Breakfast Session Helsinki – Planning for impact](https://nepa.com/events/fi-nepa-breakfast-session-planning-for-impact-fueling-smarter-marketing-in-2027/) (2026-11-11) and [Nepa Breakfast Session med Lyko](https://nepa.com/events/nepa-breakfast-session-12-november-2026/) (2026-11-12) — now past; no upcoming events are published. `events.json` status `past`; llms.txt and the agent page say there are no upcoming events.
+- Titles brought in line with the live pages:
+  - [Hemköp case](https://nepa.com/case/hemkop/) → "From lookalike to standout: Hemköp’s bold path to brand clarity with Nepa"
+  - [Fjällräven case](https://nepa.com/case/turning-insights-into-impact-fjallravens-approach-to-global-brand-growth/) → "Fjällräven’s global success through Insights"
+  - [Marli Juissi case](https://nepa.com/launching-marli-juissi-energy/) → "How Eckes-Granini launched Marli Juissi® Energy with Nepa"
+  - [Word-of-mouth blog post](https://nepa.com/blog/word-of-mouth-product-discovery-sweden/) → "Why friends and family outperform paid media as a source of product discovery in Sweden"
+  - [Brand tracking guide](https://nepa.com/blog/brand-tracking/) → "What is Brand Tracking? The Complete Guide for CMOs"
+  - [Breakfast Session 29 Jan 2026](https://nepa.com/events/nepa-breakfast-session-29-jan/) → "Nepa Breakfast Session – med Nordnet och Google. Se presentationen!"
+  - [Breakfast Session 20 May 2026](https://nepa.com/events/nepa-breakfast-session-stockholm-20-maj-2026/) → "Nepa Breakfast session: Långsiktigt varumärkesbygge med Lantmännen och Coop"
+- [Finnish contact page](https://nepa.com/fi/contact/) and [Danish contact page](https://nepa.com/da/contact/) — see Corrections.
+
+Also re-checked and unchanged: [Pricing](https://nepa.com/pricing/) (all 11 tiers; the agent page notes the re-check date).
+
+#### Re-saved on the site since 2026-10-16; title, date, author and package fields verified unchanged (142)
+
+Most are bulk re-saves (113 on 2026-10-19, 21 on 2026-11-02). Live titles, publish dates and structured-data authors were compared for every one; none changed. Excerpts of "Research should shape brand strategy…" and "What is Marketing Mix Modelling? The Complete Guide" were checked against the meta descriptions and are unchanged.
+
+- 2026-10-19 — [Inbjudan till presentation av Nepas delårsrapport Q2 2026](https://nepa.com/mfn_news/inbjudan-till-presentation-av-nepas-delarsrapport-q2-2026/)
+- 2026-10-19 — [Invitation to presentation of Nepa’s Q2 interim report 2026](https://nepa.com/mfn_news/invitation-to-presentation-of-nepas-q2-interim-report-2026/)
+- 2026-10-19 — [Research should shape brand strategy, not rescue it](https://nepa.com/blog/research-should-shape-brand-strategy-not-rescue-it/)
+- 2026-10-19 — [Awesomeness in Omnichannel | Summer 2018](https://nepa.com/blog/awesomeness-in-omnichannel-summer-2018/)
+- 2026-10-19 — [Coverage: Customer Experience Magazine](https://nepa.com/blog/coverage-customer-experience-magazine-how-can-advertisers-maximise-social-media-potential/)
+- 2026-10-19 — [Coverage – Digital Donut – Nail your media investment](https://nepa.com/blog/coverage-digital-donut-nail-your-media-investment/)
+- 2026-10-19 — [Driving long-term and short-term sales using Facebook and Instagram advertising](https://nepa.com/blog/driving-long-term-and-short-term-sales-using-facebook-and-instagram-advertising/)
+- 2026-10-19 — [Making good things happen on the omnichannel path to purchase](https://nepa.com/blog/making-good-things-happen-on-the-omnichannel-path-to-purchase/)
+- 2026-10-19 — [Omnichannel Revolution Requires New Marketing Measurement](https://nepa.com/blog/omnichannel-revolution-requires-new-marketing-measurement/)
+- 2026-10-19 — [Radio Advertising – from Good to Great](https://nepa.com/blog/radio-advertising-from-good-to-great/)
+- 2026-10-19 — [Nepa & RealityMine Webinar – Drive Growth: Strategic Marketing Insights](https://nepa.com/blog/realitymine-webinar/)
+- 2026-10-19 — [3 Signs Your DIY CX Measurement is Weakening Your CX Strategy](https://nepa.com/blog/3-signs-your-diy-cx-measurement-is-weakening-your-cx-strategy/)
+- 2026-10-19 — [What are Brand Associations?](https://nepa.com/blog/brand-associations/)
+- 2026-10-19 — [Nepa Brand Impact Series](https://nepa.com/blog/brand-impact/)
+- 2026-10-19 — [Outsmart competitors by tracking willingness to pay](https://nepa.com/blog/brandtracking-willingness-to-pay/)
+- 2026-10-19 — [CX Business Value Starts with Buy In](https://nepa.com/blog/cx-business-value-starts-with-buy-in/)
+- 2026-10-19 — [CX’s second act – Value Creation](https://nepa.com/blog/cxs-second-act-value-creation/)
+- 2026-10-19 — [CX: The Art Behind the Science](https://nepa.com/blog/cx-the-art-behind-the-science/)
+- 2026-10-19 — [Creating a brand identity that resonates with your audience](https://nepa.com/blog/creating-a-brand-identity-that-resonates-with-your-audience/)
+- 2026-10-19 — [Do-it-Yourself CX Software: What you don’t know can cost you](https://nepa.com/blog/do-it-yourself-cx-software-what-you-dont-know-can-cost-you/)
+- 2026-10-19 — [Nepa’s data quality pledge](https://nepa.com/blog/data-quality-pledge/)
+- 2026-10-19 — [Get to know your customers with brand health tracking](https://nepa.com/blog/get-to-know-your-customers-with-brand-health-tracking/)
+- 2026-10-19 — [How to increase brand awareness](https://nepa.com/blog/how-to-increase-brand-awareness/)
+- 2026-10-19 — [Introducing AI Trend Boost by Nepa: Make your brand tracking data go further](https://nepa.com/blog/introducing-ai-trend-boost/)
+- 2026-10-19 — [Nepa and data quality](https://nepa.com/blog/nepa-and-data-quality/)
+- 2026-10-19 — [Nepa’s syndicated 6-month video game tracker with Coronavirus addons](https://nepa.com/blog/nepas-syndicated-6-month-video-game-tracker-with-coronavirus-addons/)
+- 2026-10-19 — [Q&A with Virgin Voyages Dir. of Sailor Experience, Christopher Stubbs](https://nepa.com/blog/qa-with-virgin-voyages-dir-of-sailor-experience-christopher-stubbs/)
+- 2026-10-19 — [Successful Programs: Services & Insights from Forrester VoC Report](https://nepa.com/blog/successful-voc-programs-include-services-and-other-insights-from-forrester-voc-report/)
+- 2026-10-19 — [The CX Loyalty Metrics that Actually Matter](https://nepa.com/blog/the-cx-loyalty-metrics-that-actually-matter/)
+- 2026-10-19 — [Time to Assess your CX Measurement Program?](https://nepa.com/blog/time-to-assess-your-cx-measurement-program/)
+- 2026-10-19 — [What is a Touchpoint Strength Tracker?](https://nepa.com/blog/touchpoint-strength-tracker/)
+- 2026-10-19 — [Tracking healthcare service performance using Nepas customer experience tracker](https://nepa.com/blog/tracking-healthcare-service-performance-using-nepas-updated-customer-experience-tracker/)
+- 2026-10-19 — [CX is a game changer – here is why](https://nepa.com/blog/we-know-cx-is-a-game-changer-and-here-is-a-study-that-proves-it/)
+- 2026-10-19 — [Talk the language of the C-suite](https://nepa.com/blog/willingness-to-pay/)
+- 2026-10-19 — [The impact of advertising must always be questioned](https://nepa.com/blog/advertising-must-always-questioned/)
+- 2026-10-19 — [Coverage – Digital Doughnut – Who’s Winning Christmas?](https://nepa.com/blog/coverage-digital-doughnut-whos-winning-christmas/)
+- 2026-10-19 — [Have your cake and eat it: How brand building campaigns can drive both short and long-term sales](https://nepa.com/blog/have-your-cake-and-eat-it-how-brand-building-campaigns-can-drive-both-short-and-long-term-sales/)
+- 2026-10-19 — [How Influencer Marketing’s Impact Goes Beyond Engagement for Brand Growth](https://nepa.com/blog/impact-of-influencer-marketing/)
+- 2026-10-19 — [Measure what really matters – Facebook perspective](https://nepa.com/blog/measure-really-matters-facebook-perspective/)
+- 2026-10-19 — [Memories generate sales: Why your Brand Tracker needs to include Category Entry Points](https://nepa.com/blog/memories-generate-sales/)
+- 2026-10-19 — [Nepa x Meta Whitepaper 2020](https://nepa.com/blog/nepa-x-meta-whitepaper-2020/)
+- 2026-10-19 — [Tackling Your 2019 Marketing KPIs With a Unified Approach](https://nepa.com/blog/tackling-your-2019-marketing-kpis-with-a-unified-approach/)
+- 2026-10-19 — [Why a recession is a good time to ramp up marketing](https://nepa.com/blog/why-a-recession-is-a-good-time-to-ramp-up-marketing/)
+- 2026-10-19 — [Forget me not, how to stand out and be remembered](https://nepa.com/blog/forget-me-not-stand-out/)
+- 2026-10-19 — [How “Tested Concepts” Shape Our Favourite Genres](https://nepa.com/blog/how-tested-concepts-shape-our-favourite-genres/)
+- 2026-10-19 — [Nepa’s Communication Pre-testing: Striking the Right Tone](https://nepa.com/blog/striking-the-right-tone-with-communication-pre-testing/)
+- 2026-10-19 — [Benefits of Path to Purchase Analysis](https://nepa.com/blog/benefits-of-path-to-purchase-analysis/)
+- 2026-10-19 — [Catch the Second Wave](https://nepa.com/blog/catch-the-second-wave/)
+- 2026-10-19 — [Data Everywhere – Insights Not Found](https://nepa.com/blog/data-everywhere-insights-not-found/)
+- 2026-10-19 — [Embracing AI for business success](https://nepa.com/blog/embracing-ai-for-business-success/)
+- 2026-10-19 — [Empower Employees Win Customers](https://nepa.com/blog/empower-employees-win-customers/)
+- 2026-10-19 — [Local retailers can use Big Data to bolster growth](https://nepa.com/blog/retailers-use-big-data-bolster-growth/)
+- 2026-10-19 — [Buyer Journey Mapping: How to Create One](https://nepa.com/blog/how-to-create-a-buyer-journey-map/)
+- 2026-10-19 — [How to get the biggest slice of the meat-free pie](https://nepa.com/blog/how-to-get-the-biggest-slice-of-the-meat-free-pie/)
+- 2026-10-19 — [How to steal foot traffic from competitors](https://nepa.com/blog/steal-foot-traffic-competitors/)
+- 2026-10-19 — [Innovation and the power of consumer insights](https://nepa.com/blog/innovation-power-consumer-insights/)
+- 2026-10-19 — [Liz Earle maximizes Profit with Nepa’s Pricing Optimization Tools](https://nepa.com/blog/natural-skincare-manufacturer-liz-earle-maximizes-profit-with-nepas-pricing-optimization-tools/)
+- 2026-10-19 — [Local is the New Global – Using Customer Feedback to grow](https://nepa.com/blog/local-new-global-customer-feedback/)
+- 2026-10-19 — [Path to Purchase; the Nepa approach](https://nepa.com/blog/path-to-purchase/)
+- 2026-10-19 — [A consumer’s Path to Purchase is never linear](https://nepa.com/blog/path-to-purchase-is-never-linear/)
+- 2026-10-19 — [Path to Purchase research; 4 tips for success](https://nepa.com/blog/path-to-purchase-research/)
+- 2026-10-19 — [Path to Purchase – Connecting Dots in the “New Era of Shopping”](https://nepa.com/blog/path-to-purchase-connecting-the-dots-in-the-new-era-of-shopping/)
+- 2026-10-19 — [Path to Purchase – What’s New and Emerging](https://nepa.com/blog/path-purchase-whats-new-emerging/)
+- 2026-10-19 — [We can predict the future](https://nepa.com/blog/predict-future-big-data/)
+- 2026-10-19 — [Shopper-centric P2P Analytics](https://nepa.com/blog/shopper-centric-p2p-analytics/)
+- 2026-10-19 — [Insights from “The superpowers of data science and analytics”](https://nepa.com/blog/superpowers-data-science-analytics/)
+- 2026-10-19 — [Talk is cheap – get better and more predictive insight](https://nepa.com/blog/talk-cheap-better-predicitive-insight/)
+- 2026-10-19 — [The value of a magical experience!](https://nepa.com/blog/value-magical-experience/)
+- 2026-10-19 — [Thriving in a Transformational Time](https://nepa.com/blog/thriving-in-a-transformational-time/)
+- 2026-10-19 — [Transform data into insights – boost your innovation capabilities](https://nepa.com/blog/transform-data-insights-boost-innovation/)
+- 2026-10-19 — [Understanding consumers: what gets them to the checkout](https://nepa.com/blog/understanding-consumers/)
+- 2026-10-19 — [What are Category Entry Points, and why should you care about them in 2024?](https://nepa.com/blog/what-are-category-entry-points-and-why-should-you-care-about-them-in-2024/)
+- 2026-10-19 — [What Is The Value Proposition Canvas?](https://nepa.com/blog/what-is-the-value-proposition-canvas/)
+- 2026-10-19 — [How to find your brand’s whitespace opportunities](https://nepa.com/blog/whitespace-opportunities/)
+- 2026-10-19 — [2023 RISE Award Winner: Nepa](https://nepa.com/blog/2023-rise-award-winner-nepa/)
+- 2026-10-19 — [3 Key Takeaways from CXPA’s Insights Exchange 2019](https://nepa.com/blog/3-key-takeaways-from-cxpas-insights-exchange-2019/)
+- 2026-10-19 — [3 Key Takeaways from The National Grocers Association Show 2019](https://nepa.com/blog/my-3-key-takeaways-the-national-grocers-association-show-2019/)
+- 2026-10-19 — [5 Key Takeaways – National Sports Forum 2019](https://nepa.com/blog/5-key-takeaways-national-sports-forum-2019/)
+- 2026-10-19 — [Block Background Noise – Make Your Brand Data Accurate & Actionable](https://nepa.com/blog/bnr/)
+- 2026-10-19 — [Important Customer Experience Learnings From The CXPA Insight Exchange](https://nepa.com/blog/customer-experience-learnings-cxpa-insight-exchange/)
+- 2026-10-19 — [Dressmann Chooses Nepa for Customer Experience Measurement](https://nepa.com/blog/dressmann-release/)
+- 2026-10-19 — [Looking into a crystal ball: future trends in FMCG and Retail](https://nepa.com/blog/future-trends/)
+- 2026-10-19 — [Generation Alpha – The Start Of Something New](https://nepa.com/blog/generation-alpha/)
+- 2026-10-19 — [Kindred Extends Brand Tracking & Player Insight Partnership with Nepa](https://nepa.com/blog/kindred-chooses-nepa-for-their-brand-tracking-program/)
+- 2026-10-19 — [What you learn when world class CX leaders come together](https://nepa.com/blog/learn-world-class-cx-leaders-come-together/)
+- 2026-10-19 — [Lessons From Retail Smarter 2019 – University of Florida](https://nepa.com/blog/lessons-from-retail-smarter-2019-university-of-florida/)
+- 2026-10-19 — [MTV Insights Studio and Nepa collaboration – MTV Youth Study](https://nepa.com/blog/mtv-insights-studio-and-nepa-collaboration-mtv-youth-study/)
+- 2026-10-19 — [Marketing Society article by Robert Beatus: New challenges, simple solutions](https://nepa.com/blog/marketing-society/)
+- 2026-10-19 — [Navigating the COVID-19 world](https://nepa.com/blog/navigating-the-covid-19-world/)
+- 2026-10-19 — [Nepa at IIEX 2024](https://nepa.com/blog/nepa-after-iiex-2024/)
+- 2026-10-19 — [Nepa Expands: Signs U.S. Based Industry Veteran to Lead Charge](https://nepa.com/blog/nepa-expands-into-global-sports-signs-u-s-based-industry-veteran-to-lead-charge/)
+- 2026-10-19 — [Nepa at Cannes Lions Festival 2023](https://nepa.com/blog/nepa-at-cannes-lions-festival-2023/)
+- 2026-10-19 — [Nepa in Athens | ESOMAR Congress 2024](https://nepa.com/blog/nepa-in-athens/)
+- 2026-10-19 — [What lies ahead for OTT video?](https://nepa.com/blog/ott-video-streaming-future/)
+- 2026-10-19 — [Old Clubs Leading the Way with New Fan-driven Approach](https://nepa.com/blog/old-clubs-leading-the-way-with-new-fan-driven-approach/)
+- 2026-10-19 — [Nepa insight partner to Oriflame](https://nepa.com/blog/oriflame-choose-nepa-insight-partner/)
+- 2026-10-19 — [Psyonix Selects Nepa for Global Brand Measurement Insights](https://nepa.com/blog/psyonix-acclaimed-video-game-developer-selects-nepa-for-global-brand-measurement-insights/)
+- 2026-10-19 — [What consumers and shoppers want from brands in the future](https://nepa.com/blog/quirks-london-2022/)
+- 2026-10-19 — [Svenska Spel Selects Nepa for Brand Tracking & Campaign Measurement](https://nepa.com/blog/svenska-spel/)
+- 2026-10-19 — [The consumer narrative and what matters- Covid edition](https://nepa.com/blog/the-consumer-narrative-and-what-matters-covid-edition/)
+- 2026-10-19 — [The Nepa Marketing & Insights Dinner 2023](https://nepa.com/blog/the-nepa-marketing-insights-dinner-2023/)
+- 2026-10-19 — [The Win-Win Proposition](https://nepa.com/blog/the-win-win-proposition/)
+- 2026-10-19 — [The Young ESOMAR Society awards 2024](https://nepa.com/blog/the-young-esomar-society-awards-2024/)
+- 2026-10-19 — [Tydy and Nepa Collab – Onboarding, Productivity and Diversity](https://nepa.com/blog/tydy/)
+- 2026-10-19 — [Varner chooses Nepa for their brand tracking program](https://nepa.com/blog/varner-chooses-nepa-for-their-brand-tracking-program/)
+- 2026-10-19 — [Nepa at Quirk’s London: An event for Marketing Research and Insight Professionals](https://nepa.com/blog/https-insights-nepa-com-webinar-mo-0hs_previewngqmzmry-72589978776/)
+- 2026-10-19 — [When Season Ticket Holders Don’t Renew](https://nepa.com/blog/when-season-ticket-holders-dont-renew/)
+- 2026-10-19 — [Why Investing In Fan Insights Is a Smart Play](https://nepa.com/blog/why-investing-in-fan-insights-is-a-smart-play/)
+- 2026-10-19 — [Forrester weighs in on marketing measurement and optimization](https://nepa.com/blog/forrester-weighs-in-on-marketing-measurement-and-optimization/)
+- 2026-10-19 — [Marketing Mix Modelling 101](https://nepa.com/blog/marketing-mix-modeling-101/)
+- 2026-10-19 — [Modelling marketing strategy to sell more pizza](https://nepa.com/blog/modelling-marketing-strategy-sell-pizza/)
+- 2026-10-19 — [The Future of Marketing Mix Modelling](https://nepa.com/blog/the-future-of-marketing-mix-modelling/)
+- 2026-10-19 — [What is dynamic marketing intelligence, and why do you need to know about it?](https://nepa.com/blog/what-is-dynamic-marketing-intelligence/)
+- 2026-10-23 — [Nepa Delårsrapport Q2 2026](https://nepa.com/mfn_news/nepa-delarsrapport-q2-2026/)
+- 2026-10-23 — [Nepa Interim Report Q2 2026](https://nepa.com/mfn_news/nepa-interim-report-q2-2026/)
+- 2026-10-23 — [What is Marketing Mix Modelling? The Complete Guide](https://nepa.com/blog/what-is-marketing-mix-modelling-the-complete-guide/)
+- 2026-11-02 — [Lantmännen: Long-term brand building from “Jord till bord” to “Länge leve jorden”](https://nepa.com/blog/long-term-brand-building-from-jord-till-bord-to-lange-leve-jorden/)
+- 2026-11-02 — [Global Brand GANT selects Nepa as Brand Tracking Provider in Markets](https://nepa.com/blog/global-lifestyle-and-clothing-brand-gant-selects-nepa-as-brand-tracking-provider-in-all-major-markets/)
+- 2026-11-02 — [Nepa x Meta Whitepaper 2022](https://nepa.com/blog/nepa-x-meta-whitepaper-2022/)
+- 2026-11-02 — [Why your brand tracker sucks and how to fix it](https://nepa.com/blog/why-your-brand-tracking-sucks-and-how-to-fix-it/)
+- 2026-11-02 — [Long-term brand building in practice – lessons from the Nepa Breakfast Session](https://nepa.com/blog/long-term-brand-building-in-practice-lessons-from-the-nepa-breakfast-session/)
+- 2026-11-02 — [What is the value of emotions for a brand?](https://nepa.com/blog/what-is-the-value-of-emotions/)
+- 2026-11-02 — [IIEX Europe 2025 – Key trends & takeaways](https://nepa.com/blog/iiex-europe-2025-key-trends-takeaways/)
+- 2026-11-02 — [Keeping brand KPIs simple](https://nepa.com/blog/keeping-brand-kpis-simple/)
+- 2026-11-02 — [Coop: How we use data to take back our position](https://nepa.com/blog/coop-how-we-use-data-to-take-back-our-position/)
+- 2026-11-02 — [The three most common reasons campaigns underperform](https://nepa.com/blog/the-three-most-common-reasons-campaigns-underperform/)
+- 2026-11-02 — [Emotion Palette: Optimise the Emotional Impact of Your Marketing Campaigns](https://nepa.com/blog/emotion-palette/)
+- 2026-11-02 — [It’s not about more data – it’s about the right insight](https://nepa.com/blog/its-not-about-more-data-its-about-the-right-insight/)
+- 2026-11-02 — [Reimagine insights: What to expect at ESOMAR Congress 2025](https://nepa.com/blog/reimagine-insights-what-to-expect-at-esomar-congress-2025-in-prague/)
+- 2026-11-02 — [Customer journey agency: Guiding brands to smarter growth](https://nepa.com/blog/customer-journey/)
+- 2026-11-02 — [Unveiling the mystery of brand tracking: The top questions answered by trackers](https://nepa.com/blog/unveiling-the-mystery-of-brand-tracking-the-top-questions-answered-by-trackers/)
+- 2026-11-02 — [Nordnet: turning insight and patience into brand‑led growth](https://nepa.com/blog/nordnet-turning-insight-and-patience-into-brand-led-growth/)
+- 2026-11-02 — [10 years of Nepa in Finland](https://nepa.com/blog/10-years-of-nepa-in-finland/)
+- 2026-11-02 — [The meaning of sustainability for Indian consumers](https://nepa.com/blog/brand-sustainability-for-indian-consumers/)
+- 2026-11-02 — [Tre’s brand revamp: Strategy for profitable growth](https://nepa.com/blog/tres-brand-revamp-strategy-for-profitable-growth/)
+- 2026-11-02 — [How well do you measure your campaigns — really?](https://nepa.com/blog/how-well-do-you-measure-your-campaigns-really/)
+- 2026-11-02 — [That’s so OTT! The fast-changing media landscape in India](https://nepa.com/blog/ott-india/)
+- 2026-11-12 — [CEO Anders Dahl leaves Nepa – search for successor initiated](https://nepa.com/mfn_news/ceo-anders-dahl-leaves-nepa-search-for-successor-initiated/)
+- 2026-11-12 — [MFN News Items Archive](https://nepa.com/mfn_news/)
+- 2026-11-12 — [Ny mätning: Varumärkena som byggt starkast reklamkapital](https://nepa.com/mfn_news/ny-matning-varumarkena-som-byggt-starkast-reklamkapital/)
+- 2026-11-12 — [VD Anders Dahl lämnar Nepa – rekrytering av efterträdare inledd](https://nepa.com/mfn_news/vd-anders-dahl-lamnar-nepa-rekrytering-av-eftertradare-inledd/)
+- 2026-11-13 — [Blog](https://nepa.com/blog/)
+
+### Pages removed (1)
+
+| URL | Live status (2026-11-16) | Package action |
+|---|---|---|
+| https://nepa.com/mfn_news/nepa-appoints-morten-flamand-as-new-vp-sales-to-accelerate-international-growth/ | 404 Not Found (also gone from the sitemap) | removed from press-releases.json and the agent page. Nepa announced Andrea Sahlgren as VP Sales on 2026-10-19. |
+
+No package URL redirects any more.
+
+### Live pages deliberately excluded (20)
+- https://nepa.com/case-category/case-category/ — still an empty placeholder taxonomy archive (excluded since 2026-10). The other four pages excluded last month are no longer in the sitemap.
+- Found in the second review — published WordPress pages that are live (200, no `noindex`) but not in the sitemap and not part of the public site structure (ad landing pages, form thank-you pages, cancellation forms, drafts and copies). Excluded; Nepa should noindex or unpublish them:
+  - cancellation forms: /nepa-breakfast-session-planning-for-impact-cancellation/, /nepa-breakfast-session-12-november-2026-avbokning/
+  - webinar ad landing pages (the webinars themselves are in events.json): /webinar-brand-grow/, /webinar-ce-stop-founding-your-competitors-brands/
+  - product ad landing pages: /brand-tracking/landing/, /campaign-pulse/landing/, /marketing-mix-modelling/landing/ and the Swedish /sv/brand-tracking/landing/, /sv/campaign-pulse/landing/, /sv/marketing-mix-modelling/landing/; /learnmore/ ("Product Remarketing"), /product-marketing/, /whitepaper-download/
+  - thank-you pages: /thank-you/, /sv/tack/, /fi/kiitos/, /da/tak/
+  - internal or copies: /bt-dashboard-update/, /home-2/ ("Home (copy)", a duplicate of the homepage)
+- Two REST-listed posts still redirect, as last month: /the-brands-that-grow-tomorrow-are-already-measuring-differently-today/ (→ the `-2` post, which is in the package) and /blog/is-your-brand-a-hero-or-villain/ (→ homepage); /contact_trinity/ redirects to /contact-us/.
+
+### Navigation, contact details and structured data
+
+- **Navigation:** the footer "Marketing Mix Modelling" link now goes to the English page (/products/marketing-mix-modeling/; it went to the Danish page last month). The footer has a new **"For AI agents"** link to https://nepa.com/agent/. Two menu links still go through a 301: header "Marketing Mix Modelling" → /products/marketing-mix-modelling/ (→ /products/marketing-mix-modeling/) and footer "Market Segmentation" → /products/market-segmentation/ (→ /products/segmentation/). The package uses the final URLs.
+- **Contact details:** unchanged on the English site (Stockholm HQ, +46 8 400 268 00, info@nepa.com, panel@nepa.com, the three Finland account contacts, investor contacts).
+- **Corrections (content missed by earlier builds, not site changes):** the Finnish pages publish a Helsinki office — Erottajankatu 2, 2. krs (VillageWorks), 00120 Helsinki, +358 45 678 6939 (/fi/contact/ last modified 2026-08-27) — and the Danish pages a Copenhagen office — Havnegade 39, 1058 København K, +45 81 61 78 10. Both are now in `offices.json` (Finland office completed; new `office-denmark`), the agent page (Offices, Primary Contact, Quick Answer, Organization JSON-LD `location`) and llms.txt.
+- **Products and services:** the same 12 products, 6 solutions and 8 industries; pricing unchanged.
+- **Leadership:** the About page still lists the same leadership team; Andrea Sahlgren (VP Sales from early November) appears only in the press release, so she is recorded as an announcement (llms.txt, agent page instructions, `investor-relations.json`), not in `team.json`.
+- **Structured data on the live site:** unchanged in type mix (Organization, WebSite, WebPage, BreadcrumbList on every page; Article + Person on posts; FAQPage/Service on product pages). See the issues below.
+
+### Second review (2026-11-16)
+
+Method: every item published through the WordPress REST API (`/wp-json/wp/v2/` posts 252, pages 70 plus 13 sv / 7 fi / 6 da, mfn_news 293, insight 8, report 3, download 6) and every internal link on the 532 scraped pages and on the new pages (923 distinct URLs) was checked against the package. 134 linked URLs outside the sitemap and the package were status-checked: 98 redirect to pages already in the package (3 of them redirect to image files — see the issues list), 30 return 404, and the rest are listed above. The sitemap and every `lastmod` were re-read and had not changed since the crawl. Team titles, the About page leadership list, pricing and contacts were re-checked: unchanged.
+
+Found and added: the 7 Insights topic pages, 3 downloads, the restored brand-salience post and the Swedish newsroom (all above).
+
+**Bug found in the live discovery plugin (fixed in 1.1.0):** on every Swedish, Finnish and Danish page, nepa-agent-discovery.php 1.0.0 printed broken discovery links — `https://nepa.com/sv//llms.txt`, `/sv//agent/`, `/sv//.well-known/api-catalog`, `/sv//openapi.json` (and the same for /fi/ and /da/), all 404 — because the multilingual plugin filters `home_url()` to the language being viewed. The ARD module would have repeated it for `rel="ard"`. Both must-use plugins now build site-wide URLs from the unfiltered `home` option (`nepa_ad_url()`, `agentic_ard_site_url()`, the latter filterable); relative links in `?format=md` output use the same root. Three new ARD tests simulate a language-prefixed `home_url()` and fail with the old code.
+
+### Codex review (2026-11-16) — verdicts and changes
+
+An independent review (Codex, `NOVEMBER-REVIEW.md` next to the package folders) judged the package ready for staging but not yet for production. Each point was checked against the code before anything was changed.
+
+| # | Codex finding | Verdict | Change |
+|---|---|---|---|
+| 1 | Sync is not all-or-nothing: files were renamed into place one by one before the manifest, so a failure mid-commit left a mix; readers could see files change during a commit; the transient lock was a separate read and write | **Agree** (confirmed in `commit_staged()` and `run_sync()`) | Each Sync now writes a complete generation into `uploads/nepa-agent-api/gen-<time>-<random>/`; files not re-synced (e.g. a SKIPPED section) are copied in, so the generation stands alone; then `manifest.json` is replaced with one atomic rename naming the generation. Any failure before that rename deletes the generation and changes nothing that is served. The current and previous generations are kept (a reader that read the old manifest can finish), older ones pruned. The lock is now an atomic `INSERT` into `wp_options` with a token and expiry (owner-only release, stale-lock takeover after 10 minutes) — the technique the contact endpoint already uses. The data path reads files from the generation the manifest names (older flat manifests still work). |
+| 2 | Blog Sync reverses November corrections (`gomo_dev` restored as author; `meta.version` 1.2 rewritten as 1.1) | **Agree** (blog Sync rebuilt each post from REST without the curated merge; `'version' => '1.1'` was hard-coded) | New `NEPA_DATA_VERSION` (1.2) stamps synced files. Blog Sync applies the editorial corrections: an author that is a CMS or agency account (`NEPA_SYNC_CMS_AUTHORS`, default `gomo_dev`, `Mridul GO MO`) is never published — the curated author is kept, including an intentional null or the visible byline (Dora Harfman Bromée); real author changes in WordPress still come through; non-empty curated excerpts are kept. |
+| 3 | MCP says "nothing was recorded" after unexpected server errors | **Agree** (any 503, and every other error, was reported as not saved; a JSON 500 after the lead was stored would have been misreported) | "Not saved" is reserved for the API's own error codes that guarantee it (validation, consent, authorization, size, `rate_limited`, `idempotency_key_reused`, `not_recorded`, `reservation_unavailable`); an unexpected 5xx, an unrecognised 503 or any unrecognised body is `OUTCOME UNKNOWN` with retry instructions. "Never creates a second inquiry" now states the real windows (24 hours with the same key, 30 minutes for identical details), in the tool, the README and DEPLOYMENT.md. Kept as MCP 1.2.1 (not yet released). |
+| 4 | ARD-only rollback leaves broken references | **Agree** | DEPLOYMENT.md §7 lists every reference to remove (module, MCP card, API catalog linkset, agent page head/metadata/instruction/JSON-LD, `index.json`, OpenAPI, llms.txt, ai.txt, api-catalog.json, robots.txt) and gives a `curl`/`grep` check that nothing still advertises the endpoint; a full rollback to 2026-10 is described as the simpler alternative. |
+| 5 | Real-environment acceptance is outstanding | **Agree** — it cannot be done from the build environment | New DEPLOYMENT.md §13: an eight-row production sign-off table (install and routes, localized discovery links, ARD on the real host, edge/cache, concurrent duplicates, HubSpot end to end, MCP on Render, Sync on a non-production copy) with pass criteria and a column for results. The read-only parts can go live after rows 1-4; contact needs 5-7; Sync needs 8. Until then, Sync stays off production. |
+| — | MCP card does not follow the draft MCP server-card schema | **Partly agree** — documented, not changed | Relabelling the ARD entry would drop it from registries' MCP-type filters, the main reason to publish it; the limitation stays documented. Revisit when the MCP server-card format is final. |
+| — | `agentic_ard_check_entry()` does not enforce the whole schema | **Agree** | `data` and `metadata` must be JSON objects (a PHP list or empty array would serialize as an array), `description`/`version`/`@id` must be strings, `updatedAt` must be RFC 3339, `trustManifest` must be an object; negative tests added. |
+| — | Runbook inaccuracies (stale robots step, "two remaining checks", headings) | **Agree** | robots step reduced to the one new line; the "confirmed on staging" note corrected (no staging evidence is part of this package); section 10 renamed and pointed to §13; headings updated; top-of-file test instructions now use `tests/run-all.sh`. |
+| — | Website issues "not independently re-verified" | **No change** | They came from this build's 2026-11-16 crawl and are listed as observations for Nepa, not as package defects. |
+| — | Make checks repeatable; a missing validator dependency must not look like a pass | **Agree** | New `tests/validate-data-files.py` (17 data files vs OpenAPI, also usable on a synced generation) and `tests/run-all.sh` (every suite, one line each). All Python validators now report INCOMPLETE and exit 3 without `jsonschema` (`ALLOW_SKIP=1` to accept a skip deliberately). |
+
+Mutation checks: with the old behaviour restored in a temporary copy, the new tests fail for each defect (version 1.1; CMS author restored; non-atomic lock; manifest written regardless of a failed switch). With the old MCP mapping, the new smoke cases (a lead saved before a JSON 500, an unrecognised 503) would report "NOT SAVED".
+
+### Merged before publishing to GitHub (2026-11-17)
+
+- **Agent page discovery links restored.** The GitHub repository had a commit after the 2026-10 tag ("updated", 2026-10-27) that added three items to the agent page's "LLM Discovery & Machine-Readable Resources" list: `/.well-known/api-catalog`, `/.well-known/mcp.json` and the `?format=md` Markdown versions. This package was built from a local copy without that commit, so the three items were missing; they are back in `nepa-api/agent-page.html`. If the November agent page was already uploaded, upload this version again.
+- **Repository hygiene.** A root `.gitignore` (`.DS_Store`, `node_modules/`). The repository previously tracked `nepa-mcp/node_modules/` (about 3,900 files) and `.DS_Store`; they are removed from it - Render installs dependencies with `npm ci`.
+- **Package contents in the repository** also gain what the 2026-10 commit lacked: `nepa-agent-discovery.php` (it was deployed to `mu-plugins` but never committed), `agentic-resource-discovery.php`, and the renamed `tests/live-checks.sh` (was `tests/staging-checks.sh`).
+
+### Codex sixth review (2026-11-16)
+
+Codex reran all eight suites (all passing: 108 plugin, 40 MCP) and judged the package suitable for a controlled production rollout after one correction. **Agree with both points.**
+
+- **Cleanup searched the wrong text.** The duplicates check told operators to search Agent Leads for "Concurrency check <run ID>", but its key-reuse request's message is "DIFFERENT content <run ID>"; if that request were wrongly accepted, the search - and the WP-CLI count - would miss it. `tests/live-checks.sh` now searches by the run ID alone (present in every request's email address and message) for the count, the INFO line, the CLEANUP line and the WP-CLI ID command; DEPLOYMENT.md §10.1 says the same and explains why. Rerun against the correct mock server with a stand-in WP-CLI: the count queried `--s=<run ID>` and the check passed (10/10).
+- **The switches stop new submissions only.** DEPLOYMENT.md §7a now says so: accepted inquiries stay in Agent Leads and their background jobs continue (HubSpot retries every 5 minutes, notification emails hourly). Setting `NEPA_HUBSPOT_ENABLED` to false as well holds queued HubSpot deliveries - the worker stops and resumes them, unchanged, when re-enabled (confirmed in `run_worker()`, which returns at once when delivery is off). A specific inquiry is withdrawn in wp-admin (and in HubSpot if already delivered).
+
+### Codex fifth review: operational gaps for a production rollout (2026-11-16)
+
+Codex reviewed the direct-to-production runbook: suitable for a controlled production rollout once four operational gaps are closed; full sign-off still depends on DEPLOYMENT.md §13. **Agree with all four.**
+
+1. **"Turn off HubSpot" does not stop contact submissions.** With `NEPA_HUBSPOT_ENABLED` false, WordPress still accepts, stores and emails inquiries. There was no real switch, so one was added:
+   - **Plugin (still 1.4.0):** `define('NEPA_CONTACT_ENABLED', false);` in wp-config.php makes `POST /agent/v1/contact.json` answer 503 `contact_disabled` before anything is counted, stored, emailed or sent to HubSpot; `index.json` reports `contact_submissions: "paused"` and drops the contact endpoint from its list; read-only endpoints are unaffected. Read at request time (new `nepa_agent_api_contact_enabled()`).
+   - **MCP server (still 1.2.1):** the Render variable `NEPA_CONTACT_ENABLED=false` leaves `submit_contact_inquiry` unregistered (17 tools); `/health` and `/tools` report the state; a `contact_disabled` answer is reported as "NOT SAVED: Nepa has paused agent contact submissions" with the contact page. `dist/index.js` rebuilt.
+   - **OpenAPI:** the 503 description and `IndexResponse.contact_submissions`. **DEPLOYMENT.md:** new §7a "Pausing contact submissions" (both switches, cache purge, checks, how to resume); §13 and §10.1 point to it; the wp-config and Render settings list the switch.
+   - **Tests:** six plugin checks run the real request router in a separate process (`tests/plugin-route-probe.php`, since `handle_request()` exits) - 108 in total; five MCP smoke checks start a second server with the switch off - 40 in total; one more OpenAPI example (62).
+2. **"Creates two leads" is the expected result, not a limit.** If the duplicate protection under test fails, `live-checks.sh duplicates` can create up to 23 leads, emails and HubSpot submissions. The script now prints its run ID, the worst case and a CLEANUP line naming every record to delete (Agent Leads matching "Concurrency check <run ID>", and the HubSpot records for its two test addresses), and the refusal message without the opt-in says the same. DEPLOYMENT.md §10.1 and §13 require cleaning up every record carrying the run ID. The script was rerun against the bundled correct and buggy mock servers: it still passes the correct one and fails the buggy one.
+3. **Backup list incomplete.** DEPLOYMENT.md §0 now starts with a WP Engine backup point (database and files - Agent Leads, delivery state and the Sync lock live in the database) and adds `wp-content/uploads/nepa-agent-api/`; §7 explains restoring the database (export leads received since the backup first).
+4. **Cached responses after a Sync rollback.** Deleting `manifest.json` restores the bundled data in the plugin at once, but cached `/agent/v1/*` responses may persist: §7 step 2 and §13 row 8 now say to purge them.
+
+### Direct production deployment (2026-11-16, Nepa's decision)
+
+This release is deployed straight to nepa.com; there is no staging site. Earlier text in this changelog and in reviews that says "ready for staging" or "staging acceptance" means the real-environment checks of DEPLOYMENT.md §13, which are now done on production right after deploying.
+
+- **DEPLOYMENT.md:** §0 step 2 now describes a direct production deployment (quiet time, backups first, rollback at hand, checks straight after). §6 is production-only; its contact-flow item points to §13 rows 5 and 6 and drops the "break SMTP" step, which isn't safe on a live site. §10.1, §10.2 and the HubSpot acceptance note use nepa.com. §12 step 6 says to run the first Sync only as §13 row 8. §13 rows 1, 5 and 8 are production steps, row 8 with its immediate rollback (delete `manifest.json`), and the section says what to do if a contact check fails.
+- **`tests/live-checks.sh duplicates`:** still refuses nepa.com by default; it now runs there only with `NEPA_ALLOW_PRODUCTION_TEST=1`, and says beforehand what it will create (2 "LIVE TEST" leads, 2 notification emails, and 2 HubSpot submissions if delivery is on) so they can be deleted afterwards. Without the flag it exits before sending anything.
+- **tests/README.md and two code comments** (`tests/wp-stubs.php`, `class-sync.php`) no longer refer to a staging site.
+
+### Codex fourth review (2026-11-16)
+
+Codex verified the key-conflict fix (completed and in-flight cases, original leads still reachable) and reran all eight suites: all pass (102 plugin, 34 MCP, 0 ARD errors). Verdict: ready for staging acceptance; production approval needs DEPLOYMENT.md §13 (rows 1-4 read-only, 5-7 contact, 8 Sync). One documentation inconsistency: DEPLOYMENT.md said a reused key is "always refused" while this changelog records the simultaneous-binding exception. **Agree** - DEPLOYMENT.md, the `contact_submission()` doc comment and tests/README.md now state the exception the same way (the request is answered with the existing lead it matches; nothing is created). No code change.
+
+### Codex third review (2026-11-16)
+
+Codex reran all eight suites on the hardened package (all passing, 97 plugin and 34 MCP checks) and confirmed the mixed-key duplicate is fixed, but found a key conflict the hardening introduced: submit inquiry A with key A, inquiry B with key B, then B's content with key A. Expected 409 `idempotency_key_reused`; the plugin answered 200 with B as a duplicate, because the content reservation (checked first) matched B and returned before key A was looked at. **Agree** - it contradicted the documented rule that a key reused for a different inquiry is refused.
+
+Fix (`contact_submission()`): when the content matches an earlier submission and the request carries a key, the key's existing reservation is read first (new read-only `live_reservation()`); if it is live and bound to different content, the answer is 409 `idempotency_key_reused`. Nothing is reserved by that read, so the fixed content-then-key order that stops overlapping requests from waiting on each other is unchanged. Remaining edge: if key A is being bound to other content at the very same moment, the request can still be answered with B's lead - it never creates a lead or a submission, so nothing is duplicated.
+
+Tests: five plugin checks added (102 in total) - Codex's scenario, B in flight with A's key, and A and B both still resolving correctly afterwards. Before the fix, Codex's scenario and the in-flight case failed; after it, all pass.
+
+### Plugin hardening: a retry that adds or drops a key (2026-11-16, Nepa's decision)
+
+The wording fix below only protects agents that follow instructions. On request, the plugin itself now closes the gap: every contact request reserves its content fingerprint (30 minutes) and, when it carries an `idempotency_key`, the key as well (24 hours) - always content first, then key, so two overlapping requests can never each hold one reservation and wait for the other. A request that finds an existing reservation releases any it already took. Effects:
+
+- a keyless request followed by the same content with a key, or a keyed request followed by the same content without one, returns the original lead (`duplicate: true`) instead of creating a second one;
+- the original key keeps matching for 24 hours, after the 30-minute content window;
+- a key reused for different content is still 409 `idempotency_key_reused` and leaves nothing reserved (see the Codex third review for the case where that content matches another inquiry);
+- **trade-off, accepted by Nepa:** two inquiries with identical content but different keys within 30 minutes are treated as one.
+
+Files: `nepa-api/nepa-api.php` (`contact_submission()`, new `release_reservations()`; still plugin 1.4.0, not yet released); OpenAPI `AgentContext.idempotency_key` description; MCP retry wording (the advice to keep the key exactly as on the first call stays, now with the reason: after 30 minutes only the original key matches); MCP README; DEPLOYMENT.md "Duplicates". Eight plugin tests added (97 in total). With the old single-scope reservation restored, seven fail; with the release-on-conflict removed, four fail.
+
+### Codex second review (2026-11-16)
+
+Codex reran all eight suites on the fixed package (all passing, counts matching, no INCOMPLETE) and found one regression introduced by the point-3 fix above: the "outcome unknown" retry advice said "same idempotency_key (set one if you did not)". The API identifies a submission by its key, or by its content when no key is sent (`nepa-api.php` builds the reservation scope from one or the other, never both), so a retry that adds a key is a new submission. Codex reproduced a second lead from an identical inquiry sent first without and then with a key. **Agree.**
+
+Fix: the MCP tool now tells agents to set `idempotency_key` on the first call, and on a retry to keep the key exactly as on the first call - the same key if one was sent, no key if none was, never adding one. The same correction is in the tool description, the key's input description, the MCP README and DEPLOYMENT.md (which now also explains that a repeat is matched by key *or* content). `dist/index.js` rebuilt. Three smoke-test checks added (34 in total); with the old wording restored, two of them fail. The API's matching rule itself is unchanged.
+
+### Bug and anomaly review (2026-11-16)
+
+A third pass checked the finished build for internal inconsistencies rather than missing pages: every data file (duplicate IDs and URLs, count fields, date formats, sort order, language tags, symmetry of the 102 + 3 English/Swedish press-release pairs, event status against dates, IR calendar against `next_report`), every agent-page section against its data file (cases, events, resources, IR tables, team, pricing, offices, news, products), every in-page anchor and element ID, the JSON-LD graph (`hasPart`, ItemList positions, FAQ count), llms.txt link format, and the HTTP status of all 882 URLs the package references. Found and fixed:
+
+1. **API base URL returned 404** (inherited): `https://nepa.com/agent/v1/` — the `baseURL` in api-catalog.json, `base_url` in index.json and `metadata.baseUrl` of the ARD REST entry — had no route. Plugin 1.4.0 adds one; plugin test added (68).
+2. **Same Swedish post, two titles** (inherited): 12 Swedish blog posts had their post heading in blog-posts.json but their SEO page title in localized-pages.json. Both now use the post heading; the agent page's Nordic list was regenerated.
+3. **ARD trust identity not checked against the publisher** (new code): the module required `trustManifest.identity` but did not enforce spec §4.5.1 (the identity's domain MUST be the URN publisher). It now does, for HTTPS, `did:web`, SPIFFE and bare-domain identities, rejecting look-alike domains; the packaged validator had a substring check that `notnepa.com` would have passed, now fixed the same way. Nepa publishes no trust manifest, so nepa.com's manifest is unaffected; this matters for reuse.
+4. **ARD module with no entries still answered OPTIONS/POST** (new code) with 204/405 instead of falling through to WordPress's 404. Fixed and tested.
+5. **ETag without conditional requests** (new code, improvement): the manifest now answers `If-None-Match` with 304, so registries re-crawling it don't download it again.
+
+Checked and fine: no duplicate IDs or URLs; all counts, sort orders and language pairs consistent; no upcoming event in the past; every agent-page section matches its data; no broken anchors or duplicate element IDs; JSON-LD consistent; llms.txt links all in Markdown form. Of the 882 referenced URLs, 874 return 200; the rest are `/.well-known/ard.json` (404 until deployed), `/agent/v1/` (fixed above), LinkedIn (403 to non-browser clients), the MCP endpoint (406 to a plain GET, as the protocol requires), one external IR link that redirects (lantero.report) and a link to `/sv` written without its trailing slash only in a code comment.
+
+Not changed, worth knowing: the ARD MCP entry points to nepa.com's own `/.well-known/mcp.json` card, which predates and does not follow the draft official MCP server-card schema; ARD does not validate the referenced artifact, but registries that parse cards strictly may not read it. Whether Polylang/WPML leave the `home` option unfiltered (which the localized-link fix relies on) should be confirmed on the live site with the check in DEPLOYMENT.md §1a.
+
+### Agentic Resource Discovery (ARD) — new
+
+Implements the publisher side of the Agentic Resource Discovery specification **v0.91** (https://agenticresourcediscovery.org/spec/, ards-project/ard-spec commit `f073b1e`, 2026-10-25 — the latest published version). Nothing existing was replaced; all previous endpoints and links behave as before.
+
+- **New must-use plugin `agentic-resource-discovery.php` (1.0.0)** — site-agnostic and reusable on any WordPress site of the package: no Nepa values; entries come from the `agentic_ard_entries` filter and settings from `agentic_ard_config`. It:
+  - serves `/.well-known/ard.json` (spec §5.1; `ArdManifest` with an `entries` array, `specVersion` and `host`) with `application/json`, CORS, a one-hour cache, an ETag, HEAD/OPTIONS support and 405 for other methods;
+  - prints `<link rel="ard">` in every page's `<head>` and sends `Link: <…/.well-known/ard.json>; rel="ard"` on front-end responses (consumers MUST honour the link, §5.1);
+  - validates every entry against the ARD entry rules (required `identifier`/`displayName`/`type`, `urn:air:<publisher>:…` anchored on the site's domain, exactly one of `url`/`data`, media type, flat `metadata`, `trustManifest.identity`) and leaves invalid or duplicate entries out of the manifest, logging them, so the published manifest always conforms; warns when `representativeQueries` is not 2–5 (§D.2);
+  - stays silent (404, no link) when a site registers no entries;
+  - exposes `agentic_ard_jsonld()` for in-page markup with the ARD base context (§4.1).
+  - It is a publisher only: it does not implement an ARD Registry (`/search`, `/explore`, `/agents`), which is the role of search services.
+- **`nepa-agent-discovery.php` 1.1.0** registers nepa.com's five entries (each with description, tags, 2–5 representative queries and `updatedAt` 2026-11-16):
+  - `urn:air:nepa.com:mcp:nepa-mcp` — `application/mcp-server-card+json` → /.well-known/mcp.json; capabilities = the 18 MCP tool names; version 1.2.1
+  - `urn:air:nepa.com:api:agent-rest-api` — `application/vnd.oai.openapi+json` → /openapi.json; version 1.3.0
+  - `urn:air:nepa.com:catalog:api-catalog` — `application/linkset+json` → /.well-known/api-catalog
+  - `urn:air:nepa.com:docs:agent-page` — `text/html` → /agent/
+  - `urn:air:nepa.com:docs:llms-txt` — `text/plain` → /llms.txt
+  - It also adds the ARD manifest to the RFC 9727 `/.well-known/api-catalog` linkset and an `ard` link to `/.well-known/mcp.json`.
+  - No `trustManifest` is published: Nepa has no verifiable attestation, and an unverified one would be meaningless to registries.
+- **Other discovery routes:** `Agentmap: https://nepa.com/.well-known/ard.json` in robots-addition.txt (§5.1 Agentmap directive); the five entries embedded as JSON-LD on the agent page (`<script id="ard-entries">`, §5.1 in-page markup) plus `<link rel="ard">` in its head; ARD lines in llms.txt, ai.txt (`ARD:`), api-catalog.json (new "Nepa Agentic Resource Discovery manifest" entry and `X-discovery.ard_manifest`), `/agent/v1/index.json` (`ard_manifest`), OpenAPI (`externalDocs`) and the agent page metadata and instructions. DNS discovery records (§5.1) are not set up; they need DNS access.
+
+### Asset changes
+
+- **nepa-api/data/** — all 17 files `version: 1.2`, `release: agentic-web-2026-11`, `last_updated: 2026-11-16`. Content: blog-posts (+5), resources (+3 downloads), press-releases (+7, −1), case-studies (+Laattapiste-Pukkila; 3 titles), events (2 now past; 2 titles; note), localized-pages (+13; counts), investor-relations (Q3 report, next report, announcements, presentations), offices (Helsinki address, Copenhagen office). schema.json documents the new optional fields. All 17 files validate against OpenAPI 1.3.0.
+- **nepa-api/nepa-api.php 1.4.0** — `NEPA_DATA_RELEASE` = `agentic-web-2026-11` (the bundled data is served immediately, per the release-manifest rule); `index.json` gains `ard_manifest`; new URL rule so the advertised API base URL `/agent/v1/` returns the index instead of a 404 (needs **Settings → Permalinks → Save** after deploying); Sync publishes generations atomically with an atomic lock, stamps `NEPA_DATA_VERSION` (1.2) and keeps blog editorial corrections (see the Codex review section). No other code change.
+- **nepa-api/openapi.json 1.3.0** — new optional fields (Office `address_source`, `contact_url_fi`; InvestorRelations `presentations`; LocalizedPage `alternates_source`, section `webinar`; Index `ard_manifest`); `externalDocs` to the ARD manifest.
+- **nepa-api/agent-page.html** — dates; corrected package version row (it still said plugin 1.2.0 / MCP 1.1.0); ARD metadata row, instruction and embedded entries; Andrea Sahlgren note; offices; the new case article; full blog (265) and press-release (293) tables regenerated from the data; events (0 upcoming, 10 past); IR (Q3, presentation, next report, 18 reports); Insights hub link; Nordic page index (106). JSON-LD: `dateModified`, case ItemList (21, titles), Organization `location` (Helsinki, Copenhagen).
+- **llms.txt** — crawl date; Laattapiste proof point; offices; Andrea Sahlgren; Insights link; ARD link; case list and titles; 3 new blog posts; events; IR (Q3, next report); new totals.
+- **ai.txt** — `Last-Updated: 2026-11-16`; `ARD:` canonical source.
+- **api-catalog.json** — `modified`; new counts; new ARD manifest API entry (5 `X-ard-entry` properties); `X-discovery.ard_manifest`.
+- **robots-addition.txt** — `Agentmap:` line.
+- **nepa-mcp 1.2.1** — dependency security update only: `npm audit` found 5 new advisories published after 2026-10-16 (2 high, 3 moderate: `body-parser`, `zod`, `@hono/node-server`, `hono`, `fast-uri`). `npm audit fix` for the transitive packages; `zod` 3.25.76 → 4.6.7 (the high-severity GHSA-mrhx-c7xc-m3w5 is fixed only in zod ≥ 4.6.6; the MCP SDK supports `^3.25 || ^4.0`). Source unchanged apart from the version; `dist/index.js` rebuilt (identical apart from the version string); tool input schemas verified unchanged; 0 vulnerabilities.
+- **DEPLOYMENT.md** — four parts (must-use plugins added — they were missing from the previous procedure); §1a must-use plugins and ARD; robots `Agentmap`; caches and WP Engine exemption for `/.well-known/*`; updated checks (versions, counts, ARD); rollback for ARD; §12 short update path from the live 2026-10 release.
+- **tests/** — new `run-all.sh`, `validate-data-files.py`, `run-ard-tests.php` (71 checks, including real HTTP via PHP's built-in server), `ard-router.php`, `ard-stubs.php`, `validate-ard-manifest.py` and `ard-spec/` (unmodified official schema and context, Apache-2.0, see NOTICE.md); `run-plugin-tests.php` expected counts updated (154 Swedish releases, 35 Finnish pages); `mcp-smoke-test.sh` expects version 1.2.1; `live-checks.sh edge` also probes `/.well-known/ard.json`; README updated.
+
+### Tests
+
+| Suite | Result |
+|---|---|
+| ARD (`run-ard-tests.php`) | 71/71 |
+| ARD manifest vs official v0.91 schema + Appendix D rules (`validate-ard-manifest.py`) | 0 errors, 0 warnings |
+| Plugin (`run-plugin-tests.php`) | 108/108 |
+| HubSpot, with token | 76/76 |
+| HubSpot, without token | 68/68 |
+| OpenAPI contact responses (`validate-openapi-examples.py`, real responses) | 61/61 |
+| MCP smoke test (with zod 4) | 40/40 |
+| All 17 data files vs OpenAPI 1.3.0 response schemas | 17/17 |
+
+Five injected defects in the ARD code (url/data rule removed, head link removed, a tool missing from the MCP entry, duplicate check removed, and the language-prefixed `home_url()` restored) were each caught by the ARD tests.
+
+**Not run:** the official ARD conformance tester (`conformance/bin/conformance-test` from ards-project/ard-spec). The build environment does not execute code downloaded from the internet, so the packaged validator applies the same official schema file and rules instead. Run `conformance-test publisher nepa.com` from a clone of the spec repository after deployment (DEPLOYMENT.md §6). As before, everything WordPress- and HubSpot-related was tested with stand-ins; the ARD endpoints were tested over real HTTP with PHP's built-in server, not on WP Engine.
+
+### Issues found on the live site (for Nepa — not package changes)
+
+- **Broken discovery links on all /sv/, /fi/ and /da/ pages** (from the deployed discovery plugin 1.0.0; fixed by deploying 1.1.0 from this package).
+- **Indexable utility pages outside the sitemap:** the ad landing, thank-you, cancellation and copy pages listed under "Live pages deliberately excluded" are live without `noindex`; noindex or unpublish them. /home-2/ duplicates the homepage.
+- **Attachment redirects:** /resources/, /sv/segmentation-2/ and /da/segmentation-2/ redirect to image files.
+- **Empty blog post:** /blog/why-brand-salience-is-the-new-growth-driver/ is live (linked from the Insights pages) but has no body text and is attributed to `gomo_dev`.
+- **New Insights topic pages and downloads are not in the sitemap** (WordPress `insight` and `download` types); add those types to the XML sitemap so search engines and agents find them.
+
+- **Two menu links redirect:** header "Marketing Mix Modelling" (/products/marketing-mix-modelling/) and footer "Market Segmentation" (/products/market-segmentation/) both 301 to the real pages; link them directly.
+- **Duplicate Organization structured data with a different YouTube channel:** every page carries two Organization nodes; the second lists `https://www.youtube.com/@nepa7919`, while the footer links `@NepaInsights`.
+- **Finnish contact email:** /fi/contact/ shows `nepafinland@nepa.se` (a .se address) as the visible email while linking `mailto:info@nepa.com`. Check which is intended.
+- **English site lists no Helsinki or Copenhagen address:** they appear only on the Finnish/Danish pages.
+- **Financial calendar page is stale:** https://nepa.com/calendar/ still lists 2024–2025 dates; the current calendar is on /investor-relations/#financial-calendar.
+- **Financial reports page stops at 2024:** /financial-reports-and-presentations/ lists reports up to Q2 2024; newer reports are only on /investor-relations/.
+- **Finnish case pages declare no hreflang alternates** (nor do any pages in the HTML head); alternates appear only in the language switcher. Adding hreflang would let search engines and agents pair the languages.
+- **Blog author attribution:** "Research should shape brand strategy…" is still attributed to the CMS account `gomo_dev` in structured data; the Black Week post's structured-data author (Christoffer Steiser) differs from its visible byline (Ulrika Berg).
+- **Placeholder archive still indexable:** /case-category/case-category/ (empty) — noindex or remove.
+- **Brand Tracking price wording** (unchanged from last month): the product page FAQ says "from 15,000 SEK/month", the price widget 16,300 SEK (1,500 EUR)/month.
+
+### Deployment
+
+The 2026-10 package is live. See **DEPLOYMENT.md §12** for the short update path and §1a for ARD. The MCP server needs a Render redeploy for the dependency fixes.
+
+## Live-site checks renamed — 2026-10-19
+
+There is no staging site, so the acceptance checks run on the live site.
+
+- `tests/staging-checks.sh` is now `tests/live-checks.sh`. The modes and arguments are unchanged.
+- The HubSpot test inquiry is labelled "LIVE TEST" / "Nepa live check" (previously "STAGING TEST" / "Nepa staging check").
+- The checklist marks the failure tests (6 and 7) as optional. It warns that they hold back real inquiries while the setting is changed, and says how to recover them.
+- `duplicates` still refuses nepa.com, because it creates test leads and sends emails.
+- DEPLOYMENT.md §11 and tests/README.md were updated to match. Earlier changelog entries keep the old name.
+
 ## HubSpot form delivery — 2026-10-19 (plugin 1.3.0, MCP server 1.2.0, OpenAPI 1.2.0)
 
 Agent inquiries are now forwarded to Nepa's HubSpot contact form, after the durable WordPress lead is stored. The full description is in DEPLOYMENT.md §11.

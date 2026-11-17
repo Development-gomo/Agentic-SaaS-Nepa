@@ -3,7 +3,8 @@
 GET  serves the package's data files (like the real read-only endpoints).
 POST /contact.json answers like the real endpoint for each delivery outcome, chosen by
 the local part of person.email: delivered@, pending@, retryable@, uncertain@,
-manual_review@, disabled@, rejected@, inprogress@, unavailable@, slow@ (no answer in time).
+manual_review@, disabled@, rejected@, inprogress@, unavailable@, ratelimited@, paused@, savedthen500@, odd503@,
+gateway@ (non-JSON 502), slow@ (no answer in time); anything else gets a 422 missing_required_fields.
 Every received body is appended to the file given as the 3rd argument, so the test can
 check exactly what the MCP server sent.
 """
@@ -43,6 +44,18 @@ class Handler(SimpleHTTPRequestHandler):
             return self.reply(409, {'error': 'in_progress', 'message': 'x'})
         if case == 'unavailable':
             return self.reply(503, {'error': 'reservation_unavailable', 'message': 'x'})
+        if case == 'paused':         # the plugin's contact switch is off
+            return self.reply(503, {'error': 'contact_disabled', 'message': 'x'})
+        if case == 'ratelimited':
+            return self.reply(429, {'error': 'rate_limited', 'message': 'x'})
+        if case == 'savedthen500':   # the lead was stored, then something failed: a JSON 500
+            return self.reply(500, {'code': 'internal_server_error', 'message': 'There has been a critical error on this website.'})
+        if case == 'odd503':         # a 503 the plugin did not produce (e.g. maintenance mode)
+            return self.reply(503, {'message': 'Service Unavailable'})
+        if case == 'gateway':        # proxy error page, not JSON
+            raw = b'<html><body>502 Bad Gateway</body></html>'
+            self.send_response(502); self.send_header('Content-Type', 'text/html'); self.send_header('Content-Length', str(len(raw))); self.end_headers(); self.wfile.write(raw)
+            return
         return self.reply(422, {'error': 'missing_required_fields', 'message': 'x'})
 
 ThreadingHTTPServer(('127.0.0.1', PORT), Handler).serve_forever()

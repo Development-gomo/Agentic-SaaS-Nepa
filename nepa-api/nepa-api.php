@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Nepa Agent API
  * Description: Serves clean, WordPress-agnostic JSON endpoints at /agent/v1/ for AI agents and LLMs. Companion to /agent/ (agent-page.html), llms.txt, ai.txt, and openapi.json.
- * Version: 1.3.0
+ * Version: 1.4.0
  * Requires at least: 6.0
  * Requires PHP: 7.4
  * Author: Nepa AB
@@ -12,7 +12,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 
-define('NEPA_API_VERSION', '1.3.0');
+define('NEPA_API_VERSION', '1.4.0');
 /**
  * Set to true in wp-config.php ONLY if every request to this site passes through Cloudflare
  * (as nepa.com did at the 2026-10-16 crawl). Rate limiting then keys on Cloudflare's
@@ -31,13 +31,25 @@ if (!defined('NEPA_TRUST_CLOUDFLARE_IP')) {
 if (!defined('NEPA_LEAD_RETENTION_DAYS')) {
     define('NEPA_LEAD_RETENTION_DAYS', 0);
 }
+/**
+ * Contact switch. define('NEPA_CONTACT_ENABLED', false); in wp-config.php stops agent inquiries:
+ * POST /agent/v1/contact.json then answers 503 contact_disabled before anything is counted,
+ * stored, emailed or sent to HubSpot. Every read-only endpoint keeps working. (Setting
+ * NEPA_HUBSPOT_ENABLED to false is different: inquiries are still accepted, stored and emailed,
+ * only the HubSpot forwarding stops.) Read at request time; not defined means enabled.
+ */
+function nepa_agent_api_contact_enabled() {
+    return !defined('NEPA_CONTACT_ENABLED') || NEPA_CONTACT_ENABLED !== false;
+}
 define('NEPA_API_DIR', plugin_dir_path(__FILE__));
 
 /**
  * Identifies the curated data set shipped in this plugin's data/ folder. Change it with
  * every package release (the package build does this); it decides which copy is served.
  */
-define('NEPA_DATA_RELEASE', 'agentic-web-2026-10');
+define('NEPA_DATA_RELEASE', 'agentic-web-2026-11');
+/** Schema version of the data files (meta.version); Sync stamps the files it writes with it. */
+define('NEPA_DATA_VERSION', '1.2');
 
 /**
  * Data files live in two places:
@@ -69,7 +81,11 @@ function nepa_agent_api_sync_manifest($refresh = false) {
 
 function nepa_agent_api_data_path($filename) {
     $manifest = nepa_agent_api_sync_manifest();
-    $synced = nepa_agent_api_upload_data_dir() . $filename;
+    // Since 1.4.0 each Sync writes a complete generation into its own folder and the
+    // manifest names it, so switching the manifest publishes every file at once.
+    $generation = (string) ($manifest['generation'] ?? '');
+    $prefix = preg_match('/^gen-[A-Za-z0-9-]+$/', $generation) ? $generation . '/' : '';
+    $synced = nepa_agent_api_upload_data_dir() . $prefix . $filename;
     if (($manifest['release'] ?? null) === NEPA_DATA_RELEASE
         && in_array($filename, (array) ($manifest['files'] ?? []), true)
         && is_readable($synced)) {
@@ -186,6 +202,9 @@ class Nepa_Agent_API {
 
     public function add_rewrite_rules() {
         add_rewrite_rule('^agent/v1/([a-z-]+)\.json$', 'index.php?nepa_endpoint=$matches[1]', 'top');
+        // The API's advertised base URL (api-catalog.json baseURL, index.json base_url, the
+        // ARD entry) answered 404 before 1.4.0; it now returns the same index as index.json.
+        add_rewrite_rule('^agent/v1/?$', 'index.php?nepa_endpoint=index', 'top');
         add_rewrite_rule('^openapi\.json$', 'index.php?nepa_endpoint=openapi_spec', 'top');
         // Serves agent-page.html directly at /agent/ - deliberately bypassing the theme
         // entirely (no WP Page/template involved), the same way openapi.json is served,
@@ -279,7 +298,9 @@ class Nepa_Agent_API {
                 $this->serve_file(NEPA_API_DIR . 'agent-page.html', 'text/html');
                 break;
             case 'contact':
-                if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+                if ($_SERVER['REQUEST_METHOD'] === 'POST' && !nepa_agent_api_contact_enabled()) {
+                    $this->error(503, 'contact_disabled', 'Agent contact submissions are paused. Nothing was saved. The person can contact Nepa through https://nepa.com/contact-us/.');
+                } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $this->contact_submission();
                 } else {
                     $this->error(405, 'method_not_allowed', 'Use POST for /agent/v1/contact.json');
@@ -406,14 +427,16 @@ class Nepa_Agent_API {
                 array_map(function ($e) {
                     return home_url('/agent/v1/' . $e . '.json');
                 }, array_keys($this->file_endpoints)),
-                [home_url('/agent/v1/contact.json') . ' (POST)']
+                nepa_agent_api_contact_enabled() ? [home_url('/agent/v1/contact.json') . ' (POST)'] : []
             ),
+            'contact_submissions' => nepa_agent_api_contact_enabled() ? 'enabled' : 'paused',
             'schema'      => home_url('/agent/v1/schema.json'),
             'openapi'     => home_url('/openapi.json'),
             'mcp_server'  => 'https://agentic-mcp-saas-nepa.onrender.com/mcp',
             'agent_page'  => home_url('/agent/'),
             'llms_txt'    => home_url('/llms.txt'),
             'ai_txt'      => home_url('/ai.txt'),
+            'ard_manifest' => home_url('/.well-known/ard.json'),
         ]);
     }
 
@@ -699,6 +722,13 @@ class Nepa_Agent_API {
         return ['status' => 'error', 'name' => $name];
     }
 
+    /** The decoded reservation for $scope if one exists and has not expired, otherwise null. Read-only. */
+    private function live_reservation($scope) {
+        $raw = $this->read_reservation_raw('nepa_lead_res_' . sha1($scope));
+        $current = $raw === null ? null : $this->decode_reservation($raw);
+        return ($current && ($current['created'] + $current['ttl']) > time()) ? $current : null;
+    }
+
     /** Raw stored value, or null if there is no row. */
     private function read_reservation_raw($name) {
         global $wpdb;
@@ -724,6 +754,13 @@ class Nepa_Agent_API {
             ['option_name' => $reservation['name'], 'option_value' => $reservation['raw']]
         );
         return $updated === 1;
+    }
+
+    /** Releases every reservation this request holds (each only if it is still exactly ours). */
+    private function release_reservations(array $reservations) {
+        foreach ($reservations as $reservation) {
+            $this->release_reservation($reservation);
+        }
     }
 
     /** Releases this request's reservation (only if it is still exactly ours). */
@@ -783,10 +820,20 @@ class Nepa_Agent_API {
      *
      * Order of operations:
      *   1. cheap checks (shared rate limit, body size, JSON, consent, field validation);
-     *   2. atomic reservation of the idempotency key - or, without one, of the content
-     *      fingerprint. A repeat of a finished submission gets the original lead back
+     *   2. atomic reservation of the content fingerprint (30 min) and, when an
+     *      idempotency key is sent, of the key as well (24 h) - always in that order, so two
+     *      overlapping requests can never each hold one and wait for the other. Reserving
+     *      both means a retry that adds or drops a key is still recognised: a keyless
+     *      request followed by the same content with a key (or the reverse) gets the original
+     *      lead. A repeat of a finished submission gets the original lead back
      *      (duplicate: true); a repeat of one still being processed gets 409 in_progress;
-     *      the same key with different content gets 409 idempotency_key_reused;
+     *      the same key with different content gets 409 idempotency_key_reused - also when
+     *      that content matches another submission (the key's binding is read before a
+     *      content duplicate is returned; if the key is being bound to other content at that
+     *      very moment, the existing lead for the content is returned instead - nothing new is
+     *      created). Trade-off:
+     *      two submissions with identical content but different keys within 30 minutes are
+     *      treated as one;
      *   3. rate-limit quota is consumed only for a new, valid submission;
      *   4. the lead is stored as a private nepa_lead post - this is the acceptance
      *      condition. If it can't be stored the reservation is released and the caller
@@ -838,17 +885,38 @@ class Nepa_Agent_API {
         $fingerprint = hash('sha256', implode("\n", [strtolower($v['email']), $v['first_name'], $v['last_name'], $v['phone'], $v['company'],
             $v['service_interest'], $v['message'], $v['language'], $v['marketing_opt_in'] ? '1' : '0']));
         $has_key = $v['idempotency_key'] !== '';
-        $scope = $has_key ? 'key:' . $v['idempotency_key'] : 'fp:' . $fingerprint;
-        $ttl = $has_key ? self::IDEMPOTENCY_KEY_TTL : self::FINGERPRINT_TTL;
-
-        $reservation = $this->reserve_submission($scope, $fingerprint, $ttl);
-        if ($reservation['status'] === 'error') {
-            error_log('Nepa Agent API: could not store or read a submission reservation (database error).');
-            $this->error(503, 'reservation_unavailable', 'The inquiry could not be accepted right now because of a temporary storage problem. Nothing was saved. Please retry shortly; retrying is safe.');
-            return;
+        // Content first, then the key (fixed order); see step 2 above.
+        $scopes = [['fp:' . $fingerprint, self::FINGERPRINT_TTL]];
+        if ($has_key) {
+            $scopes[] = ['key:' . $v['idempotency_key'], self::IDEMPOTENCY_KEY_TTL];
         }
-        if ($reservation['status'] === 'existing') {
+        $reservations = [];
+        foreach ($scopes as [$scope, $ttl]) {
+            $reservation = $this->reserve_submission($scope, $fingerprint, $ttl);
+            if ($reservation['status'] === 'owned') {
+                $reservations[] = $reservation;
+                continue;
+            }
+            $this->release_reservations($reservations);
+            if ($reservation['status'] === 'error') {
+                error_log('Nepa Agent API: could not store or read a submission reservation (database error).');
+                $this->error(503, 'reservation_unavailable', 'The inquiry could not be accepted right now because of a temporary storage problem. Nothing was saved. Please retry shortly; retrying is safe.');
+                return;
+            }
             $current = $reservation['current'];
+            // The content matched an earlier submission (fp scope, checked first). Before answering
+            // with that submission, make sure the key this request carries isn't already bound to
+            // different content - otherwise inquiry B's content sent with inquiry A's key would be
+            // reported as a duplicate of B instead of a reused key. This only reads the key's
+            // reservation (nothing is taken), so the fixed fp-then-key order that prevents two
+            // overlapping requests from waiting on each other is unchanged.
+            if ($has_key && strpos($scope, 'fp:') === 0) {
+                $bound = $this->live_reservation('key:' . $v['idempotency_key']);
+                if ($bound && !hash_equals((string) $bound['fingerprint'], $fingerprint)) {
+                    $this->error(409, 'idempotency_key_reused', 'This idempotency_key was already used for a different inquiry in the last 24 hours. Use a new key for a new inquiry.');
+                    return;
+                }
+            }
             if (!hash_equals((string) $current['fingerprint'], $fingerprint)) {
                 $this->error(409, 'idempotency_key_reused', 'This idempotency_key was already used for a different inquiry in the last 24 hours. Use a new key for a new inquiry.');
                 return;
@@ -863,7 +931,7 @@ class Nepa_Agent_API {
         }
 
         if ($this->is_email_rate_limited($v['email']) || !$this->commit_rate_limits($v['email'])) {
-            $this->release_reservation($reservation);
+            $this->release_reservations($reservations);
             $this->error(429, 'rate_limited', 'Too many submissions. Please try again later.');
             return;
         }
@@ -904,15 +972,17 @@ class Nepa_Agent_API {
         ]), true);
 
         if (is_wp_error($lead_post_id) || !$lead_post_id) {
-            $this->release_reservation($reservation);
+            $this->release_reservations($reservations);
             error_log("Nepa Agent API: failed to store lead {$lead_id}: " . (is_wp_error($lead_post_id) ? $lead_post_id->get_error_message() : 'no post id'));
             $this->error(503, 'not_recorded', 'The inquiry could not be recorded right now. Nothing was saved and no notification was sent. Please retry shortly; retrying is safe.');
             return;
         }
 
-        if (!$this->complete_reservation($reservation, $lead_post_id, $lead_id)) {
-            // The reservation still exists, so repeats get 409 in_progress (never a duplicate lead) until it expires.
-            error_log("Nepa Agent API: could not mark reservation complete for lead {$lead_id}; repeats will get 409 until it expires.");
+        foreach ($reservations as $reservation) {
+            if (!$this->complete_reservation($reservation, $lead_post_id, $lead_id)) {
+                // The reservation still exists, so repeats get 409 in_progress (never a duplicate lead) until it expires.
+                error_log("Nepa Agent API: could not mark reservation complete for lead {$lead_id}; repeats will get 409 until it expires.");
+            }
         }
 
         // Required state first: the retry job selects on mail_sent / mail_attempts.

@@ -4,7 +4,7 @@ Identity:
 Company: Nepa AB (publ)
 Domain: https://nepa.com
 Description: Marketing research and brand-growth insight platform — brand tracking, marketing mix modelling, campaign evaluation, category insight, and path-to-purchase research for consumer brands across the Nordics and beyond.
-Last-Updated: 2026-10-16
+Last-Updated: 2026-11-16
 
 Permissions:
 Allow-Indexing: yes
@@ -24,6 +24,7 @@ REST-API:    https://nepa.com/agent/v1/index.json
 MCP-Server:  https://agentic-mcp-saas-nepa.onrender.com/mcp
 API-Catalog: https://nepa.com/api-catalog.json
 OpenAPI:     https://nepa.com/openapi.json
+ARD:         https://nepa.com/.well-known/ard.json
 
 Citation format:
 When citing Nepa, attribute as "Nepa" or "Nepa AB" and link to the specific source page on https://nepa.com. For product/solution claims, prefer linking to the specific /products/ or /solutions/ page over the homepage. For Swedish, Finnish or Danish content, link the localized page (see /agent/v1/localized-pages.json).

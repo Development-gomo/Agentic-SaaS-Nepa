@@ -1,10 +1,10 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/localized-pages.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
-    "last_updated": "2026-10-16",
-    "note": "Every live Swedish (sv), Finnish (fi) and Danish (da) page found in the 2026-10-16 crawl, with its English equivalent where the site declares an hreflang alternate. Filter with ?language= and ?section=. Swedish-language press releases live under /mfn_news/ and are in press-releases.json (language=sv)."
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
+    "last_updated": "2026-11-16",
+    "note": "Every live Swedish (sv), Finnish (fi) and Danish (da) page found in the 2026-11-16 crawl, with its English equivalent where the site declares an hreflang alternate. Filter with ?language= and ?section=. Swedish-language press releases live under /mfn_news/ and are in press-releases.json (language=sv)."
   },
   "pages": [
     {
@@ -342,6 +342,45 @@
       }
     },
     {
+      "id": "fi-case-business-finland",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Suomi esiin ruoan avulla",
+      "description": "Hiljaisesta läsnäolosta erottuvaksi tarinaksi – lue, miten Business Finland ja Nepa vahvistivat Suomen maakuvaa ruoan avulla.",
+      "url": "https://nepa.com/fi/case/business-finland/",
+      "english_equivalent": "https://nepa.com/case/business-finland/",
+      "alternates": {
+        "en": "https://nepa.com/case/business-finland/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
+    },
+    {
+      "id": "fi-case-cure-media-ja-akademibokhandeln",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Vaikuttajamarkkinoinnista mitattavaa vaikutusta",
+      "description": "Cure Media ja Akademibokhandeln: vaikuttajamarkkinoinnista mitattavaa vaikutusta. Lue koko asiakastarina.",
+      "url": "https://nepa.com/fi/case/cure-media-ja-akademibokhandeln/",
+      "english_equivalent": "https://nepa.com/case/cure-media-and-akademibokhandeln/",
+      "alternates": {
+        "en": "https://nepa.com/case/cure-media-and-akademibokhandeln/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
+    },
+    {
+      "id": "fi-case-dafgards",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Kriisistä selkeyteen: näin Dafgårds palautti kuluttajien luottamuksen insightien avulla",
+      "description": "Kriisistä selkeyteen – lue, miten Dafgårds palautti kuluttajien luottamuksen ja nousi kategoriansa johtajaksi Nepan insightien avulla.",
+      "url": "https://nepa.com/fi/case/dafgards/",
+      "english_equivalent": "https://nepa.com/case/how-dafgards-used-insight-to-regain-consumer-trust/",
+      "alternates": {
+        "en": "https://nepa.com/case/how-dafgards-used-insight-to-regain-consumer-trust/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
+    },
+    {
       "id": "fi-case-fastighetsbyran",
       "language": "fi",
       "section": "case-study",
@@ -370,6 +409,19 @@
       }
     },
     {
+      "id": "fi-case-fortnox",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Fortnox: tutkimustiedosta selkeä suunta",
+      "description": "Lue, miten Fortnox hyödyntää Nepan insighteja ja brändiseurantaa strategisen suunnan tukena ja liiketoimintapäätösten pohjana.",
+      "url": "https://nepa.com/fi/case/fortnox/",
+      "english_equivalent": "https://nepa.com/case/fortnox-turning-insight-into-direction/",
+      "alternates": {
+        "en": "https://nepa.com/case/fortnox-turning-insight-into-direction/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
+    },
+    {
       "id": "fi-case-gant",
       "language": "fi",
       "section": "case-study",
@@ -384,6 +436,32 @@
       }
     },
     {
+      "id": "fi-case-hemkop",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Massasta erottuvaksi: Hemköpin rohkea tie selkeään brändiin Nepan kanssa",
+      "description": "Erottuminen massasta: lue, miten Hemköp uudisti brändinsä Nepan kanssa ja kasvatti brändin tunnistettavuutta, preferenssiä ja ostoaikeita.",
+      "url": "https://nepa.com/fi/case/hemkop/",
+      "english_equivalent": "https://nepa.com/case/hemkop/",
+      "alternates": {
+        "en": "https://nepa.com/case/hemkop/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
+    },
+    {
+      "id": "fi-case-if",
+      "language": "fi",
+      "section": "case-study",
+      "title": "If – Pohjoismaiden johtava vahinkovakuutusyhtiö",
+      "description": "Lue, miten If ja Nepa mittaavat brändimainonnan vaikutusta kaikissa Pohjoismaissa – ja saavat tutkimustiedosta vauhtia markkinointiin.",
+      "url": "https://nepa.com/fi/case/if/",
+      "english_equivalent": "https://nepa.com/case/if-insurance/",
+      "alternates": {
+        "en": "https://nepa.com/case/if-insurance/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
+    },
+    {
       "id": "fi-case-kelloggs",
       "language": "fi",
       "section": "case-study",
@@ -396,6 +474,32 @@
         "da": "https://nepa.com/da/case/kelloggs/",
         "sv": "https://nepa.com/sv/kundcase/kelloggs/"
       }
+    },
+    {
+      "id": "fi-case-laattapiste-pukkila",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Datasta suuntaa – miten erikoisliike terävöitti brändiään kilpaillulla markkinalla",
+      "description": "Lue, miten Laattapiste-Pukkila terävöitti brändiään Nepan bränditutkimuksen ja kampanjamittauksen avulla – ja kasvatti asiakastapaamisia 30 %.",
+      "url": "https://nepa.com/fi/case/laattapiste-pukkila/",
+      "english_equivalent": "https://nepa.com/case/laattapiste-pukkila/",
+      "alternates": {
+        "en": "https://nepa.com/case/laattapiste-pukkila/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
+    },
+    {
+      "id": "fi-case-lantmannen",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Näin Lantmännen mittaa mainonnan pitkän aikavälin arvoa",
+      "description": "Lue, miten Lantmännen ja Nepa mittaavat Advertising Equity -mittarilla mainonnan pitkän aikavälin arvoa ja sen yhteyttä mediainvestointien tehoon.",
+      "url": "https://nepa.com/fi/case/lantmannen/",
+      "english_equivalent": "https://nepa.com/case/measure-the-value-advertising-builds-over-time/",
+      "alternates": {
+        "en": "https://nepa.com/case/measure-the-value-advertising-builds-over-time/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
     },
     {
       "id": "fi-case-mtv",
@@ -424,6 +528,19 @@
         "da": "https://nepa.com/da/case/fashion/",
         "sv": "https://nepa.com/sv/kundcase/mode/"
       }
+    },
+    {
+      "id": "fi-case-sbab",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Insightista vaikutukseen",
+      "description": "Insightista vaikutukseen: lue, miten SBAB uudisti markkinastrategiansa ja vauhditti kasvuaan Nepan analytiikkaratkaisujen avulla.",
+      "url": "https://nepa.com/fi/case/sbab/",
+      "english_equivalent": "https://nepa.com/case/sbab/",
+      "alternates": {
+        "en": "https://nepa.com/case/sbab/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
     },
     {
       "id": "fi-case-sinebrychoff",
@@ -466,6 +583,19 @@
         "da": "https://nepa.com/da/case/varner/",
         "sv": "https://nepa.com/sv/kundcase/varner/"
       }
+    },
+    {
+      "id": "fi-case-wolt",
+      "language": "fi",
+      "section": "case-study",
+      "title": "Näin Creative AI -analytiikka paljasti Woltille jopa 40 %:n potentiaalin CPA:n laskuun TikTokissa",
+      "description": "Lue, miten Wolt, TikTok ja Nepa analysoivat tuhansia mainoksia Creative AI -analytiikalla ja löysivät jopa 40 %:n potentiaalin CPA:n laskuun.",
+      "url": "https://nepa.com/fi/case/wolt/",
+      "english_equivalent": "https://nepa.com/case/how-creative-ai-analytics-helped-wolt-unlock-a-potential-40-cpa-reduction-on-tiktok/",
+      "alternates": {
+        "en": "https://nepa.com/case/how-creative-ai-analytics-helped-wolt-unlock-a-potential-40-cpa-reduction-on-tiktok/"
+      },
+      "alternates_source": "matched by client name; the live page declares no hreflang alternate"
     },
     {
       "id": "fi-case",
@@ -664,6 +794,16 @@
       }
     },
     {
+      "id": "fi-webinar-vaikuttamisen-aika",
+      "language": "fi",
+      "section": "webinar",
+      "title": "Vaikuttamisen aika: Mikä ohjaa suomalaisten ostopäätöksiä?",
+      "description": "On-demand webinar on Nepa's study of what drives Finnish consumers' purchase decisions: social media, influencers, AI and generational differences.",
+      "url": "https://nepa.com/fi/vaikuttamisen-aika-mika-ohjaa-suomalaisten-ostopaatoksia/",
+      "english_equivalent": null,
+      "alternates": {}
+    },
+    {
       "id": "sv-om-nepa",
       "language": "sv",
       "section": "about",
@@ -679,7 +819,7 @@
       "id": "sv-blog-ai-paverkar-hur-svenskar-fattar-kopbeslut-och-forandrar-kundresan",
       "language": "sv",
       "section": "blog",
-      "title": "AI påverkar hur svenskar fattar köpbeslut",
+      "title": "AI påverkar hur svenskar fattar köpbeslut – och förändrar kundresan",
       "description": "AI spelar en tydlig roll i forskningsfasen och vägleder köpbesluten. Läs mer i det här inlägget – och få djupare insikter i vårt webinar.",
       "url": "https://nepa.com/sv/blog/ai-paverkar-hur-svenskar-fattar-kopbeslut-och-forandrar-kundresan/",
       "english_equivalent": "https://nepa.com/ai-takes-a-clear-role-in-the-research-phase-and-guides-purchase-decisions/",
@@ -691,7 +831,7 @@
       "id": "sv-blog-brand-tracking",
       "language": "sv",
       "section": "blog",
-      "title": "Varumärkesspårning – Mät och stärk ditt varumärke",
+      "title": "Brand tracking: Följ hur ditt varumärke utvecklas över tid, och hur det driver tillväxt",
       "description": "Följ varumärkets utveckling med brand tracking. Mät kännedom, position och lojalitet och fatta beslut som driver tillväxt i alla kanaler.",
       "url": "https://nepa.com/sv/blog/brand-tracking/",
       "english_equivalent": "https://nepa.com/blog/brand-tracking/",
@@ -703,7 +843,7 @@
       "id": "sv-blog-coop-sa-anvander-vi-data-for-att-ta-tillbaka-positionen",
       "language": "sv",
       "section": "blog",
-      "title": "Ta tillbaka positionen i en pressad dagligvarumarknad.",
+      "title": "Coop: Så använder vi data för att ta tillbaka positionen",
       "description": "Coop: Så använder vi data för att ta tillbaka positionen i en pressad dagligvarumarknad. Läs om Coops spännande resa.",
       "url": "https://nepa.com/sv/blog/coop-sa-anvander-vi-data-for-att-ta-tillbaka-positionen/",
       "english_equivalent": null,
@@ -732,10 +872,22 @@
       }
     },
     {
+      "id": "sv-blog-kundresa",
+      "language": "sv",
+      "section": "blog",
+      "title": "Kundresan – kartlägg, optimera och skapa affärsnytta",
+      "description": "Kundresan visar hur kunder rör sig genom varje kontaktpunkt och hur Nepa hjälper företag att driva lojalitet och tillväxt med rätt insikter.",
+      "url": "https://nepa.com/sv/blog/kundresa/",
+      "english_equivalent": "https://nepa.com/blog/customer-journey/",
+      "alternates": {
+        "en": "https://nepa.com/blog/customer-journey/"
+      }
+    },
+    {
       "id": "sv-blog-langsiktigt-varumarkesbygge-i-praktiken",
       "language": "sv",
       "section": "blog",
-      "title": "Långsiktigt varumärkesbygge i praktiken",
+      "title": "Långsiktigt varumärkesbygge i praktiken – lärdomar från Nepa Breakfast Session",
       "description": "Långsiktigt varumärkesbygge i praktiken – ta del av alla lärdomar från Nepa Breakfast Session med Lantmännen & Coop.",
       "url": "https://nepa.com/sv/blog/langsiktigt-varumarkesbygge-i-praktiken/",
       "english_equivalent": null,
@@ -745,7 +897,7 @@
       "id": "sv-blog-lantmannen-langsiktigt-varumarkesbygge-fran-jord-till-bord-till-lange-leve-jorden",
       "language": "sv",
       "section": "blog",
-      "title": "Lantmännen: Långsiktigt varumärkesbygge",
+      "title": "Lantmännen: Långsiktigt varumärkesbygge från ”jord till bord” till ”Länge leve jorden”",
       "description": "Lantmännen: Långsiktigt varumärkesbygge från ”jord till bord” till ”Länge leve jorden”. Läs om Lantmännens långsiktiga varumärkesarbete.",
       "url": "https://nepa.com/sv/blog/lantmannen-langsiktigt-varumarkesbygge-fran-jord-till-bord-till-lange-leve-jorden/",
       "english_equivalent": null,
@@ -755,7 +907,7 @@
       "id": "sv-blog-marknadsforingsmix-modellering",
       "language": "sv",
       "section": "blog",
-      "title": "Marknadsföringsmix-modellering – Analys & insikter NEPA",
+      "title": "Marketing Mix Modelling – en smartare analysmodell",
       "description": "Marketing mix modelling (MMM) hjälper dig att mäta marknadsföringens effekt och optimera investeringarna för bättre ROI.",
       "url": "https://nepa.com/sv/blog/marknadsforingsmix-modellering/",
       "english_equivalent": "https://nepa.com/blog/marketing-mix-modelling-mmm/",
@@ -767,7 +919,7 @@
       "id": "sv-blog-marknadssegmentering-marknadsforingsmixmodellering",
       "language": "sv",
       "section": "blog",
-      "title": "Marknadssegmentering & mixmodellering",
+      "title": "Segmentering: grunden för affärsnära marknadsföring",
       "description": "Segmentering ger dig bättre affärsresultat. Maximera din marknadsföring med datadriven segmentering och MMM – få högre ROI och starkare kundlojalitet.",
       "url": "https://nepa.com/sv/blog/marknadssegmentering-marknadsforingsmixmodellering/",
       "english_equivalent": "https://nepa.com/blog/market-segmentation-and-marketing-mix-modeling/",
@@ -779,7 +931,7 @@
       "id": "sv-blog-nar-en-gul-prick-slar-miljonkontrakt",
       "language": "sv",
       "section": "blog",
-      "title": "När en gul prick slår miljonkontrakt",
+      "title": "När en gul prick slår miljonkontrakt: så bygger du Brand Assets som driver verklig tillväxt",
       "description": "Hur en gul prick kan slå miljonkontrakt. Lär dig hur starka Brand Assets bygger igenkänning, påverkar val och driver långsiktig tillväxt.",
       "url": "https://nepa.com/sv/blog/nar-en-gul-prick-slar-miljonkontrakt/",
       "english_equivalent": null,
@@ -789,7 +941,7 @@
       "id": "sv-blog-path-to-purchase",
       "language": "sv",
       "section": "blog",
-      "title": "Path to Purchase – så optimerar Nepa kundresan med data",
+      "title": "Paths to Purchase – Nepas syn på kundresan",
       "description": "Paths to Purchase: Få full insikt om kundresan. Nepas analys visar vilka kontaktpunkter som driver konvertering och affärsvärde.",
       "url": "https://nepa.com/sv/blog/path-to-purchase/",
       "english_equivalent": "https://nepa.com/blog/path-to-purchase/",
@@ -801,7 +953,7 @@
       "id": "sv-blog-starkare-dataintegritet-marknadsundersokning",
       "language": "sv",
       "section": "blog",
-      "title": "Datakvalitet – vägen till tillförlitliga marknadsinsikter",
+      "title": "Skärp kraven på datakvalitet",
       "description": "På Nepa ser vi på datakvalitet och integritet som helt avgörande. Nepas interna expert på datakvalitet, delar med sig av sina tankar.",
       "url": "https://nepa.com/sv/blog/starkare-dataintegritet-marknadsundersokning/",
       "english_equivalent": "https://nepa.com/blog/a-call-for-stronger-data-integrity-in-the-wake-of-recent-market-research-fraud/",
@@ -813,7 +965,7 @@
       "id": "sv-blog-varumarkeskapital",
       "language": "sv",
       "section": "blog",
-      "title": "Varumärkeskapital: Bygg tillväxt med insikter & integritet",
+      "title": "Varumärkeskapital – Motorn bakom hållbar tillväxt",
       "description": "Varumärkeskapital som tillväxtmotor. Med Nepas insikter mäter och bygger du varumärkesstyrka som driver lönsamhet och kundlojalitet.",
       "url": "https://nepa.com/sv/blog/varumarkeskapital/",
       "english_equivalent": "https://nepa.com/blog/brand-equity/",
@@ -825,7 +977,7 @@
       "id": "sv-blog-varumarkespositionering",
       "language": "sv",
       "section": "blog",
-      "title": "Varumärkespositionering – särskilj ditt varumärke och väx",
+      "title": "Varumärkespositionering – så särskiljer och växer du ditt varumärke",
       "description": "Varumärkespositionering gör ditt varumärke unikt. Skapa tillväxt och lojalitet med tydlig position och brand tracking. Nepa guidar dig hela vägen.",
       "url": "https://nepa.com/sv/blog/varumarkespositionering/",
       "english_equivalent": "https://nepa.com/blog/brand-positioning/",
@@ -1068,6 +1220,18 @@
       }
     },
     {
+      "id": "sv-newsroom",
+      "language": "sv",
+      "section": "company-news-index",
+      "title": "Newsroom",
+      "description": "Swedish newsroom: Nepa news items in Swedish, newest first (studies, client wins, appointments). Not listed in the sitemap.",
+      "url": "https://nepa.com/sv/newsroom/",
+      "english_equivalent": "https://nepa.com/newsroom/",
+      "alternates": {
+        "en": "https://nepa.com/newsroom/"
+      }
+    },
+    {
       "id": "sv-kontakta-oss",
       "language": "sv",
       "section": "contact",
@@ -1262,10 +1426,10 @@
       }
     }
   ],
-  "count": 94,
+  "count": 107,
   "counts_by_language": {
     "da": 23,
-    "fi": 24,
-    "sv": 47
+    "fi": 35,
+    "sv": 49
   }
 }

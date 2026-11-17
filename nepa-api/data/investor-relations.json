@@ -1,13 +1,18 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/investor-relations.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
-    "last_updated": "2026-10-16",
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
+    "last_updated": "2026-11-16",
     "disclaimer": "For informational purposes only; not investment advice. See https://nepa.com/investor-relations/ for the authoritative source."
   },
   "overview": "Nepa AB (publ) is a Swedish publicly listed marketing research company, listed on Nasdaq First North Growth Market under the short name NEPA (ISIN: SE0008066302). Its investor relations page keeps investors updated with its latest financial reports and stock information.",
   "financial_reports": [
+    {
+      "title": "Interim Report Q3 2026",
+      "date": "2026-10-23",
+      "url": "https://storage.mfn.se/e6a9fa9c-e85d-4bd3-bd17-6a1df173abac/2026-10-23-interim-report-nepa-ab-q3-2026.pdf"
+    },
     {
       "title": "Interim Report Q2 2026",
       "date": "2026-08-14",
@@ -129,6 +134,21 @@
   ],
   "recent_announcements": [
     {
+      "title": "Nepa Interim Report Q3 2026",
+      "date": "2026-10-23",
+      "category": "Regulatory Disclosure",
+      "summary": "ARR grew 9.7% year-on-year to SEK 135.8 million; subscription revenue grew 14.8% to SEK 35.3 million; net sales were SEK 47.6 million (-2.6%); adjusted EBITDA-Capex rose to SEK 2.3 million (4.7% margin).",
+      "url": "https://nepa.com/mfn_news/nepa-interim-report-q3-2026/",
+      "url_sv": "https://nepa.com/mfn_news/nepa-delarsrapport-q3-2026/"
+    },
+    {
+      "title": "Nepa appoints media industry leader Andrea Sahlgren as VP Sales",
+      "date": "2026-10-19",
+      "category": "Press Release",
+      "summary": "Andrea Sahlgren, previously at BBC Studios, Paramount Global and Viaplay Group, leads Nepa's sales organisation, including account management and new business, from early November 2026.",
+      "url": "https://nepa.com/mfn_news/nepa-appoints-media-industry-leader-andrea-sahlgren-as-vp-sales/"
+    },
+    {
       "title": "CEO Anders Dahl leaves Nepa – search for successor initiated",
       "date": "2026-09-30",
       "category": "Regulatory Disclosure",
@@ -138,13 +158,20 @@
     }
   ],
   "next_report": {
-    "event": "Q3 interim report 2026",
-    "date": "2026-10-23"
+    "event": "Year-end report 2026",
+    "date": "2027-02-19"
   },
   "investor_contact_url": "https://nepa.com/contact-information/",
   "certified_adviser": {
     "name": "Redeye AB",
     "email": "certifiedadviser@redeye.se",
     "phone": "+46 (0)8 121 576 90"
-  }
+  },
+  "presentations": [
+    {
+      "title": "Nepa Q3 2026 presentation",
+      "date": "2026-10-23",
+      "url": "https://events.inderes.com/nepa/q3-report-2026"
+    }
+  ]
 }

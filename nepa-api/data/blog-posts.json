@@ -1,12 +1,39 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/blog-posts.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
-    "last_updated": "2026-10-16",
-    "note": "English posts plus Swedish-language posts published under /sv/blog/; filter with ?language=en|sv. Crawled 2026-10-16."
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
+    "last_updated": "2026-11-16",
+    "note": "English posts plus Swedish-language posts published under /sv/blog/; filter with ?language=en|sv. Crawled 2026-11-16."
   },
   "posts": [
+    {
+      "id": "post-changing-path-to-purchase-nepa-breakfast-lyko",
+      "title": "The changing path to purchase: lessons from Nepa and Lyko",
+      "author": "Christoffer Steiser",
+      "date": "2026-11-13",
+      "excerpt": "Recap of Nepa Breakfast Session with Lyko: how AI is changing the path to purchase, why brand building still matters and how to measure campaigns.",
+      "url": "https://nepa.com/blog/changing-path-to-purchase-nepa-breakfast-lyko/",
+      "language": "en"
+    },
+    {
+      "id": "post-planning-for-impact-helsinki-breakfast-session",
+      "title": "Planning for impact: Highlights from Nepa’s Helsinki Breakfast Session",
+      "author": "Christoffer Steiser",
+      "date": "2026-11-12",
+      "excerpt": "Why safe ads are the riskiest choice: insights from 1,700+ campaign evaluations, creative AI and an insights panel at Nepa’s Helsinki Breakfast Session.",
+      "url": "https://nepa.com/blog/planning-for-impact-helsinki-breakfast-session/",
+      "language": "en"
+    },
+    {
+      "id": "post-black-week-2026-tips-for-advertisers",
+      "title": "Nepa’s perspective: Black Week 2026 – advertise smart, measure everything",
+      "author": "Christoffer Steiser",
+      "date": "2026-11-04",
+      "excerpt": "Should you advertise during Black Week just because your competitors do? Nepa’s Maris Tuvikene shares tips for 2026 and explains why campaign measurement matters.",
+      "url": "https://nepa.com/blog/black-week-2026-tips-for-advertisers/",
+      "language": "en"
+    },
     {
       "id": "post-research-should-shape-brand-strategy-not-rescue-it",
       "title": "Research should shape brand strategy, not rescue it",
@@ -81,7 +108,7 @@
     },
     {
       "id": "post-word-of-mouth-product-discovery-sweden",
-      "title": "Word of mouth product discovery Sweden",
+      "title": "Why friends and family outperform paid media as a source of product discovery in Sweden",
       "author": "Christoffer Steiser",
       "date": "2026-07-03",
       "excerpt": "",
@@ -104,6 +131,15 @@
       "date": "2026-06-26",
       "excerpt": "Our summery of the key insights from the conference. Nepa was on stage at IIEX Europe 2026 in Amsterdam together with TikTok and Wolt, discussing how AI can help brands understand and improve creative performance on TikTok. The session focused on one of the biggest questions in modern marketing: how",
       "url": "https://nepa.com/blog/iiex-europe-2026/",
+      "language": "en"
+    },
+    {
+      "id": "post-why-brand-salience-is-the-new-growth-driver",
+      "title": "Why brand salience is the new growth driver",
+      "author": null,
+      "date": "2026-06-26",
+      "excerpt": "",
+      "url": "https://nepa.com/blog/why-brand-salience-is-the-new-growth-driver/",
       "language": "en"
     },
     {
@@ -657,7 +693,7 @@
     },
     {
       "id": "post-brand-tracking",
-      "title": "Brand tracking – How to monitor brand health and drive growth",
+      "title": "What is Brand Tracking? The Complete Guide for CMOs",
       "author": "Christian Muda",
       "date": "2025-04-22",
       "excerpt": "",
@@ -1140,6 +1176,15 @@
       "excerpt": "At Nepa, we know that understanding the customer journey is not just about tracking a few touchpoints — it’s about unlocking deep insights into the emotions, motivations, and barriers that drive customer behavior. As a leading customer journey agency, we help brands transform scattered interactions",
       "url": "https://nepa.com/blog/customer-journey/",
       "language": "en"
+    },
+    {
+      "id": "post-sv-kundresa",
+      "title": "Kundresan – kartlägg, optimera och skapa affärsnytta",
+      "author": "Christoffer Steiser",
+      "date": "2022-11-07",
+      "excerpt": "Kundresan visar hur kunder rör sig genom varje kontaktpunkt och hur Nepa hjälper företag att driva lojalitet och tillväxt med rätt insikter.",
+      "url": "https://nepa.com/sv/blog/kundresa/",
+      "language": "sv"
     },
     {
       "id": "post-brand-performance-explained",
@@ -2357,5 +2402,5 @@
       "language": "en"
     }
   ],
-  "total": 261
+  "total": 266
 }

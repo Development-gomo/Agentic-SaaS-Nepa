@@ -2,7 +2,7 @@
 /**
  * Minimal in-memory stand-ins for the WordPress functions and $wpdb methods used by
  * nepa-api.php and class-sync.php. Enough to exercise the plugin's own logic without a
- * WordPress install - NOT a replacement for testing on a real WordPress staging site.
+ * WordPress install - NOT a replacement for the checks on the real site (DEPLOYMENT.md §13).
  *
  * Test state lives in $GLOBALS['T']; failure-injection switches:
  *   T['insert_fail']   wp_insert_post() returns a WP_Error

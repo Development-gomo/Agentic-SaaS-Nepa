@@ -1,10 +1,10 @@
 {
   "meta": {
     "source": "https://nepa.com/agent/v1/schema.json",
-    "version": "1.1",
-    "release": "agentic-web-2026-10",
+    "version": "1.2",
+    "release": "agentic-web-2026-11",
     "description": "Field-level schema reference for every data entity served by the Nepa Agent API. See /openapi.json for the full OpenAPI 3.0.3 specification.",
-    "last_updated": "2026-10-16"
+    "last_updated": "2026-11-16"
   },
   "entities": {
     "Company": {
@@ -80,7 +80,9 @@
       "email": "string|null",
       "contact_url": "string|null",
       "panel_email": "string|null (optional)",
-      "contacts": "OfficeContact[] (optional)"
+      "contacts": "OfficeContact[] (optional)",
+      "address_source": "string (optional) - where a regional address was found",
+      "contact_url_fi": "string (optional) - Finnish-language contact page"
     },
     "Job": {
       "id": "string",
@@ -156,7 +158,8 @@
       "recent_announcements": "Announcement[]",
       "next_report": "object{event,date}",
       "investor_contact_url": "string",
-      "certified_adviser": "object{name,email,phone}"
+      "certified_adviser": "object{name,email,phone}",
+      "presentations": "{title,date,url}[] (optional) - investor presentations"
     },
     "ContactRequest": {
       "agent_context": {
@@ -188,12 +191,13 @@
     "LocalizedPage": {
       "id": "string",
       "language": "\"sv\"|\"fi\"|\"da\"",
-      "section": "string (home, blog, case-study, product, solution, company-news, press-releases, contact, about, policy, page; \"-index\" suffix for archive pages)",
+      "section": "string (home, blog, case-study, product, solution, company-news, press-releases, contact, about, policy, webinar, page; \"-index\" suffix for archive pages)",
       "title": "string|null",
       "description": "string|null",
       "url": "string",
       "english_equivalent": "string|null",
-      "alternates": "object{en?,sv?,fi?,da?}|null"
+      "alternates": "object{en?,sv?,fi?,da?}|null",
+      "alternates_source": "string (optional) - set when the English equivalent was matched by client name because the live page declares no hreflang alternate"
     }
   }
 }
