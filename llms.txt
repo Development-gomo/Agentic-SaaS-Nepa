@@ -74,6 +74,7 @@ Nepa helps brands unlock growth through marketing research insight, researching 
 
 ## Machine-Readable Resources
 - [Agent Page](https://nepa.com/agent/)
+- [Full plain-text reference (llms-full.txt)](https://nepa.com/llms-full.txt)
 - [AI Permissions (ai.txt)](https://nepa.com/ai.txt)
 - [REST API Index](https://nepa.com/agent/v1/index.json)
 - [Localized Pages API (sv/fi/da)](https://nepa.com/agent/v1/localized-pages.json)

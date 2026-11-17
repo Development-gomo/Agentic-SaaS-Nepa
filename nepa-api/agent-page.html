@@ -95,9 +95,9 @@
     <tr><th>Page published</th><td><time datetime="2026-09-09">2026-09-09</time></td></tr>
     <tr><th>Site content crawled</th><td><time datetime="2026-11-16">2026-11-16</time></td></tr>
     <tr><th>Page last updated</th><td><time datetime="2026-11-16">2026-11-16</time></td></tr>
-    <tr><th>Package version</th><td>agentic-web-2026-11 (data v1.2, REST plugin v1.4.0, OpenAPI 1.3.0, MCP server v1.2.1, discovery plugin v1.1.0, ARD module v1.0.0) — see CHANGELOG.md</td></tr>
+    <tr><th>Package version</th><td>agentic-web-2026-11 (data v1.2, REST plugin v1.4.0, OpenAPI 1.4.0, MCP server v1.2.1, discovery plugin v1.2.0, ARD module v1.0.0) — see CHANGELOG.md</td></tr>
     <tr><th>Purpose</th><td>Complete, self-contained machine-readable reference for AI agents and LLMs. Every fact traces to a page on <a href="https://nepa.com/">nepa.com</a> linked in-line, or to the WordPress REST API for entities not exposed via crawlable links (reports, downloads).</td></tr>
-    <tr><th>Plain-text companions</th><td><a href="https://nepa.com/llms.txt">llms.txt</a> · <a href="https://nepa.com/ai.txt">ai.txt</a></td></tr>
+    <tr><th>Plain-text companions</th><td><a href="https://nepa.com/llms.txt">llms.txt</a> · <a href="https://nepa.com/llms-full.txt">llms-full.txt</a> (everything on this page as plain text, about 240 KB) · <a href="https://nepa.com/ai.txt">ai.txt</a></td></tr>
     <tr><th>JSON companion</th><td><a href="https://nepa.com/agent/v1/index.json">/agent/v1/index.json</a></td></tr>
     <tr><th>Agent discovery</th><td><a href="https://nepa.com/.well-known/ard.json">/.well-known/ard.json</a> — Agentic Resource Discovery (ARD v0.91) manifest listing the MCP server, OpenAPI description, API catalog, this page and llms.txt; the same entries are embedded below as JSON-LD (<code>#ard-entries</code>)</td></tr>
   </table>
@@ -109,6 +109,7 @@
   <ul class="resource-list">
     <li><a href="https://nepa.com/agent/">/agent/</a> — this page: LLM-optimised HTML with embedded JSON-LD structured data</li>
     <li><a href="https://nepa.com/llms.txt">/llms.txt</a> — plain-text discovery file (Answer.AI format), condensed prose company facts</li>
+    <li><a href="https://nepa.com/llms-full.txt">/llms-full.txt</a> — full plain-text reference: company, products, pricing, cases, team, offices, investor relations, events and every blog post, press release and localized page</li>
     <li><a href="https://nepa.com/ai.txt">/ai.txt</a> — AI agent permissions, citation format, key facts</li>
     <li><a href="https://nepa.com/agent/v1/index.json">/agent/v1/index.json</a> — read-only REST API index (company, products, solutions, case studies, team, offices, and more)</li>
     <li><a href="https://nepa.com/agent/v1/schema.json">/agent/v1/schema.json</a> — field-level schema reference for every entity</li>
@@ -2010,7 +2011,7 @@
             "rest-api",
             "openapi"
         ],
-        "version": "1.3.0",
+        "version": "1.4.0",
         "representativeQueries": [
             "get Nepa's published pricing plans as JSON",
             "fetch Nepa case studies filtered by industry",

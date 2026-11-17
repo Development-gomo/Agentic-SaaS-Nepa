@@ -2,9 +2,9 @@
 /**
  * Plugin Name: Nepa Agent Discovery
  * Description: Agent discovery layer for nepa.com — /.well-known/api-catalog (RFC 9727), /.well-known/mcp.json,
- *              <head> discovery links, Markdown versions of pages via ?format=md, and nepa.com's
- *              Agentic Resource Discovery (ARD) entries for /.well-known/ard.json.
- * Version:     1.1.0
+ *              /.well-known/security.txt (RFC 9116), <head> discovery links, Markdown versions of pages
+ *              via ?format=md, and nepa.com's Agentic Resource Discovery (ARD) entries for /.well-known/ard.json.
+ * Version:     1.2.0
  * Author:      GO MO Group
  *
  * Install: upload to wp-content/mu-plugins/nepa-agent-discovery.php (must-use plugins load automatically),
@@ -16,8 +16,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-const NEPA_AD_VERSION = '1.1.0';
+const NEPA_AD_VERSION = '1.2.0';
 const NEPA_AD_MCP_URL = 'https://agentic-mcp-saas-nepa.onrender.com/mcp';
+
+/**
+ * security.txt (RFC 9116) values, from https://nepa.com/security/ (contact address and PGP key
+ * fingerprint published there). Expires must be renewed before it passes - at the latest with the
+ * next package build; RFC 9116 recommends less than a year ahead.
+ */
+const NEPA_AD_SECURITY_CONTACT = 'mailto:security@nepa.com';
+const NEPA_AD_SECURITY_PGP_FPR = '477882F5161A97FFD06EF166BFCD587AB30BA567';
+const NEPA_AD_SECURITY_EXPIRES = '2027-11-15T23:00:00Z';
 
 /**
  * Site root URL plus $path, the same for every language. home_url() is filtered by the multilingual
@@ -96,7 +105,7 @@ function nepa_ad_ard_entries(): array {
 				'localized-pages', 'contact',
 			),
 			'tags'                  => array_merge( $tags, array( 'rest-api', 'openapi' ) ),
-			'version'               => '1.3.0',
+			'version'               => '1.4.0',
 			'representativeQueries' => array(
 				'get Nepa\'s published pricing plans as JSON',
 				'fetch Nepa case studies filtered by industry',
@@ -155,6 +164,9 @@ add_action( 'init', function () {
 	}
 	if ( '/.well-known/mcp.json' === $path || '/.well-known/mcp' === $path ) {
 		nepa_ad_mcp_card();
+	}
+	if ( '/.well-known/security.txt' === $path || '/security.txt' === $path ) {
+		nepa_ad_security_txt();
 	}
 }, 0 );
 
@@ -220,6 +232,33 @@ function nepa_ad_mcp_card() {
 	);
 }
 
+/** security.txt (RFC 9116), also at the legacy /security.txt location. */
+function nepa_ad_security_txt() {
+	$lines = array(
+		'# Security contact for nepa.com (Nepa AB). Policy and PGP details: https://nepa.com/security/',
+		'Contact: ' . NEPA_AD_SECURITY_CONTACT,
+		'Expires: ' . NEPA_AD_SECURITY_EXPIRES,
+		'Encryption: openpgp4fpr:' . strtolower( NEPA_AD_SECURITY_PGP_FPR ),
+		'Policy: ' . nepa_ad_url( '/security/' ),
+		'Preferred-Languages: en, sv',
+		'Canonical: ' . nepa_ad_url( '/.well-known/security.txt' ),
+	);
+	status_header( 200 );
+	header( 'Content-Type: text/plain; charset=utf-8' );
+	header( 'Access-Control-Allow-Origin: *' );
+	header( 'Cache-Control: public, max-age=86400' );
+	if ( 'HEAD' !== ( $_SERVER['REQUEST_METHOD'] ?? 'GET' ) ) {
+		echo implode( "\n", $lines ) . "\n";
+	}
+	exit;
+}
+
+/*
+ * Yoast's site schema advertises a SearchAction pointing at /?s=, which robots.txt disallows and
+ * which Google stopped using for the sitelinks search box in 2024. Leave it out.
+ */
+add_filter( 'disable_wpseo_json_ld_search', '__return_true' );
+
 /* -------------------------------------------------------------------------
  * 2. <head> discovery links on every page
  * ---------------------------------------------------------------------- */
@@ -227,6 +266,7 @@ add_action( 'wp_head', function () {
 	$home = nepa_ad_url();
 	echo "\n<!-- Agent discovery -->\n";
 	printf( '<link rel="alternate" type="text/plain" title="llms.txt" href="%s" />' . "\n", esc_url( $home . '/llms.txt' ) );
+	printf( '<link rel="alternate" type="text/plain" title="llms-full.txt" href="%s" />' . "\n", esc_url( $home . '/llms-full.txt' ) );
 	printf( '<link rel="alternate" type="text/html" title="AI agent page" href="%s" />' . "\n", esc_url( $home . '/agent/' ) );
 	printf( '<link rel="api-catalog" href="%s" />' . "\n", esc_url( $home . '/.well-known/api-catalog' ) );
 	printf( '<link rel="service-desc" type="application/vnd.oai.openapi+json" href="%s" />' . "\n", esc_url( $home . '/openapi.json' ) );
@@ -240,34 +280,48 @@ add_action( 'wp_head', function () {
 
 /* -------------------------------------------------------------------------
  * 3. Markdown version of any page/post: https://nepa.com/<page>/?format=md
+ *
+ * Built from the page exactly as WordPress renders it. Up to 1.1.0 the Markdown came from
+ * post_content (or the Avia builder's stored content), which on nepa.com holds almost nothing:
+ * the Enfold theme and its templates assemble the visible page, so every ?format=md answer was
+ * a title with an empty body. Now the chosen template is rendered into a buffer and the main
+ * content area (Enfold's #main, without the site footer) is converted.
  * ---------------------------------------------------------------------- */
-add_action( 'template_redirect', function () {
+
+/** The post a ?format=md request asks for, if it is a published, public singular page. */
+function nepa_ad_md_post() {
 	if ( ! isset( $_GET['format'] ) || 'md' !== $_GET['format'] || ! is_singular() ) {
-		return;
+		return null;
 	}
 	$post = get_queried_object();
 	if ( ! $post instanceof WP_Post || 'publish' !== $post->post_status || post_password_required( $post ) ) {
-		return;
+		return null;
+	}
+	return $post;
+}
+
+/*
+ * template_include runs after WordPress has chosen the template (so the page renders exactly as
+ * for a visitor) and before anything is output. PHP_INT_MAX: after other plugins' choices.
+ */
+add_filter( 'template_include', function ( $template ) {
+	$post = nepa_ad_md_post();
+	if ( ! $post || ! is_string( $template ) || '' === $template || ! is_readable( $template ) ) {
+		return $template;
 	}
 
-	$cache_key = 'nepa_md_' . $post->ID . '_' . md5( $post->post_modified_gmt );
+	// Versioned key: Markdown cached by 1.1.0 (title only) is not reused.
+	$cache_key = 'nepa_md_v2_' . $post->ID . '_' . md5( $post->post_modified_gmt . NEPA_AD_VERSION );
 	$out       = get_transient( $cache_key );
 
 	if ( false === $out ) {
-		// Enfold (Avia Layout Builder) keeps builder content separately — use it when the builder is active.
-		$raw = $post->post_content;
-		if ( function_exists( 'Avia_Builder' ) && 'active' === get_post_meta( $post->ID, '_aviaLayoutBuilder_active', true )
-			&& method_exists( Avia_Builder(), 'get_posts_alb_content' ) ) {
-			$raw = Avia_Builder()->get_posts_alb_content( $post->ID );
-		}
-
-		$GLOBALS['post'] = $post;
-		setup_postdata( $post );
-		$html = apply_filters( 'the_content', $raw );
-		wp_reset_postdata();
+		ob_start();
+		load_template( $template, false );
+		$page = (string) ob_get_clean();
 
 		$title = html_entity_decode( get_the_title( $post ), ENT_QUOTES, 'UTF-8' );
 		$desc  = (string) get_post_meta( $post->ID, '_yoast_wpseo_metadesc', true );
+		$body  = nepa_ad_html_to_md( nepa_ad_main_content_html( $page, $title ) );
 
 		$out  = "---\n";
 		$out .= 'title: "' . str_replace( '"', '\"', $title ) . "\"\n";
@@ -277,7 +331,7 @@ add_action( 'template_redirect', function () {
 		}
 		$out .= 'last_modified: ' . get_the_modified_date( 'c', $post ) . "\n";
 		$out .= "source: Nepa AB (https://nepa.com)\n";
-		$out .= "---\n\n# {$title}\n\n" . nepa_ad_html_to_md( strip_shortcodes( $html ) ) . "\n";
+		$out .= "---\n\n# {$title}\n\n" . $body . "\n";
 
 		set_transient( $cache_key, $out, 12 * HOUR_IN_SECONDS );
 	}
@@ -289,7 +343,84 @@ add_action( 'template_redirect', function () {
 	header( 'Access-Control-Allow-Origin: *' );
 	echo $out;
 	exit;
-}, 0 );
+}, PHP_INT_MAX );
+
+/**
+ * The main content of a rendered page, as HTML: Enfold's #main area (falling back to <main>, then
+ * <body>) up to the site footer, without navigation, scripts, forms and other page chrome, and
+ * without an H1 that only repeats the page title (the Markdown starts with that title already).
+ *
+ * The content area is cut out of the raw HTML and script/style/iframe/form blocks are removed as
+ * text BEFORE parsing: PHP's DOMDocument uses libxml's HTML 4 parser, which mis-nests the theme's
+ * HTML5 markup and closed #main early on several pages (losing up to half of the text).
+ */
+function nepa_ad_main_content_html( string $page, string $title = '' ): string {
+	if ( '' === trim( $page ) ) {
+		return '';
+	}
+	$start = null;
+	foreach ( array( '/<[a-z]+\b[^>]*\bid=["\']main["\'][^>]*>/i', '/<main\b[^>]*>/i', '/<body\b[^>]*>/i' ) as $re ) {
+		if ( preg_match( $re, $page, $m, PREG_OFFSET_CAPTURE ) ) {
+			$start = $m[0][1] + strlen( $m[0][0] );
+			break;
+		}
+	}
+	if ( null === $start ) {
+		$start = 0;
+	}
+	$end = strlen( $page );
+	foreach ( array( '/<[a-z]+\b[^>]*\bid=["\']footer-page["\']/i', '/<[a-z]+\b[^>]*\bid=["\']footer["\']/i', '/<[a-z]+\b[^>]*\bid=["\']socket["\']/i',
+		'/<footer\b[^>]*role=["\']contentinfo["\']/i', '/<\/body>/i' ) as $re ) {
+		if ( preg_match( $re, $page, $m, PREG_OFFSET_CAPTURE, $start ) && $m[0][1] < $end ) {
+			$end = $m[0][1];
+		}
+	}
+	$html = substr( $page, $start, $end - $start );
+	// Blocks that never carry readable content, removed as text (see above).
+	foreach ( array( 'script', 'style', 'noscript', 'template', 'iframe', 'svg', 'form', 'nav', 'select', 'video', 'audio', 'object' ) as $tag ) {
+		$html = preg_replace( '#<' . $tag . '\b[^>]*>.*?</' . $tag . '\s*>#is', ' ', $html );
+		$html = preg_replace( '#<' . $tag . '\b[^>]*/?>#i', ' ', $html ); // unclosed / self-closed leftovers
+	}
+	$html = preg_replace( '#<!--.*?-->#s', '', $html );
+	if ( ! class_exists( 'DOMDocument' ) ) {
+		return $html;
+	}
+	$doc = new DOMDocument();
+	libxml_use_internal_errors( true );
+	$doc->loadHTML( '<?xml encoding="utf-8" ?><div id="nepa-md-content">' . $html . '</div>' );
+	libxml_clear_errors();
+	$xp   = new DOMXPath( $doc );
+	$root = $xp->query( '//div[@id="nepa-md-content"]' )->item( 0 );
+	if ( ! $root ) {
+		return $html;
+	}
+	$remove = array();
+	foreach ( array( './/*[@role="navigation"]', './/*[@role="banner"]', './/*[@role="contentinfo"]', './/button' ) as $expr ) {
+		foreach ( $xp->query( $expr, $root ) as $node ) {
+			$remove[] = $node;
+		}
+	}
+	$norm = function ( $s ) {
+		return strtolower( trim( preg_replace( '/\s+/u', ' ', html_entity_decode( (string) $s, ENT_QUOTES, 'UTF-8' ) ) ) );
+	};
+	if ( '' !== $title ) {
+		foreach ( $xp->query( './/h1', $root ) as $h1 ) {
+			if ( $norm( $h1->textContent ) === $norm( $title ) ) {
+				$remove[] = $h1;
+			}
+		}
+	}
+	foreach ( $remove as $node ) {
+		if ( $node->parentNode ) {
+			$node->parentNode->removeChild( $node );
+		}
+	}
+	$out = '';
+	foreach ( $root->childNodes as $child ) {
+		$out .= $doc->saveHTML( $child );
+	}
+	return $out;
+}
 
 /* ---- HTML → Markdown helpers ------------------------------------------- */
 

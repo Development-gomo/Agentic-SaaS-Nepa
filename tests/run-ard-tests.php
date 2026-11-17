@@ -154,6 +154,15 @@ check('RFC 9727 API catalog lists the ARD manifest', in_array('https://nepa.com/
 $card = json_decode(req("$base/.well-known/mcp.json")['body'], true);
 check('MCP card links the ARD manifest and keeps its endpoint', ($card['ard'] ?? '') === 'https://nepa.com/.well-known/ard.json' && $card['endpoint'] === NEPA_AD_MCP_URL);
 
+$sec = req("$base/.well-known/security.txt");
+check('/.well-known/security.txt -> 200 text/plain', $sec['status'] === 200 && strpos($sec['headers']['content-type'][0] ?? '', 'text/plain') === 0);
+check('security.txt has Contact, Expires, Encryption, Policy and Canonical (RFC 9116)', strpos($sec['body'], "Contact: mailto:security@nepa.com\n") !== false && preg_match('/^Expires: (\S+)$/m', $sec['body'], $em) && strpos($sec['body'], 'Encryption: openpgp4fpr:477882f5161a97ffd06ef166bfcd587ab30ba567') !== false && strpos($sec['body'], 'Policy: https://nepa.com/security/') !== false && strpos($sec['body'], 'Canonical: https://nepa.com/.well-known/security.txt') !== false);
+$exp = isset($em[1]) ? strtotime($em[1]) : 0;
+check('security.txt Expires is in the future and less than 13 months away (renew it with the next package build)', $exp > time() && $exp < time() + 400 * 86400, $em[1] ?? 'none');
+check('legacy /security.txt serves the same file', req("$base/security.txt")['body'] === $sec['body']);
+check('pages link llms-full.txt in <head>', strpos($page['body'], 'title="llms-full.txt" href="https://nepa.com/llms-full.txt"') !== false);
+check("Yoast's SearchAction to /?s= is switched off", !empty($GLOBALS['ARD_T']['filters']['disable_wpseo_json_ld_search']));
+
 $silent = serve(['ARD_TEST_NO_ENTRIES' => '1']);
 check('without entries the manifest URL falls through to 404', req("$silent/.well-known/ard.json")['status'] === 404);
 check('without entries OPTIONS and POST fall through to 404 too', req("$silent/.well-known/ard.json", 'OPTIONS')['status'] === 404 && req("$silent/.well-known/ard.json", 'POST')['status'] === 404);

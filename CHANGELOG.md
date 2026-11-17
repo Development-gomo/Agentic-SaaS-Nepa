@@ -1,5 +1,17 @@
 # Changelog — Nepa Agentic Web package
 
+## Fixes after the live audit — 2026-11-17 (discovery plugin 1.2.0, OpenAPI 1.4.0)
+
+Five fixes from an audit of the live site after the 2026-11 deployment. Deployment steps: DEPLOYMENT.md section 14.
+
+- **Markdown versions had no content.** `?format=md` (nepa-agent-discovery.php) converted the post's stored `post_content`, which on nepa.com's Enfold theme holds little more than layout shortcodes, so pages came out as front matter and a title. 1.2.0 renders the page through its normal template and converts the content area (from the element with id `main` up to the site footer; Enfold places most sections after `</main>`), leaving out header, menus, footer, scripts, styles, iframes, forms and buttons, and the H1 that repeats the title. On 10 real pages it keeps 99.7-100% of the visible content text. The cache key includes the plugin version, so entries from 1.1.0 are not reused. New tests: `tests/run-markdown-tests.php` (22 checks, with an Enfold-shaped fixture and a real HTTP probe).
+- **OpenAPI version out of step.** `openapi.json` said 1.3.0 while the plugin is 1.4.0; it is now 1.4.0 (ARD entry, agent page and DEPLOYMENT.md follow). The `/pricing.json` summary named products no longer on the pricing page; it now lists Brand Tracking, Marketing Mix Modelling and Campaign Pulse.
+- **New `llms-full.txt`** (about 240 KB): the full plain-text reference - company, leadership, offices, products, pricing table, solutions, industries, case studies with results, investor relations, events, FAQ, every blog post, press release and localized page with its source URL. Generated from the data files by the new `tools/build-llms-full.py` (`--check` mode runs in `tests/run-all.sh`), so it cannot drift from the API. Linked from llms.txt, ai.txt (`LLM-Full:`), api-catalog.json, the agent page and every page's `<head>`.
+- **robots.txt:** removed `User-agent: Googlebot-Extended` (not a real token; `Google-Extended` stays). **Yoast SearchAction removed:** it pointed agents to `/?s=`, which robots.txt disallows; the plugin now switches off Yoast's SearchAction JSON-LD.
+- **New `/.well-known/security.txt`** (RFC 9116, also at `/security.txt`): `Contact: mailto:security@nepa.com`, the PGP key fingerprint, `Policy: https://nepa.com/security/`, `Expires` 2027-11-15 (constant `NEPA_AD_SECURITY_EXPIRES`; renew at each build).
+
+Also still to deploy from the 2026-11-16 fix commit: `agent-page.html` (three restored discovery links) and `data/localized-pages.json` (`alternates` null instead of `{}`).
+
 ## agentic-web-2026-11 — 2026-11-16
 
 Rebuilt from a fresh crawl of the live https://nepa.com on 2026-11-16 and compared with the previous package (`agentic-web-2026-10`, crawled 2026-10-16, deployed and live on 2026-11-16). This release also adds **Agentic Resource Discovery (ARD)** support.

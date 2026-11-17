@@ -2,8 +2,8 @@
   "openapi": "3.0.3",
   "info": {
     "title": "Nepa Agent API",
-    "description": "Machine-readable REST API describing Nepa AB — marketing research, brand tracking, and insight products — for use by AI agents and LLM tool-calling systems. Version 1.1.0 (2026-10-16) adds localized Swedish/Finnish/Danish pages, Swedish press releases and blog posts with a language filter, and the full pricing table. Version 1.3.0 (2026-11-16) documents new optional fields (office address_source and contact_url_fi, investor presentations, localized-page alternates_source and the 'webinar' section) and the ard_manifest link in index.json. The site's agentic resources are also listed for Agentic Resource Discovery (ARD v0.91) at https://nepa.com/.well-known/ard.json.",
-    "version": "1.3.0",
+    "description": "Machine-readable REST API describing Nepa AB — marketing research, brand tracking, and insight products — for use by AI agents and LLM tool-calling systems. Version 1.1.0 (2026-10-16) adds localized Swedish/Finnish/Danish pages, Swedish press releases and blog posts with a language filter, and the full pricing table. Version 1.3.0 (2026-11-16) documents new optional fields (office address_source and contact_url_fi, investor presentations, localized-page alternates_source and the 'webinar' section) and the ard_manifest link in index.json. The site's agentic resources are also listed for Agentic Resource Discovery (ARD v0.91) at https://nepa.com/.well-known/ard.json. Version 1.4.0 (2026-11-17) aligns the specification's version with the Nepa Agent API plugin it describes (both 1.4.0; the plugin's index.json reports the same number) and corrects the pricing summary.",
+    "version": "1.4.0",
     "contact": {
       "name": "Nepa AB",
       "url": "https://nepa.com/contact-us/"
@@ -410,7 +410,7 @@
     },
     "/pricing.json": {
       "get": {
-        "summary": "List published pricing plans (currently: Marketing Mix Modelling tiers)",
+        "summary": "List published pricing plans (Brand Tracking, Marketing Mix Modelling and Campaign Pulse tiers)",
         "operationId": "listPricing",
         "responses": {
           "200": {

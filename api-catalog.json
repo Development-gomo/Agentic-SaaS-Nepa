@@ -3,7 +3,7 @@
   "description": "Machine-readable catalog of Nepa AB's AI-agent-facing resources: the semantic agent page, llms.txt/ai.txt discovery files, REST API, OpenAPI spec, MCP server, and sitemap.",
   "url": "https://nepa.com/api-catalog.json",
   "created": "2026-09-08",
-  "modified": "2026-11-16",
+  "modified": "2026-11-17",
   "specificationVersion": "0.16",
   "tags": [
     "marketing-research",
@@ -38,6 +38,19 @@
       "properties": [],
       "tags": [
         "llms-txt"
+      ]
+    },
+    {
+      "name": "Nepa llms-full.txt",
+      "description": "Full plain-text (Markdown) reference for LLMs, generated from the same data as the REST API: company, leadership, offices, products, pricing, solutions, industries, case studies, investor relations, events, FAQ, and every blog post, press release and localized page.",
+      "baseURL": "https://nepa.com/llms-full.txt",
+      "humanURL": "https://nepa.com/llms-full.txt",
+      "X-format": "text/plain",
+      "X-contentType": "llms-full-txt",
+      "X-purpose": "llm-discovery",
+      "tags": [
+        "llms-txt",
+        "llms-full-txt"
       ]
     },
     {
@@ -453,6 +466,7 @@
     "openapi": "https://nepa.com/openapi.json",
     "mcp_server": "https://agentic-mcp-saas-nepa.onrender.com/mcp",
     "sitemap": "https://nepa.com/sitemap_index.xml",
-    "ard_manifest": "https://nepa.com/.well-known/ard.json"
+    "ard_manifest": "https://nepa.com/.well-known/ard.json",
+    "llms_full_txt": "https://nepa.com/llms-full.txt"
   }
 }

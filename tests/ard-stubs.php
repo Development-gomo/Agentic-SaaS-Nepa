@@ -37,6 +37,6 @@ function wp_json_encode($d, $o = 0) { return json_encode($d, $o); }
 function status_header($c) { http_response_code($c); }
 function esc_url($u) { return htmlspecialchars($u, ENT_QUOTES); }
 function is_admin() { return false; }
-function is_singular() { return false; }
+function is_singular() { return !empty($GLOBALS['ARD_T']['singular']); }
 function get_permalink() { return home_url('/'); }
 function add_query_arg($args, $url) { return $url . '?' . http_build_query($args); }

@@ -7,7 +7,6 @@ User-agent: anthropic-ai
 User-agent: PerplexityBot
 User-agent: Perplexity-User
 User-agent: Google-Extended
-User-agent: Googlebot-Extended
 User-agent: GoogleOther
 User-agent: Applebot-Extended
 User-agent: CCBot

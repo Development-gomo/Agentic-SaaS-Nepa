@@ -18,6 +18,7 @@ Content-Signal (same line in https://nepa.com/robots.txt): ai-train=yes, search=
 Canonical sources:
 LLM-Page:    https://nepa.com/agent/
 LLM-Text:    https://nepa.com/llms.txt
+LLM-Full:    https://nepa.com/llms-full.txt
 AI-File:     https://nepa.com/ai.txt
 Sitemap:     https://nepa.com/sitemap_index.xml
 REST-API:    https://nepa.com/agent/v1/index.json

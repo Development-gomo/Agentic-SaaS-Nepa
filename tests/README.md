@@ -56,7 +56,7 @@ python3 tests/validate-ard-manifest.py /tmp/ard.json nepa.com
 python3 tests/validate-ard-manifest.py https://nepa.com/.well-known/ard.json nepa.com   # after deployment
 ```
 
-`run-ard-tests.php` tests `agentic-resource-discovery.php` and `nepa-agent-discovery.php` with small WordPress stand-ins (`tests/ard-stubs.php`, which can also imitate a multilingual plugin that prefixes `home_url()` with the language). 71 checks:
+`run-ard-tests.php` tests `agentic-resource-discovery.php` and `nepa-agent-discovery.php` with small WordPress stand-ins (`tests/ard-stubs.php`, which can also imitate a multilingual plugin that prefixes `home_url()` with the language). 77 checks, including `/.well-known/security.txt` (RFC 9116 fields, an `Expires` date in the future, the legacy `/security.txt`), the `llms-full.txt` link in `<head>` and the SearchAction filter:
 
 - **Module logic, in-process:** the entry rules (required terms, `urn:air:` identifiers anchored on the publisher, exactly one of `url`/`data`, media types, `trustManifest.identity`, flat `metadata`), invalid and duplicate entries left out and logged, the 2-5 `representativeQueries` warning, open `@context` vocabulary, the config filter and the in-page JSON-LD.
 - **Real HTTP:** starts PHP's built-in server with `tests/ard-router.php` and checks `/.well-known/ard.json` (status, content type, CORS, caching, ETag, `Link` header, HEAD, OPTIONS, 405 for POST), `<link rel="ard">` and the `Link` header on pages, the existing discovery links, the ARD links in `/.well-known/api-catalog` and `/.well-known/mcp.json`, a 404 when no entries are registered, URLs following the site's `home` option on another host, and links that stay at the site root on a language-prefixed page (/sv/).
@@ -65,6 +65,22 @@ python3 tests/validate-ard-manifest.py https://nepa.com/.well-known/ard.json nep
 Five deliberately injected defects (url/data rule removed, head link removed, a tool missing from the entry, duplicate check removed, language-prefixed `home_url()` restored) were each caught. Also covered: entries whose `data` or `metadata` would serialize as a JSON array, non-string `description`/`version`, a malformed `updatedAt`, trust-manifest identities that don't belong to the publisher domain (including look-alike domains), conditional requests (`If-None-Match` → 304) and a module with no entries answering 404 for every method.
 
 `validate-ard-manifest.py` validates a manifest (file or URL) against the **unmodified official ARD v0.91 JSON schema** in `tests/ard-spec/` (needs `pip install jsonschema`; without it that part is skipped) and applies the discovery rules of spec Appendix D (URN form and publisher, uniqueness, url/data, 2-5 representative queries as a warning, trust-manifest identity alignment). The official conformance tester (`conformance/bin/conformance-test` in https://github.com/ards-project/ard-spec) is not bundled; run it from a clone of that repository: `conformance-test publisher nepa.com`.
+
+## Markdown versions (PHP 7.4+ CLI)
+
+```bash
+php tests/run-markdown-tests.php
+```
+
+22 checks of the `?format=md` pages served by `nepa-agent-discovery.php` 1.2.0. On `tests/fixtures/enfold-page.php`, a page in the shape of nepa.com's Enfold theme: content before, inside and after `<main>` is kept (Enfold puts most sections after it), the site header, footer menu, widgets and socket are left out, scripts (including `text/html` templates), styles, iframes, forms and buttons don't leak, lists, tables, bold text and absolute links come through, and the H1 that repeats the title is dropped. Then over real HTTP (`php -S` with `tests/md-hook-probe.php`): Markdown content type, noindex, canonical link and CORS headers, the front matter, a body with the page content, the cache being reused, and non-Markdown requests left to the theme. With the content-area cut removed, the footer-menu check fails.
+
+## llms-full.txt
+
+```bash
+python3 tools/build-llms-full.py --check
+```
+
+Fails if `llms-full.txt` is not exactly what `tools/build-llms-full.py` generates from the data files (run the script without `--check` to rebuild it).
 
 ## Live-site checks (real site)
 
